@@ -1,5 +1,7 @@
 import sys
 
+#basecount_20180518_RD.py was originally based on a script authored by Damian Kao which is publicly available at http://blog.nextgenetics.net/?e=56
+
 #run as "python basecount_20180518_RD.py sample.mpileup > sample.counts"
 
 inFile = open(sys.argv[1],'r')
@@ -8,10 +10,8 @@ print 'sample\tamp_bp\tamplicon\tbp\tA\tG\tC\tT\tdel\tins\tinserted\tambiguous'
 outtable = []
 for line in inFile:
         sample = sys.argv[1][0:3]
-        # I need to remember to start all of my filenames with the sample number!!!
-        # That way, the first three characters of the filename indicate sample
-        # This will be useful if I decide to concatenate all of my CpG files before importing into R, which I think would be a good idea
-        # Also then I don't have to add a sample column in R        
+        # Start all filenames with the sample number
+        # That way, the first three characters of the filename indicate sample    
         data = line.strip().split('\t')
         amplicon = data[0][0:2]
         bp = data[1]
