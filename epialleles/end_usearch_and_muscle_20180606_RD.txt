@@ -1,0 +1,533 @@
+cat AI_*_redundant_haplotypes.tab AP_*_redundant_haplotypes.tab BI_*_redundant_haplotypes.tab B2_*_redundant_haplotypes.tab > all_redundant_haplotypes.tab
+awk '{a[$1"\t"$2"\t"$4]+=$3}END{for (i in a){print i,a[i]}}' all_redundant_haplotypes.tab > all_haplotypes_headless.tab
+sed -i 's/ /\t/g' all_haplotypes_headless.tab
+echo -e "amplicon \t sample \t haplotype \t count" > haplotype_header.tab
+cat haplotype_header.tab all_haplotypes_headless.tab > all_haplotypes.tab
+module load usearch
+module load muscle
+module load fastx
+module load python
+AP6_011=$(python find_CpGs_AP6.py AP_011_reference_sequence.tab)
+cut -c $AP6_011 AP_011_sequences.tab > AP6_011_unnumbered_haplotypes.tab
+paste AP_011_uniqueinfo.tab AP6_011_unnumbered_haplotypes.tab > AP6_011_redundant_haplotypes.tab
+AP6_012=$(python find_CpGs_AP6.py AP_012_reference_sequence.tab)
+cut -c $AP6_012 AP_012_sequences.tab > AP6_012_unnumbered_haplotypes.tab
+paste AP_012_uniqueinfo.tab AP6_012_unnumbered_haplotypes.tab > AP6_012_redundant_haplotypes.tab
+AP6_013=$(python find_CpGs_AP6.py AP_013_reference_sequence.tab)
+cut -c $AP6_013 AP_013_sequences.tab > AP6_013_unnumbered_haplotypes.tab
+paste AP_013_uniqueinfo.tab AP6_013_unnumbered_haplotypes.tab > AP6_013_redundant_haplotypes.tab
+AP6_014=$(python find_CpGs_AP6.py AP_014_reference_sequence.tab)
+cut -c $AP6_014 AP_014_sequences.tab > AP6_014_unnumbered_haplotypes.tab
+paste AP_014_uniqueinfo.tab AP6_014_unnumbered_haplotypes.tab > AP6_014_redundant_haplotypes.tab
+AP6_015=$(python find_CpGs_AP6.py AP_015_reference_sequence.tab)
+cut -c $AP6_015 AP_015_sequences.tab > AP6_015_unnumbered_haplotypes.tab
+paste AP_015_uniqueinfo.tab AP6_015_unnumbered_haplotypes.tab > AP6_015_redundant_haplotypes.tab
+AP6_016=$(python find_CpGs_AP6.py AP_016_reference_sequence.tab)
+cut -c $AP6_016 AP_016_sequences.tab > AP6_016_unnumbered_haplotypes.tab
+paste AP_016_uniqueinfo.tab AP6_016_unnumbered_haplotypes.tab > AP6_016_redundant_haplotypes.tab
+AP6_017=$(python find_CpGs_AP6.py AP_017_reference_sequence.tab)
+cut -c $AP6_017 AP_017_sequences.tab > AP6_017_unnumbered_haplotypes.tab
+paste AP_017_uniqueinfo.tab AP6_017_unnumbered_haplotypes.tab > AP6_017_redundant_haplotypes.tab
+AP6_018=$(python find_CpGs_AP6.py AP_018_reference_sequence.tab)
+cut -c $AP6_018 AP_018_sequences.tab > AP6_018_unnumbered_haplotypes.tab
+paste AP_018_uniqueinfo.tab AP6_018_unnumbered_haplotypes.tab > AP6_018_redundant_haplotypes.tab
+AP6_019=$(python find_CpGs_AP6.py AP_019_reference_sequence.tab)
+cut -c $AP6_019 AP_019_sequences.tab > AP6_019_unnumbered_haplotypes.tab
+paste AP_019_uniqueinfo.tab AP6_019_unnumbered_haplotypes.tab > AP6_019_redundant_haplotypes.tab
+AP6_020=$(python find_CpGs_AP6.py AP_020_reference_sequence.tab)
+cut -c $AP6_020 AP_020_sequences.tab > AP6_020_unnumbered_haplotypes.tab
+paste AP_020_uniqueinfo.tab AP6_020_unnumbered_haplotypes.tab > AP6_020_redundant_haplotypes.tab
+AP6_061=$(python find_CpGs_AP6.py AP_061_reference_sequence.tab)
+cut -c $AP6_061 AP_061_sequences.tab > AP6_061_unnumbered_haplotypes.tab
+paste AP_061_uniqueinfo.tab AP6_061_unnumbered_haplotypes.tab > AP6_061_redundant_haplotypes.tab
+AP6_062=$(python find_CpGs_AP6.py AP_062_reference_sequence.tab)
+cut -c $AP6_062 AP_062_sequences.tab > AP6_062_unnumbered_haplotypes.tab
+paste AP_062_uniqueinfo.tab AP6_062_unnumbered_haplotypes.tab > AP6_062_redundant_haplotypes.tab
+AP6_063=$(python find_CpGs_AP6.py AP_063_reference_sequence.tab)
+cut -c $AP6_063 AP_063_sequences.tab > AP6_063_unnumbered_haplotypes.tab
+paste AP_063_uniqueinfo.tab AP6_063_unnumbered_haplotypes.tab > AP6_063_redundant_haplotypes.tab
+AP6_064=$(python find_CpGs_AP6.py AP_064_reference_sequence.tab)
+cut -c $AP6_064 AP_064_sequences.tab > AP6_064_unnumbered_haplotypes.tab
+paste AP_064_uniqueinfo.tab AP6_064_unnumbered_haplotypes.tab > AP6_064_redundant_haplotypes.tab
+AP6_065=$(python find_CpGs_AP6.py AP_065_reference_sequence.tab)
+cut -c $AP6_065 AP_065_sequences.tab > AP6_065_unnumbered_haplotypes.tab
+paste AP_065_uniqueinfo.tab AP6_065_unnumbered_haplotypes.tab > AP6_065_redundant_haplotypes.tab
+AP6_066=$(python find_CpGs_AP6.py AP_066_reference_sequence.tab)
+cut -c $AP6_066 AP_066_sequences.tab > AP6_066_unnumbered_haplotypes.tab
+paste AP_066_uniqueinfo.tab AP6_066_unnumbered_haplotypes.tab > AP6_066_redundant_haplotypes.tab
+AP6_067=$(python find_CpGs_AP6.py AP_067_reference_sequence.tab)
+cut -c $AP6_067 AP_067_sequences.tab > AP6_067_unnumbered_haplotypes.tab
+paste AP_067_uniqueinfo.tab AP6_067_unnumbered_haplotypes.tab > AP6_067_redundant_haplotypes.tab
+AP6_068=$(python find_CpGs_AP6.py AP_068_reference_sequence.tab)
+cut -c $AP6_068 AP_068_sequences.tab > AP6_068_unnumbered_haplotypes.tab
+paste AP_068_uniqueinfo.tab AP6_068_unnumbered_haplotypes.tab > AP6_068_redundant_haplotypes.tab
+AP6_115=$(python find_CpGs_AP6.py AP_115_reference_sequence.tab)
+cut -c $AP6_115 AP_115_sequences.tab > AP6_115_unnumbered_haplotypes.tab
+paste AP_115_uniqueinfo.tab AP6_115_unnumbered_haplotypes.tab > AP6_115_redundant_haplotypes.tab
+AP6_116=$(python find_CpGs_AP6.py AP_116_reference_sequence.tab)
+cut -c $AP6_116 AP_116_sequences.tab > AP6_116_unnumbered_haplotypes.tab
+paste AP_116_uniqueinfo.tab AP6_116_unnumbered_haplotypes.tab > AP6_116_redundant_haplotypes.tab
+AP6_117=$(python find_CpGs_AP6.py AP_117_reference_sequence.tab)
+cut -c $AP6_117 AP_117_sequences.tab > AP6_117_unnumbered_haplotypes.tab
+paste AP_117_uniqueinfo.tab AP6_117_unnumbered_haplotypes.tab > AP6_117_redundant_haplotypes.tab
+AP6_118=$(python find_CpGs_AP6.py AP_118_reference_sequence.tab)
+cut -c $AP6_118 AP_118_sequences.tab > AP6_118_unnumbered_haplotypes.tab
+paste AP_118_uniqueinfo.tab AP6_118_unnumbered_haplotypes.tab > AP6_118_redundant_haplotypes.tab
+AP6_119=$(python find_CpGs_AP6.py AP_119_reference_sequence.tab)
+cut -c $AP6_119 AP_119_sequences.tab > AP6_119_unnumbered_haplotypes.tab
+paste AP_119_uniqueinfo.tab AP6_119_unnumbered_haplotypes.tab > AP6_119_redundant_haplotypes.tab
+AP6_120=$(python find_CpGs_AP6.py AP_120_reference_sequence.tab)
+cut -c $AP6_120 AP_120_sequences.tab > AP6_120_unnumbered_haplotypes.tab
+paste AP_120_uniqueinfo.tab AP6_120_unnumbered_haplotypes.tab > AP6_120_redundant_haplotypes.tab
+AP6_121=$(python find_CpGs_AP6.py AP_121_reference_sequence.tab)
+cut -c $AP6_121 AP_121_sequences.tab > AP6_121_unnumbered_haplotypes.tab
+paste AP_121_uniqueinfo.tab AP6_121_unnumbered_haplotypes.tab > AP6_121_redundant_haplotypes.tab
+AP6_122=$(python find_CpGs_AP6.py AP_122_reference_sequence.tab)
+cut -c $AP6_122 AP_122_sequences.tab > AP6_122_unnumbered_haplotypes.tab
+paste AP_122_uniqueinfo.tab AP6_122_unnumbered_haplotypes.tab > AP6_122_redundant_haplotypes.tab
+AP6_123=$(python find_CpGs_AP6.py AP_123_reference_sequence.tab)
+cut -c $AP6_123 AP_123_sequences.tab > AP6_123_unnumbered_haplotypes.tab
+paste AP_123_uniqueinfo.tab AP6_123_unnumbered_haplotypes.tab > AP6_123_redundant_haplotypes.tab
+AP6_124=$(python find_CpGs_AP6.py AP_124_reference_sequence.tab)
+cut -c $AP6_124 AP_124_sequences.tab > AP6_124_unnumbered_haplotypes.tab
+paste AP_124_uniqueinfo.tab AP6_124_unnumbered_haplotypes.tab > AP6_124_redundant_haplotypes.tab
+AP6_126=$(python find_CpGs_AP6.py AP_126_reference_sequence.tab)
+cut -c $AP6_126 AP_126_sequences.tab > AP6_126_unnumbered_haplotypes.tab
+paste AP_126_uniqueinfo.tab AP6_126_unnumbered_haplotypes.tab > AP6_126_redundant_haplotypes.tab
+AP6_127=$(python find_CpGs_AP6.py AP_127_reference_sequence.tab)
+cut -c $AP6_127 AP_127_sequences.tab > AP6_127_unnumbered_haplotypes.tab
+paste AP_127_uniqueinfo.tab AP6_127_unnumbered_haplotypes.tab > AP6_127_redundant_haplotypes.tab
+AP6_128=$(python find_CpGs_AP6.py AP_128_reference_sequence.tab)
+cut -c $AP6_128 AP_128_sequences.tab > AP6_128_unnumbered_haplotypes.tab
+paste AP_128_uniqueinfo.tab AP6_128_unnumbered_haplotypes.tab > AP6_128_redundant_haplotypes.tab
+AP6_129=$(python find_CpGs_AP6.py AP_129_reference_sequence.tab)
+cut -c $AP6_129 AP_129_sequences.tab > AP6_129_unnumbered_haplotypes.tab
+paste AP_129_uniqueinfo.tab AP6_129_unnumbered_haplotypes.tab > AP6_129_redundant_haplotypes.tab
+AP6_130=$(python find_CpGs_AP6.py AP_130_reference_sequence.tab)
+cut -c $AP6_130 AP_130_sequences.tab > AP6_130_unnumbered_haplotypes.tab
+paste AP_130_uniqueinfo.tab AP6_130_unnumbered_haplotypes.tab > AP6_130_redundant_haplotypes.tab
+AP6_131=$(python find_CpGs_AP6.py AP_131_reference_sequence.tab)
+cut -c $AP6_131 AP_131_sequences.tab > AP6_131_unnumbered_haplotypes.tab
+paste AP_131_uniqueinfo.tab AP6_131_unnumbered_haplotypes.tab > AP6_131_redundant_haplotypes.tab
+AP6_132=$(python find_CpGs_AP6.py AP_132_reference_sequence.tab)
+cut -c $AP6_132 AP_132_sequences.tab > AP6_132_unnumbered_haplotypes.tab
+paste AP_132_uniqueinfo.tab AP6_132_unnumbered_haplotypes.tab > AP6_132_redundant_haplotypes.tab
+AP6_133=$(python find_CpGs_AP6.py AP_133_reference_sequence.tab)
+cut -c $AP6_133 AP_133_sequences.tab > AP6_133_unnumbered_haplotypes.tab
+paste AP_133_uniqueinfo.tab AP6_133_unnumbered_haplotypes.tab > AP6_133_redundant_haplotypes.tab
+AP6_134=$(python find_CpGs_AP6.py AP_134_reference_sequence.tab)
+cut -c $AP6_134 AP_134_sequences.tab > AP6_134_unnumbered_haplotypes.tab
+paste AP_134_uniqueinfo.tab AP6_134_unnumbered_haplotypes.tab > AP6_134_redundant_haplotypes.tab
+AP6_135=$(python find_CpGs_AP6.py AP_135_reference_sequence.tab)
+cut -c $AP6_135 AP_135_sequences.tab > AP6_135_unnumbered_haplotypes.tab
+paste AP_135_uniqueinfo.tab AP6_135_unnumbered_haplotypes.tab > AP6_135_redundant_haplotypes.tab
+AP6_136=$(python find_CpGs_AP6.py AP_136_reference_sequence.tab)
+cut -c $AP6_136 AP_136_sequences.tab > AP6_136_unnumbered_haplotypes.tab
+paste AP_136_uniqueinfo.tab AP6_136_unnumbered_haplotypes.tab > AP6_136_redundant_haplotypes.tab
+AP6_137=$(python find_CpGs_AP6.py AP_137_reference_sequence.tab)
+cut -c $AP6_137 AP_137_sequences.tab > AP6_137_unnumbered_haplotypes.tab
+paste AP_137_uniqueinfo.tab AP6_137_unnumbered_haplotypes.tab > AP6_137_redundant_haplotypes.tab
+AP6_138=$(python find_CpGs_AP6.py AP_138_reference_sequence.tab)
+cut -c $AP6_138 AP_138_sequences.tab > AP6_138_unnumbered_haplotypes.tab
+paste AP_138_uniqueinfo.tab AP6_138_unnumbered_haplotypes.tab > AP6_138_redundant_haplotypes.tab
+AP6_139=$(python find_CpGs_AP6.py AP_139_reference_sequence.tab)
+cut -c $AP6_139 AP_139_sequences.tab > AP6_139_unnumbered_haplotypes.tab
+paste AP_139_uniqueinfo.tab AP6_139_unnumbered_haplotypes.tab > AP6_139_redundant_haplotypes.tab
+AP6_140=$(python find_CpGs_AP6.py AP_140_reference_sequence.tab)
+cut -c $AP6_140 AP_140_sequences.tab > AP6_140_unnumbered_haplotypes.tab
+paste AP_140_uniqueinfo.tab AP6_140_unnumbered_haplotypes.tab > AP6_140_redundant_haplotypes.tab
+AP6_141=$(python find_CpGs_AP6.py AP_141_reference_sequence.tab)
+cut -c $AP6_141 AP_141_sequences.tab > AP6_141_unnumbered_haplotypes.tab
+paste AP_141_uniqueinfo.tab AP6_141_unnumbered_haplotypes.tab > AP6_141_redundant_haplotypes.tab
+AP6_142=$(python find_CpGs_AP6.py AP_142_reference_sequence.tab)
+cut -c $AP6_142 AP_142_sequences.tab > AP6_142_unnumbered_haplotypes.tab
+paste AP_142_uniqueinfo.tab AP6_142_unnumbered_haplotypes.tab > AP6_142_redundant_haplotypes.tab
+AP6_143=$(python find_CpGs_AP6.py AP_143_reference_sequence.tab)
+cut -c $AP6_143 AP_143_sequences.tab > AP6_143_unnumbered_haplotypes.tab
+paste AP_143_uniqueinfo.tab AP6_143_unnumbered_haplotypes.tab > AP6_143_redundant_haplotypes.tab
+AP6_144=$(python find_CpGs_AP6.py AP_144_reference_sequence.tab)
+cut -c $AP6_144 AP_144_sequences.tab > AP6_144_unnumbered_haplotypes.tab
+paste AP_144_uniqueinfo.tab AP6_144_unnumbered_haplotypes.tab > AP6_144_redundant_haplotypes.tab
+AP6_145=$(python find_CpGs_AP6.py AP_145_reference_sequence.tab)
+cut -c $AP6_145 AP_145_sequences.tab > AP6_145_unnumbered_haplotypes.tab
+paste AP_145_uniqueinfo.tab AP6_145_unnumbered_haplotypes.tab > AP6_145_redundant_haplotypes.tab
+AP6_146=$(python find_CpGs_AP6.py AP_146_reference_sequence.tab)
+cut -c $AP6_146 AP_146_sequences.tab > AP6_146_unnumbered_haplotypes.tab
+paste AP_146_uniqueinfo.tab AP6_146_unnumbered_haplotypes.tab > AP6_146_redundant_haplotypes.tab
+AP6_147=$(python find_CpGs_AP6.py AP_147_reference_sequence.tab)
+cut -c $AP6_147 AP_147_sequences.tab > AP6_147_unnumbered_haplotypes.tab
+paste AP_147_uniqueinfo.tab AP6_147_unnumbered_haplotypes.tab > AP6_147_redundant_haplotypes.tab
+AP6_148=$(python find_CpGs_AP6.py AP_148_reference_sequence.tab)
+cut -c $AP6_148 AP_148_sequences.tab > AP6_148_unnumbered_haplotypes.tab
+paste AP_148_uniqueinfo.tab AP6_148_unnumbered_haplotypes.tab > AP6_148_redundant_haplotypes.tab
+AP6_149=$(python find_CpGs_AP6.py AP_149_reference_sequence.tab)
+cut -c $AP6_149 AP_149_sequences.tab > AP6_149_unnumbered_haplotypes.tab
+paste AP_149_uniqueinfo.tab AP6_149_unnumbered_haplotypes.tab > AP6_149_redundant_haplotypes.tab
+AP6_150=$(python find_CpGs_AP6.py AP_150_reference_sequence.tab)
+cut -c $AP6_150 AP_150_sequences.tab > AP6_150_unnumbered_haplotypes.tab
+paste AP_150_uniqueinfo.tab AP6_150_unnumbered_haplotypes.tab > AP6_150_redundant_haplotypes.tab
+AP6_151=$(python find_CpGs_AP6.py AP_151_reference_sequence.tab)
+cut -c $AP6_151 AP_151_sequences.tab > AP6_151_unnumbered_haplotypes.tab
+paste AP_151_uniqueinfo.tab AP6_151_unnumbered_haplotypes.tab > AP6_151_redundant_haplotypes.tab
+AP6_152=$(python find_CpGs_AP6.py AP_152_reference_sequence.tab)
+cut -c $AP6_152 AP_152_sequences.tab > AP6_152_unnumbered_haplotypes.tab
+paste AP_152_uniqueinfo.tab AP6_152_unnumbered_haplotypes.tab > AP6_152_redundant_haplotypes.tab
+AP6_153=$(python find_CpGs_AP6.py AP_153_reference_sequence.tab)
+cut -c $AP6_153 AP_153_sequences.tab > AP6_153_unnumbered_haplotypes.tab
+paste AP_153_uniqueinfo.tab AP6_153_unnumbered_haplotypes.tab > AP6_153_redundant_haplotypes.tab
+AP6_154=$(python find_CpGs_AP6.py AP_154_reference_sequence.tab)
+cut -c $AP6_154 AP_154_sequences.tab > AP6_154_unnumbered_haplotypes.tab
+paste AP_154_uniqueinfo.tab AP6_154_unnumbered_haplotypes.tab > AP6_154_redundant_haplotypes.tab
+AP6_155=$(python find_CpGs_AP6.py AP_155_reference_sequence.tab)
+cut -c $AP6_155 AP_155_sequences.tab > AP6_155_unnumbered_haplotypes.tab
+paste AP_155_uniqueinfo.tab AP6_155_unnumbered_haplotypes.tab > AP6_155_redundant_haplotypes.tab
+AP6_156=$(python find_CpGs_AP6.py AP_156_reference_sequence.tab)
+cut -c $AP6_156 AP_156_sequences.tab > AP6_156_unnumbered_haplotypes.tab
+paste AP_156_uniqueinfo.tab AP6_156_unnumbered_haplotypes.tab > AP6_156_redundant_haplotypes.tab
+AP6_157=$(python find_CpGs_AP6.py AP_157_reference_sequence.tab)
+cut -c $AP6_157 AP_157_sequences.tab > AP6_157_unnumbered_haplotypes.tab
+paste AP_157_uniqueinfo.tab AP6_157_unnumbered_haplotypes.tab > AP6_157_redundant_haplotypes.tab
+AP6_158=$(python find_CpGs_AP6.py AP_158_reference_sequence.tab)
+cut -c $AP6_158 AP_158_sequences.tab > AP6_158_unnumbered_haplotypes.tab
+paste AP_158_uniqueinfo.tab AP6_158_unnumbered_haplotypes.tab > AP6_158_redundant_haplotypes.tab
+AP6_159=$(python find_CpGs_AP6.py AP_159_reference_sequence.tab)
+cut -c $AP6_159 AP_159_sequences.tab > AP6_159_unnumbered_haplotypes.tab
+paste AP_159_uniqueinfo.tab AP6_159_unnumbered_haplotypes.tab > AP6_159_redundant_haplotypes.tab
+AP6_160=$(python find_CpGs_AP6.py AP_160_reference_sequence.tab)
+cut -c $AP6_160 AP_160_sequences.tab > AP6_160_unnumbered_haplotypes.tab
+paste AP_160_uniqueinfo.tab AP6_160_unnumbered_haplotypes.tab > AP6_160_redundant_haplotypes.tab
+AP6_161=$(python find_CpGs_AP6.py AP_161_reference_sequence.tab)
+cut -c $AP6_161 AP_161_sequences.tab > AP6_161_unnumbered_haplotypes.tab
+paste AP_161_uniqueinfo.tab AP6_161_unnumbered_haplotypes.tab > AP6_161_redundant_haplotypes.tab
+AP6_162=$(python find_CpGs_AP6.py AP_162_reference_sequence.tab)
+cut -c $AP6_162 AP_162_sequences.tab > AP6_162_unnumbered_haplotypes.tab
+paste AP_162_uniqueinfo.tab AP6_162_unnumbered_haplotypes.tab > AP6_162_redundant_haplotypes.tab
+AP6_163=$(python find_CpGs_AP6.py AP_163_reference_sequence.tab)
+cut -c $AP6_163 AP_163_sequences.tab > AP6_163_unnumbered_haplotypes.tab
+paste AP_163_uniqueinfo.tab AP6_163_unnumbered_haplotypes.tab > AP6_163_redundant_haplotypes.tab
+AP6_164=$(python find_CpGs_AP6.py AP_164_reference_sequence.tab)
+cut -c $AP6_164 AP_164_sequences.tab > AP6_164_unnumbered_haplotypes.tab
+paste AP_164_uniqueinfo.tab AP6_164_unnumbered_haplotypes.tab > AP6_164_redundant_haplotypes.tab
+AP6_213=$(python find_CpGs_AP6.py AP_213_reference_sequence.tab)
+cut -c $AP6_213 AP_213_sequences.tab > AP6_213_unnumbered_haplotypes.tab
+paste AP_213_uniqueinfo.tab AP6_213_unnumbered_haplotypes.tab > AP6_213_redundant_haplotypes.tab
+AP6_214=$(python find_CpGs_AP6.py AP_214_reference_sequence.tab)
+cut -c $AP6_214 AP_214_sequences.tab > AP6_214_unnumbered_haplotypes.tab
+paste AP_214_uniqueinfo.tab AP6_214_unnumbered_haplotypes.tab > AP6_214_redundant_haplotypes.tab
+AP6_215=$(python find_CpGs_AP6.py AP_215_reference_sequence.tab)
+cut -c $AP6_215 AP_215_sequences.tab > AP6_215_unnumbered_haplotypes.tab
+paste AP_215_uniqueinfo.tab AP6_215_unnumbered_haplotypes.tab > AP6_215_redundant_haplotypes.tab
+AP6_216=$(python find_CpGs_AP6.py AP_216_reference_sequence.tab)
+cut -c $AP6_216 AP_216_sequences.tab > AP6_216_unnumbered_haplotypes.tab
+paste AP_216_uniqueinfo.tab AP6_216_unnumbered_haplotypes.tab > AP6_216_redundant_haplotypes.tab
+AP6_217=$(python find_CpGs_AP6.py AP_217_reference_sequence.tab)
+cut -c $AP6_217 AP_217_sequences.tab > AP6_217_unnumbered_haplotypes.tab
+paste AP_217_uniqueinfo.tab AP6_217_unnumbered_haplotypes.tab > AP6_217_redundant_haplotypes.tab
+AP6_218=$(python find_CpGs_AP6.py AP_218_reference_sequence.tab)
+cut -c $AP6_218 AP_218_sequences.tab > AP6_218_unnumbered_haplotypes.tab
+paste AP_218_uniqueinfo.tab AP6_218_unnumbered_haplotypes.tab > AP6_218_redundant_haplotypes.tab
+AP6_219=$(python find_CpGs_AP6.py AP_219_reference_sequence.tab)
+cut -c $AP6_219 AP_219_sequences.tab > AP6_219_unnumbered_haplotypes.tab
+paste AP_219_uniqueinfo.tab AP6_219_unnumbered_haplotypes.tab > AP6_219_redundant_haplotypes.tab
+AP6_220=$(python find_CpGs_AP6.py AP_220_reference_sequence.tab)
+cut -c $AP6_220 AP_220_sequences.tab > AP6_220_unnumbered_haplotypes.tab
+paste AP_220_uniqueinfo.tab AP6_220_unnumbered_haplotypes.tab > AP6_220_redundant_haplotypes.tab
+AP6_283=$(python find_CpGs_AP6.py AP_283_reference_sequence.tab)
+cut -c $AP6_283 AP_283_sequences.tab > AP6_283_unnumbered_haplotypes.tab
+paste AP_283_uniqueinfo.tab AP6_283_unnumbered_haplotypes.tab > AP6_283_redundant_haplotypes.tab
+AP6_284=$(python find_CpGs_AP6.py AP_284_reference_sequence.tab)
+cut -c $AP6_284 AP_284_sequences.tab > AP6_284_unnumbered_haplotypes.tab
+paste AP_284_uniqueinfo.tab AP6_284_unnumbered_haplotypes.tab > AP6_284_redundant_haplotypes.tab
+AP6_285=$(python find_CpGs_AP6.py AP_285_reference_sequence.tab)
+cut -c $AP6_285 AP_285_sequences.tab > AP6_285_unnumbered_haplotypes.tab
+paste AP_285_uniqueinfo.tab AP6_285_unnumbered_haplotypes.tab > AP6_285_redundant_haplotypes.tab
+AP6_286=$(python find_CpGs_AP6.py AP_286_reference_sequence.tab)
+cut -c $AP6_286 AP_286_sequences.tab > AP6_286_unnumbered_haplotypes.tab
+paste AP_286_uniqueinfo.tab AP6_286_unnumbered_haplotypes.tab > AP6_286_redundant_haplotypes.tab
+AP6_287=$(python find_CpGs_AP6.py AP_287_reference_sequence.tab)
+cut -c $AP6_287 AP_287_sequences.tab > AP6_287_unnumbered_haplotypes.tab
+paste AP_287_uniqueinfo.tab AP6_287_unnumbered_haplotypes.tab > AP6_287_redundant_haplotypes.tab
+AP6_288=$(python find_CpGs_AP6.py AP_288_reference_sequence.tab)
+cut -c $AP6_288 AP_288_sequences.tab > AP6_288_unnumbered_haplotypes.tab
+paste AP_288_uniqueinfo.tab AP6_288_unnumbered_haplotypes.tab > AP6_288_redundant_haplotypes.tab
+AP6_289=$(python find_CpGs_AP6.py AP_289_reference_sequence.tab)
+cut -c $AP6_289 AP_289_sequences.tab > AP6_289_unnumbered_haplotypes.tab
+paste AP_289_uniqueinfo.tab AP6_289_unnumbered_haplotypes.tab > AP6_289_redundant_haplotypes.tab
+AP6_290=$(python find_CpGs_AP6.py AP_290_reference_sequence.tab)
+cut -c $AP6_290 AP_290_sequences.tab > AP6_290_unnumbered_haplotypes.tab
+paste AP_290_uniqueinfo.tab AP6_290_unnumbered_haplotypes.tab > AP6_290_redundant_haplotypes.tab
+AP6_291=$(python find_CpGs_AP6.py AP_291_reference_sequence.tab)
+cut -c $AP6_291 AP_291_sequences.tab > AP6_291_unnumbered_haplotypes.tab
+paste AP_291_uniqueinfo.tab AP6_291_unnumbered_haplotypes.tab > AP6_291_redundant_haplotypes.tab
+AP6_292=$(python find_CpGs_AP6.py AP_292_reference_sequence.tab)
+cut -c $AP6_292 AP_292_sequences.tab > AP6_292_unnumbered_haplotypes.tab
+paste AP_292_uniqueinfo.tab AP6_292_unnumbered_haplotypes.tab > AP6_292_redundant_haplotypes.tab
+AP6_629=$(python find_CpGs_AP6.py AP_629_reference_sequence.tab)
+cut -c $AP6_629 AP_629_sequences.tab > AP6_629_unnumbered_haplotypes.tab
+paste AP_629_uniqueinfo.tab AP6_629_unnumbered_haplotypes.tab > AP6_629_redundant_haplotypes.tab
+AP6_630=$(python find_CpGs_AP6.py AP_630_reference_sequence.tab)
+cut -c $AP6_630 AP_630_sequences.tab > AP6_630_unnumbered_haplotypes.tab
+paste AP_630_uniqueinfo.tab AP6_630_unnumbered_haplotypes.tab > AP6_630_redundant_haplotypes.tab
+AP6_631=$(python find_CpGs_AP6.py AP_631_reference_sequence.tab)
+cut -c $AP6_631 AP_631_sequences.tab > AP6_631_unnumbered_haplotypes.tab
+paste AP_631_uniqueinfo.tab AP6_631_unnumbered_haplotypes.tab > AP6_631_redundant_haplotypes.tab
+AP6_632=$(python find_CpGs_AP6.py AP_632_reference_sequence.tab)
+cut -c $AP6_632 AP_632_sequences.tab > AP6_632_unnumbered_haplotypes.tab
+paste AP_632_uniqueinfo.tab AP6_632_unnumbered_haplotypes.tab > AP6_632_redundant_haplotypes.tab
+AP6_633=$(python find_CpGs_AP6.py AP_633_reference_sequence.tab)
+cut -c $AP6_633 AP_633_sequences.tab > AP6_633_unnumbered_haplotypes.tab
+paste AP_633_uniqueinfo.tab AP6_633_unnumbered_haplotypes.tab > AP6_633_redundant_haplotypes.tab
+AP6_634=$(python find_CpGs_AP6.py AP_634_reference_sequence.tab)
+cut -c $AP6_634 AP_634_sequences.tab > AP6_634_unnumbered_haplotypes.tab
+paste AP_634_uniqueinfo.tab AP6_634_unnumbered_haplotypes.tab > AP6_634_redundant_haplotypes.tab
+AP6_635=$(python find_CpGs_AP6.py AP_635_reference_sequence.tab)
+cut -c $AP6_635 AP_635_sequences.tab > AP6_635_unnumbered_haplotypes.tab
+paste AP_635_uniqueinfo.tab AP6_635_unnumbered_haplotypes.tab > AP6_635_redundant_haplotypes.tab
+AP6_636=$(python find_CpGs_AP6.py AP_636_reference_sequence.tab)
+cut -c $AP6_636 AP_636_sequences.tab > AP6_636_unnumbered_haplotypes.tab
+paste AP_636_uniqueinfo.tab AP6_636_unnumbered_haplotypes.tab > AP6_636_redundant_haplotypes.tab
+AP6_637=$(python find_CpGs_AP6.py AP_637_reference_sequence.tab)
+cut -c $AP6_637 AP_637_sequences.tab > AP6_637_unnumbered_haplotypes.tab
+paste AP_637_uniqueinfo.tab AP6_637_unnumbered_haplotypes.tab > AP6_637_redundant_haplotypes.tab
+AP6_638=$(python find_CpGs_AP6.py AP_638_reference_sequence.tab)
+cut -c $AP6_638 AP_638_sequences.tab > AP6_638_unnumbered_haplotypes.tab
+paste AP_638_uniqueinfo.tab AP6_638_unnumbered_haplotypes.tab > AP6_638_redundant_haplotypes.tab
+AP6_639=$(python find_CpGs_AP6.py AP_639_reference_sequence.tab)
+cut -c $AP6_639 AP_639_sequences.tab > AP6_639_unnumbered_haplotypes.tab
+paste AP_639_uniqueinfo.tab AP6_639_unnumbered_haplotypes.tab > AP6_639_redundant_haplotypes.tab
+AP6_640=$(python find_CpGs_AP6.py AP_640_reference_sequence.tab)
+cut -c $AP6_640 AP_640_sequences.tab > AP6_640_unnumbered_haplotypes.tab
+paste AP_640_uniqueinfo.tab AP6_640_unnumbered_haplotypes.tab > AP6_640_redundant_haplotypes.tab
+AP6_641=$(python find_CpGs_AP6.py AP_641_reference_sequence.tab)
+cut -c $AP6_641 AP_641_sequences.tab > AP6_641_unnumbered_haplotypes.tab
+paste AP_641_uniqueinfo.tab AP6_641_unnumbered_haplotypes.tab > AP6_641_redundant_haplotypes.tab
+AP6_642=$(python find_CpGs_AP6.py AP_642_reference_sequence.tab)
+cut -c $AP6_642 AP_642_sequences.tab > AP6_642_unnumbered_haplotypes.tab
+paste AP_642_uniqueinfo.tab AP6_642_unnumbered_haplotypes.tab > AP6_642_redundant_haplotypes.tab
+AP6_643=$(python find_CpGs_AP6.py AP_643_reference_sequence.tab)
+cut -c $AP6_643 AP_643_sequences.tab > AP6_643_unnumbered_haplotypes.tab
+paste AP_643_uniqueinfo.tab AP6_643_unnumbered_haplotypes.tab > AP6_643_redundant_haplotypes.tab
+AP6_644=$(python find_CpGs_AP6.py AP_644_reference_sequence.tab)
+cut -c $AP6_644 AP_644_sequences.tab > AP6_644_unnumbered_haplotypes.tab
+paste AP_644_uniqueinfo.tab AP6_644_unnumbered_haplotypes.tab > AP6_644_redundant_haplotypes.tab
+AP6_645=$(python find_CpGs_AP6.py AP_645_reference_sequence.tab)
+cut -c $AP6_645 AP_645_sequences.tab > AP6_645_unnumbered_haplotypes.tab
+paste AP_645_uniqueinfo.tab AP6_645_unnumbered_haplotypes.tab > AP6_645_redundant_haplotypes.tab
+AP6_646=$(python find_CpGs_AP6.py AP_646_reference_sequence.tab)
+cut -c $AP6_646 AP_646_sequences.tab > AP6_646_unnumbered_haplotypes.tab
+paste AP_646_uniqueinfo.tab AP6_646_unnumbered_haplotypes.tab > AP6_646_redundant_haplotypes.tab
+AP6_647=$(python find_CpGs_AP6.py AP_647_reference_sequence.tab)
+cut -c $AP6_647 AP_647_sequences.tab > AP6_647_unnumbered_haplotypes.tab
+paste AP_647_uniqueinfo.tab AP6_647_unnumbered_haplotypes.tab > AP6_647_redundant_haplotypes.tab
+AP6_648=$(python find_CpGs_AP6.py AP_648_reference_sequence.tab)
+cut -c $AP6_648 AP_648_sequences.tab > AP6_648_unnumbered_haplotypes.tab
+paste AP_648_uniqueinfo.tab AP6_648_unnumbered_haplotypes.tab > AP6_648_redundant_haplotypes.tab
+AP6_649=$(python find_CpGs_AP6.py AP_649_reference_sequence.tab)
+cut -c $AP6_649 AP_649_sequences.tab > AP6_649_unnumbered_haplotypes.tab
+paste AP_649_uniqueinfo.tab AP6_649_unnumbered_haplotypes.tab > AP6_649_redundant_haplotypes.tab
+AP6_650=$(python find_CpGs_AP6.py AP_650_reference_sequence.tab)
+cut -c $AP6_650 AP_650_sequences.tab > AP6_650_unnumbered_haplotypes.tab
+paste AP_650_uniqueinfo.tab AP6_650_unnumbered_haplotypes.tab > AP6_650_redundant_haplotypes.tab
+AP6_651=$(python find_CpGs_AP6.py AP_651_reference_sequence.tab)
+cut -c $AP6_651 AP_651_sequences.tab > AP6_651_unnumbered_haplotypes.tab
+paste AP_651_uniqueinfo.tab AP6_651_unnumbered_haplotypes.tab > AP6_651_redundant_haplotypes.tab
+AP6_652=$(python find_CpGs_AP6.py AP_652_reference_sequence.tab)
+cut -c $AP6_652 AP_652_sequences.tab > AP6_652_unnumbered_haplotypes.tab
+paste AP_652_uniqueinfo.tab AP6_652_unnumbered_haplotypes.tab > AP6_652_redundant_haplotypes.tab
+AP6_653=$(python find_CpGs_AP6.py AP_653_reference_sequence.tab)
+cut -c $AP6_653 AP_653_sequences.tab > AP6_653_unnumbered_haplotypes.tab
+paste AP_653_uniqueinfo.tab AP6_653_unnumbered_haplotypes.tab > AP6_653_redundant_haplotypes.tab
+AP6_654=$(python find_CpGs_AP6.py AP_654_reference_sequence.tab)
+cut -c $AP6_654 AP_654_sequences.tab > AP6_654_unnumbered_haplotypes.tab
+paste AP_654_uniqueinfo.tab AP6_654_unnumbered_haplotypes.tab > AP6_654_redundant_haplotypes.tab
+AP6_655=$(python find_CpGs_AP6.py AP_655_reference_sequence.tab)
+cut -c $AP6_655 AP_655_sequences.tab > AP6_655_unnumbered_haplotypes.tab
+paste AP_655_uniqueinfo.tab AP6_655_unnumbered_haplotypes.tab > AP6_655_redundant_haplotypes.tab
+AP6_656=$(python find_CpGs_AP6.py AP_656_reference_sequence.tab)
+cut -c $AP6_656 AP_656_sequences.tab > AP6_656_unnumbered_haplotypes.tab
+paste AP_656_uniqueinfo.tab AP6_656_unnumbered_haplotypes.tab > AP6_656_redundant_haplotypes.tab
+AP6_657=$(python find_CpGs_AP6.py AP_657_reference_sequence.tab)
+cut -c $AP6_657 AP_657_sequences.tab > AP6_657_unnumbered_haplotypes.tab
+paste AP_657_uniqueinfo.tab AP6_657_unnumbered_haplotypes.tab > AP6_657_redundant_haplotypes.tab
+AP6_658=$(python find_CpGs_AP6.py AP_658_reference_sequence.tab)
+cut -c $AP6_658 AP_658_sequences.tab > AP6_658_unnumbered_haplotypes.tab
+paste AP_658_uniqueinfo.tab AP6_658_unnumbered_haplotypes.tab > AP6_658_redundant_haplotypes.tab
+AP6_659=$(python find_CpGs_AP6.py AP_659_reference_sequence.tab)
+cut -c $AP6_659 AP_659_sequences.tab > AP6_659_unnumbered_haplotypes.tab
+paste AP_659_uniqueinfo.tab AP6_659_unnumbered_haplotypes.tab > AP6_659_redundant_haplotypes.tab
+AP6_660=$(python find_CpGs_AP6.py AP_660_reference_sequence.tab)
+cut -c $AP6_660 AP_660_sequences.tab > AP6_660_unnumbered_haplotypes.tab
+paste AP_660_uniqueinfo.tab AP6_660_unnumbered_haplotypes.tab > AP6_660_redundant_haplotypes.tab
+AP6_661=$(python find_CpGs_AP6.py AP_661_reference_sequence.tab)
+cut -c $AP6_661 AP_661_sequences.tab > AP6_661_unnumbered_haplotypes.tab
+paste AP_661_uniqueinfo.tab AP6_661_unnumbered_haplotypes.tab > AP6_661_redundant_haplotypes.tab
+AP6_662=$(python find_CpGs_AP6.py AP_662_reference_sequence.tab)
+cut -c $AP6_662 AP_662_sequences.tab > AP6_662_unnumbered_haplotypes.tab
+paste AP_662_uniqueinfo.tab AP6_662_unnumbered_haplotypes.tab > AP6_662_redundant_haplotypes.tab
+AP6_663=$(python find_CpGs_AP6.py AP_663_reference_sequence.tab)
+cut -c $AP6_663 AP_663_sequences.tab > AP6_663_unnumbered_haplotypes.tab
+paste AP_663_uniqueinfo.tab AP6_663_unnumbered_haplotypes.tab > AP6_663_redundant_haplotypes.tab
+AP6_664=$(python find_CpGs_AP6.py AP_664_reference_sequence.tab)
+cut -c $AP6_664 AP_664_sequences.tab > AP6_664_unnumbered_haplotypes.tab
+paste AP_664_uniqueinfo.tab AP6_664_unnumbered_haplotypes.tab > AP6_664_redundant_haplotypes.tab
+AP6_665=$(python find_CpGs_AP6.py AP_665_reference_sequence.tab)
+cut -c $AP6_665 AP_665_sequences.tab > AP6_665_unnumbered_haplotypes.tab
+paste AP_665_uniqueinfo.tab AP6_665_unnumbered_haplotypes.tab > AP6_665_redundant_haplotypes.tab
+AP6_666=$(python find_CpGs_AP6.py AP_666_reference_sequence.tab)
+cut -c $AP6_666 AP_666_sequences.tab > AP6_666_unnumbered_haplotypes.tab
+paste AP_666_uniqueinfo.tab AP6_666_unnumbered_haplotypes.tab > AP6_666_redundant_haplotypes.tab
+AP6_667=$(python find_CpGs_AP6.py AP_667_reference_sequence.tab)
+cut -c $AP6_667 AP_667_sequences.tab > AP6_667_unnumbered_haplotypes.tab
+paste AP_667_uniqueinfo.tab AP6_667_unnumbered_haplotypes.tab > AP6_667_redundant_haplotypes.tab
+AP6_668=$(python find_CpGs_AP6.py AP_668_reference_sequence.tab)
+cut -c $AP6_668 AP_668_sequences.tab > AP6_668_unnumbered_haplotypes.tab
+paste AP_668_uniqueinfo.tab AP6_668_unnumbered_haplotypes.tab > AP6_668_redundant_haplotypes.tab
+AP6_669=$(python find_CpGs_AP6.py AP_669_reference_sequence.tab)
+cut -c $AP6_669 AP_669_sequences.tab > AP6_669_unnumbered_haplotypes.tab
+paste AP_669_uniqueinfo.tab AP6_669_unnumbered_haplotypes.tab > AP6_669_redundant_haplotypes.tab
+AP6_670=$(python find_CpGs_AP6.py AP_670_reference_sequence.tab)
+cut -c $AP6_670 AP_670_sequences.tab > AP6_670_unnumbered_haplotypes.tab
+paste AP_670_uniqueinfo.tab AP6_670_unnumbered_haplotypes.tab > AP6_670_redundant_haplotypes.tab
+AP6_671=$(python find_CpGs_AP6.py AP_671_reference_sequence.tab)
+cut -c $AP6_671 AP_671_sequences.tab > AP6_671_unnumbered_haplotypes.tab
+paste AP_671_uniqueinfo.tab AP6_671_unnumbered_haplotypes.tab > AP6_671_redundant_haplotypes.tab
+AP6_672=$(python find_CpGs_AP6.py AP_672_reference_sequence.tab)
+cut -c $AP6_672 AP_672_sequences.tab > AP6_672_unnumbered_haplotypes.tab
+paste AP_672_uniqueinfo.tab AP6_672_unnumbered_haplotypes.tab > AP6_672_redundant_haplotypes.tab
+AP6_673=$(python find_CpGs_AP6.py AP_673_reference_sequence.tab)
+cut -c $AP6_673 AP_673_sequences.tab > AP6_673_unnumbered_haplotypes.tab
+paste AP_673_uniqueinfo.tab AP6_673_unnumbered_haplotypes.tab > AP6_673_redundant_haplotypes.tab
+AP6_674=$(python find_CpGs_AP6.py AP_674_reference_sequence.tab)
+cut -c $AP6_674 AP_674_sequences.tab > AP6_674_unnumbered_haplotypes.tab
+paste AP_674_uniqueinfo.tab AP6_674_unnumbered_haplotypes.tab > AP6_674_redundant_haplotypes.tab
+AP6_675=$(python find_CpGs_AP6.py AP_675_reference_sequence.tab)
+cut -c $AP6_675 AP_675_sequences.tab > AP6_675_unnumbered_haplotypes.tab
+paste AP_675_uniqueinfo.tab AP6_675_unnumbered_haplotypes.tab > AP6_675_redundant_haplotypes.tab
+AP6_676=$(python find_CpGs_AP6.py AP_676_reference_sequence.tab)
+cut -c $AP6_676 AP_676_sequences.tab > AP6_676_unnumbered_haplotypes.tab
+paste AP_676_uniqueinfo.tab AP6_676_unnumbered_haplotypes.tab > AP6_676_redundant_haplotypes.tab
+AP6_677=$(python find_CpGs_AP6.py AP_677_reference_sequence.tab)
+cut -c $AP6_677 AP_677_sequences.tab > AP6_677_unnumbered_haplotypes.tab
+paste AP_677_uniqueinfo.tab AP6_677_unnumbered_haplotypes.tab > AP6_677_redundant_haplotypes.tab
+AP6_678=$(python find_CpGs_AP6.py AP_678_reference_sequence.tab)
+cut -c $AP6_678 AP_678_sequences.tab > AP6_678_unnumbered_haplotypes.tab
+paste AP_678_uniqueinfo.tab AP6_678_unnumbered_haplotypes.tab > AP6_678_redundant_haplotypes.tab
+AP6_679=$(python find_CpGs_AP6.py AP_679_reference_sequence.tab)
+cut -c $AP6_679 AP_679_sequences.tab > AP6_679_unnumbered_haplotypes.tab
+paste AP_679_uniqueinfo.tab AP6_679_unnumbered_haplotypes.tab > AP6_679_redundant_haplotypes.tab
+AP6_680=$(python find_CpGs_AP6.py AP_680_reference_sequence.tab)
+cut -c $AP6_680 AP_680_sequences.tab > AP6_680_unnumbered_haplotypes.tab
+paste AP_680_uniqueinfo.tab AP6_680_unnumbered_haplotypes.tab > AP6_680_redundant_haplotypes.tab
+AP6_681=$(python find_CpGs_AP6.py AP_681_reference_sequence.tab)
+cut -c $AP6_681 AP_681_sequences.tab > AP6_681_unnumbered_haplotypes.tab
+paste AP_681_uniqueinfo.tab AP6_681_unnumbered_haplotypes.tab > AP6_681_redundant_haplotypes.tab
+AP6_682=$(python find_CpGs_AP6.py AP_682_reference_sequence.tab)
+cut -c $AP6_682 AP_682_sequences.tab > AP6_682_unnumbered_haplotypes.tab
+paste AP_682_uniqueinfo.tab AP6_682_unnumbered_haplotypes.tab > AP6_682_redundant_haplotypes.tab
+AP6_683=$(python find_CpGs_AP6.py AP_683_reference_sequence.tab)
+cut -c $AP6_683 AP_683_sequences.tab > AP6_683_unnumbered_haplotypes.tab
+paste AP_683_uniqueinfo.tab AP6_683_unnumbered_haplotypes.tab > AP6_683_redundant_haplotypes.tab
+AP6_684=$(python find_CpGs_AP6.py AP_684_reference_sequence.tab)
+cut -c $AP6_684 AP_684_sequences.tab > AP6_684_unnumbered_haplotypes.tab
+paste AP_684_uniqueinfo.tab AP6_684_unnumbered_haplotypes.tab > AP6_684_redundant_haplotypes.tab
+AP6_685=$(python find_CpGs_AP6.py AP_685_reference_sequence.tab)
+cut -c $AP6_685 AP_685_sequences.tab > AP6_685_unnumbered_haplotypes.tab
+paste AP_685_uniqueinfo.tab AP6_685_unnumbered_haplotypes.tab > AP6_685_redundant_haplotypes.tab
+AP6_686=$(python find_CpGs_AP6.py AP_686_reference_sequence.tab)
+cut -c $AP6_686 AP_686_sequences.tab > AP6_686_unnumbered_haplotypes.tab
+paste AP_686_uniqueinfo.tab AP6_686_unnumbered_haplotypes.tab > AP6_686_redundant_haplotypes.tab
+AP6_687=$(python find_CpGs_AP6.py AP_687_reference_sequence.tab)
+cut -c $AP6_687 AP_687_sequences.tab > AP6_687_unnumbered_haplotypes.tab
+paste AP_687_uniqueinfo.tab AP6_687_unnumbered_haplotypes.tab > AP6_687_redundant_haplotypes.tab
+AP6_688=$(python find_CpGs_AP6.py AP_688_reference_sequence.tab)
+cut -c $AP6_688 AP_688_sequences.tab > AP6_688_unnumbered_haplotypes.tab
+paste AP_688_uniqueinfo.tab AP6_688_unnumbered_haplotypes.tab > AP6_688_redundant_haplotypes.tab
+AP6_689=$(python find_CpGs_AP6.py AP_689_reference_sequence.tab)
+cut -c $AP6_689 AP_689_sequences.tab > AP6_689_unnumbered_haplotypes.tab
+paste AP_689_uniqueinfo.tab AP6_689_unnumbered_haplotypes.tab > AP6_689_redundant_haplotypes.tab
+AP6_690=$(python find_CpGs_AP6.py AP_690_reference_sequence.tab)
+cut -c $AP6_690 AP_690_sequences.tab > AP6_690_unnumbered_haplotypes.tab
+paste AP_690_uniqueinfo.tab AP6_690_unnumbered_haplotypes.tab > AP6_690_redundant_haplotypes.tab
+AP6_691=$(python find_CpGs_AP6.py AP_691_reference_sequence.tab)
+cut -c $AP6_691 AP_691_sequences.tab > AP6_691_unnumbered_haplotypes.tab
+paste AP_691_uniqueinfo.tab AP6_691_unnumbered_haplotypes.tab > AP6_691_redundant_haplotypes.tab
+AP6_692=$(python find_CpGs_AP6.py AP_692_reference_sequence.tab)
+cut -c $AP6_692 AP_692_sequences.tab > AP6_692_unnumbered_haplotypes.tab
+paste AP_692_uniqueinfo.tab AP6_692_unnumbered_haplotypes.tab > AP6_692_redundant_haplotypes.tab
+AP6_693=$(python find_CpGs_AP6.py AP_693_reference_sequence.tab)
+cut -c $AP6_693 AP_693_sequences.tab > AP6_693_unnumbered_haplotypes.tab
+paste AP_693_uniqueinfo.tab AP6_693_unnumbered_haplotypes.tab > AP6_693_redundant_haplotypes.tab
+AP6_694=$(python find_CpGs_AP6.py AP_694_reference_sequence.tab)
+cut -c $AP6_694 AP_694_sequences.tab > AP6_694_unnumbered_haplotypes.tab
+paste AP_694_uniqueinfo.tab AP6_694_unnumbered_haplotypes.tab > AP6_694_redundant_haplotypes.tab
+AP6_695=$(python find_CpGs_AP6.py AP_695_reference_sequence.tab)
+cut -c $AP6_695 AP_695_sequences.tab > AP6_695_unnumbered_haplotypes.tab
+paste AP_695_uniqueinfo.tab AP6_695_unnumbered_haplotypes.tab > AP6_695_redundant_haplotypes.tab
+AP6_696=$(python find_CpGs_AP6.py AP_696_reference_sequence.tab)
+cut -c $AP6_696 AP_696_sequences.tab > AP6_696_unnumbered_haplotypes.tab
+paste AP_696_uniqueinfo.tab AP6_696_unnumbered_haplotypes.tab > AP6_696_redundant_haplotypes.tab
+AP6_697=$(python find_CpGs_AP6.py AP_697_reference_sequence.tab)
+cut -c $AP6_697 AP_697_sequences.tab > AP6_697_unnumbered_haplotypes.tab
+paste AP_697_uniqueinfo.tab AP6_697_unnumbered_haplotypes.tab > AP6_697_redundant_haplotypes.tab
+AP6_698=$(python find_CpGs_AP6.py AP_698_reference_sequence.tab)
+cut -c $AP6_698 AP_698_sequences.tab > AP6_698_unnumbered_haplotypes.tab
+paste AP_698_uniqueinfo.tab AP6_698_unnumbered_haplotypes.tab > AP6_698_redundant_haplotypes.tab
+AP6_699=$(python find_CpGs_AP6.py AP_699_reference_sequence.tab)
+cut -c $AP6_699 AP_699_sequences.tab > AP6_699_unnumbered_haplotypes.tab
+paste AP_699_uniqueinfo.tab AP6_699_unnumbered_haplotypes.tab > AP6_699_redundant_haplotypes.tab
+AP6_700=$(python find_CpGs_AP6.py AP_700_reference_sequence.tab)
+cut -c $AP6_700 AP_700_sequences.tab > AP6_700_unnumbered_haplotypes.tab
+paste AP_700_uniqueinfo.tab AP6_700_unnumbered_haplotypes.tab > AP6_700_redundant_haplotypes.tab
+AP6_701=$(python find_CpGs_AP6.py AP_701_reference_sequence.tab)
+cut -c $AP6_701 AP_701_sequences.tab > AP6_701_unnumbered_haplotypes.tab
+paste AP_701_uniqueinfo.tab AP6_701_unnumbered_haplotypes.tab > AP6_701_redundant_haplotypes.tab
+AP6_702=$(python find_CpGs_AP6.py AP_702_reference_sequence.tab)
+cut -c $AP6_702 AP_702_sequences.tab > AP6_702_unnumbered_haplotypes.tab
+paste AP_702_uniqueinfo.tab AP6_702_unnumbered_haplotypes.tab > AP6_702_redundant_haplotypes.tab
+AP6_703=$(python find_CpGs_AP6.py AP_703_reference_sequence.tab)
+cut -c $AP6_703 AP_703_sequences.tab > AP6_703_unnumbered_haplotypes.tab
+paste AP_703_uniqueinfo.tab AP6_703_unnumbered_haplotypes.tab > AP6_703_redundant_haplotypes.tab
+AP6_704=$(python find_CpGs_AP6.py AP_704_reference_sequence.tab)
+cut -c $AP6_704 AP_704_sequences.tab > AP6_704_unnumbered_haplotypes.tab
+paste AP_704_uniqueinfo.tab AP6_704_unnumbered_haplotypes.tab > AP6_704_redundant_haplotypes.tab
+AP6_705=$(python find_CpGs_AP6.py AP_705_reference_sequence.tab)
+cut -c $AP6_705 AP_705_sequences.tab > AP6_705_unnumbered_haplotypes.tab
+paste AP_705_uniqueinfo.tab AP6_705_unnumbered_haplotypes.tab > AP6_705_redundant_haplotypes.tab
+AP6_706=$(python find_CpGs_AP6.py AP_706_reference_sequence.tab)
+cut -c $AP6_706 AP_706_sequences.tab > AP6_706_unnumbered_haplotypes.tab
+paste AP_706_uniqueinfo.tab AP6_706_unnumbered_haplotypes.tab > AP6_706_redundant_haplotypes.tab
+AP6_707=$(python find_CpGs_AP6.py AP_707_reference_sequence.tab)
+cut -c $AP6_707 AP_707_sequences.tab > AP6_707_unnumbered_haplotypes.tab
+paste AP_707_uniqueinfo.tab AP6_707_unnumbered_haplotypes.tab > AP6_707_redundant_haplotypes.tab
+AP6_708=$(python find_CpGs_AP6.py AP_708_reference_sequence.tab)
+cut -c $AP6_708 AP_708_sequences.tab > AP6_708_unnumbered_haplotypes.tab
+paste AP_708_uniqueinfo.tab AP6_708_unnumbered_haplotypes.tab > AP6_708_redundant_haplotypes.tab
+AP6_709=$(python find_CpGs_AP6.py AP_709_reference_sequence.tab)
+cut -c $AP6_709 AP_709_sequences.tab > AP6_709_unnumbered_haplotypes.tab
+paste AP_709_uniqueinfo.tab AP6_709_unnumbered_haplotypes.tab > AP6_709_redundant_haplotypes.tab
+AP6_711=$(python find_CpGs_AP6.py AP_711_reference_sequence.tab)
+cut -c $AP6_711 AP_711_sequences.tab > AP6_711_unnumbered_haplotypes.tab
+paste AP_711_uniqueinfo.tab AP6_711_unnumbered_haplotypes.tab > AP6_711_redundant_haplotypes.tab
+AP6_712=$(python find_CpGs_AP6.py AP_712_reference_sequence.tab)
+cut -c $AP6_712 AP_712_sequences.tab > AP6_712_unnumbered_haplotypes.tab
+paste AP_712_uniqueinfo.tab AP6_712_unnumbered_haplotypes.tab > AP6_712_redundant_haplotypes.tab
+AP6_713=$(python find_CpGs_AP6.py AP_713_reference_sequence.tab)
+cut -c $AP6_713 AP_713_sequences.tab > AP6_713_unnumbered_haplotypes.tab
+paste AP_713_uniqueinfo.tab AP6_713_unnumbered_haplotypes.tab > AP6_713_redundant_haplotypes.tab
+AP6_714=$(python find_CpGs_AP6.py AP_714_reference_sequence.tab)
+cut -c $AP6_714 AP_714_sequences.tab > AP6_714_unnumbered_haplotypes.tab
+paste AP_714_uniqueinfo.tab AP6_714_unnumbered_haplotypes.tab > AP6_714_redundant_haplotypes.tab
+AP6_715=$(python find_CpGs_AP6.py AP_715_reference_sequence.tab)
+cut -c $AP6_715 AP_715_sequences.tab > AP6_715_unnumbered_haplotypes.tab
+paste AP_715_uniqueinfo.tab AP6_715_unnumbered_haplotypes.tab > AP6_715_redundant_haplotypes.tab
+AP6_NC1=$(python find_CpGs_AP6.py AP_NC1_reference_sequence.tab)
+cut -c $AP6_NC1 AP_NC1_sequences.tab > AP6_NC1_unnumbered_haplotypes.tab
+paste AP_NC1_uniqueinfo.tab AP6_NC1_unnumbered_haplotypes.tab > AP6_NC1_redundant_haplotypes.tab
+AP6_NC2=$(python find_CpGs_AP6.py AP_NC2_reference_sequence.tab)
+cut -c $AP6_NC2 AP_NC2_sequences.tab > AP6_NC2_unnumbered_haplotypes.tab
+paste AP_NC2_uniqueinfo.tab AP6_NC2_unnumbered_haplotypes.tab > AP6_NC2_redundant_haplotypes.tab
+cat AI_*_redundant_haplotypes.tab AP6_*_redundant_haplotypes.tab BI_*_redundant_haplotypes.tab B2_*_redundant_haplotypes.tab > all_redundant_haplotypes_w_AP6.tab
+awk '{a[$1"\t"$2"\t"$4]+=$3}END{for (i in a){print i,a[i]}}' all_redundant_haplotypes_w_AP6.tab > all_haplotypes_headless_w_AP6.tab
+sed -i 's/ /\t/g' all_haplotypes_headless_w_AP6.tab
+echo -e "amplicon \t sample \t haplotype \t count" > haplotype_header_w_AP6.tab
+cat haplotype_header_w_AP6.tab all_haplotypes_headless_w_AP6.tab > all_haplotypes_w_AP6.tab

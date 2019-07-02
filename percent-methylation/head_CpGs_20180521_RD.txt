@@ -1,0 +1,1 @@
+sample	amp_bp	amplicon	bp	CpG	position	A	G	C	T	del	ins	inserted	ambiguous	prop_meth	percent_meth

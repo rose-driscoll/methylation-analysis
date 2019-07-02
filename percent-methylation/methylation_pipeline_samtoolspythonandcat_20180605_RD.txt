@@ -1,0 +1,1216 @@
+module load samtools
+module load python
+samtools view -bS 011_bowtie.sam > 011_bowtie.bam
+samtools sort 011_bowtie.bam 011_bowtie_sorted
+samtools mpileup -d 200000 011_bowtie_sorted.bam > 011_mpileup.vcf
+python basecount_20180518_RD.py 011_mpileup.vcf >&011_basecount.txt
+python extract_CpGs_20180521_RD.py 011_basecount.txt > 011_CpGs.txt
+python conversion_completeness_20180521_RD.py 011_basecount.txt > 011_conversion.txt
+python A_G_error_20180521_RD.py 011_basecount.txt > 011_error.txt
+samtools view -bS 012_bowtie.sam > 012_bowtie.bam
+samtools sort 012_bowtie.bam 012_bowtie_sorted
+samtools mpileup -d 200000 012_bowtie_sorted.bam > 012_mpileup.vcf
+python basecount_20180518_RD.py 012_mpileup.vcf >&012_basecount.txt
+python extract_CpGs_20180521_RD.py 012_basecount.txt > 012_CpGs.txt
+python conversion_completeness_20180521_RD.py 012_basecount.txt > 012_conversion.txt
+python A_G_error_20180521_RD.py 012_basecount.txt > 012_error.txt
+samtools view -bS 013_bowtie.sam > 013_bowtie.bam
+samtools sort 013_bowtie.bam 013_bowtie_sorted
+samtools mpileup -d 200000 013_bowtie_sorted.bam > 013_mpileup.vcf
+python basecount_20180518_RD.py 013_mpileup.vcf >&013_basecount.txt
+python extract_CpGs_20180521_RD.py 013_basecount.txt > 013_CpGs.txt
+python conversion_completeness_20180521_RD.py 013_basecount.txt > 013_conversion.txt
+python A_G_error_20180521_RD.py 013_basecount.txt > 013_error.txt
+samtools view -bS 014_bowtie.sam > 014_bowtie.bam
+samtools sort 014_bowtie.bam 014_bowtie_sorted
+samtools mpileup -d 200000 014_bowtie_sorted.bam > 014_mpileup.vcf
+python basecount_20180518_RD.py 014_mpileup.vcf >&014_basecount.txt
+python extract_CpGs_20180521_RD.py 014_basecount.txt > 014_CpGs.txt
+python conversion_completeness_20180521_RD.py 014_basecount.txt > 014_conversion.txt
+python A_G_error_20180521_RD.py 014_basecount.txt > 014_error.txt
+samtools view -bS 015_bowtie.sam > 015_bowtie.bam
+samtools sort 015_bowtie.bam 015_bowtie_sorted
+samtools mpileup -d 200000 015_bowtie_sorted.bam > 015_mpileup.vcf
+python basecount_20180518_RD.py 015_mpileup.vcf >&015_basecount.txt
+python extract_CpGs_20180521_RD.py 015_basecount.txt > 015_CpGs.txt
+python conversion_completeness_20180521_RD.py 015_basecount.txt > 015_conversion.txt
+python A_G_error_20180521_RD.py 015_basecount.txt > 015_error.txt
+samtools view -bS 016_bowtie.sam > 016_bowtie.bam
+samtools sort 016_bowtie.bam 016_bowtie_sorted
+samtools mpileup -d 200000 016_bowtie_sorted.bam > 016_mpileup.vcf
+python basecount_20180518_RD.py 016_mpileup.vcf >&016_basecount.txt
+python extract_CpGs_20180521_RD.py 016_basecount.txt > 016_CpGs.txt
+python conversion_completeness_20180521_RD.py 016_basecount.txt > 016_conversion.txt
+python A_G_error_20180521_RD.py 016_basecount.txt > 016_error.txt
+samtools view -bS 017_bowtie.sam > 017_bowtie.bam
+samtools sort 017_bowtie.bam 017_bowtie_sorted
+samtools mpileup -d 200000 017_bowtie_sorted.bam > 017_mpileup.vcf
+python basecount_20180518_RD.py 017_mpileup.vcf >&017_basecount.txt
+python extract_CpGs_20180521_RD.py 017_basecount.txt > 017_CpGs.txt
+python conversion_completeness_20180521_RD.py 017_basecount.txt > 017_conversion.txt
+python A_G_error_20180521_RD.py 017_basecount.txt > 017_error.txt
+samtools view -bS 018_bowtie.sam > 018_bowtie.bam
+samtools sort 018_bowtie.bam 018_bowtie_sorted
+samtools mpileup -d 200000 018_bowtie_sorted.bam > 018_mpileup.vcf
+python basecount_20180518_RD.py 018_mpileup.vcf >&018_basecount.txt
+python extract_CpGs_20180521_RD.py 018_basecount.txt > 018_CpGs.txt
+python conversion_completeness_20180521_RD.py 018_basecount.txt > 018_conversion.txt
+python A_G_error_20180521_RD.py 018_basecount.txt > 018_error.txt
+samtools view -bS 019_bowtie.sam > 019_bowtie.bam
+samtools sort 019_bowtie.bam 019_bowtie_sorted
+samtools mpileup -d 200000 019_bowtie_sorted.bam > 019_mpileup.vcf
+python basecount_20180518_RD.py 019_mpileup.vcf >&019_basecount.txt
+python extract_CpGs_20180521_RD.py 019_basecount.txt > 019_CpGs.txt
+python conversion_completeness_20180521_RD.py 019_basecount.txt > 019_conversion.txt
+python A_G_error_20180521_RD.py 019_basecount.txt > 019_error.txt
+samtools view -bS 020_bowtie.sam > 020_bowtie.bam
+samtools sort 020_bowtie.bam 020_bowtie_sorted
+samtools mpileup -d 200000 020_bowtie_sorted.bam > 020_mpileup.vcf
+python basecount_20180518_RD.py 020_mpileup.vcf >&020_basecount.txt
+python extract_CpGs_20180521_RD.py 020_basecount.txt > 020_CpGs.txt
+python conversion_completeness_20180521_RD.py 020_basecount.txt > 020_conversion.txt
+python A_G_error_20180521_RD.py 020_basecount.txt > 020_error.txt
+samtools view -bS 061_bowtie.sam > 061_bowtie.bam
+samtools sort 061_bowtie.bam 061_bowtie_sorted
+samtools mpileup -d 200000 061_bowtie_sorted.bam > 061_mpileup.vcf
+python basecount_20180518_RD.py 061_mpileup.vcf >&061_basecount.txt
+python extract_CpGs_20180521_RD.py 061_basecount.txt > 061_CpGs.txt
+python conversion_completeness_20180521_RD.py 061_basecount.txt > 061_conversion.txt
+python A_G_error_20180521_RD.py 061_basecount.txt > 061_error.txt
+samtools view -bS 062_bowtie.sam > 062_bowtie.bam
+samtools sort 062_bowtie.bam 062_bowtie_sorted
+samtools mpileup -d 200000 062_bowtie_sorted.bam > 062_mpileup.vcf
+python basecount_20180518_RD.py 062_mpileup.vcf >&062_basecount.txt
+python extract_CpGs_20180521_RD.py 062_basecount.txt > 062_CpGs.txt
+python conversion_completeness_20180521_RD.py 062_basecount.txt > 062_conversion.txt
+python A_G_error_20180521_RD.py 062_basecount.txt > 062_error.txt
+samtools view -bS 063_bowtie.sam > 063_bowtie.bam
+samtools sort 063_bowtie.bam 063_bowtie_sorted
+samtools mpileup -d 200000 063_bowtie_sorted.bam > 063_mpileup.vcf
+python basecount_20180518_RD.py 063_mpileup.vcf >&063_basecount.txt
+python extract_CpGs_20180521_RD.py 063_basecount.txt > 063_CpGs.txt
+python conversion_completeness_20180521_RD.py 063_basecount.txt > 063_conversion.txt
+python A_G_error_20180521_RD.py 063_basecount.txt > 063_error.txt
+samtools view -bS 064_bowtie.sam > 064_bowtie.bam
+samtools sort 064_bowtie.bam 064_bowtie_sorted
+samtools mpileup -d 200000 064_bowtie_sorted.bam > 064_mpileup.vcf
+python basecount_20180518_RD.py 064_mpileup.vcf >&064_basecount.txt
+python extract_CpGs_20180521_RD.py 064_basecount.txt > 064_CpGs.txt
+python conversion_completeness_20180521_RD.py 064_basecount.txt > 064_conversion.txt
+python A_G_error_20180521_RD.py 064_basecount.txt > 064_error.txt
+samtools view -bS 065_bowtie.sam > 065_bowtie.bam
+samtools sort 065_bowtie.bam 065_bowtie_sorted
+samtools mpileup -d 200000 065_bowtie_sorted.bam > 065_mpileup.vcf
+python basecount_20180518_RD.py 065_mpileup.vcf >&065_basecount.txt
+python extract_CpGs_20180521_RD.py 065_basecount.txt > 065_CpGs.txt
+python conversion_completeness_20180521_RD.py 065_basecount.txt > 065_conversion.txt
+python A_G_error_20180521_RD.py 065_basecount.txt > 065_error.txt
+samtools view -bS 066_bowtie.sam > 066_bowtie.bam
+samtools sort 066_bowtie.bam 066_bowtie_sorted
+samtools mpileup -d 200000 066_bowtie_sorted.bam > 066_mpileup.vcf
+python basecount_20180518_RD.py 066_mpileup.vcf >&066_basecount.txt
+python extract_CpGs_20180521_RD.py 066_basecount.txt > 066_CpGs.txt
+python conversion_completeness_20180521_RD.py 066_basecount.txt > 066_conversion.txt
+python A_G_error_20180521_RD.py 066_basecount.txt > 066_error.txt
+samtools view -bS 067_bowtie.sam > 067_bowtie.bam
+samtools sort 067_bowtie.bam 067_bowtie_sorted
+samtools mpileup -d 200000 067_bowtie_sorted.bam > 067_mpileup.vcf
+python basecount_20180518_RD.py 067_mpileup.vcf >&067_basecount.txt
+python extract_CpGs_20180521_RD.py 067_basecount.txt > 067_CpGs.txt
+python conversion_completeness_20180521_RD.py 067_basecount.txt > 067_conversion.txt
+python A_G_error_20180521_RD.py 067_basecount.txt > 067_error.txt
+samtools view -bS 068_bowtie.sam > 068_bowtie.bam
+samtools sort 068_bowtie.bam 068_bowtie_sorted
+samtools mpileup -d 200000 068_bowtie_sorted.bam > 068_mpileup.vcf
+python basecount_20180518_RD.py 068_mpileup.vcf >&068_basecount.txt
+python extract_CpGs_20180521_RD.py 068_basecount.txt > 068_CpGs.txt
+python conversion_completeness_20180521_RD.py 068_basecount.txt > 068_conversion.txt
+python A_G_error_20180521_RD.py 068_basecount.txt > 068_error.txt
+samtools view -bS 115_bowtie.sam > 115_bowtie.bam
+samtools sort 115_bowtie.bam 115_bowtie_sorted
+samtools mpileup -d 200000 115_bowtie_sorted.bam > 115_mpileup.vcf
+python basecount_20180518_RD.py 115_mpileup.vcf >&115_basecount.txt
+python extract_CpGs_20180521_RD.py 115_basecount.txt > 115_CpGs.txt
+python conversion_completeness_20180521_RD.py 115_basecount.txt > 115_conversion.txt
+python A_G_error_20180521_RD.py 115_basecount.txt > 115_error.txt
+samtools view -bS 116_bowtie.sam > 116_bowtie.bam
+samtools sort 116_bowtie.bam 116_bowtie_sorted
+samtools mpileup -d 200000 116_bowtie_sorted.bam > 116_mpileup.vcf
+python basecount_20180518_RD.py 116_mpileup.vcf >&116_basecount.txt
+python extract_CpGs_20180521_RD.py 116_basecount.txt > 116_CpGs.txt
+python conversion_completeness_20180521_RD.py 116_basecount.txt > 116_conversion.txt
+python A_G_error_20180521_RD.py 116_basecount.txt > 116_error.txt
+samtools view -bS 117_bowtie.sam > 117_bowtie.bam
+samtools sort 117_bowtie.bam 117_bowtie_sorted
+samtools mpileup -d 200000 117_bowtie_sorted.bam > 117_mpileup.vcf
+python basecount_20180518_RD.py 117_mpileup.vcf >&117_basecount.txt
+python extract_CpGs_20180521_RD.py 117_basecount.txt > 117_CpGs.txt
+python conversion_completeness_20180521_RD.py 117_basecount.txt > 117_conversion.txt
+python A_G_error_20180521_RD.py 117_basecount.txt > 117_error.txt
+samtools view -bS 118_bowtie.sam > 118_bowtie.bam
+samtools sort 118_bowtie.bam 118_bowtie_sorted
+samtools mpileup -d 200000 118_bowtie_sorted.bam > 118_mpileup.vcf
+python basecount_20180518_RD.py 118_mpileup.vcf >&118_basecount.txt
+python extract_CpGs_20180521_RD.py 118_basecount.txt > 118_CpGs.txt
+python conversion_completeness_20180521_RD.py 118_basecount.txt > 118_conversion.txt
+python A_G_error_20180521_RD.py 118_basecount.txt > 118_error.txt
+samtools view -bS 119_bowtie.sam > 119_bowtie.bam
+samtools sort 119_bowtie.bam 119_bowtie_sorted
+samtools mpileup -d 200000 119_bowtie_sorted.bam > 119_mpileup.vcf
+python basecount_20180518_RD.py 119_mpileup.vcf >&119_basecount.txt
+python extract_CpGs_20180521_RD.py 119_basecount.txt > 119_CpGs.txt
+python conversion_completeness_20180521_RD.py 119_basecount.txt > 119_conversion.txt
+python A_G_error_20180521_RD.py 119_basecount.txt > 119_error.txt
+samtools view -bS 120_bowtie.sam > 120_bowtie.bam
+samtools sort 120_bowtie.bam 120_bowtie_sorted
+samtools mpileup -d 200000 120_bowtie_sorted.bam > 120_mpileup.vcf
+python basecount_20180518_RD.py 120_mpileup.vcf >&120_basecount.txt
+python extract_CpGs_20180521_RD.py 120_basecount.txt > 120_CpGs.txt
+python conversion_completeness_20180521_RD.py 120_basecount.txt > 120_conversion.txt
+python A_G_error_20180521_RD.py 120_basecount.txt > 120_error.txt
+samtools view -bS 121_bowtie.sam > 121_bowtie.bam
+samtools sort 121_bowtie.bam 121_bowtie_sorted
+samtools mpileup -d 200000 121_bowtie_sorted.bam > 121_mpileup.vcf
+python basecount_20180518_RD.py 121_mpileup.vcf >&121_basecount.txt
+python extract_CpGs_20180521_RD.py 121_basecount.txt > 121_CpGs.txt
+python conversion_completeness_20180521_RD.py 121_basecount.txt > 121_conversion.txt
+python A_G_error_20180521_RD.py 121_basecount.txt > 121_error.txt
+samtools view -bS 122_bowtie.sam > 122_bowtie.bam
+samtools sort 122_bowtie.bam 122_bowtie_sorted
+samtools mpileup -d 200000 122_bowtie_sorted.bam > 122_mpileup.vcf
+python basecount_20180518_RD.py 122_mpileup.vcf >&122_basecount.txt
+python extract_CpGs_20180521_RD.py 122_basecount.txt > 122_CpGs.txt
+python conversion_completeness_20180521_RD.py 122_basecount.txt > 122_conversion.txt
+python A_G_error_20180521_RD.py 122_basecount.txt > 122_error.txt
+samtools view -bS 123_bowtie.sam > 123_bowtie.bam
+samtools sort 123_bowtie.bam 123_bowtie_sorted
+samtools mpileup -d 200000 123_bowtie_sorted.bam > 123_mpileup.vcf
+python basecount_20180518_RD.py 123_mpileup.vcf >&123_basecount.txt
+python extract_CpGs_20180521_RD.py 123_basecount.txt > 123_CpGs.txt
+python conversion_completeness_20180521_RD.py 123_basecount.txt > 123_conversion.txt
+python A_G_error_20180521_RD.py 123_basecount.txt > 123_error.txt
+samtools view -bS 124_bowtie.sam > 124_bowtie.bam
+samtools sort 124_bowtie.bam 124_bowtie_sorted
+samtools mpileup -d 200000 124_bowtie_sorted.bam > 124_mpileup.vcf
+python basecount_20180518_RD.py 124_mpileup.vcf >&124_basecount.txt
+python extract_CpGs_20180521_RD.py 124_basecount.txt > 124_CpGs.txt
+python conversion_completeness_20180521_RD.py 124_basecount.txt > 124_conversion.txt
+python A_G_error_20180521_RD.py 124_basecount.txt > 124_error.txt
+samtools view -bS 126_bowtie.sam > 126_bowtie.bam
+samtools sort 126_bowtie.bam 126_bowtie_sorted
+samtools mpileup -d 200000 126_bowtie_sorted.bam > 126_mpileup.vcf
+python basecount_20180518_RD.py 126_mpileup.vcf >&126_basecount.txt
+python extract_CpGs_20180521_RD.py 126_basecount.txt > 126_CpGs.txt
+python conversion_completeness_20180521_RD.py 126_basecount.txt > 126_conversion.txt
+python A_G_error_20180521_RD.py 126_basecount.txt > 126_error.txt
+samtools view -bS 127_bowtie.sam > 127_bowtie.bam
+samtools sort 127_bowtie.bam 127_bowtie_sorted
+samtools mpileup -d 200000 127_bowtie_sorted.bam > 127_mpileup.vcf
+python basecount_20180518_RD.py 127_mpileup.vcf >&127_basecount.txt
+python extract_CpGs_20180521_RD.py 127_basecount.txt > 127_CpGs.txt
+python conversion_completeness_20180521_RD.py 127_basecount.txt > 127_conversion.txt
+python A_G_error_20180521_RD.py 127_basecount.txt > 127_error.txt
+samtools view -bS 128_bowtie.sam > 128_bowtie.bam
+samtools sort 128_bowtie.bam 128_bowtie_sorted
+samtools mpileup -d 200000 128_bowtie_sorted.bam > 128_mpileup.vcf
+python basecount_20180518_RD.py 128_mpileup.vcf >&128_basecount.txt
+python extract_CpGs_20180521_RD.py 128_basecount.txt > 128_CpGs.txt
+python conversion_completeness_20180521_RD.py 128_basecount.txt > 128_conversion.txt
+python A_G_error_20180521_RD.py 128_basecount.txt > 128_error.txt
+samtools view -bS 129_bowtie.sam > 129_bowtie.bam
+samtools sort 129_bowtie.bam 129_bowtie_sorted
+samtools mpileup -d 200000 129_bowtie_sorted.bam > 129_mpileup.vcf
+python basecount_20180518_RD.py 129_mpileup.vcf >&129_basecount.txt
+python extract_CpGs_20180521_RD.py 129_basecount.txt > 129_CpGs.txt
+python conversion_completeness_20180521_RD.py 129_basecount.txt > 129_conversion.txt
+python A_G_error_20180521_RD.py 129_basecount.txt > 129_error.txt
+samtools view -bS 130_bowtie.sam > 130_bowtie.bam
+samtools sort 130_bowtie.bam 130_bowtie_sorted
+samtools mpileup -d 200000 130_bowtie_sorted.bam > 130_mpileup.vcf
+python basecount_20180518_RD.py 130_mpileup.vcf >&130_basecount.txt
+python extract_CpGs_20180521_RD.py 130_basecount.txt > 130_CpGs.txt
+python conversion_completeness_20180521_RD.py 130_basecount.txt > 130_conversion.txt
+python A_G_error_20180521_RD.py 130_basecount.txt > 130_error.txt
+samtools view -bS 131_bowtie.sam > 131_bowtie.bam
+samtools sort 131_bowtie.bam 131_bowtie_sorted
+samtools mpileup -d 200000 131_bowtie_sorted.bam > 131_mpileup.vcf
+python basecount_20180518_RD.py 131_mpileup.vcf >&131_basecount.txt
+python extract_CpGs_20180521_RD.py 131_basecount.txt > 131_CpGs.txt
+python conversion_completeness_20180521_RD.py 131_basecount.txt > 131_conversion.txt
+python A_G_error_20180521_RD.py 131_basecount.txt > 131_error.txt
+samtools view -bS 132_bowtie.sam > 132_bowtie.bam
+samtools sort 132_bowtie.bam 132_bowtie_sorted
+samtools mpileup -d 200000 132_bowtie_sorted.bam > 132_mpileup.vcf
+python basecount_20180518_RD.py 132_mpileup.vcf >&132_basecount.txt
+python extract_CpGs_20180521_RD.py 132_basecount.txt > 132_CpGs.txt
+python conversion_completeness_20180521_RD.py 132_basecount.txt > 132_conversion.txt
+python A_G_error_20180521_RD.py 132_basecount.txt > 132_error.txt
+samtools view -bS 133_bowtie.sam > 133_bowtie.bam
+samtools sort 133_bowtie.bam 133_bowtie_sorted
+samtools mpileup -d 200000 133_bowtie_sorted.bam > 133_mpileup.vcf
+python basecount_20180518_RD.py 133_mpileup.vcf >&133_basecount.txt
+python extract_CpGs_20180521_RD.py 133_basecount.txt > 133_CpGs.txt
+python conversion_completeness_20180521_RD.py 133_basecount.txt > 133_conversion.txt
+python A_G_error_20180521_RD.py 133_basecount.txt > 133_error.txt
+samtools view -bS 134_bowtie.sam > 134_bowtie.bam
+samtools sort 134_bowtie.bam 134_bowtie_sorted
+samtools mpileup -d 200000 134_bowtie_sorted.bam > 134_mpileup.vcf
+python basecount_20180518_RD.py 134_mpileup.vcf >&134_basecount.txt
+python extract_CpGs_20180521_RD.py 134_basecount.txt > 134_CpGs.txt
+python conversion_completeness_20180521_RD.py 134_basecount.txt > 134_conversion.txt
+python A_G_error_20180521_RD.py 134_basecount.txt > 134_error.txt
+samtools view -bS 135_bowtie.sam > 135_bowtie.bam
+samtools sort 135_bowtie.bam 135_bowtie_sorted
+samtools mpileup -d 200000 135_bowtie_sorted.bam > 135_mpileup.vcf
+python basecount_20180518_RD.py 135_mpileup.vcf >&135_basecount.txt
+python extract_CpGs_20180521_RD.py 135_basecount.txt > 135_CpGs.txt
+python conversion_completeness_20180521_RD.py 135_basecount.txt > 135_conversion.txt
+python A_G_error_20180521_RD.py 135_basecount.txt > 135_error.txt
+samtools view -bS 136_bowtie.sam > 136_bowtie.bam
+samtools sort 136_bowtie.bam 136_bowtie_sorted
+samtools mpileup -d 200000 136_bowtie_sorted.bam > 136_mpileup.vcf
+python basecount_20180518_RD.py 136_mpileup.vcf >&136_basecount.txt
+python extract_CpGs_20180521_RD.py 136_basecount.txt > 136_CpGs.txt
+python conversion_completeness_20180521_RD.py 136_basecount.txt > 136_conversion.txt
+python A_G_error_20180521_RD.py 136_basecount.txt > 136_error.txt
+samtools view -bS 137_bowtie.sam > 137_bowtie.bam
+samtools sort 137_bowtie.bam 137_bowtie_sorted
+samtools mpileup -d 200000 137_bowtie_sorted.bam > 137_mpileup.vcf
+python basecount_20180518_RD.py 137_mpileup.vcf >&137_basecount.txt
+python extract_CpGs_20180521_RD.py 137_basecount.txt > 137_CpGs.txt
+python conversion_completeness_20180521_RD.py 137_basecount.txt > 137_conversion.txt
+python A_G_error_20180521_RD.py 137_basecount.txt > 137_error.txt
+samtools view -bS 138_bowtie.sam > 138_bowtie.bam
+samtools sort 138_bowtie.bam 138_bowtie_sorted
+samtools mpileup -d 200000 138_bowtie_sorted.bam > 138_mpileup.vcf
+python basecount_20180518_RD.py 138_mpileup.vcf >&138_basecount.txt
+python extract_CpGs_20180521_RD.py 138_basecount.txt > 138_CpGs.txt
+python conversion_completeness_20180521_RD.py 138_basecount.txt > 138_conversion.txt
+python A_G_error_20180521_RD.py 138_basecount.txt > 138_error.txt
+samtools view -bS 139_bowtie.sam > 139_bowtie.bam
+samtools sort 139_bowtie.bam 139_bowtie_sorted
+samtools mpileup -d 200000 139_bowtie_sorted.bam > 139_mpileup.vcf
+python basecount_20180518_RD.py 139_mpileup.vcf >&139_basecount.txt
+python extract_CpGs_20180521_RD.py 139_basecount.txt > 139_CpGs.txt
+python conversion_completeness_20180521_RD.py 139_basecount.txt > 139_conversion.txt
+python A_G_error_20180521_RD.py 139_basecount.txt > 139_error.txt
+samtools view -bS 140_bowtie.sam > 140_bowtie.bam
+samtools sort 140_bowtie.bam 140_bowtie_sorted
+samtools mpileup -d 200000 140_bowtie_sorted.bam > 140_mpileup.vcf
+python basecount_20180518_RD.py 140_mpileup.vcf >&140_basecount.txt
+python extract_CpGs_20180521_RD.py 140_basecount.txt > 140_CpGs.txt
+python conversion_completeness_20180521_RD.py 140_basecount.txt > 140_conversion.txt
+python A_G_error_20180521_RD.py 140_basecount.txt > 140_error.txt
+samtools view -bS 141_bowtie.sam > 141_bowtie.bam
+samtools sort 141_bowtie.bam 141_bowtie_sorted
+samtools mpileup -d 200000 141_bowtie_sorted.bam > 141_mpileup.vcf
+python basecount_20180518_RD.py 141_mpileup.vcf >&141_basecount.txt
+python extract_CpGs_20180521_RD.py 141_basecount.txt > 141_CpGs.txt
+python conversion_completeness_20180521_RD.py 141_basecount.txt > 141_conversion.txt
+python A_G_error_20180521_RD.py 141_basecount.txt > 141_error.txt
+samtools view -bS 142_bowtie.sam > 142_bowtie.bam
+samtools sort 142_bowtie.bam 142_bowtie_sorted
+samtools mpileup -d 200000 142_bowtie_sorted.bam > 142_mpileup.vcf
+python basecount_20180518_RD.py 142_mpileup.vcf >&142_basecount.txt
+python extract_CpGs_20180521_RD.py 142_basecount.txt > 142_CpGs.txt
+python conversion_completeness_20180521_RD.py 142_basecount.txt > 142_conversion.txt
+python A_G_error_20180521_RD.py 142_basecount.txt > 142_error.txt
+samtools view -bS 143_bowtie.sam > 143_bowtie.bam
+samtools sort 143_bowtie.bam 143_bowtie_sorted
+samtools mpileup -d 200000 143_bowtie_sorted.bam > 143_mpileup.vcf
+python basecount_20180518_RD.py 143_mpileup.vcf >&143_basecount.txt
+python extract_CpGs_20180521_RD.py 143_basecount.txt > 143_CpGs.txt
+python conversion_completeness_20180521_RD.py 143_basecount.txt > 143_conversion.txt
+python A_G_error_20180521_RD.py 143_basecount.txt > 143_error.txt
+samtools view -bS 144_bowtie.sam > 144_bowtie.bam
+samtools sort 144_bowtie.bam 144_bowtie_sorted
+samtools mpileup -d 200000 144_bowtie_sorted.bam > 144_mpileup.vcf
+python basecount_20180518_RD.py 144_mpileup.vcf >&144_basecount.txt
+python extract_CpGs_20180521_RD.py 144_basecount.txt > 144_CpGs.txt
+python conversion_completeness_20180521_RD.py 144_basecount.txt > 144_conversion.txt
+python A_G_error_20180521_RD.py 144_basecount.txt > 144_error.txt
+samtools view -bS 145_bowtie.sam > 145_bowtie.bam
+samtools sort 145_bowtie.bam 145_bowtie_sorted
+samtools mpileup -d 200000 145_bowtie_sorted.bam > 145_mpileup.vcf
+python basecount_20180518_RD.py 145_mpileup.vcf >&145_basecount.txt
+python extract_CpGs_20180521_RD.py 145_basecount.txt > 145_CpGs.txt
+python conversion_completeness_20180521_RD.py 145_basecount.txt > 145_conversion.txt
+python A_G_error_20180521_RD.py 145_basecount.txt > 145_error.txt
+samtools view -bS 146_bowtie.sam > 146_bowtie.bam
+samtools sort 146_bowtie.bam 146_bowtie_sorted
+samtools mpileup -d 200000 146_bowtie_sorted.bam > 146_mpileup.vcf
+python basecount_20180518_RD.py 146_mpileup.vcf >&146_basecount.txt
+python extract_CpGs_20180521_RD.py 146_basecount.txt > 146_CpGs.txt
+python conversion_completeness_20180521_RD.py 146_basecount.txt > 146_conversion.txt
+python A_G_error_20180521_RD.py 146_basecount.txt > 146_error.txt
+samtools view -bS 147_bowtie.sam > 147_bowtie.bam
+samtools sort 147_bowtie.bam 147_bowtie_sorted
+samtools mpileup -d 200000 147_bowtie_sorted.bam > 147_mpileup.vcf
+python basecount_20180518_RD.py 147_mpileup.vcf >&147_basecount.txt
+python extract_CpGs_20180521_RD.py 147_basecount.txt > 147_CpGs.txt
+python conversion_completeness_20180521_RD.py 147_basecount.txt > 147_conversion.txt
+python A_G_error_20180521_RD.py 147_basecount.txt > 147_error.txt
+samtools view -bS 148_bowtie.sam > 148_bowtie.bam
+samtools sort 148_bowtie.bam 148_bowtie_sorted
+samtools mpileup -d 200000 148_bowtie_sorted.bam > 148_mpileup.vcf
+python basecount_20180518_RD.py 148_mpileup.vcf >&148_basecount.txt
+python extract_CpGs_20180521_RD.py 148_basecount.txt > 148_CpGs.txt
+python conversion_completeness_20180521_RD.py 148_basecount.txt > 148_conversion.txt
+python A_G_error_20180521_RD.py 148_basecount.txt > 148_error.txt
+samtools view -bS 149_bowtie.sam > 149_bowtie.bam
+samtools sort 149_bowtie.bam 149_bowtie_sorted
+samtools mpileup -d 200000 149_bowtie_sorted.bam > 149_mpileup.vcf
+python basecount_20180518_RD.py 149_mpileup.vcf >&149_basecount.txt
+python extract_CpGs_20180521_RD.py 149_basecount.txt > 149_CpGs.txt
+python conversion_completeness_20180521_RD.py 149_basecount.txt > 149_conversion.txt
+python A_G_error_20180521_RD.py 149_basecount.txt > 149_error.txt
+samtools view -bS 150_bowtie.sam > 150_bowtie.bam
+samtools sort 150_bowtie.bam 150_bowtie_sorted
+samtools mpileup -d 200000 150_bowtie_sorted.bam > 150_mpileup.vcf
+python basecount_20180518_RD.py 150_mpileup.vcf >&150_basecount.txt
+python extract_CpGs_20180521_RD.py 150_basecount.txt > 150_CpGs.txt
+python conversion_completeness_20180521_RD.py 150_basecount.txt > 150_conversion.txt
+python A_G_error_20180521_RD.py 150_basecount.txt > 150_error.txt
+samtools view -bS 151_bowtie.sam > 151_bowtie.bam
+samtools sort 151_bowtie.bam 151_bowtie_sorted
+samtools mpileup -d 200000 151_bowtie_sorted.bam > 151_mpileup.vcf
+python basecount_20180518_RD.py 151_mpileup.vcf >&151_basecount.txt
+python extract_CpGs_20180521_RD.py 151_basecount.txt > 151_CpGs.txt
+python conversion_completeness_20180521_RD.py 151_basecount.txt > 151_conversion.txt
+python A_G_error_20180521_RD.py 151_basecount.txt > 151_error.txt
+samtools view -bS 152_bowtie.sam > 152_bowtie.bam
+samtools sort 152_bowtie.bam 152_bowtie_sorted
+samtools mpileup -d 200000 152_bowtie_sorted.bam > 152_mpileup.vcf
+python basecount_20180518_RD.py 152_mpileup.vcf >&152_basecount.txt
+python extract_CpGs_20180521_RD.py 152_basecount.txt > 152_CpGs.txt
+python conversion_completeness_20180521_RD.py 152_basecount.txt > 152_conversion.txt
+python A_G_error_20180521_RD.py 152_basecount.txt > 152_error.txt
+samtools view -bS 153_bowtie.sam > 153_bowtie.bam
+samtools sort 153_bowtie.bam 153_bowtie_sorted
+samtools mpileup -d 200000 153_bowtie_sorted.bam > 153_mpileup.vcf
+python basecount_20180518_RD.py 153_mpileup.vcf >&153_basecount.txt
+python extract_CpGs_20180521_RD.py 153_basecount.txt > 153_CpGs.txt
+python conversion_completeness_20180521_RD.py 153_basecount.txt > 153_conversion.txt
+python A_G_error_20180521_RD.py 153_basecount.txt > 153_error.txt
+samtools view -bS 154_bowtie.sam > 154_bowtie.bam
+samtools sort 154_bowtie.bam 154_bowtie_sorted
+samtools mpileup -d 200000 154_bowtie_sorted.bam > 154_mpileup.vcf
+python basecount_20180518_RD.py 154_mpileup.vcf >&154_basecount.txt
+python extract_CpGs_20180521_RD.py 154_basecount.txt > 154_CpGs.txt
+python conversion_completeness_20180521_RD.py 154_basecount.txt > 154_conversion.txt
+python A_G_error_20180521_RD.py 154_basecount.txt > 154_error.txt
+samtools view -bS 155_bowtie.sam > 155_bowtie.bam
+samtools sort 155_bowtie.bam 155_bowtie_sorted
+samtools mpileup -d 200000 155_bowtie_sorted.bam > 155_mpileup.vcf
+python basecount_20180518_RD.py 155_mpileup.vcf >&155_basecount.txt
+python extract_CpGs_20180521_RD.py 155_basecount.txt > 155_CpGs.txt
+python conversion_completeness_20180521_RD.py 155_basecount.txt > 155_conversion.txt
+python A_G_error_20180521_RD.py 155_basecount.txt > 155_error.txt
+samtools view -bS 156_bowtie.sam > 156_bowtie.bam
+samtools sort 156_bowtie.bam 156_bowtie_sorted
+samtools mpileup -d 200000 156_bowtie_sorted.bam > 156_mpileup.vcf
+python basecount_20180518_RD.py 156_mpileup.vcf >&156_basecount.txt
+python extract_CpGs_20180521_RD.py 156_basecount.txt > 156_CpGs.txt
+python conversion_completeness_20180521_RD.py 156_basecount.txt > 156_conversion.txt
+python A_G_error_20180521_RD.py 156_basecount.txt > 156_error.txt
+samtools view -bS 157_bowtie.sam > 157_bowtie.bam
+samtools sort 157_bowtie.bam 157_bowtie_sorted
+samtools mpileup -d 200000 157_bowtie_sorted.bam > 157_mpileup.vcf
+python basecount_20180518_RD.py 157_mpileup.vcf >&157_basecount.txt
+python extract_CpGs_20180521_RD.py 157_basecount.txt > 157_CpGs.txt
+python conversion_completeness_20180521_RD.py 157_basecount.txt > 157_conversion.txt
+python A_G_error_20180521_RD.py 157_basecount.txt > 157_error.txt
+samtools view -bS 158_bowtie.sam > 158_bowtie.bam
+samtools sort 158_bowtie.bam 158_bowtie_sorted
+samtools mpileup -d 200000 158_bowtie_sorted.bam > 158_mpileup.vcf
+python basecount_20180518_RD.py 158_mpileup.vcf >&158_basecount.txt
+python extract_CpGs_20180521_RD.py 158_basecount.txt > 158_CpGs.txt
+python conversion_completeness_20180521_RD.py 158_basecount.txt > 158_conversion.txt
+python A_G_error_20180521_RD.py 158_basecount.txt > 158_error.txt
+samtools view -bS 159_bowtie.sam > 159_bowtie.bam
+samtools sort 159_bowtie.bam 159_bowtie_sorted
+samtools mpileup -d 200000 159_bowtie_sorted.bam > 159_mpileup.vcf
+python basecount_20180518_RD.py 159_mpileup.vcf >&159_basecount.txt
+python extract_CpGs_20180521_RD.py 159_basecount.txt > 159_CpGs.txt
+python conversion_completeness_20180521_RD.py 159_basecount.txt > 159_conversion.txt
+python A_G_error_20180521_RD.py 159_basecount.txt > 159_error.txt
+samtools view -bS 160_bowtie.sam > 160_bowtie.bam
+samtools sort 160_bowtie.bam 160_bowtie_sorted
+samtools mpileup -d 200000 160_bowtie_sorted.bam > 160_mpileup.vcf
+python basecount_20180518_RD.py 160_mpileup.vcf >&160_basecount.txt
+python extract_CpGs_20180521_RD.py 160_basecount.txt > 160_CpGs.txt
+python conversion_completeness_20180521_RD.py 160_basecount.txt > 160_conversion.txt
+python A_G_error_20180521_RD.py 160_basecount.txt > 160_error.txt
+samtools view -bS 161_bowtie.sam > 161_bowtie.bam
+samtools sort 161_bowtie.bam 161_bowtie_sorted
+samtools mpileup -d 200000 161_bowtie_sorted.bam > 161_mpileup.vcf
+python basecount_20180518_RD.py 161_mpileup.vcf >&161_basecount.txt
+python extract_CpGs_20180521_RD.py 161_basecount.txt > 161_CpGs.txt
+python conversion_completeness_20180521_RD.py 161_basecount.txt > 161_conversion.txt
+python A_G_error_20180521_RD.py 161_basecount.txt > 161_error.txt
+samtools view -bS 162_bowtie.sam > 162_bowtie.bam
+samtools sort 162_bowtie.bam 162_bowtie_sorted
+samtools mpileup -d 200000 162_bowtie_sorted.bam > 162_mpileup.vcf
+python basecount_20180518_RD.py 162_mpileup.vcf >&162_basecount.txt
+python extract_CpGs_20180521_RD.py 162_basecount.txt > 162_CpGs.txt
+python conversion_completeness_20180521_RD.py 162_basecount.txt > 162_conversion.txt
+python A_G_error_20180521_RD.py 162_basecount.txt > 162_error.txt
+samtools view -bS 163_bowtie.sam > 163_bowtie.bam
+samtools sort 163_bowtie.bam 163_bowtie_sorted
+samtools mpileup -d 200000 163_bowtie_sorted.bam > 163_mpileup.vcf
+python basecount_20180518_RD.py 163_mpileup.vcf >&163_basecount.txt
+python extract_CpGs_20180521_RD.py 163_basecount.txt > 163_CpGs.txt
+python conversion_completeness_20180521_RD.py 163_basecount.txt > 163_conversion.txt
+python A_G_error_20180521_RD.py 163_basecount.txt > 163_error.txt
+samtools view -bS 164_bowtie.sam > 164_bowtie.bam
+samtools sort 164_bowtie.bam 164_bowtie_sorted
+samtools mpileup -d 200000 164_bowtie_sorted.bam > 164_mpileup.vcf
+python basecount_20180518_RD.py 164_mpileup.vcf >&164_basecount.txt
+python extract_CpGs_20180521_RD.py 164_basecount.txt > 164_CpGs.txt
+python conversion_completeness_20180521_RD.py 164_basecount.txt > 164_conversion.txt
+python A_G_error_20180521_RD.py 164_basecount.txt > 164_error.txt
+samtools view -bS 213_bowtie.sam > 213_bowtie.bam
+samtools sort 213_bowtie.bam 213_bowtie_sorted
+samtools mpileup -d 200000 213_bowtie_sorted.bam > 213_mpileup.vcf
+python basecount_20180518_RD.py 213_mpileup.vcf >&213_basecount.txt
+python extract_CpGs_20180521_RD.py 213_basecount.txt > 213_CpGs.txt
+python conversion_completeness_20180521_RD.py 213_basecount.txt > 213_conversion.txt
+python A_G_error_20180521_RD.py 213_basecount.txt > 213_error.txt
+samtools view -bS 214_bowtie.sam > 214_bowtie.bam
+samtools sort 214_bowtie.bam 214_bowtie_sorted
+samtools mpileup -d 200000 214_bowtie_sorted.bam > 214_mpileup.vcf
+python basecount_20180518_RD.py 214_mpileup.vcf >&214_basecount.txt
+python extract_CpGs_20180521_RD.py 214_basecount.txt > 214_CpGs.txt
+python conversion_completeness_20180521_RD.py 214_basecount.txt > 214_conversion.txt
+python A_G_error_20180521_RD.py 214_basecount.txt > 214_error.txt
+samtools view -bS 215_bowtie.sam > 215_bowtie.bam
+samtools sort 215_bowtie.bam 215_bowtie_sorted
+samtools mpileup -d 200000 215_bowtie_sorted.bam > 215_mpileup.vcf
+python basecount_20180518_RD.py 215_mpileup.vcf >&215_basecount.txt
+python extract_CpGs_20180521_RD.py 215_basecount.txt > 215_CpGs.txt
+python conversion_completeness_20180521_RD.py 215_basecount.txt > 215_conversion.txt
+python A_G_error_20180521_RD.py 215_basecount.txt > 215_error.txt
+samtools view -bS 216_bowtie.sam > 216_bowtie.bam
+samtools sort 216_bowtie.bam 216_bowtie_sorted
+samtools mpileup -d 200000 216_bowtie_sorted.bam > 216_mpileup.vcf
+python basecount_20180518_RD.py 216_mpileup.vcf >&216_basecount.txt
+python extract_CpGs_20180521_RD.py 216_basecount.txt > 216_CpGs.txt
+python conversion_completeness_20180521_RD.py 216_basecount.txt > 216_conversion.txt
+python A_G_error_20180521_RD.py 216_basecount.txt > 216_error.txt
+samtools view -bS 217_bowtie.sam > 217_bowtie.bam
+samtools sort 217_bowtie.bam 217_bowtie_sorted
+samtools mpileup -d 200000 217_bowtie_sorted.bam > 217_mpileup.vcf
+python basecount_20180518_RD.py 217_mpileup.vcf >&217_basecount.txt
+python extract_CpGs_20180521_RD.py 217_basecount.txt > 217_CpGs.txt
+python conversion_completeness_20180521_RD.py 217_basecount.txt > 217_conversion.txt
+python A_G_error_20180521_RD.py 217_basecount.txt > 217_error.txt
+samtools view -bS 218_bowtie.sam > 218_bowtie.bam
+samtools sort 218_bowtie.bam 218_bowtie_sorted
+samtools mpileup -d 200000 218_bowtie_sorted.bam > 218_mpileup.vcf
+python basecount_20180518_RD.py 218_mpileup.vcf >&218_basecount.txt
+python extract_CpGs_20180521_RD.py 218_basecount.txt > 218_CpGs.txt
+python conversion_completeness_20180521_RD.py 218_basecount.txt > 218_conversion.txt
+python A_G_error_20180521_RD.py 218_basecount.txt > 218_error.txt
+samtools view -bS 219_bowtie.sam > 219_bowtie.bam
+samtools sort 219_bowtie.bam 219_bowtie_sorted
+samtools mpileup -d 200000 219_bowtie_sorted.bam > 219_mpileup.vcf
+python basecount_20180518_RD.py 219_mpileup.vcf >&219_basecount.txt
+python extract_CpGs_20180521_RD.py 219_basecount.txt > 219_CpGs.txt
+python conversion_completeness_20180521_RD.py 219_basecount.txt > 219_conversion.txt
+python A_G_error_20180521_RD.py 219_basecount.txt > 219_error.txt
+samtools view -bS 220_bowtie.sam > 220_bowtie.bam
+samtools sort 220_bowtie.bam 220_bowtie_sorted
+samtools mpileup -d 200000 220_bowtie_sorted.bam > 220_mpileup.vcf
+python basecount_20180518_RD.py 220_mpileup.vcf >&220_basecount.txt
+python extract_CpGs_20180521_RD.py 220_basecount.txt > 220_CpGs.txt
+python conversion_completeness_20180521_RD.py 220_basecount.txt > 220_conversion.txt
+python A_G_error_20180521_RD.py 220_basecount.txt > 220_error.txt
+samtools view -bS 283_bowtie.sam > 283_bowtie.bam
+samtools sort 283_bowtie.bam 283_bowtie_sorted
+samtools mpileup -d 200000 283_bowtie_sorted.bam > 283_mpileup.vcf
+python basecount_20180518_RD.py 283_mpileup.vcf >&283_basecount.txt
+python extract_CpGs_20180521_RD.py 283_basecount.txt > 283_CpGs.txt
+python conversion_completeness_20180521_RD.py 283_basecount.txt > 283_conversion.txt
+python A_G_error_20180521_RD.py 283_basecount.txt > 283_error.txt
+samtools view -bS 284_bowtie.sam > 284_bowtie.bam
+samtools sort 284_bowtie.bam 284_bowtie_sorted
+samtools mpileup -d 200000 284_bowtie_sorted.bam > 284_mpileup.vcf
+python basecount_20180518_RD.py 284_mpileup.vcf >&284_basecount.txt
+python extract_CpGs_20180521_RD.py 284_basecount.txt > 284_CpGs.txt
+python conversion_completeness_20180521_RD.py 284_basecount.txt > 284_conversion.txt
+python A_G_error_20180521_RD.py 284_basecount.txt > 284_error.txt
+samtools view -bS 285_bowtie.sam > 285_bowtie.bam
+samtools sort 285_bowtie.bam 285_bowtie_sorted
+samtools mpileup -d 200000 285_bowtie_sorted.bam > 285_mpileup.vcf
+python basecount_20180518_RD.py 285_mpileup.vcf >&285_basecount.txt
+python extract_CpGs_20180521_RD.py 285_basecount.txt > 285_CpGs.txt
+python conversion_completeness_20180521_RD.py 285_basecount.txt > 285_conversion.txt
+python A_G_error_20180521_RD.py 285_basecount.txt > 285_error.txt
+samtools view -bS 286_bowtie.sam > 286_bowtie.bam
+samtools sort 286_bowtie.bam 286_bowtie_sorted
+samtools mpileup -d 200000 286_bowtie_sorted.bam > 286_mpileup.vcf
+python basecount_20180518_RD.py 286_mpileup.vcf >&286_basecount.txt
+python extract_CpGs_20180521_RD.py 286_basecount.txt > 286_CpGs.txt
+python conversion_completeness_20180521_RD.py 286_basecount.txt > 286_conversion.txt
+python A_G_error_20180521_RD.py 286_basecount.txt > 286_error.txt
+samtools view -bS 287_bowtie.sam > 287_bowtie.bam
+samtools sort 287_bowtie.bam 287_bowtie_sorted
+samtools mpileup -d 200000 287_bowtie_sorted.bam > 287_mpileup.vcf
+python basecount_20180518_RD.py 287_mpileup.vcf >&287_basecount.txt
+python extract_CpGs_20180521_RD.py 287_basecount.txt > 287_CpGs.txt
+python conversion_completeness_20180521_RD.py 287_basecount.txt > 287_conversion.txt
+python A_G_error_20180521_RD.py 287_basecount.txt > 287_error.txt
+samtools view -bS 288_bowtie.sam > 288_bowtie.bam
+samtools sort 288_bowtie.bam 288_bowtie_sorted
+samtools mpileup -d 200000 288_bowtie_sorted.bam > 288_mpileup.vcf
+python basecount_20180518_RD.py 288_mpileup.vcf >&288_basecount.txt
+python extract_CpGs_20180521_RD.py 288_basecount.txt > 288_CpGs.txt
+python conversion_completeness_20180521_RD.py 288_basecount.txt > 288_conversion.txt
+python A_G_error_20180521_RD.py 288_basecount.txt > 288_error.txt
+samtools view -bS 289_bowtie.sam > 289_bowtie.bam
+samtools sort 289_bowtie.bam 289_bowtie_sorted
+samtools mpileup -d 200000 289_bowtie_sorted.bam > 289_mpileup.vcf
+python basecount_20180518_RD.py 289_mpileup.vcf >&289_basecount.txt
+python extract_CpGs_20180521_RD.py 289_basecount.txt > 289_CpGs.txt
+python conversion_completeness_20180521_RD.py 289_basecount.txt > 289_conversion.txt
+python A_G_error_20180521_RD.py 289_basecount.txt > 289_error.txt
+samtools view -bS 290_bowtie.sam > 290_bowtie.bam
+samtools sort 290_bowtie.bam 290_bowtie_sorted
+samtools mpileup -d 200000 290_bowtie_sorted.bam > 290_mpileup.vcf
+python basecount_20180518_RD.py 290_mpileup.vcf >&290_basecount.txt
+python extract_CpGs_20180521_RD.py 290_basecount.txt > 290_CpGs.txt
+python conversion_completeness_20180521_RD.py 290_basecount.txt > 290_conversion.txt
+python A_G_error_20180521_RD.py 290_basecount.txt > 290_error.txt
+samtools view -bS 291_bowtie.sam > 291_bowtie.bam
+samtools sort 291_bowtie.bam 291_bowtie_sorted
+samtools mpileup -d 200000 291_bowtie_sorted.bam > 291_mpileup.vcf
+python basecount_20180518_RD.py 291_mpileup.vcf >&291_basecount.txt
+python extract_CpGs_20180521_RD.py 291_basecount.txt > 291_CpGs.txt
+python conversion_completeness_20180521_RD.py 291_basecount.txt > 291_conversion.txt
+python A_G_error_20180521_RD.py 291_basecount.txt > 291_error.txt
+samtools view -bS 292_bowtie.sam > 292_bowtie.bam
+samtools sort 292_bowtie.bam 292_bowtie_sorted
+samtools mpileup -d 200000 292_bowtie_sorted.bam > 292_mpileup.vcf
+python basecount_20180518_RD.py 292_mpileup.vcf >&292_basecount.txt
+python extract_CpGs_20180521_RD.py 292_basecount.txt > 292_CpGs.txt
+python conversion_completeness_20180521_RD.py 292_basecount.txt > 292_conversion.txt
+python A_G_error_20180521_RD.py 292_basecount.txt > 292_error.txt
+samtools view -bS 629_bowtie.sam > 629_bowtie.bam
+samtools sort 629_bowtie.bam 629_bowtie_sorted
+samtools mpileup -d 200000 629_bowtie_sorted.bam > 629_mpileup.vcf
+python basecount_20180518_RD.py 629_mpileup.vcf >&629_basecount.txt
+python extract_CpGs_20180521_RD.py 629_basecount.txt > 629_CpGs.txt
+python conversion_completeness_20180521_RD.py 629_basecount.txt > 629_conversion.txt
+python A_G_error_20180521_RD.py 629_basecount.txt > 629_error.txt
+samtools view -bS 630_bowtie.sam > 630_bowtie.bam
+samtools sort 630_bowtie.bam 630_bowtie_sorted
+samtools mpileup -d 200000 630_bowtie_sorted.bam > 630_mpileup.vcf
+python basecount_20180518_RD.py 630_mpileup.vcf >&630_basecount.txt
+python extract_CpGs_20180521_RD.py 630_basecount.txt > 630_CpGs.txt
+python conversion_completeness_20180521_RD.py 630_basecount.txt > 630_conversion.txt
+python A_G_error_20180521_RD.py 630_basecount.txt > 630_error.txt
+samtools view -bS 631_bowtie.sam > 631_bowtie.bam
+samtools sort 631_bowtie.bam 631_bowtie_sorted
+samtools mpileup -d 200000 631_bowtie_sorted.bam > 631_mpileup.vcf
+python basecount_20180518_RD.py 631_mpileup.vcf >&631_basecount.txt
+python extract_CpGs_20180521_RD.py 631_basecount.txt > 631_CpGs.txt
+python conversion_completeness_20180521_RD.py 631_basecount.txt > 631_conversion.txt
+python A_G_error_20180521_RD.py 631_basecount.txt > 631_error.txt
+samtools view -bS 632_bowtie.sam > 632_bowtie.bam
+samtools sort 632_bowtie.bam 632_bowtie_sorted
+samtools mpileup -d 200000 632_bowtie_sorted.bam > 632_mpileup.vcf
+python basecount_20180518_RD.py 632_mpileup.vcf >&632_basecount.txt
+python extract_CpGs_20180521_RD.py 632_basecount.txt > 632_CpGs.txt
+python conversion_completeness_20180521_RD.py 632_basecount.txt > 632_conversion.txt
+python A_G_error_20180521_RD.py 632_basecount.txt > 632_error.txt
+samtools view -bS 633_bowtie.sam > 633_bowtie.bam
+samtools sort 633_bowtie.bam 633_bowtie_sorted
+samtools mpileup -d 200000 633_bowtie_sorted.bam > 633_mpileup.vcf
+python basecount_20180518_RD.py 633_mpileup.vcf >&633_basecount.txt
+python extract_CpGs_20180521_RD.py 633_basecount.txt > 633_CpGs.txt
+python conversion_completeness_20180521_RD.py 633_basecount.txt > 633_conversion.txt
+python A_G_error_20180521_RD.py 633_basecount.txt > 633_error.txt
+samtools view -bS 634_bowtie.sam > 634_bowtie.bam
+samtools sort 634_bowtie.bam 634_bowtie_sorted
+samtools mpileup -d 200000 634_bowtie_sorted.bam > 634_mpileup.vcf
+python basecount_20180518_RD.py 634_mpileup.vcf >&634_basecount.txt
+python extract_CpGs_20180521_RD.py 634_basecount.txt > 634_CpGs.txt
+python conversion_completeness_20180521_RD.py 634_basecount.txt > 634_conversion.txt
+python A_G_error_20180521_RD.py 634_basecount.txt > 634_error.txt
+samtools view -bS 635_bowtie.sam > 635_bowtie.bam
+samtools sort 635_bowtie.bam 635_bowtie_sorted
+samtools mpileup -d 200000 635_bowtie_sorted.bam > 635_mpileup.vcf
+python basecount_20180518_RD.py 635_mpileup.vcf >&635_basecount.txt
+python extract_CpGs_20180521_RD.py 635_basecount.txt > 635_CpGs.txt
+python conversion_completeness_20180521_RD.py 635_basecount.txt > 635_conversion.txt
+python A_G_error_20180521_RD.py 635_basecount.txt > 635_error.txt
+samtools view -bS 636_bowtie.sam > 636_bowtie.bam
+samtools sort 636_bowtie.bam 636_bowtie_sorted
+samtools mpileup -d 200000 636_bowtie_sorted.bam > 636_mpileup.vcf
+python basecount_20180518_RD.py 636_mpileup.vcf >&636_basecount.txt
+python extract_CpGs_20180521_RD.py 636_basecount.txt > 636_CpGs.txt
+python conversion_completeness_20180521_RD.py 636_basecount.txt > 636_conversion.txt
+python A_G_error_20180521_RD.py 636_basecount.txt > 636_error.txt
+samtools view -bS 637_bowtie.sam > 637_bowtie.bam
+samtools sort 637_bowtie.bam 637_bowtie_sorted
+samtools mpileup -d 200000 637_bowtie_sorted.bam > 637_mpileup.vcf
+python basecount_20180518_RD.py 637_mpileup.vcf >&637_basecount.txt
+python extract_CpGs_20180521_RD.py 637_basecount.txt > 637_CpGs.txt
+python conversion_completeness_20180521_RD.py 637_basecount.txt > 637_conversion.txt
+python A_G_error_20180521_RD.py 637_basecount.txt > 637_error.txt
+samtools view -bS 638_bowtie.sam > 638_bowtie.bam
+samtools sort 638_bowtie.bam 638_bowtie_sorted
+samtools mpileup -d 200000 638_bowtie_sorted.bam > 638_mpileup.vcf
+python basecount_20180518_RD.py 638_mpileup.vcf >&638_basecount.txt
+python extract_CpGs_20180521_RD.py 638_basecount.txt > 638_CpGs.txt
+python conversion_completeness_20180521_RD.py 638_basecount.txt > 638_conversion.txt
+python A_G_error_20180521_RD.py 638_basecount.txt > 638_error.txt
+samtools view -bS 639_bowtie.sam > 639_bowtie.bam
+samtools sort 639_bowtie.bam 639_bowtie_sorted
+samtools mpileup -d 200000 639_bowtie_sorted.bam > 639_mpileup.vcf
+python basecount_20180518_RD.py 639_mpileup.vcf >&639_basecount.txt
+python extract_CpGs_20180521_RD.py 639_basecount.txt > 639_CpGs.txt
+python conversion_completeness_20180521_RD.py 639_basecount.txt > 639_conversion.txt
+python A_G_error_20180521_RD.py 639_basecount.txt > 639_error.txt
+samtools view -bS 640_bowtie.sam > 640_bowtie.bam
+samtools sort 640_bowtie.bam 640_bowtie_sorted
+samtools mpileup -d 200000 640_bowtie_sorted.bam > 640_mpileup.vcf
+python basecount_20180518_RD.py 640_mpileup.vcf >&640_basecount.txt
+python extract_CpGs_20180521_RD.py 640_basecount.txt > 640_CpGs.txt
+python conversion_completeness_20180521_RD.py 640_basecount.txt > 640_conversion.txt
+python A_G_error_20180521_RD.py 640_basecount.txt > 640_error.txt
+samtools view -bS 641_bowtie.sam > 641_bowtie.bam
+samtools sort 641_bowtie.bam 641_bowtie_sorted
+samtools mpileup -d 200000 641_bowtie_sorted.bam > 641_mpileup.vcf
+python basecount_20180518_RD.py 641_mpileup.vcf >&641_basecount.txt
+python extract_CpGs_20180521_RD.py 641_basecount.txt > 641_CpGs.txt
+python conversion_completeness_20180521_RD.py 641_basecount.txt > 641_conversion.txt
+python A_G_error_20180521_RD.py 641_basecount.txt > 641_error.txt
+samtools view -bS 642_bowtie.sam > 642_bowtie.bam
+samtools sort 642_bowtie.bam 642_bowtie_sorted
+samtools mpileup -d 200000 642_bowtie_sorted.bam > 642_mpileup.vcf
+python basecount_20180518_RD.py 642_mpileup.vcf >&642_basecount.txt
+python extract_CpGs_20180521_RD.py 642_basecount.txt > 642_CpGs.txt
+python conversion_completeness_20180521_RD.py 642_basecount.txt > 642_conversion.txt
+python A_G_error_20180521_RD.py 642_basecount.txt > 642_error.txt
+samtools view -bS 643_bowtie.sam > 643_bowtie.bam
+samtools sort 643_bowtie.bam 643_bowtie_sorted
+samtools mpileup -d 200000 643_bowtie_sorted.bam > 643_mpileup.vcf
+python basecount_20180518_RD.py 643_mpileup.vcf >&643_basecount.txt
+python extract_CpGs_20180521_RD.py 643_basecount.txt > 643_CpGs.txt
+python conversion_completeness_20180521_RD.py 643_basecount.txt > 643_conversion.txt
+python A_G_error_20180521_RD.py 643_basecount.txt > 643_error.txt
+samtools view -bS 644_bowtie.sam > 644_bowtie.bam
+samtools sort 644_bowtie.bam 644_bowtie_sorted
+samtools mpileup -d 200000 644_bowtie_sorted.bam > 644_mpileup.vcf
+python basecount_20180518_RD.py 644_mpileup.vcf >&644_basecount.txt
+python extract_CpGs_20180521_RD.py 644_basecount.txt > 644_CpGs.txt
+python conversion_completeness_20180521_RD.py 644_basecount.txt > 644_conversion.txt
+python A_G_error_20180521_RD.py 644_basecount.txt > 644_error.txt
+samtools view -bS 645_bowtie.sam > 645_bowtie.bam
+samtools sort 645_bowtie.bam 645_bowtie_sorted
+samtools mpileup -d 200000 645_bowtie_sorted.bam > 645_mpileup.vcf
+python basecount_20180518_RD.py 645_mpileup.vcf >&645_basecount.txt
+python extract_CpGs_20180521_RD.py 645_basecount.txt > 645_CpGs.txt
+python conversion_completeness_20180521_RD.py 645_basecount.txt > 645_conversion.txt
+python A_G_error_20180521_RD.py 645_basecount.txt > 645_error.txt
+samtools view -bS 646_bowtie.sam > 646_bowtie.bam
+samtools sort 646_bowtie.bam 646_bowtie_sorted
+samtools mpileup -d 200000 646_bowtie_sorted.bam > 646_mpileup.vcf
+python basecount_20180518_RD.py 646_mpileup.vcf >&646_basecount.txt
+python extract_CpGs_20180521_RD.py 646_basecount.txt > 646_CpGs.txt
+python conversion_completeness_20180521_RD.py 646_basecount.txt > 646_conversion.txt
+python A_G_error_20180521_RD.py 646_basecount.txt > 646_error.txt
+samtools view -bS 647_bowtie.sam > 647_bowtie.bam
+samtools sort 647_bowtie.bam 647_bowtie_sorted
+samtools mpileup -d 200000 647_bowtie_sorted.bam > 647_mpileup.vcf
+python basecount_20180518_RD.py 647_mpileup.vcf >&647_basecount.txt
+python extract_CpGs_20180521_RD.py 647_basecount.txt > 647_CpGs.txt
+python conversion_completeness_20180521_RD.py 647_basecount.txt > 647_conversion.txt
+python A_G_error_20180521_RD.py 647_basecount.txt > 647_error.txt
+samtools view -bS 648_bowtie.sam > 648_bowtie.bam
+samtools sort 648_bowtie.bam 648_bowtie_sorted
+samtools mpileup -d 200000 648_bowtie_sorted.bam > 648_mpileup.vcf
+python basecount_20180518_RD.py 648_mpileup.vcf >&648_basecount.txt
+python extract_CpGs_20180521_RD.py 648_basecount.txt > 648_CpGs.txt
+python conversion_completeness_20180521_RD.py 648_basecount.txt > 648_conversion.txt
+python A_G_error_20180521_RD.py 648_basecount.txt > 648_error.txt
+samtools view -bS 649_bowtie.sam > 649_bowtie.bam
+samtools sort 649_bowtie.bam 649_bowtie_sorted
+samtools mpileup -d 200000 649_bowtie_sorted.bam > 649_mpileup.vcf
+python basecount_20180518_RD.py 649_mpileup.vcf >&649_basecount.txt
+python extract_CpGs_20180521_RD.py 649_basecount.txt > 649_CpGs.txt
+python conversion_completeness_20180521_RD.py 649_basecount.txt > 649_conversion.txt
+python A_G_error_20180521_RD.py 649_basecount.txt > 649_error.txt
+samtools view -bS 650_bowtie.sam > 650_bowtie.bam
+samtools sort 650_bowtie.bam 650_bowtie_sorted
+samtools mpileup -d 200000 650_bowtie_sorted.bam > 650_mpileup.vcf
+python basecount_20180518_RD.py 650_mpileup.vcf >&650_basecount.txt
+python extract_CpGs_20180521_RD.py 650_basecount.txt > 650_CpGs.txt
+python conversion_completeness_20180521_RD.py 650_basecount.txt > 650_conversion.txt
+python A_G_error_20180521_RD.py 650_basecount.txt > 650_error.txt
+samtools view -bS 651_bowtie.sam > 651_bowtie.bam
+samtools sort 651_bowtie.bam 651_bowtie_sorted
+samtools mpileup -d 200000 651_bowtie_sorted.bam > 651_mpileup.vcf
+python basecount_20180518_RD.py 651_mpileup.vcf >&651_basecount.txt
+python extract_CpGs_20180521_RD.py 651_basecount.txt > 651_CpGs.txt
+python conversion_completeness_20180521_RD.py 651_basecount.txt > 651_conversion.txt
+python A_G_error_20180521_RD.py 651_basecount.txt > 651_error.txt
+samtools view -bS 652_bowtie.sam > 652_bowtie.bam
+samtools sort 652_bowtie.bam 652_bowtie_sorted
+samtools mpileup -d 200000 652_bowtie_sorted.bam > 652_mpileup.vcf
+python basecount_20180518_RD.py 652_mpileup.vcf >&652_basecount.txt
+python extract_CpGs_20180521_RD.py 652_basecount.txt > 652_CpGs.txt
+python conversion_completeness_20180521_RD.py 652_basecount.txt > 652_conversion.txt
+python A_G_error_20180521_RD.py 652_basecount.txt > 652_error.txt
+samtools view -bS 653_bowtie.sam > 653_bowtie.bam
+samtools sort 653_bowtie.bam 653_bowtie_sorted
+samtools mpileup -d 200000 653_bowtie_sorted.bam > 653_mpileup.vcf
+python basecount_20180518_RD.py 653_mpileup.vcf >&653_basecount.txt
+python extract_CpGs_20180521_RD.py 653_basecount.txt > 653_CpGs.txt
+python conversion_completeness_20180521_RD.py 653_basecount.txt > 653_conversion.txt
+python A_G_error_20180521_RD.py 653_basecount.txt > 653_error.txt
+samtools view -bS 654_bowtie.sam > 654_bowtie.bam
+samtools sort 654_bowtie.bam 654_bowtie_sorted
+samtools mpileup -d 200000 654_bowtie_sorted.bam > 654_mpileup.vcf
+python basecount_20180518_RD.py 654_mpileup.vcf >&654_basecount.txt
+python extract_CpGs_20180521_RD.py 654_basecount.txt > 654_CpGs.txt
+python conversion_completeness_20180521_RD.py 654_basecount.txt > 654_conversion.txt
+python A_G_error_20180521_RD.py 654_basecount.txt > 654_error.txt
+samtools view -bS 655_bowtie.sam > 655_bowtie.bam
+samtools sort 655_bowtie.bam 655_bowtie_sorted
+samtools mpileup -d 200000 655_bowtie_sorted.bam > 655_mpileup.vcf
+python basecount_20180518_RD.py 655_mpileup.vcf >&655_basecount.txt
+python extract_CpGs_20180521_RD.py 655_basecount.txt > 655_CpGs.txt
+python conversion_completeness_20180521_RD.py 655_basecount.txt > 655_conversion.txt
+python A_G_error_20180521_RD.py 655_basecount.txt > 655_error.txt
+samtools view -bS 656_bowtie.sam > 656_bowtie.bam
+samtools sort 656_bowtie.bam 656_bowtie_sorted
+samtools mpileup -d 200000 656_bowtie_sorted.bam > 656_mpileup.vcf
+python basecount_20180518_RD.py 656_mpileup.vcf >&656_basecount.txt
+python extract_CpGs_20180521_RD.py 656_basecount.txt > 656_CpGs.txt
+python conversion_completeness_20180521_RD.py 656_basecount.txt > 656_conversion.txt
+python A_G_error_20180521_RD.py 656_basecount.txt > 656_error.txt
+samtools view -bS 657_bowtie.sam > 657_bowtie.bam
+samtools sort 657_bowtie.bam 657_bowtie_sorted
+samtools mpileup -d 200000 657_bowtie_sorted.bam > 657_mpileup.vcf
+python basecount_20180518_RD.py 657_mpileup.vcf >&657_basecount.txt
+python extract_CpGs_20180521_RD.py 657_basecount.txt > 657_CpGs.txt
+python conversion_completeness_20180521_RD.py 657_basecount.txt > 657_conversion.txt
+python A_G_error_20180521_RD.py 657_basecount.txt > 657_error.txt
+samtools view -bS 658_bowtie.sam > 658_bowtie.bam
+samtools sort 658_bowtie.bam 658_bowtie_sorted
+samtools mpileup -d 200000 658_bowtie_sorted.bam > 658_mpileup.vcf
+python basecount_20180518_RD.py 658_mpileup.vcf >&658_basecount.txt
+python extract_CpGs_20180521_RD.py 658_basecount.txt > 658_CpGs.txt
+python conversion_completeness_20180521_RD.py 658_basecount.txt > 658_conversion.txt
+python A_G_error_20180521_RD.py 658_basecount.txt > 658_error.txt
+samtools view -bS 659_bowtie.sam > 659_bowtie.bam
+samtools sort 659_bowtie.bam 659_bowtie_sorted
+samtools mpileup -d 200000 659_bowtie_sorted.bam > 659_mpileup.vcf
+python basecount_20180518_RD.py 659_mpileup.vcf >&659_basecount.txt
+python extract_CpGs_20180521_RD.py 659_basecount.txt > 659_CpGs.txt
+python conversion_completeness_20180521_RD.py 659_basecount.txt > 659_conversion.txt
+python A_G_error_20180521_RD.py 659_basecount.txt > 659_error.txt
+samtools view -bS 660_bowtie.sam > 660_bowtie.bam
+samtools sort 660_bowtie.bam 660_bowtie_sorted
+samtools mpileup -d 200000 660_bowtie_sorted.bam > 660_mpileup.vcf
+python basecount_20180518_RD.py 660_mpileup.vcf >&660_basecount.txt
+python extract_CpGs_20180521_RD.py 660_basecount.txt > 660_CpGs.txt
+python conversion_completeness_20180521_RD.py 660_basecount.txt > 660_conversion.txt
+python A_G_error_20180521_RD.py 660_basecount.txt > 660_error.txt
+samtools view -bS 661_bowtie.sam > 661_bowtie.bam
+samtools sort 661_bowtie.bam 661_bowtie_sorted
+samtools mpileup -d 200000 661_bowtie_sorted.bam > 661_mpileup.vcf
+python basecount_20180518_RD.py 661_mpileup.vcf >&661_basecount.txt
+python extract_CpGs_20180521_RD.py 661_basecount.txt > 661_CpGs.txt
+python conversion_completeness_20180521_RD.py 661_basecount.txt > 661_conversion.txt
+python A_G_error_20180521_RD.py 661_basecount.txt > 661_error.txt
+samtools view -bS 662_bowtie.sam > 662_bowtie.bam
+samtools sort 662_bowtie.bam 662_bowtie_sorted
+samtools mpileup -d 200000 662_bowtie_sorted.bam > 662_mpileup.vcf
+python basecount_20180518_RD.py 662_mpileup.vcf >&662_basecount.txt
+python extract_CpGs_20180521_RD.py 662_basecount.txt > 662_CpGs.txt
+python conversion_completeness_20180521_RD.py 662_basecount.txt > 662_conversion.txt
+python A_G_error_20180521_RD.py 662_basecount.txt > 662_error.txt
+samtools view -bS 663_bowtie.sam > 663_bowtie.bam
+samtools sort 663_bowtie.bam 663_bowtie_sorted
+samtools mpileup -d 200000 663_bowtie_sorted.bam > 663_mpileup.vcf
+python basecount_20180518_RD.py 663_mpileup.vcf >&663_basecount.txt
+python extract_CpGs_20180521_RD.py 663_basecount.txt > 663_CpGs.txt
+python conversion_completeness_20180521_RD.py 663_basecount.txt > 663_conversion.txt
+python A_G_error_20180521_RD.py 663_basecount.txt > 663_error.txt
+samtools view -bS 664_bowtie.sam > 664_bowtie.bam
+samtools sort 664_bowtie.bam 664_bowtie_sorted
+samtools mpileup -d 200000 664_bowtie_sorted.bam > 664_mpileup.vcf
+python basecount_20180518_RD.py 664_mpileup.vcf >&664_basecount.txt
+python extract_CpGs_20180521_RD.py 664_basecount.txt > 664_CpGs.txt
+python conversion_completeness_20180521_RD.py 664_basecount.txt > 664_conversion.txt
+python A_G_error_20180521_RD.py 664_basecount.txt > 664_error.txt
+samtools view -bS 665_bowtie.sam > 665_bowtie.bam
+samtools sort 665_bowtie.bam 665_bowtie_sorted
+samtools mpileup -d 200000 665_bowtie_sorted.bam > 665_mpileup.vcf
+python basecount_20180518_RD.py 665_mpileup.vcf >&665_basecount.txt
+python extract_CpGs_20180521_RD.py 665_basecount.txt > 665_CpGs.txt
+python conversion_completeness_20180521_RD.py 665_basecount.txt > 665_conversion.txt
+python A_G_error_20180521_RD.py 665_basecount.txt > 665_error.txt
+samtools view -bS 666_bowtie.sam > 666_bowtie.bam
+samtools sort 666_bowtie.bam 666_bowtie_sorted
+samtools mpileup -d 200000 666_bowtie_sorted.bam > 666_mpileup.vcf
+python basecount_20180518_RD.py 666_mpileup.vcf >&666_basecount.txt
+python extract_CpGs_20180521_RD.py 666_basecount.txt > 666_CpGs.txt
+python conversion_completeness_20180521_RD.py 666_basecount.txt > 666_conversion.txt
+python A_G_error_20180521_RD.py 666_basecount.txt > 666_error.txt
+samtools view -bS 667_bowtie.sam > 667_bowtie.bam
+samtools sort 667_bowtie.bam 667_bowtie_sorted
+samtools mpileup -d 200000 667_bowtie_sorted.bam > 667_mpileup.vcf
+python basecount_20180518_RD.py 667_mpileup.vcf >&667_basecount.txt
+python extract_CpGs_20180521_RD.py 667_basecount.txt > 667_CpGs.txt
+python conversion_completeness_20180521_RD.py 667_basecount.txt > 667_conversion.txt
+python A_G_error_20180521_RD.py 667_basecount.txt > 667_error.txt
+samtools view -bS 668_bowtie.sam > 668_bowtie.bam
+samtools sort 668_bowtie.bam 668_bowtie_sorted
+samtools mpileup -d 200000 668_bowtie_sorted.bam > 668_mpileup.vcf
+python basecount_20180518_RD.py 668_mpileup.vcf >&668_basecount.txt
+python extract_CpGs_20180521_RD.py 668_basecount.txt > 668_CpGs.txt
+python conversion_completeness_20180521_RD.py 668_basecount.txt > 668_conversion.txt
+python A_G_error_20180521_RD.py 668_basecount.txt > 668_error.txt
+samtools view -bS 669_bowtie.sam > 669_bowtie.bam
+samtools sort 669_bowtie.bam 669_bowtie_sorted
+samtools mpileup -d 200000 669_bowtie_sorted.bam > 669_mpileup.vcf
+python basecount_20180518_RD.py 669_mpileup.vcf >&669_basecount.txt
+python extract_CpGs_20180521_RD.py 669_basecount.txt > 669_CpGs.txt
+python conversion_completeness_20180521_RD.py 669_basecount.txt > 669_conversion.txt
+python A_G_error_20180521_RD.py 669_basecount.txt > 669_error.txt
+samtools view -bS 670_bowtie.sam > 670_bowtie.bam
+samtools sort 670_bowtie.bam 670_bowtie_sorted
+samtools mpileup -d 200000 670_bowtie_sorted.bam > 670_mpileup.vcf
+python basecount_20180518_RD.py 670_mpileup.vcf >&670_basecount.txt
+python extract_CpGs_20180521_RD.py 670_basecount.txt > 670_CpGs.txt
+python conversion_completeness_20180521_RD.py 670_basecount.txt > 670_conversion.txt
+python A_G_error_20180521_RD.py 670_basecount.txt > 670_error.txt
+samtools view -bS 671_bowtie.sam > 671_bowtie.bam
+samtools sort 671_bowtie.bam 671_bowtie_sorted
+samtools mpileup -d 200000 671_bowtie_sorted.bam > 671_mpileup.vcf
+python basecount_20180518_RD.py 671_mpileup.vcf >&671_basecount.txt
+python extract_CpGs_20180521_RD.py 671_basecount.txt > 671_CpGs.txt
+python conversion_completeness_20180521_RD.py 671_basecount.txt > 671_conversion.txt
+python A_G_error_20180521_RD.py 671_basecount.txt > 671_error.txt
+samtools view -bS 672_bowtie.sam > 672_bowtie.bam
+samtools sort 672_bowtie.bam 672_bowtie_sorted
+samtools mpileup -d 200000 672_bowtie_sorted.bam > 672_mpileup.vcf
+python basecount_20180518_RD.py 672_mpileup.vcf >&672_basecount.txt
+python extract_CpGs_20180521_RD.py 672_basecount.txt > 672_CpGs.txt
+python conversion_completeness_20180521_RD.py 672_basecount.txt > 672_conversion.txt
+python A_G_error_20180521_RD.py 672_basecount.txt > 672_error.txt
+samtools view -bS 673_bowtie.sam > 673_bowtie.bam
+samtools sort 673_bowtie.bam 673_bowtie_sorted
+samtools mpileup -d 200000 673_bowtie_sorted.bam > 673_mpileup.vcf
+python basecount_20180518_RD.py 673_mpileup.vcf >&673_basecount.txt
+python extract_CpGs_20180521_RD.py 673_basecount.txt > 673_CpGs.txt
+python conversion_completeness_20180521_RD.py 673_basecount.txt > 673_conversion.txt
+python A_G_error_20180521_RD.py 673_basecount.txt > 673_error.txt
+samtools view -bS 674_bowtie.sam > 674_bowtie.bam
+samtools sort 674_bowtie.bam 674_bowtie_sorted
+samtools mpileup -d 200000 674_bowtie_sorted.bam > 674_mpileup.vcf
+python basecount_20180518_RD.py 674_mpileup.vcf >&674_basecount.txt
+python extract_CpGs_20180521_RD.py 674_basecount.txt > 674_CpGs.txt
+python conversion_completeness_20180521_RD.py 674_basecount.txt > 674_conversion.txt
+python A_G_error_20180521_RD.py 674_basecount.txt > 674_error.txt
+samtools view -bS 675_bowtie.sam > 675_bowtie.bam
+samtools sort 675_bowtie.bam 675_bowtie_sorted
+samtools mpileup -d 200000 675_bowtie_sorted.bam > 675_mpileup.vcf
+python basecount_20180518_RD.py 675_mpileup.vcf >&675_basecount.txt
+python extract_CpGs_20180521_RD.py 675_basecount.txt > 675_CpGs.txt
+python conversion_completeness_20180521_RD.py 675_basecount.txt > 675_conversion.txt
+python A_G_error_20180521_RD.py 675_basecount.txt > 675_error.txt
+samtools view -bS 676_bowtie.sam > 676_bowtie.bam
+samtools sort 676_bowtie.bam 676_bowtie_sorted
+samtools mpileup -d 200000 676_bowtie_sorted.bam > 676_mpileup.vcf
+python basecount_20180518_RD.py 676_mpileup.vcf >&676_basecount.txt
+python extract_CpGs_20180521_RD.py 676_basecount.txt > 676_CpGs.txt
+python conversion_completeness_20180521_RD.py 676_basecount.txt > 676_conversion.txt
+python A_G_error_20180521_RD.py 676_basecount.txt > 676_error.txt
+samtools view -bS 677_bowtie.sam > 677_bowtie.bam
+samtools sort 677_bowtie.bam 677_bowtie_sorted
+samtools mpileup -d 200000 677_bowtie_sorted.bam > 677_mpileup.vcf
+python basecount_20180518_RD.py 677_mpileup.vcf >&677_basecount.txt
+python extract_CpGs_20180521_RD.py 677_basecount.txt > 677_CpGs.txt
+python conversion_completeness_20180521_RD.py 677_basecount.txt > 677_conversion.txt
+python A_G_error_20180521_RD.py 677_basecount.txt > 677_error.txt
+samtools view -bS 678_bowtie.sam > 678_bowtie.bam
+samtools sort 678_bowtie.bam 678_bowtie_sorted
+samtools mpileup -d 200000 678_bowtie_sorted.bam > 678_mpileup.vcf
+python basecount_20180518_RD.py 678_mpileup.vcf >&678_basecount.txt
+python extract_CpGs_20180521_RD.py 678_basecount.txt > 678_CpGs.txt
+python conversion_completeness_20180521_RD.py 678_basecount.txt > 678_conversion.txt
+python A_G_error_20180521_RD.py 678_basecount.txt > 678_error.txt
+samtools view -bS 679_bowtie.sam > 679_bowtie.bam
+samtools sort 679_bowtie.bam 679_bowtie_sorted
+samtools mpileup -d 200000 679_bowtie_sorted.bam > 679_mpileup.vcf
+python basecount_20180518_RD.py 679_mpileup.vcf >&679_basecount.txt
+python extract_CpGs_20180521_RD.py 679_basecount.txt > 679_CpGs.txt
+python conversion_completeness_20180521_RD.py 679_basecount.txt > 679_conversion.txt
+python A_G_error_20180521_RD.py 679_basecount.txt > 679_error.txt
+samtools view -bS 680_bowtie.sam > 680_bowtie.bam
+samtools sort 680_bowtie.bam 680_bowtie_sorted
+samtools mpileup -d 200000 680_bowtie_sorted.bam > 680_mpileup.vcf
+python basecount_20180518_RD.py 680_mpileup.vcf >&680_basecount.txt
+python extract_CpGs_20180521_RD.py 680_basecount.txt > 680_CpGs.txt
+python conversion_completeness_20180521_RD.py 680_basecount.txt > 680_conversion.txt
+python A_G_error_20180521_RD.py 680_basecount.txt > 680_error.txt
+samtools view -bS 681_bowtie.sam > 681_bowtie.bam
+samtools sort 681_bowtie.bam 681_bowtie_sorted
+samtools mpileup -d 200000 681_bowtie_sorted.bam > 681_mpileup.vcf
+python basecount_20180518_RD.py 681_mpileup.vcf >&681_basecount.txt
+python extract_CpGs_20180521_RD.py 681_basecount.txt > 681_CpGs.txt
+python conversion_completeness_20180521_RD.py 681_basecount.txt > 681_conversion.txt
+python A_G_error_20180521_RD.py 681_basecount.txt > 681_error.txt
+samtools view -bS 682_bowtie.sam > 682_bowtie.bam
+samtools sort 682_bowtie.bam 682_bowtie_sorted
+samtools mpileup -d 200000 682_bowtie_sorted.bam > 682_mpileup.vcf
+python basecount_20180518_RD.py 682_mpileup.vcf >&682_basecount.txt
+python extract_CpGs_20180521_RD.py 682_basecount.txt > 682_CpGs.txt
+python conversion_completeness_20180521_RD.py 682_basecount.txt > 682_conversion.txt
+python A_G_error_20180521_RD.py 682_basecount.txt > 682_error.txt
+samtools view -bS 683_bowtie.sam > 683_bowtie.bam
+samtools sort 683_bowtie.bam 683_bowtie_sorted
+samtools mpileup -d 200000 683_bowtie_sorted.bam > 683_mpileup.vcf
+python basecount_20180518_RD.py 683_mpileup.vcf >&683_basecount.txt
+python extract_CpGs_20180521_RD.py 683_basecount.txt > 683_CpGs.txt
+python conversion_completeness_20180521_RD.py 683_basecount.txt > 683_conversion.txt
+python A_G_error_20180521_RD.py 683_basecount.txt > 683_error.txt
+samtools view -bS 684_bowtie.sam > 684_bowtie.bam
+samtools sort 684_bowtie.bam 684_bowtie_sorted
+samtools mpileup -d 200000 684_bowtie_sorted.bam > 684_mpileup.vcf
+python basecount_20180518_RD.py 684_mpileup.vcf >&684_basecount.txt
+python extract_CpGs_20180521_RD.py 684_basecount.txt > 684_CpGs.txt
+python conversion_completeness_20180521_RD.py 684_basecount.txt > 684_conversion.txt
+python A_G_error_20180521_RD.py 684_basecount.txt > 684_error.txt
+samtools view -bS 685_bowtie.sam > 685_bowtie.bam
+samtools sort 685_bowtie.bam 685_bowtie_sorted
+samtools mpileup -d 200000 685_bowtie_sorted.bam > 685_mpileup.vcf
+python basecount_20180518_RD.py 685_mpileup.vcf >&685_basecount.txt
+python extract_CpGs_20180521_RD.py 685_basecount.txt > 685_CpGs.txt
+python conversion_completeness_20180521_RD.py 685_basecount.txt > 685_conversion.txt
+python A_G_error_20180521_RD.py 685_basecount.txt > 685_error.txt
+samtools view -bS 686_bowtie.sam > 686_bowtie.bam
+samtools sort 686_bowtie.bam 686_bowtie_sorted
+samtools mpileup -d 200000 686_bowtie_sorted.bam > 686_mpileup.vcf
+python basecount_20180518_RD.py 686_mpileup.vcf >&686_basecount.txt
+python extract_CpGs_20180521_RD.py 686_basecount.txt > 686_CpGs.txt
+python conversion_completeness_20180521_RD.py 686_basecount.txt > 686_conversion.txt
+python A_G_error_20180521_RD.py 686_basecount.txt > 686_error.txt
+samtools view -bS 687_bowtie.sam > 687_bowtie.bam
+samtools sort 687_bowtie.bam 687_bowtie_sorted
+samtools mpileup -d 200000 687_bowtie_sorted.bam > 687_mpileup.vcf
+python basecount_20180518_RD.py 687_mpileup.vcf >&687_basecount.txt
+python extract_CpGs_20180521_RD.py 687_basecount.txt > 687_CpGs.txt
+python conversion_completeness_20180521_RD.py 687_basecount.txt > 687_conversion.txt
+python A_G_error_20180521_RD.py 687_basecount.txt > 687_error.txt
+samtools view -bS 688_bowtie.sam > 688_bowtie.bam
+samtools sort 688_bowtie.bam 688_bowtie_sorted
+samtools mpileup -d 200000 688_bowtie_sorted.bam > 688_mpileup.vcf
+python basecount_20180518_RD.py 688_mpileup.vcf >&688_basecount.txt
+python extract_CpGs_20180521_RD.py 688_basecount.txt > 688_CpGs.txt
+python conversion_completeness_20180521_RD.py 688_basecount.txt > 688_conversion.txt
+python A_G_error_20180521_RD.py 688_basecount.txt > 688_error.txt
+samtools view -bS 689_bowtie.sam > 689_bowtie.bam
+samtools sort 689_bowtie.bam 689_bowtie_sorted
+samtools mpileup -d 200000 689_bowtie_sorted.bam > 689_mpileup.vcf
+python basecount_20180518_RD.py 689_mpileup.vcf >&689_basecount.txt
+python extract_CpGs_20180521_RD.py 689_basecount.txt > 689_CpGs.txt
+python conversion_completeness_20180521_RD.py 689_basecount.txt > 689_conversion.txt
+python A_G_error_20180521_RD.py 689_basecount.txt > 689_error.txt
+samtools view -bS 690_bowtie.sam > 690_bowtie.bam
+samtools sort 690_bowtie.bam 690_bowtie_sorted
+samtools mpileup -d 200000 690_bowtie_sorted.bam > 690_mpileup.vcf
+python basecount_20180518_RD.py 690_mpileup.vcf >&690_basecount.txt
+python extract_CpGs_20180521_RD.py 690_basecount.txt > 690_CpGs.txt
+python conversion_completeness_20180521_RD.py 690_basecount.txt > 690_conversion.txt
+python A_G_error_20180521_RD.py 690_basecount.txt > 690_error.txt
+samtools view -bS 691_bowtie.sam > 691_bowtie.bam
+samtools sort 691_bowtie.bam 691_bowtie_sorted
+samtools mpileup -d 200000 691_bowtie_sorted.bam > 691_mpileup.vcf
+python basecount_20180518_RD.py 691_mpileup.vcf >&691_basecount.txt
+python extract_CpGs_20180521_RD.py 691_basecount.txt > 691_CpGs.txt
+python conversion_completeness_20180521_RD.py 691_basecount.txt > 691_conversion.txt
+python A_G_error_20180521_RD.py 691_basecount.txt > 691_error.txt
+samtools view -bS 692_bowtie.sam > 692_bowtie.bam
+samtools sort 692_bowtie.bam 692_bowtie_sorted
+samtools mpileup -d 200000 692_bowtie_sorted.bam > 692_mpileup.vcf
+python basecount_20180518_RD.py 692_mpileup.vcf >&692_basecount.txt
+python extract_CpGs_20180521_RD.py 692_basecount.txt > 692_CpGs.txt
+python conversion_completeness_20180521_RD.py 692_basecount.txt > 692_conversion.txt
+python A_G_error_20180521_RD.py 692_basecount.txt > 692_error.txt
+samtools view -bS 693_bowtie.sam > 693_bowtie.bam
+samtools sort 693_bowtie.bam 693_bowtie_sorted
+samtools mpileup -d 200000 693_bowtie_sorted.bam > 693_mpileup.vcf
+python basecount_20180518_RD.py 693_mpileup.vcf >&693_basecount.txt
+python extract_CpGs_20180521_RD.py 693_basecount.txt > 693_CpGs.txt
+python conversion_completeness_20180521_RD.py 693_basecount.txt > 693_conversion.txt
+python A_G_error_20180521_RD.py 693_basecount.txt > 693_error.txt
+samtools view -bS 694_bowtie.sam > 694_bowtie.bam
+samtools sort 694_bowtie.bam 694_bowtie_sorted
+samtools mpileup -d 200000 694_bowtie_sorted.bam > 694_mpileup.vcf
+python basecount_20180518_RD.py 694_mpileup.vcf >&694_basecount.txt
+python extract_CpGs_20180521_RD.py 694_basecount.txt > 694_CpGs.txt
+python conversion_completeness_20180521_RD.py 694_basecount.txt > 694_conversion.txt
+python A_G_error_20180521_RD.py 694_basecount.txt > 694_error.txt
+samtools view -bS 695_bowtie.sam > 695_bowtie.bam
+samtools sort 695_bowtie.bam 695_bowtie_sorted
+samtools mpileup -d 200000 695_bowtie_sorted.bam > 695_mpileup.vcf
+python basecount_20180518_RD.py 695_mpileup.vcf >&695_basecount.txt
+python extract_CpGs_20180521_RD.py 695_basecount.txt > 695_CpGs.txt
+python conversion_completeness_20180521_RD.py 695_basecount.txt > 695_conversion.txt
+python A_G_error_20180521_RD.py 695_basecount.txt > 695_error.txt
+samtools view -bS 696_bowtie.sam > 696_bowtie.bam
+samtools sort 696_bowtie.bam 696_bowtie_sorted
+samtools mpileup -d 200000 696_bowtie_sorted.bam > 696_mpileup.vcf
+python basecount_20180518_RD.py 696_mpileup.vcf >&696_basecount.txt
+python extract_CpGs_20180521_RD.py 696_basecount.txt > 696_CpGs.txt
+python conversion_completeness_20180521_RD.py 696_basecount.txt > 696_conversion.txt
+python A_G_error_20180521_RD.py 696_basecount.txt > 696_error.txt
+samtools view -bS 697_bowtie.sam > 697_bowtie.bam
+samtools sort 697_bowtie.bam 697_bowtie_sorted
+samtools mpileup -d 200000 697_bowtie_sorted.bam > 697_mpileup.vcf
+python basecount_20180518_RD.py 697_mpileup.vcf >&697_basecount.txt
+python extract_CpGs_20180521_RD.py 697_basecount.txt > 697_CpGs.txt
+python conversion_completeness_20180521_RD.py 697_basecount.txt > 697_conversion.txt
+python A_G_error_20180521_RD.py 697_basecount.txt > 697_error.txt
+samtools view -bS 698_bowtie.sam > 698_bowtie.bam
+samtools sort 698_bowtie.bam 698_bowtie_sorted
+samtools mpileup -d 200000 698_bowtie_sorted.bam > 698_mpileup.vcf
+python basecount_20180518_RD.py 698_mpileup.vcf >&698_basecount.txt
+python extract_CpGs_20180521_RD.py 698_basecount.txt > 698_CpGs.txt
+python conversion_completeness_20180521_RD.py 698_basecount.txt > 698_conversion.txt
+python A_G_error_20180521_RD.py 698_basecount.txt > 698_error.txt
+samtools view -bS 699_bowtie.sam > 699_bowtie.bam
+samtools sort 699_bowtie.bam 699_bowtie_sorted
+samtools mpileup -d 200000 699_bowtie_sorted.bam > 699_mpileup.vcf
+python basecount_20180518_RD.py 699_mpileup.vcf >&699_basecount.txt
+python extract_CpGs_20180521_RD.py 699_basecount.txt > 699_CpGs.txt
+python conversion_completeness_20180521_RD.py 699_basecount.txt > 699_conversion.txt
+python A_G_error_20180521_RD.py 699_basecount.txt > 699_error.txt
+samtools view -bS 700_bowtie.sam > 700_bowtie.bam
+samtools sort 700_bowtie.bam 700_bowtie_sorted
+samtools mpileup -d 200000 700_bowtie_sorted.bam > 700_mpileup.vcf
+python basecount_20180518_RD.py 700_mpileup.vcf >&700_basecount.txt
+python extract_CpGs_20180521_RD.py 700_basecount.txt > 700_CpGs.txt
+python conversion_completeness_20180521_RD.py 700_basecount.txt > 700_conversion.txt
+python A_G_error_20180521_RD.py 700_basecount.txt > 700_error.txt
+samtools view -bS 701_bowtie.sam > 701_bowtie.bam
+samtools sort 701_bowtie.bam 701_bowtie_sorted
+samtools mpileup -d 200000 701_bowtie_sorted.bam > 701_mpileup.vcf
+python basecount_20180518_RD.py 701_mpileup.vcf >&701_basecount.txt
+python extract_CpGs_20180521_RD.py 701_basecount.txt > 701_CpGs.txt
+python conversion_completeness_20180521_RD.py 701_basecount.txt > 701_conversion.txt
+python A_G_error_20180521_RD.py 701_basecount.txt > 701_error.txt
+samtools view -bS 702_bowtie.sam > 702_bowtie.bam
+samtools sort 702_bowtie.bam 702_bowtie_sorted
+samtools mpileup -d 200000 702_bowtie_sorted.bam > 702_mpileup.vcf
+python basecount_20180518_RD.py 702_mpileup.vcf >&702_basecount.txt
+python extract_CpGs_20180521_RD.py 702_basecount.txt > 702_CpGs.txt
+python conversion_completeness_20180521_RD.py 702_basecount.txt > 702_conversion.txt
+python A_G_error_20180521_RD.py 702_basecount.txt > 702_error.txt
+samtools view -bS 703_bowtie.sam > 703_bowtie.bam
+samtools sort 703_bowtie.bam 703_bowtie_sorted
+samtools mpileup -d 200000 703_bowtie_sorted.bam > 703_mpileup.vcf
+python basecount_20180518_RD.py 703_mpileup.vcf >&703_basecount.txt
+python extract_CpGs_20180521_RD.py 703_basecount.txt > 703_CpGs.txt
+python conversion_completeness_20180521_RD.py 703_basecount.txt > 703_conversion.txt
+python A_G_error_20180521_RD.py 703_basecount.txt > 703_error.txt
+samtools view -bS 704_bowtie.sam > 704_bowtie.bam
+samtools sort 704_bowtie.bam 704_bowtie_sorted
+samtools mpileup -d 200000 704_bowtie_sorted.bam > 704_mpileup.vcf
+python basecount_20180518_RD.py 704_mpileup.vcf >&704_basecount.txt
+python extract_CpGs_20180521_RD.py 704_basecount.txt > 704_CpGs.txt
+python conversion_completeness_20180521_RD.py 704_basecount.txt > 704_conversion.txt
+python A_G_error_20180521_RD.py 704_basecount.txt > 704_error.txt
+samtools view -bS 705_bowtie.sam > 705_bowtie.bam
+samtools sort 705_bowtie.bam 705_bowtie_sorted
+samtools mpileup -d 200000 705_bowtie_sorted.bam > 705_mpileup.vcf
+python basecount_20180518_RD.py 705_mpileup.vcf >&705_basecount.txt
+python extract_CpGs_20180521_RD.py 705_basecount.txt > 705_CpGs.txt
+python conversion_completeness_20180521_RD.py 705_basecount.txt > 705_conversion.txt
+python A_G_error_20180521_RD.py 705_basecount.txt > 705_error.txt
+samtools view -bS 706_bowtie.sam > 706_bowtie.bam
+samtools sort 706_bowtie.bam 706_bowtie_sorted
+samtools mpileup -d 200000 706_bowtie_sorted.bam > 706_mpileup.vcf
+python basecount_20180518_RD.py 706_mpileup.vcf >&706_basecount.txt
+python extract_CpGs_20180521_RD.py 706_basecount.txt > 706_CpGs.txt
+python conversion_completeness_20180521_RD.py 706_basecount.txt > 706_conversion.txt
+python A_G_error_20180521_RD.py 706_basecount.txt > 706_error.txt
+samtools view -bS 707_bowtie.sam > 707_bowtie.bam
+samtools sort 707_bowtie.bam 707_bowtie_sorted
+samtools mpileup -d 200000 707_bowtie_sorted.bam > 707_mpileup.vcf
+python basecount_20180518_RD.py 707_mpileup.vcf >&707_basecount.txt
+python extract_CpGs_20180521_RD.py 707_basecount.txt > 707_CpGs.txt
+python conversion_completeness_20180521_RD.py 707_basecount.txt > 707_conversion.txt
+python A_G_error_20180521_RD.py 707_basecount.txt > 707_error.txt
+samtools view -bS 708_bowtie.sam > 708_bowtie.bam
+samtools sort 708_bowtie.bam 708_bowtie_sorted
+samtools mpileup -d 200000 708_bowtie_sorted.bam > 708_mpileup.vcf
+python basecount_20180518_RD.py 708_mpileup.vcf >&708_basecount.txt
+python extract_CpGs_20180521_RD.py 708_basecount.txt > 708_CpGs.txt
+python conversion_completeness_20180521_RD.py 708_basecount.txt > 708_conversion.txt
+python A_G_error_20180521_RD.py 708_basecount.txt > 708_error.txt
+samtools view -bS 709_bowtie.sam > 709_bowtie.bam
+samtools sort 709_bowtie.bam 709_bowtie_sorted
+samtools mpileup -d 200000 709_bowtie_sorted.bam > 709_mpileup.vcf
+python basecount_20180518_RD.py 709_mpileup.vcf >&709_basecount.txt
+python extract_CpGs_20180521_RD.py 709_basecount.txt > 709_CpGs.txt
+python conversion_completeness_20180521_RD.py 709_basecount.txt > 709_conversion.txt
+python A_G_error_20180521_RD.py 709_basecount.txt > 709_error.txt
+samtools view -bS 711_bowtie.sam > 711_bowtie.bam
+samtools sort 711_bowtie.bam 711_bowtie_sorted
+samtools mpileup -d 200000 711_bowtie_sorted.bam > 711_mpileup.vcf
+python basecount_20180518_RD.py 711_mpileup.vcf >&711_basecount.txt
+python extract_CpGs_20180521_RD.py 711_basecount.txt > 711_CpGs.txt
+python conversion_completeness_20180521_RD.py 711_basecount.txt > 711_conversion.txt
+python A_G_error_20180521_RD.py 711_basecount.txt > 711_error.txt
+samtools view -bS 712_bowtie.sam > 712_bowtie.bam
+samtools sort 712_bowtie.bam 712_bowtie_sorted
+samtools mpileup -d 200000 712_bowtie_sorted.bam > 712_mpileup.vcf
+python basecount_20180518_RD.py 712_mpileup.vcf >&712_basecount.txt
+python extract_CpGs_20180521_RD.py 712_basecount.txt > 712_CpGs.txt
+python conversion_completeness_20180521_RD.py 712_basecount.txt > 712_conversion.txt
+python A_G_error_20180521_RD.py 712_basecount.txt > 712_error.txt
+samtools view -bS 713_bowtie.sam > 713_bowtie.bam
+samtools sort 713_bowtie.bam 713_bowtie_sorted
+samtools mpileup -d 200000 713_bowtie_sorted.bam > 713_mpileup.vcf
+python basecount_20180518_RD.py 713_mpileup.vcf >&713_basecount.txt
+python extract_CpGs_20180521_RD.py 713_basecount.txt > 713_CpGs.txt
+python conversion_completeness_20180521_RD.py 713_basecount.txt > 713_conversion.txt
+python A_G_error_20180521_RD.py 713_basecount.txt > 713_error.txt
+samtools view -bS 714_bowtie.sam > 714_bowtie.bam
+samtools sort 714_bowtie.bam 714_bowtie_sorted
+samtools mpileup -d 200000 714_bowtie_sorted.bam > 714_mpileup.vcf
+python basecount_20180518_RD.py 714_mpileup.vcf >&714_basecount.txt
+python extract_CpGs_20180521_RD.py 714_basecount.txt > 714_CpGs.txt
+python conversion_completeness_20180521_RD.py 714_basecount.txt > 714_conversion.txt
+python A_G_error_20180521_RD.py 714_basecount.txt > 714_error.txt
+samtools view -bS 715_bowtie.sam > 715_bowtie.bam
+samtools sort 715_bowtie.bam 715_bowtie_sorted
+samtools mpileup -d 200000 715_bowtie_sorted.bam > 715_mpileup.vcf
+python basecount_20180518_RD.py 715_mpileup.vcf >&715_basecount.txt
+python extract_CpGs_20180521_RD.py 715_basecount.txt > 715_CpGs.txt
+python conversion_completeness_20180521_RD.py 715_basecount.txt > 715_conversion.txt
+python A_G_error_20180521_RD.py 715_basecount.txt > 715_error.txt
+samtools view -bS NC1_bowtie.sam > NC1_bowtie.bam
+samtools sort NC1_bowtie.bam NC1_bowtie_sorted
+samtools mpileup -d 200000 NC1_bowtie_sorted.bam > NC1_mpileup.vcf
+python basecount_20180518_RD.py NC1_mpileup.vcf >&NC1_basecount.txt
+python extract_CpGs_20180521_RD.py NC1_basecount.txt > NC1_CpGs.txt
+python conversion_completeness_20180521_RD.py NC1_basecount.txt > NC1_conversion.txt
+python A_G_error_20180521_RD.py NC1_basecount.txt > NC1_error.txt
+samtools view -bS NC2_bowtie.sam > NC2_bowtie.bam
+samtools sort NC2_bowtie.bam NC2_bowtie_sorted
+samtools mpileup -d 200000 NC2_bowtie_sorted.bam > NC2_mpileup.vcf
+python basecount_20180518_RD.py NC2_mpileup.vcf >&NC2_basecount.txt
+python extract_CpGs_20180521_RD.py NC2_basecount.txt > NC2_CpGs.txt
+python conversion_completeness_20180521_RD.py NC2_basecount.txt > NC2_conversion.txt
+python A_G_error_20180521_RD.py NC2_basecount.txt > NC2_error.txt
+cat head_CpGs_20180521_RD.txt 011_CpGs.txt 012_CpGs.txt 013_CpGs.txt 014_CpGs.txt 015_CpGs.txt 016_CpGs.txt 017_CpGs.txt 018_CpGs.txt 019_CpGs.txt 020_CpGs.txt 061_CpGs.txt 062_CpGs.txt 063_CpGs.txt 064_CpGs.txt 065_CpGs.txt 066_CpGs.txt 067_CpGs.txt 068_CpGs.txt 115_CpGs.txt 116_CpGs.txt 117_CpGs.txt 118_CpGs.txt 119_CpGs.txt 120_CpGs.txt 121_CpGs.txt 122_CpGs.txt 123_CpGs.txt 124_CpGs.txt 126_CpGs.txt 127_CpGs.txt 128_CpGs.txt 129_CpGs.txt 130_CpGs.txt 131_CpGs.txt 132_CpGs.txt 133_CpGs.txt 134_CpGs.txt 135_CpGs.txt 136_CpGs.txt 137_CpGs.txt 138_CpGs.txt 139_CpGs.txt 140_CpGs.txt 141_CpGs.txt 142_CpGs.txt 143_CpGs.txt 144_CpGs.txt 145_CpGs.txt 146_CpGs.txt 147_CpGs.txt 148_CpGs.txt 149_CpGs.txt 150_CpGs.txt 151_CpGs.txt 152_CpGs.txt 153_CpGs.txt 154_CpGs.txt 155_CpGs.txt 156_CpGs.txt 157_CpGs.txt 158_CpGs.txt 159_CpGs.txt 160_CpGs.txt 161_CpGs.txt 162_CpGs.txt 163_CpGs.txt 164_CpGs.txt 213_CpGs.txt 214_CpGs.txt 215_CpGs.txt 216_CpGs.txt 217_CpGs.txt 218_CpGs.txt 219_CpGs.txt 220_CpGs.txt 283_CpGs.txt 284_CpGs.txt 285_CpGs.txt 286_CpGs.txt 287_CpGs.txt 288_CpGs.txt 289_CpGs.txt 290_CpGs.txt 291_CpGs.txt 292_CpGs.txt 629_CpGs.txt 630_CpGs.txt 631_CpGs.txt 632_CpGs.txt 633_CpGs.txt 634_CpGs.txt 635_CpGs.txt 636_CpGs.txt 637_CpGs.txt 638_CpGs.txt 639_CpGs.txt 640_CpGs.txt 641_CpGs.txt 642_CpGs.txt 643_CpGs.txt 644_CpGs.txt 645_CpGs.txt 646_CpGs.txt 647_CpGs.txt 648_CpGs.txt 649_CpGs.txt 650_CpGs.txt 651_CpGs.txt 652_CpGs.txt 653_CpGs.txt 654_CpGs.txt 655_CpGs.txt 656_CpGs.txt 657_CpGs.txt 658_CpGs.txt 659_CpGs.txt 660_CpGs.txt 661_CpGs.txt 662_CpGs.txt 663_CpGs.txt 664_CpGs.txt 665_CpGs.txt 666_CpGs.txt 667_CpGs.txt 668_CpGs.txt 669_CpGs.txt 670_CpGs.txt 671_CpGs.txt 672_CpGs.txt 673_CpGs.txt 674_CpGs.txt 675_CpGs.txt 676_CpGs.txt 677_CpGs.txt 678_CpGs.txt 679_CpGs.txt 680_CpGs.txt 681_CpGs.txt 682_CpGs.txt 683_CpGs.txt 684_CpGs.txt 685_CpGs.txt 686_CpGs.txt 687_CpGs.txt 688_CpGs.txt 689_CpGs.txt 690_CpGs.txt 691_CpGs.txt 692_CpGs.txt 693_CpGs.txt 694_CpGs.txt 695_CpGs.txt 696_CpGs.txt 697_CpGs.txt 698_CpGs.txt 699_CpGs.txt 700_CpGs.txt 701_CpGs.txt 702_CpGs.txt 703_CpGs.txt 704_CpGs.txt 705_CpGs.txt 706_CpGs.txt 707_CpGs.txt 708_CpGs.txt 709_CpGs.txt 711_CpGs.txt 712_CpGs.txt 713_CpGs.txt 714_CpGs.txt 715_CpGs.txt NC1_CpGs.txt NC2_CpGs.txt > all_CpGs_20180605_RD.txt
+cat head_conversion_20180521_RD.txt 011_conversion.txt 012_conversion.txt 013_conversion.txt 014_conversion.txt 015_conversion.txt 016_conversion.txt 017_conversion.txt 018_conversion.txt 019_conversion.txt 020_conversion.txt 061_conversion.txt 062_conversion.txt 063_conversion.txt 064_conversion.txt 065_conversion.txt 066_conversion.txt 067_conversion.txt 068_conversion.txt 115_conversion.txt 116_conversion.txt 117_conversion.txt 118_conversion.txt 119_conversion.txt 120_conversion.txt 121_conversion.txt 122_conversion.txt 123_conversion.txt 124_conversion.txt 126_conversion.txt 127_conversion.txt 128_conversion.txt 129_conversion.txt 130_conversion.txt 131_conversion.txt 132_conversion.txt 133_conversion.txt 134_conversion.txt 135_conversion.txt 136_conversion.txt 137_conversion.txt 138_conversion.txt 139_conversion.txt 140_conversion.txt 141_conversion.txt 142_conversion.txt 143_conversion.txt 144_conversion.txt 145_conversion.txt 146_conversion.txt 147_conversion.txt 148_conversion.txt 149_conversion.txt 150_conversion.txt 151_conversion.txt 152_conversion.txt 153_conversion.txt 154_conversion.txt 155_conversion.txt 156_conversion.txt 157_conversion.txt 158_conversion.txt 159_conversion.txt 160_conversion.txt 161_conversion.txt 162_conversion.txt 163_conversion.txt 164_conversion.txt 213_conversion.txt 214_conversion.txt 215_conversion.txt 216_conversion.txt 217_conversion.txt 218_conversion.txt 219_conversion.txt 220_conversion.txt 283_conversion.txt 284_conversion.txt 285_conversion.txt 286_conversion.txt 287_conversion.txt 288_conversion.txt 289_conversion.txt 290_conversion.txt 291_conversion.txt 292_conversion.txt 629_conversion.txt 630_conversion.txt 631_conversion.txt 632_conversion.txt 633_conversion.txt 634_conversion.txt 635_conversion.txt 636_conversion.txt 637_conversion.txt 638_conversion.txt 639_conversion.txt 640_conversion.txt 641_conversion.txt 642_conversion.txt 643_conversion.txt 644_conversion.txt 645_conversion.txt 646_conversion.txt 647_conversion.txt 648_conversion.txt 649_conversion.txt 650_conversion.txt 651_conversion.txt 652_conversion.txt 653_conversion.txt 654_conversion.txt 655_conversion.txt 656_conversion.txt 657_conversion.txt 658_conversion.txt 659_conversion.txt 660_conversion.txt 661_conversion.txt 662_conversion.txt 663_conversion.txt 664_conversion.txt 665_conversion.txt 666_conversion.txt 667_conversion.txt 668_conversion.txt 669_conversion.txt 670_conversion.txt 671_conversion.txt 672_conversion.txt 673_conversion.txt 674_conversion.txt 675_conversion.txt 676_conversion.txt 677_conversion.txt 678_conversion.txt 679_conversion.txt 680_conversion.txt 681_conversion.txt 682_conversion.txt 683_conversion.txt 684_conversion.txt 685_conversion.txt 686_conversion.txt 687_conversion.txt 688_conversion.txt 689_conversion.txt 690_conversion.txt 691_conversion.txt 692_conversion.txt 693_conversion.txt 694_conversion.txt 695_conversion.txt 696_conversion.txt 697_conversion.txt 698_conversion.txt 699_conversion.txt 700_conversion.txt 701_conversion.txt 702_conversion.txt 703_conversion.txt 704_conversion.txt 705_conversion.txt 706_conversion.txt 707_conversion.txt 708_conversion.txt 709_conversion.txt 711_conversion.txt 712_conversion.txt 713_conversion.txt 714_conversion.txt 715_conversion.txt NC1_conversion.txt NC2_conversion.txt > all_conversion_20180605_RD.txt
+cat head_error_20180521_RD.txt 011_error.txt 012_error.txt 013_error.txt 014_error.txt 015_error.txt 016_error.txt 017_error.txt 018_error.txt 019_error.txt 020_error.txt 061_error.txt 062_error.txt 063_error.txt 064_error.txt 065_error.txt 066_error.txt 067_error.txt 068_error.txt 115_error.txt 116_error.txt 117_error.txt 118_error.txt 119_error.txt 120_error.txt 121_error.txt 122_error.txt 123_error.txt 124_error.txt 126_error.txt 127_error.txt 128_error.txt 129_error.txt 130_error.txt 131_error.txt 132_error.txt 133_error.txt 134_error.txt 135_error.txt 136_error.txt 137_error.txt 138_error.txt 139_error.txt 140_error.txt 141_error.txt 142_error.txt 143_error.txt 144_error.txt 145_error.txt 146_error.txt 147_error.txt 148_error.txt 149_error.txt 150_error.txt 151_error.txt 152_error.txt 153_error.txt 154_error.txt 155_error.txt 156_error.txt 157_error.txt 158_error.txt 159_error.txt 160_error.txt 161_error.txt 162_error.txt 163_error.txt 164_error.txt 213_error.txt 214_error.txt 215_error.txt 216_error.txt 217_error.txt 218_error.txt 219_error.txt 220_error.txt 283_error.txt 284_error.txt 285_error.txt 286_error.txt 287_error.txt 288_error.txt 289_error.txt 290_error.txt 291_error.txt 292_error.txt 629_error.txt 630_error.txt 631_error.txt 632_error.txt 633_error.txt 634_error.txt 635_error.txt 636_error.txt 637_error.txt 638_error.txt 639_error.txt 640_error.txt 641_error.txt 642_error.txt 643_error.txt 644_error.txt 645_error.txt 646_error.txt 647_error.txt 648_error.txt 649_error.txt 650_error.txt 651_error.txt 652_error.txt 653_error.txt 654_error.txt 655_error.txt 656_error.txt 657_error.txt 658_error.txt 659_error.txt 660_error.txt 661_error.txt 662_error.txt 663_error.txt 664_error.txt 665_error.txt 666_error.txt 667_error.txt 668_error.txt 669_error.txt 670_error.txt 671_error.txt 672_error.txt 673_error.txt 674_error.txt 675_error.txt 676_error.txt 677_error.txt 678_error.txt 679_error.txt 680_error.txt 681_error.txt 682_error.txt 683_error.txt 684_error.txt 685_error.txt 686_error.txt 687_error.txt 688_error.txt 689_error.txt 690_error.txt 691_error.txt 692_error.txt 693_error.txt 694_error.txt 695_error.txt 696_error.txt 697_error.txt 698_error.txt 699_error.txt 700_error.txt 701_error.txt 702_error.txt 703_error.txt 704_error.txt 705_error.txt 706_error.txt 707_error.txt 708_error.txt 709_error.txt 711_error.txt 712_error.txt 713_error.txt 714_error.txt 715_error.txt NC1_error.txt NC2_error.txt > all_error_20180605_RD.txt

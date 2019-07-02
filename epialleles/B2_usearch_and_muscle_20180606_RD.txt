@@ -1,0 +1,2946 @@
+module load usearch
+module load muscle
+module load fastx
+module load python
+grep B2_reference_CT_converted all_bowtie.sam > B2_bowtie.sam
+grep :011:1:N:0:32 B2_bowtie.sam > B2_011_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_011_bowtie.sam > B2_011_awk.fasta
+usearch -derep_fulllength B2_011_awk.fasta -fastaout B2_011_uniques.fasta -sizeout -relabel B2_011_
+cat B2_011_uniques.fasta B2_reference_CT_converted.fasta > B2_011_input_muscle.fasta
+muscle -in B2_011_input_muscle.fasta -out B2_011_muscle.fasta -maxiters 1
+fasta_formatter -i B2_011_muscle.fasta -o B2_011_muscle.tab -t
+grep B2_reference_CT_converted B2_011_muscle.tab > B2_011_reference.tab
+awk '{print $2}' B2_011_reference.tab > B2_011_reference_sequence.tab
+awk '{print $1}' B2_011_muscle.tab > B2_011_uniquenames.tab
+awk '{print $2}' B2_011_muscle.tab > B2_011_sequences.tab
+B2_011=$(python find_CpGs_B2.py B2_011_reference_sequence.tab)
+cut -c $B2_011 B2_011_sequences.tab > B2_011_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_011_uniquenames.tab
+sed -i 's/;/ /g' B2_011_uniquenames.tab
+sed -i 's/=/ /g' B2_011_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_011_uniquenames.tab > B2_011_uniqueinfo.tab
+paste B2_011_uniqueinfo.tab B2_011_unnumbered_haplotypes.tab > B2_011_redundant_haplotypes.tab
+grep :012:1:N:0:40 B2_bowtie.sam > B2_012_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_012_bowtie.sam > B2_012_awk.fasta
+usearch -derep_fulllength B2_012_awk.fasta -fastaout B2_012_uniques.fasta -sizeout -relabel B2_012_
+cat B2_012_uniques.fasta B2_reference_CT_converted.fasta > B2_012_input_muscle.fasta
+muscle -in B2_012_input_muscle.fasta -out B2_012_muscle.fasta -maxiters 1
+fasta_formatter -i B2_012_muscle.fasta -o B2_012_muscle.tab -t
+grep B2_reference_CT_converted B2_012_muscle.tab > B2_012_reference.tab
+awk '{print $2}' B2_012_reference.tab > B2_012_reference_sequence.tab
+awk '{print $1}' B2_012_muscle.tab > B2_012_uniquenames.tab
+awk '{print $2}' B2_012_muscle.tab > B2_012_sequences.tab
+B2_012=$(python find_CpGs_B2.py B2_012_reference_sequence.tab)
+cut -c $B2_012 B2_012_sequences.tab > B2_012_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_012_uniquenames.tab
+sed -i 's/;/ /g' B2_012_uniquenames.tab
+sed -i 's/=/ /g' B2_012_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_012_uniquenames.tab > B2_012_uniqueinfo.tab
+paste B2_012_uniqueinfo.tab B2_012_unnumbered_haplotypes.tab > B2_012_redundant_haplotypes.tab
+grep :013:1:N:0:48 B2_bowtie.sam > B2_013_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_013_bowtie.sam > B2_013_awk.fasta
+usearch -derep_fulllength B2_013_awk.fasta -fastaout B2_013_uniques.fasta -sizeout -relabel B2_013_
+cat B2_013_uniques.fasta B2_reference_CT_converted.fasta > B2_013_input_muscle.fasta
+muscle -in B2_013_input_muscle.fasta -out B2_013_muscle.fasta -maxiters 1
+fasta_formatter -i B2_013_muscle.fasta -o B2_013_muscle.tab -t
+grep B2_reference_CT_converted B2_013_muscle.tab > B2_013_reference.tab
+awk '{print $2}' B2_013_reference.tab > B2_013_reference_sequence.tab
+awk '{print $1}' B2_013_muscle.tab > B2_013_uniquenames.tab
+awk '{print $2}' B2_013_muscle.tab > B2_013_sequences.tab
+B2_013=$(python find_CpGs_B2.py B2_013_reference_sequence.tab)
+cut -c $B2_013 B2_013_sequences.tab > B2_013_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_013_uniquenames.tab
+sed -i 's/;/ /g' B2_013_uniquenames.tab
+sed -i 's/=/ /g' B2_013_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_013_uniquenames.tab > B2_013_uniqueinfo.tab
+paste B2_013_uniqueinfo.tab B2_013_unnumbered_haplotypes.tab > B2_013_redundant_haplotypes.tab
+grep :014:1:N:0:56 B2_bowtie.sam > B2_014_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_014_bowtie.sam > B2_014_awk.fasta
+usearch -derep_fulllength B2_014_awk.fasta -fastaout B2_014_uniques.fasta -sizeout -relabel B2_014_
+cat B2_014_uniques.fasta B2_reference_CT_converted.fasta > B2_014_input_muscle.fasta
+muscle -in B2_014_input_muscle.fasta -out B2_014_muscle.fasta -maxiters 1
+fasta_formatter -i B2_014_muscle.fasta -o B2_014_muscle.tab -t
+grep B2_reference_CT_converted B2_014_muscle.tab > B2_014_reference.tab
+awk '{print $2}' B2_014_reference.tab > B2_014_reference_sequence.tab
+awk '{print $1}' B2_014_muscle.tab > B2_014_uniquenames.tab
+awk '{print $2}' B2_014_muscle.tab > B2_014_sequences.tab
+B2_014=$(python find_CpGs_B2.py B2_014_reference_sequence.tab)
+cut -c $B2_014 B2_014_sequences.tab > B2_014_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_014_uniquenames.tab
+sed -i 's/;/ /g' B2_014_uniquenames.tab
+sed -i 's/=/ /g' B2_014_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_014_uniquenames.tab > B2_014_uniqueinfo.tab
+paste B2_014_uniqueinfo.tab B2_014_unnumbered_haplotypes.tab > B2_014_redundant_haplotypes.tab
+grep :015:1:N:0:64 B2_bowtie.sam > B2_015_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_015_bowtie.sam > B2_015_awk.fasta
+usearch -derep_fulllength B2_015_awk.fasta -fastaout B2_015_uniques.fasta -sizeout -relabel B2_015_
+cat B2_015_uniques.fasta B2_reference_CT_converted.fasta > B2_015_input_muscle.fasta
+muscle -in B2_015_input_muscle.fasta -out B2_015_muscle.fasta -maxiters 1
+fasta_formatter -i B2_015_muscle.fasta -o B2_015_muscle.tab -t
+grep B2_reference_CT_converted B2_015_muscle.tab > B2_015_reference.tab
+awk '{print $2}' B2_015_reference.tab > B2_015_reference_sequence.tab
+awk '{print $1}' B2_015_muscle.tab > B2_015_uniquenames.tab
+awk '{print $2}' B2_015_muscle.tab > B2_015_sequences.tab
+B2_015=$(python find_CpGs_B2.py B2_015_reference_sequence.tab)
+cut -c $B2_015 B2_015_sequences.tab > B2_015_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_015_uniquenames.tab
+sed -i 's/;/ /g' B2_015_uniquenames.tab
+sed -i 's/=/ /g' B2_015_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_015_uniquenames.tab > B2_015_uniqueinfo.tab
+paste B2_015_uniqueinfo.tab B2_015_unnumbered_haplotypes.tab > B2_015_redundant_haplotypes.tab
+grep :016:1:N:0:72 B2_bowtie.sam > B2_016_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_016_bowtie.sam > B2_016_awk.fasta
+usearch -derep_fulllength B2_016_awk.fasta -fastaout B2_016_uniques.fasta -sizeout -relabel B2_016_
+cat B2_016_uniques.fasta B2_reference_CT_converted.fasta > B2_016_input_muscle.fasta
+muscle -in B2_016_input_muscle.fasta -out B2_016_muscle.fasta -maxiters 1
+fasta_formatter -i B2_016_muscle.fasta -o B2_016_muscle.tab -t
+grep B2_reference_CT_converted B2_016_muscle.tab > B2_016_reference.tab
+awk '{print $2}' B2_016_reference.tab > B2_016_reference_sequence.tab
+awk '{print $1}' B2_016_muscle.tab > B2_016_uniquenames.tab
+awk '{print $2}' B2_016_muscle.tab > B2_016_sequences.tab
+B2_016=$(python find_CpGs_B2.py B2_016_reference_sequence.tab)
+cut -c $B2_016 B2_016_sequences.tab > B2_016_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_016_uniquenames.tab
+sed -i 's/;/ /g' B2_016_uniquenames.tab
+sed -i 's/=/ /g' B2_016_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_016_uniquenames.tab > B2_016_uniqueinfo.tab
+paste B2_016_uniqueinfo.tab B2_016_unnumbered_haplotypes.tab > B2_016_redundant_haplotypes.tab
+grep :017:1:N:0:80 B2_bowtie.sam > B2_017_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_017_bowtie.sam > B2_017_awk.fasta
+usearch -derep_fulllength B2_017_awk.fasta -fastaout B2_017_uniques.fasta -sizeout -relabel B2_017_
+cat B2_017_uniques.fasta B2_reference_CT_converted.fasta > B2_017_input_muscle.fasta
+muscle -in B2_017_input_muscle.fasta -out B2_017_muscle.fasta -maxiters 1
+fasta_formatter -i B2_017_muscle.fasta -o B2_017_muscle.tab -t
+grep B2_reference_CT_converted B2_017_muscle.tab > B2_017_reference.tab
+awk '{print $2}' B2_017_reference.tab > B2_017_reference_sequence.tab
+awk '{print $1}' B2_017_muscle.tab > B2_017_uniquenames.tab
+awk '{print $2}' B2_017_muscle.tab > B2_017_sequences.tab
+B2_017=$(python find_CpGs_B2.py B2_017_reference_sequence.tab)
+cut -c $B2_017 B2_017_sequences.tab > B2_017_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_017_uniquenames.tab
+sed -i 's/;/ /g' B2_017_uniquenames.tab
+sed -i 's/=/ /g' B2_017_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_017_uniquenames.tab > B2_017_uniqueinfo.tab
+paste B2_017_uniqueinfo.tab B2_017_unnumbered_haplotypes.tab > B2_017_redundant_haplotypes.tab
+grep :018:1:N:0:88 B2_bowtie.sam > B2_018_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_018_bowtie.sam > B2_018_awk.fasta
+usearch -derep_fulllength B2_018_awk.fasta -fastaout B2_018_uniques.fasta -sizeout -relabel B2_018_
+cat B2_018_uniques.fasta B2_reference_CT_converted.fasta > B2_018_input_muscle.fasta
+muscle -in B2_018_input_muscle.fasta -out B2_018_muscle.fasta -maxiters 1
+fasta_formatter -i B2_018_muscle.fasta -o B2_018_muscle.tab -t
+grep B2_reference_CT_converted B2_018_muscle.tab > B2_018_reference.tab
+awk '{print $2}' B2_018_reference.tab > B2_018_reference_sequence.tab
+awk '{print $1}' B2_018_muscle.tab > B2_018_uniquenames.tab
+awk '{print $2}' B2_018_muscle.tab > B2_018_sequences.tab
+B2_018=$(python find_CpGs_B2.py B2_018_reference_sequence.tab)
+cut -c $B2_018 B2_018_sequences.tab > B2_018_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_018_uniquenames.tab
+sed -i 's/;/ /g' B2_018_uniquenames.tab
+sed -i 's/=/ /g' B2_018_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_018_uniquenames.tab > B2_018_uniqueinfo.tab
+paste B2_018_uniqueinfo.tab B2_018_unnumbered_haplotypes.tab > B2_018_redundant_haplotypes.tab
+grep :019:1:N:0:96 B2_bowtie.sam > B2_019_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_019_bowtie.sam > B2_019_awk.fasta
+usearch -derep_fulllength B2_019_awk.fasta -fastaout B2_019_uniques.fasta -sizeout -relabel B2_019_
+cat B2_019_uniques.fasta B2_reference_CT_converted.fasta > B2_019_input_muscle.fasta
+muscle -in B2_019_input_muscle.fasta -out B2_019_muscle.fasta -maxiters 1
+fasta_formatter -i B2_019_muscle.fasta -o B2_019_muscle.tab -t
+grep B2_reference_CT_converted B2_019_muscle.tab > B2_019_reference.tab
+awk '{print $2}' B2_019_reference.tab > B2_019_reference_sequence.tab
+awk '{print $1}' B2_019_muscle.tab > B2_019_uniquenames.tab
+awk '{print $2}' B2_019_muscle.tab > B2_019_sequences.tab
+B2_019=$(python find_CpGs_B2.py B2_019_reference_sequence.tab)
+cut -c $B2_019 B2_019_sequences.tab > B2_019_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_019_uniquenames.tab
+sed -i 's/;/ /g' B2_019_uniquenames.tab
+sed -i 's/=/ /g' B2_019_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_019_uniquenames.tab > B2_019_uniqueinfo.tab
+paste B2_019_uniqueinfo.tab B2_019_unnumbered_haplotypes.tab > B2_019_redundant_haplotypes.tab
+grep :020:1:N:0:1 B2_bowtie.sam > B2_020_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_020_bowtie.sam > B2_020_awk.fasta
+usearch -derep_fulllength B2_020_awk.fasta -fastaout B2_020_uniques.fasta -sizeout -relabel B2_020_
+cat B2_020_uniques.fasta B2_reference_CT_converted.fasta > B2_020_input_muscle.fasta
+muscle -in B2_020_input_muscle.fasta -out B2_020_muscle.fasta -maxiters 1
+fasta_formatter -i B2_020_muscle.fasta -o B2_020_muscle.tab -t
+grep B2_reference_CT_converted B2_020_muscle.tab > B2_020_reference.tab
+awk '{print $2}' B2_020_reference.tab > B2_020_reference_sequence.tab
+awk '{print $1}' B2_020_muscle.tab > B2_020_uniquenames.tab
+awk '{print $2}' B2_020_muscle.tab > B2_020_sequences.tab
+B2_020=$(python find_CpGs_B2.py B2_020_reference_sequence.tab)
+cut -c $B2_020 B2_020_sequences.tab > B2_020_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_020_uniquenames.tab
+sed -i 's/;/ /g' B2_020_uniquenames.tab
+sed -i 's/=/ /g' B2_020_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_020_uniquenames.tab > B2_020_uniqueinfo.tab
+paste B2_020_uniqueinfo.tab B2_020_unnumbered_haplotypes.tab > B2_020_redundant_haplotypes.tab
+grep :061:1:N:0:9 B2_bowtie.sam > B2_061_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_061_bowtie.sam > B2_061_awk.fasta
+usearch -derep_fulllength B2_061_awk.fasta -fastaout B2_061_uniques.fasta -sizeout -relabel B2_061_
+cat B2_061_uniques.fasta B2_reference_CT_converted.fasta > B2_061_input_muscle.fasta
+muscle -in B2_061_input_muscle.fasta -out B2_061_muscle.fasta -maxiters 1
+fasta_formatter -i B2_061_muscle.fasta -o B2_061_muscle.tab -t
+grep B2_reference_CT_converted B2_061_muscle.tab > B2_061_reference.tab
+awk '{print $2}' B2_061_reference.tab > B2_061_reference_sequence.tab
+awk '{print $1}' B2_061_muscle.tab > B2_061_uniquenames.tab
+awk '{print $2}' B2_061_muscle.tab > B2_061_sequences.tab
+B2_061=$(python find_CpGs_B2.py B2_061_reference_sequence.tab)
+cut -c $B2_061 B2_061_sequences.tab > B2_061_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_061_uniquenames.tab
+sed -i 's/;/ /g' B2_061_uniquenames.tab
+sed -i 's/=/ /g' B2_061_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_061_uniquenames.tab > B2_061_uniqueinfo.tab
+paste B2_061_uniqueinfo.tab B2_061_unnumbered_haplotypes.tab > B2_061_redundant_haplotypes.tab
+grep :062:1:N:0:17 B2_bowtie.sam > B2_062_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_062_bowtie.sam > B2_062_awk.fasta
+usearch -derep_fulllength B2_062_awk.fasta -fastaout B2_062_uniques.fasta -sizeout -relabel B2_062_
+cat B2_062_uniques.fasta B2_reference_CT_converted.fasta > B2_062_input_muscle.fasta
+muscle -in B2_062_input_muscle.fasta -out B2_062_muscle.fasta -maxiters 1
+fasta_formatter -i B2_062_muscle.fasta -o B2_062_muscle.tab -t
+grep B2_reference_CT_converted B2_062_muscle.tab > B2_062_reference.tab
+awk '{print $2}' B2_062_reference.tab > B2_062_reference_sequence.tab
+awk '{print $1}' B2_062_muscle.tab > B2_062_uniquenames.tab
+awk '{print $2}' B2_062_muscle.tab > B2_062_sequences.tab
+B2_062=$(python find_CpGs_B2.py B2_062_reference_sequence.tab)
+cut -c $B2_062 B2_062_sequences.tab > B2_062_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_062_uniquenames.tab
+sed -i 's/;/ /g' B2_062_uniquenames.tab
+sed -i 's/=/ /g' B2_062_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_062_uniquenames.tab > B2_062_uniqueinfo.tab
+paste B2_062_uniqueinfo.tab B2_062_unnumbered_haplotypes.tab > B2_062_redundant_haplotypes.tab
+grep :063:1:N:0:25 B2_bowtie.sam > B2_063_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_063_bowtie.sam > B2_063_awk.fasta
+usearch -derep_fulllength B2_063_awk.fasta -fastaout B2_063_uniques.fasta -sizeout -relabel B2_063_
+cat B2_063_uniques.fasta B2_reference_CT_converted.fasta > B2_063_input_muscle.fasta
+muscle -in B2_063_input_muscle.fasta -out B2_063_muscle.fasta -maxiters 1
+fasta_formatter -i B2_063_muscle.fasta -o B2_063_muscle.tab -t
+grep B2_reference_CT_converted B2_063_muscle.tab > B2_063_reference.tab
+awk '{print $2}' B2_063_reference.tab > B2_063_reference_sequence.tab
+awk '{print $1}' B2_063_muscle.tab > B2_063_uniquenames.tab
+awk '{print $2}' B2_063_muscle.tab > B2_063_sequences.tab
+B2_063=$(python find_CpGs_B2.py B2_063_reference_sequence.tab)
+cut -c $B2_063 B2_063_sequences.tab > B2_063_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_063_uniquenames.tab
+sed -i 's/;/ /g' B2_063_uniquenames.tab
+sed -i 's/=/ /g' B2_063_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_063_uniquenames.tab > B2_063_uniqueinfo.tab
+paste B2_063_uniqueinfo.tab B2_063_unnumbered_haplotypes.tab > B2_063_redundant_haplotypes.tab
+grep :064:1:N:0:33 B2_bowtie.sam > B2_064_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_064_bowtie.sam > B2_064_awk.fasta
+usearch -derep_fulllength B2_064_awk.fasta -fastaout B2_064_uniques.fasta -sizeout -relabel B2_064_
+cat B2_064_uniques.fasta B2_reference_CT_converted.fasta > B2_064_input_muscle.fasta
+muscle -in B2_064_input_muscle.fasta -out B2_064_muscle.fasta -maxiters 1
+fasta_formatter -i B2_064_muscle.fasta -o B2_064_muscle.tab -t
+grep B2_reference_CT_converted B2_064_muscle.tab > B2_064_reference.tab
+awk '{print $2}' B2_064_reference.tab > B2_064_reference_sequence.tab
+awk '{print $1}' B2_064_muscle.tab > B2_064_uniquenames.tab
+awk '{print $2}' B2_064_muscle.tab > B2_064_sequences.tab
+B2_064=$(python find_CpGs_B2.py B2_064_reference_sequence.tab)
+cut -c $B2_064 B2_064_sequences.tab > B2_064_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_064_uniquenames.tab
+sed -i 's/;/ /g' B2_064_uniquenames.tab
+sed -i 's/=/ /g' B2_064_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_064_uniquenames.tab > B2_064_uniqueinfo.tab
+paste B2_064_uniqueinfo.tab B2_064_unnumbered_haplotypes.tab > B2_064_redundant_haplotypes.tab
+grep :065:1:N:0:41 B2_bowtie.sam > B2_065_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_065_bowtie.sam > B2_065_awk.fasta
+usearch -derep_fulllength B2_065_awk.fasta -fastaout B2_065_uniques.fasta -sizeout -relabel B2_065_
+cat B2_065_uniques.fasta B2_reference_CT_converted.fasta > B2_065_input_muscle.fasta
+muscle -in B2_065_input_muscle.fasta -out B2_065_muscle.fasta -maxiters 1
+fasta_formatter -i B2_065_muscle.fasta -o B2_065_muscle.tab -t
+grep B2_reference_CT_converted B2_065_muscle.tab > B2_065_reference.tab
+awk '{print $2}' B2_065_reference.tab > B2_065_reference_sequence.tab
+awk '{print $1}' B2_065_muscle.tab > B2_065_uniquenames.tab
+awk '{print $2}' B2_065_muscle.tab > B2_065_sequences.tab
+B2_065=$(python find_CpGs_B2.py B2_065_reference_sequence.tab)
+cut -c $B2_065 B2_065_sequences.tab > B2_065_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_065_uniquenames.tab
+sed -i 's/;/ /g' B2_065_uniquenames.tab
+sed -i 's/=/ /g' B2_065_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_065_uniquenames.tab > B2_065_uniqueinfo.tab
+paste B2_065_uniqueinfo.tab B2_065_unnumbered_haplotypes.tab > B2_065_redundant_haplotypes.tab
+grep :066:1:N:0:49 B2_bowtie.sam > B2_066_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_066_bowtie.sam > B2_066_awk.fasta
+usearch -derep_fulllength B2_066_awk.fasta -fastaout B2_066_uniques.fasta -sizeout -relabel B2_066_
+cat B2_066_uniques.fasta B2_reference_CT_converted.fasta > B2_066_input_muscle.fasta
+muscle -in B2_066_input_muscle.fasta -out B2_066_muscle.fasta -maxiters 1
+fasta_formatter -i B2_066_muscle.fasta -o B2_066_muscle.tab -t
+grep B2_reference_CT_converted B2_066_muscle.tab > B2_066_reference.tab
+awk '{print $2}' B2_066_reference.tab > B2_066_reference_sequence.tab
+awk '{print $1}' B2_066_muscle.tab > B2_066_uniquenames.tab
+awk '{print $2}' B2_066_muscle.tab > B2_066_sequences.tab
+B2_066=$(python find_CpGs_B2.py B2_066_reference_sequence.tab)
+cut -c $B2_066 B2_066_sequences.tab > B2_066_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_066_uniquenames.tab
+sed -i 's/;/ /g' B2_066_uniquenames.tab
+sed -i 's/=/ /g' B2_066_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_066_uniquenames.tab > B2_066_uniqueinfo.tab
+paste B2_066_uniqueinfo.tab B2_066_unnumbered_haplotypes.tab > B2_066_redundant_haplotypes.tab
+grep :067:1:N:0:57 B2_bowtie.sam > B2_067_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_067_bowtie.sam > B2_067_awk.fasta
+usearch -derep_fulllength B2_067_awk.fasta -fastaout B2_067_uniques.fasta -sizeout -relabel B2_067_
+cat B2_067_uniques.fasta B2_reference_CT_converted.fasta > B2_067_input_muscle.fasta
+muscle -in B2_067_input_muscle.fasta -out B2_067_muscle.fasta -maxiters 1
+fasta_formatter -i B2_067_muscle.fasta -o B2_067_muscle.tab -t
+grep B2_reference_CT_converted B2_067_muscle.tab > B2_067_reference.tab
+awk '{print $2}' B2_067_reference.tab > B2_067_reference_sequence.tab
+awk '{print $1}' B2_067_muscle.tab > B2_067_uniquenames.tab
+awk '{print $2}' B2_067_muscle.tab > B2_067_sequences.tab
+B2_067=$(python find_CpGs_B2.py B2_067_reference_sequence.tab)
+cut -c $B2_067 B2_067_sequences.tab > B2_067_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_067_uniquenames.tab
+sed -i 's/;/ /g' B2_067_uniquenames.tab
+sed -i 's/=/ /g' B2_067_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_067_uniquenames.tab > B2_067_uniqueinfo.tab
+paste B2_067_uniqueinfo.tab B2_067_unnumbered_haplotypes.tab > B2_067_redundant_haplotypes.tab
+grep :068:1:N:0:2 B2_bowtie.sam > B2_068_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_068_bowtie.sam > B2_068_awk.fasta
+usearch -derep_fulllength B2_068_awk.fasta -fastaout B2_068_uniques.fasta -sizeout -relabel B2_068_
+cat B2_068_uniques.fasta B2_reference_CT_converted.fasta > B2_068_input_muscle.fasta
+muscle -in B2_068_input_muscle.fasta -out B2_068_muscle.fasta -maxiters 1
+fasta_formatter -i B2_068_muscle.fasta -o B2_068_muscle.tab -t
+grep B2_reference_CT_converted B2_068_muscle.tab > B2_068_reference.tab
+awk '{print $2}' B2_068_reference.tab > B2_068_reference_sequence.tab
+awk '{print $1}' B2_068_muscle.tab > B2_068_uniquenames.tab
+awk '{print $2}' B2_068_muscle.tab > B2_068_sequences.tab
+B2_068=$(python find_CpGs_B2.py B2_068_reference_sequence.tab)
+cut -c $B2_068 B2_068_sequences.tab > B2_068_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_068_uniquenames.tab
+sed -i 's/;/ /g' B2_068_uniquenames.tab
+sed -i 's/=/ /g' B2_068_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_068_uniquenames.tab > B2_068_uniqueinfo.tab
+paste B2_068_uniqueinfo.tab B2_068_unnumbered_haplotypes.tab > B2_068_redundant_haplotypes.tab
+grep :115:1:N:0:10 B2_bowtie.sam > B2_115_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_115_bowtie.sam > B2_115_awk.fasta
+usearch -derep_fulllength B2_115_awk.fasta -fastaout B2_115_uniques.fasta -sizeout -relabel B2_115_
+cat B2_115_uniques.fasta B2_reference_CT_converted.fasta > B2_115_input_muscle.fasta
+muscle -in B2_115_input_muscle.fasta -out B2_115_muscle.fasta -maxiters 1
+fasta_formatter -i B2_115_muscle.fasta -o B2_115_muscle.tab -t
+grep B2_reference_CT_converted B2_115_muscle.tab > B2_115_reference.tab
+awk '{print $2}' B2_115_reference.tab > B2_115_reference_sequence.tab
+awk '{print $1}' B2_115_muscle.tab > B2_115_uniquenames.tab
+awk '{print $2}' B2_115_muscle.tab > B2_115_sequences.tab
+B2_115=$(python find_CpGs_B2.py B2_115_reference_sequence.tab)
+cut -c $B2_115 B2_115_sequences.tab > B2_115_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_115_uniquenames.tab
+sed -i 's/;/ /g' B2_115_uniquenames.tab
+sed -i 's/=/ /g' B2_115_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_115_uniquenames.tab > B2_115_uniqueinfo.tab
+paste B2_115_uniqueinfo.tab B2_115_unnumbered_haplotypes.tab > B2_115_redundant_haplotypes.tab
+grep :116:1:N:0:18 B2_bowtie.sam > B2_116_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_116_bowtie.sam > B2_116_awk.fasta
+usearch -derep_fulllength B2_116_awk.fasta -fastaout B2_116_uniques.fasta -sizeout -relabel B2_116_
+cat B2_116_uniques.fasta B2_reference_CT_converted.fasta > B2_116_input_muscle.fasta
+muscle -in B2_116_input_muscle.fasta -out B2_116_muscle.fasta -maxiters 1
+fasta_formatter -i B2_116_muscle.fasta -o B2_116_muscle.tab -t
+grep B2_reference_CT_converted B2_116_muscle.tab > B2_116_reference.tab
+awk '{print $2}' B2_116_reference.tab > B2_116_reference_sequence.tab
+awk '{print $1}' B2_116_muscle.tab > B2_116_uniquenames.tab
+awk '{print $2}' B2_116_muscle.tab > B2_116_sequences.tab
+B2_116=$(python find_CpGs_B2.py B2_116_reference_sequence.tab)
+cut -c $B2_116 B2_116_sequences.tab > B2_116_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_116_uniquenames.tab
+sed -i 's/;/ /g' B2_116_uniquenames.tab
+sed -i 's/=/ /g' B2_116_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_116_uniquenames.tab > B2_116_uniqueinfo.tab
+paste B2_116_uniqueinfo.tab B2_116_unnumbered_haplotypes.tab > B2_116_redundant_haplotypes.tab
+grep :117:1:N:0:26 B2_bowtie.sam > B2_117_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_117_bowtie.sam > B2_117_awk.fasta
+usearch -derep_fulllength B2_117_awk.fasta -fastaout B2_117_uniques.fasta -sizeout -relabel B2_117_
+cat B2_117_uniques.fasta B2_reference_CT_converted.fasta > B2_117_input_muscle.fasta
+muscle -in B2_117_input_muscle.fasta -out B2_117_muscle.fasta -maxiters 1
+fasta_formatter -i B2_117_muscle.fasta -o B2_117_muscle.tab -t
+grep B2_reference_CT_converted B2_117_muscle.tab > B2_117_reference.tab
+awk '{print $2}' B2_117_reference.tab > B2_117_reference_sequence.tab
+awk '{print $1}' B2_117_muscle.tab > B2_117_uniquenames.tab
+awk '{print $2}' B2_117_muscle.tab > B2_117_sequences.tab
+B2_117=$(python find_CpGs_B2.py B2_117_reference_sequence.tab)
+cut -c $B2_117 B2_117_sequences.tab > B2_117_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_117_uniquenames.tab
+sed -i 's/;/ /g' B2_117_uniquenames.tab
+sed -i 's/=/ /g' B2_117_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_117_uniquenames.tab > B2_117_uniqueinfo.tab
+paste B2_117_uniqueinfo.tab B2_117_unnumbered_haplotypes.tab > B2_117_redundant_haplotypes.tab
+grep :118:1:N:0:34 B2_bowtie.sam > B2_118_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_118_bowtie.sam > B2_118_awk.fasta
+usearch -derep_fulllength B2_118_awk.fasta -fastaout B2_118_uniques.fasta -sizeout -relabel B2_118_
+cat B2_118_uniques.fasta B2_reference_CT_converted.fasta > B2_118_input_muscle.fasta
+muscle -in B2_118_input_muscle.fasta -out B2_118_muscle.fasta -maxiters 1
+fasta_formatter -i B2_118_muscle.fasta -o B2_118_muscle.tab -t
+grep B2_reference_CT_converted B2_118_muscle.tab > B2_118_reference.tab
+awk '{print $2}' B2_118_reference.tab > B2_118_reference_sequence.tab
+awk '{print $1}' B2_118_muscle.tab > B2_118_uniquenames.tab
+awk '{print $2}' B2_118_muscle.tab > B2_118_sequences.tab
+B2_118=$(python find_CpGs_B2.py B2_118_reference_sequence.tab)
+cut -c $B2_118 B2_118_sequences.tab > B2_118_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_118_uniquenames.tab
+sed -i 's/;/ /g' B2_118_uniquenames.tab
+sed -i 's/=/ /g' B2_118_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_118_uniquenames.tab > B2_118_uniqueinfo.tab
+paste B2_118_uniqueinfo.tab B2_118_unnumbered_haplotypes.tab > B2_118_redundant_haplotypes.tab
+grep :119:1:N:0:42 B2_bowtie.sam > B2_119_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_119_bowtie.sam > B2_119_awk.fasta
+usearch -derep_fulllength B2_119_awk.fasta -fastaout B2_119_uniques.fasta -sizeout -relabel B2_119_
+cat B2_119_uniques.fasta B2_reference_CT_converted.fasta > B2_119_input_muscle.fasta
+muscle -in B2_119_input_muscle.fasta -out B2_119_muscle.fasta -maxiters 1
+fasta_formatter -i B2_119_muscle.fasta -o B2_119_muscle.tab -t
+grep B2_reference_CT_converted B2_119_muscle.tab > B2_119_reference.tab
+awk '{print $2}' B2_119_reference.tab > B2_119_reference_sequence.tab
+awk '{print $1}' B2_119_muscle.tab > B2_119_uniquenames.tab
+awk '{print $2}' B2_119_muscle.tab > B2_119_sequences.tab
+B2_119=$(python find_CpGs_B2.py B2_119_reference_sequence.tab)
+cut -c $B2_119 B2_119_sequences.tab > B2_119_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_119_uniquenames.tab
+sed -i 's/;/ /g' B2_119_uniquenames.tab
+sed -i 's/=/ /g' B2_119_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_119_uniquenames.tab > B2_119_uniqueinfo.tab
+paste B2_119_uniqueinfo.tab B2_119_unnumbered_haplotypes.tab > B2_119_redundant_haplotypes.tab
+grep :120:1:N:0:50 B2_bowtie.sam > B2_120_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_120_bowtie.sam > B2_120_awk.fasta
+usearch -derep_fulllength B2_120_awk.fasta -fastaout B2_120_uniques.fasta -sizeout -relabel B2_120_
+cat B2_120_uniques.fasta B2_reference_CT_converted.fasta > B2_120_input_muscle.fasta
+muscle -in B2_120_input_muscle.fasta -out B2_120_muscle.fasta -maxiters 1
+fasta_formatter -i B2_120_muscle.fasta -o B2_120_muscle.tab -t
+grep B2_reference_CT_converted B2_120_muscle.tab > B2_120_reference.tab
+awk '{print $2}' B2_120_reference.tab > B2_120_reference_sequence.tab
+awk '{print $1}' B2_120_muscle.tab > B2_120_uniquenames.tab
+awk '{print $2}' B2_120_muscle.tab > B2_120_sequences.tab
+B2_120=$(python find_CpGs_B2.py B2_120_reference_sequence.tab)
+cut -c $B2_120 B2_120_sequences.tab > B2_120_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_120_uniquenames.tab
+sed -i 's/;/ /g' B2_120_uniquenames.tab
+sed -i 's/=/ /g' B2_120_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_120_uniquenames.tab > B2_120_uniqueinfo.tab
+paste B2_120_uniqueinfo.tab B2_120_unnumbered_haplotypes.tab > B2_120_redundant_haplotypes.tab
+grep :121:1:N:0:0 B2_bowtie.sam > B2_121_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_121_bowtie.sam > B2_121_awk.fasta
+usearch -derep_fulllength B2_121_awk.fasta -fastaout B2_121_uniques.fasta -sizeout -relabel B2_121_
+cat B2_121_uniques.fasta B2_reference_CT_converted.fasta > B2_121_input_muscle.fasta
+muscle -in B2_121_input_muscle.fasta -out B2_121_muscle.fasta -maxiters 1
+fasta_formatter -i B2_121_muscle.fasta -o B2_121_muscle.tab -t
+grep B2_reference_CT_converted B2_121_muscle.tab > B2_121_reference.tab
+awk '{print $2}' B2_121_reference.tab > B2_121_reference_sequence.tab
+awk '{print $1}' B2_121_muscle.tab > B2_121_uniquenames.tab
+awk '{print $2}' B2_121_muscle.tab > B2_121_sequences.tab
+B2_121=$(python find_CpGs_B2.py B2_121_reference_sequence.tab)
+cut -c $B2_121 B2_121_sequences.tab > B2_121_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_121_uniquenames.tab
+sed -i 's/;/ /g' B2_121_uniquenames.tab
+sed -i 's/=/ /g' B2_121_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_121_uniquenames.tab > B2_121_uniqueinfo.tab
+paste B2_121_uniqueinfo.tab B2_121_unnumbered_haplotypes.tab > B2_121_redundant_haplotypes.tab
+grep :122:1:N:0:0 B2_bowtie.sam > B2_122_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_122_bowtie.sam > B2_122_awk.fasta
+usearch -derep_fulllength B2_122_awk.fasta -fastaout B2_122_uniques.fasta -sizeout -relabel B2_122_
+cat B2_122_uniques.fasta B2_reference_CT_converted.fasta > B2_122_input_muscle.fasta
+muscle -in B2_122_input_muscle.fasta -out B2_122_muscle.fasta -maxiters 1
+fasta_formatter -i B2_122_muscle.fasta -o B2_122_muscle.tab -t
+grep B2_reference_CT_converted B2_122_muscle.tab > B2_122_reference.tab
+awk '{print $2}' B2_122_reference.tab > B2_122_reference_sequence.tab
+awk '{print $1}' B2_122_muscle.tab > B2_122_uniquenames.tab
+awk '{print $2}' B2_122_muscle.tab > B2_122_sequences.tab
+B2_122=$(python find_CpGs_B2.py B2_122_reference_sequence.tab)
+cut -c $B2_122 B2_122_sequences.tab > B2_122_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_122_uniquenames.tab
+sed -i 's/;/ /g' B2_122_uniquenames.tab
+sed -i 's/=/ /g' B2_122_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_122_uniquenames.tab > B2_122_uniqueinfo.tab
+paste B2_122_uniqueinfo.tab B2_122_unnumbered_haplotypes.tab > B2_122_redundant_haplotypes.tab
+grep :123:1:N:0:0 B2_bowtie.sam > B2_123_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_123_bowtie.sam > B2_123_awk.fasta
+usearch -derep_fulllength B2_123_awk.fasta -fastaout B2_123_uniques.fasta -sizeout -relabel B2_123_
+cat B2_123_uniques.fasta B2_reference_CT_converted.fasta > B2_123_input_muscle.fasta
+muscle -in B2_123_input_muscle.fasta -out B2_123_muscle.fasta -maxiters 1
+fasta_formatter -i B2_123_muscle.fasta -o B2_123_muscle.tab -t
+grep B2_reference_CT_converted B2_123_muscle.tab > B2_123_reference.tab
+awk '{print $2}' B2_123_reference.tab > B2_123_reference_sequence.tab
+awk '{print $1}' B2_123_muscle.tab > B2_123_uniquenames.tab
+awk '{print $2}' B2_123_muscle.tab > B2_123_sequences.tab
+B2_123=$(python find_CpGs_B2.py B2_123_reference_sequence.tab)
+cut -c $B2_123 B2_123_sequences.tab > B2_123_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_123_uniquenames.tab
+sed -i 's/;/ /g' B2_123_uniquenames.tab
+sed -i 's/=/ /g' B2_123_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_123_uniquenames.tab > B2_123_uniqueinfo.tab
+paste B2_123_uniqueinfo.tab B2_123_unnumbered_haplotypes.tab > B2_123_redundant_haplotypes.tab
+grep :124:1:N:0:0 B2_bowtie.sam > B2_124_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_124_bowtie.sam > B2_124_awk.fasta
+usearch -derep_fulllength B2_124_awk.fasta -fastaout B2_124_uniques.fasta -sizeout -relabel B2_124_
+cat B2_124_uniques.fasta B2_reference_CT_converted.fasta > B2_124_input_muscle.fasta
+muscle -in B2_124_input_muscle.fasta -out B2_124_muscle.fasta -maxiters 1
+fasta_formatter -i B2_124_muscle.fasta -o B2_124_muscle.tab -t
+grep B2_reference_CT_converted B2_124_muscle.tab > B2_124_reference.tab
+awk '{print $2}' B2_124_reference.tab > B2_124_reference_sequence.tab
+awk '{print $1}' B2_124_muscle.tab > B2_124_uniquenames.tab
+awk '{print $2}' B2_124_muscle.tab > B2_124_sequences.tab
+B2_124=$(python find_CpGs_B2.py B2_124_reference_sequence.tab)
+cut -c $B2_124 B2_124_sequences.tab > B2_124_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_124_uniquenames.tab
+sed -i 's/;/ /g' B2_124_uniquenames.tab
+sed -i 's/=/ /g' B2_124_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_124_uniquenames.tab > B2_124_uniqueinfo.tab
+paste B2_124_uniqueinfo.tab B2_124_unnumbered_haplotypes.tab > B2_124_redundant_haplotypes.tab
+grep :126:1:N:0:0 B2_bowtie.sam > B2_126_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_126_bowtie.sam > B2_126_awk.fasta
+usearch -derep_fulllength B2_126_awk.fasta -fastaout B2_126_uniques.fasta -sizeout -relabel B2_126_
+cat B2_126_uniques.fasta B2_reference_CT_converted.fasta > B2_126_input_muscle.fasta
+muscle -in B2_126_input_muscle.fasta -out B2_126_muscle.fasta -maxiters 1
+fasta_formatter -i B2_126_muscle.fasta -o B2_126_muscle.tab -t
+grep B2_reference_CT_converted B2_126_muscle.tab > B2_126_reference.tab
+awk '{print $2}' B2_126_reference.tab > B2_126_reference_sequence.tab
+awk '{print $1}' B2_126_muscle.tab > B2_126_uniquenames.tab
+awk '{print $2}' B2_126_muscle.tab > B2_126_sequences.tab
+B2_126=$(python find_CpGs_B2.py B2_126_reference_sequence.tab)
+cut -c $B2_126 B2_126_sequences.tab > B2_126_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_126_uniquenames.tab
+sed -i 's/;/ /g' B2_126_uniquenames.tab
+sed -i 's/=/ /g' B2_126_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_126_uniquenames.tab > B2_126_uniqueinfo.tab
+paste B2_126_uniqueinfo.tab B2_126_unnumbered_haplotypes.tab > B2_126_redundant_haplotypes.tab
+grep :127:1:N:0:0 B2_bowtie.sam > B2_127_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_127_bowtie.sam > B2_127_awk.fasta
+usearch -derep_fulllength B2_127_awk.fasta -fastaout B2_127_uniques.fasta -sizeout -relabel B2_127_
+cat B2_127_uniques.fasta B2_reference_CT_converted.fasta > B2_127_input_muscle.fasta
+muscle -in B2_127_input_muscle.fasta -out B2_127_muscle.fasta -maxiters 1
+fasta_formatter -i B2_127_muscle.fasta -o B2_127_muscle.tab -t
+grep B2_reference_CT_converted B2_127_muscle.tab > B2_127_reference.tab
+awk '{print $2}' B2_127_reference.tab > B2_127_reference_sequence.tab
+awk '{print $1}' B2_127_muscle.tab > B2_127_uniquenames.tab
+awk '{print $2}' B2_127_muscle.tab > B2_127_sequences.tab
+B2_127=$(python find_CpGs_B2.py B2_127_reference_sequence.tab)
+cut -c $B2_127 B2_127_sequences.tab > B2_127_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_127_uniquenames.tab
+sed -i 's/;/ /g' B2_127_uniquenames.tab
+sed -i 's/=/ /g' B2_127_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_127_uniquenames.tab > B2_127_uniqueinfo.tab
+paste B2_127_uniqueinfo.tab B2_127_unnumbered_haplotypes.tab > B2_127_redundant_haplotypes.tab
+grep :128:1:N:0:0 B2_bowtie.sam > B2_128_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_128_bowtie.sam > B2_128_awk.fasta
+usearch -derep_fulllength B2_128_awk.fasta -fastaout B2_128_uniques.fasta -sizeout -relabel B2_128_
+cat B2_128_uniques.fasta B2_reference_CT_converted.fasta > B2_128_input_muscle.fasta
+muscle -in B2_128_input_muscle.fasta -out B2_128_muscle.fasta -maxiters 1
+fasta_formatter -i B2_128_muscle.fasta -o B2_128_muscle.tab -t
+grep B2_reference_CT_converted B2_128_muscle.tab > B2_128_reference.tab
+awk '{print $2}' B2_128_reference.tab > B2_128_reference_sequence.tab
+awk '{print $1}' B2_128_muscle.tab > B2_128_uniquenames.tab
+awk '{print $2}' B2_128_muscle.tab > B2_128_sequences.tab
+B2_128=$(python find_CpGs_B2.py B2_128_reference_sequence.tab)
+cut -c $B2_128 B2_128_sequences.tab > B2_128_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_128_uniquenames.tab
+sed -i 's/;/ /g' B2_128_uniquenames.tab
+sed -i 's/=/ /g' B2_128_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_128_uniquenames.tab > B2_128_uniqueinfo.tab
+paste B2_128_uniqueinfo.tab B2_128_unnumbered_haplotypes.tab > B2_128_redundant_haplotypes.tab
+grep :129:1:N:0:58 B2_bowtie.sam > B2_129_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_129_bowtie.sam > B2_129_awk.fasta
+usearch -derep_fulllength B2_129_awk.fasta -fastaout B2_129_uniques.fasta -sizeout -relabel B2_129_
+cat B2_129_uniques.fasta B2_reference_CT_converted.fasta > B2_129_input_muscle.fasta
+muscle -in B2_129_input_muscle.fasta -out B2_129_muscle.fasta -maxiters 1
+fasta_formatter -i B2_129_muscle.fasta -o B2_129_muscle.tab -t
+grep B2_reference_CT_converted B2_129_muscle.tab > B2_129_reference.tab
+awk '{print $2}' B2_129_reference.tab > B2_129_reference_sequence.tab
+awk '{print $1}' B2_129_muscle.tab > B2_129_uniquenames.tab
+awk '{print $2}' B2_129_muscle.tab > B2_129_sequences.tab
+B2_129=$(python find_CpGs_B2.py B2_129_reference_sequence.tab)
+cut -c $B2_129 B2_129_sequences.tab > B2_129_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_129_uniquenames.tab
+sed -i 's/;/ /g' B2_129_uniquenames.tab
+sed -i 's/=/ /g' B2_129_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_129_uniquenames.tab > B2_129_uniqueinfo.tab
+paste B2_129_uniqueinfo.tab B2_129_unnumbered_haplotypes.tab > B2_129_redundant_haplotypes.tab
+grep :130:1:N:0:3 B2_bowtie.sam > B2_130_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_130_bowtie.sam > B2_130_awk.fasta
+usearch -derep_fulllength B2_130_awk.fasta -fastaout B2_130_uniques.fasta -sizeout -relabel B2_130_
+cat B2_130_uniques.fasta B2_reference_CT_converted.fasta > B2_130_input_muscle.fasta
+muscle -in B2_130_input_muscle.fasta -out B2_130_muscle.fasta -maxiters 1
+fasta_formatter -i B2_130_muscle.fasta -o B2_130_muscle.tab -t
+grep B2_reference_CT_converted B2_130_muscle.tab > B2_130_reference.tab
+awk '{print $2}' B2_130_reference.tab > B2_130_reference_sequence.tab
+awk '{print $1}' B2_130_muscle.tab > B2_130_uniquenames.tab
+awk '{print $2}' B2_130_muscle.tab > B2_130_sequences.tab
+B2_130=$(python find_CpGs_B2.py B2_130_reference_sequence.tab)
+cut -c $B2_130 B2_130_sequences.tab > B2_130_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_130_uniquenames.tab
+sed -i 's/;/ /g' B2_130_uniquenames.tab
+sed -i 's/=/ /g' B2_130_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_130_uniquenames.tab > B2_130_uniqueinfo.tab
+paste B2_130_uniqueinfo.tab B2_130_unnumbered_haplotypes.tab > B2_130_redundant_haplotypes.tab
+grep :131:1:N:0:11 B2_bowtie.sam > B2_131_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_131_bowtie.sam > B2_131_awk.fasta
+usearch -derep_fulllength B2_131_awk.fasta -fastaout B2_131_uniques.fasta -sizeout -relabel B2_131_
+cat B2_131_uniques.fasta B2_reference_CT_converted.fasta > B2_131_input_muscle.fasta
+muscle -in B2_131_input_muscle.fasta -out B2_131_muscle.fasta -maxiters 1
+fasta_formatter -i B2_131_muscle.fasta -o B2_131_muscle.tab -t
+grep B2_reference_CT_converted B2_131_muscle.tab > B2_131_reference.tab
+awk '{print $2}' B2_131_reference.tab > B2_131_reference_sequence.tab
+awk '{print $1}' B2_131_muscle.tab > B2_131_uniquenames.tab
+awk '{print $2}' B2_131_muscle.tab > B2_131_sequences.tab
+B2_131=$(python find_CpGs_B2.py B2_131_reference_sequence.tab)
+cut -c $B2_131 B2_131_sequences.tab > B2_131_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_131_uniquenames.tab
+sed -i 's/;/ /g' B2_131_uniquenames.tab
+sed -i 's/=/ /g' B2_131_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_131_uniquenames.tab > B2_131_uniqueinfo.tab
+paste B2_131_uniqueinfo.tab B2_131_unnumbered_haplotypes.tab > B2_131_redundant_haplotypes.tab
+grep :132:1:N:0:19 B2_bowtie.sam > B2_132_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_132_bowtie.sam > B2_132_awk.fasta
+usearch -derep_fulllength B2_132_awk.fasta -fastaout B2_132_uniques.fasta -sizeout -relabel B2_132_
+cat B2_132_uniques.fasta B2_reference_CT_converted.fasta > B2_132_input_muscle.fasta
+muscle -in B2_132_input_muscle.fasta -out B2_132_muscle.fasta -maxiters 1
+fasta_formatter -i B2_132_muscle.fasta -o B2_132_muscle.tab -t
+grep B2_reference_CT_converted B2_132_muscle.tab > B2_132_reference.tab
+awk '{print $2}' B2_132_reference.tab > B2_132_reference_sequence.tab
+awk '{print $1}' B2_132_muscle.tab > B2_132_uniquenames.tab
+awk '{print $2}' B2_132_muscle.tab > B2_132_sequences.tab
+B2_132=$(python find_CpGs_B2.py B2_132_reference_sequence.tab)
+cut -c $B2_132 B2_132_sequences.tab > B2_132_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_132_uniquenames.tab
+sed -i 's/;/ /g' B2_132_uniquenames.tab
+sed -i 's/=/ /g' B2_132_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_132_uniquenames.tab > B2_132_uniqueinfo.tab
+paste B2_132_uniqueinfo.tab B2_132_unnumbered_haplotypes.tab > B2_132_redundant_haplotypes.tab
+grep :133:1:N:0:27 B2_bowtie.sam > B2_133_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_133_bowtie.sam > B2_133_awk.fasta
+usearch -derep_fulllength B2_133_awk.fasta -fastaout B2_133_uniques.fasta -sizeout -relabel B2_133_
+cat B2_133_uniques.fasta B2_reference_CT_converted.fasta > B2_133_input_muscle.fasta
+muscle -in B2_133_input_muscle.fasta -out B2_133_muscle.fasta -maxiters 1
+fasta_formatter -i B2_133_muscle.fasta -o B2_133_muscle.tab -t
+grep B2_reference_CT_converted B2_133_muscle.tab > B2_133_reference.tab
+awk '{print $2}' B2_133_reference.tab > B2_133_reference_sequence.tab
+awk '{print $1}' B2_133_muscle.tab > B2_133_uniquenames.tab
+awk '{print $2}' B2_133_muscle.tab > B2_133_sequences.tab
+B2_133=$(python find_CpGs_B2.py B2_133_reference_sequence.tab)
+cut -c $B2_133 B2_133_sequences.tab > B2_133_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_133_uniquenames.tab
+sed -i 's/;/ /g' B2_133_uniquenames.tab
+sed -i 's/=/ /g' B2_133_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_133_uniquenames.tab > B2_133_uniqueinfo.tab
+paste B2_133_uniqueinfo.tab B2_133_unnumbered_haplotypes.tab > B2_133_redundant_haplotypes.tab
+grep :134:1:N:0:35 B2_bowtie.sam > B2_134_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_134_bowtie.sam > B2_134_awk.fasta
+usearch -derep_fulllength B2_134_awk.fasta -fastaout B2_134_uniques.fasta -sizeout -relabel B2_134_
+cat B2_134_uniques.fasta B2_reference_CT_converted.fasta > B2_134_input_muscle.fasta
+muscle -in B2_134_input_muscle.fasta -out B2_134_muscle.fasta -maxiters 1
+fasta_formatter -i B2_134_muscle.fasta -o B2_134_muscle.tab -t
+grep B2_reference_CT_converted B2_134_muscle.tab > B2_134_reference.tab
+awk '{print $2}' B2_134_reference.tab > B2_134_reference_sequence.tab
+awk '{print $1}' B2_134_muscle.tab > B2_134_uniquenames.tab
+awk '{print $2}' B2_134_muscle.tab > B2_134_sequences.tab
+B2_134=$(python find_CpGs_B2.py B2_134_reference_sequence.tab)
+cut -c $B2_134 B2_134_sequences.tab > B2_134_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_134_uniquenames.tab
+sed -i 's/;/ /g' B2_134_uniquenames.tab
+sed -i 's/=/ /g' B2_134_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_134_uniquenames.tab > B2_134_uniqueinfo.tab
+paste B2_134_uniqueinfo.tab B2_134_unnumbered_haplotypes.tab > B2_134_redundant_haplotypes.tab
+grep :135:1:N:0:43 B2_bowtie.sam > B2_135_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_135_bowtie.sam > B2_135_awk.fasta
+usearch -derep_fulllength B2_135_awk.fasta -fastaout B2_135_uniques.fasta -sizeout -relabel B2_135_
+cat B2_135_uniques.fasta B2_reference_CT_converted.fasta > B2_135_input_muscle.fasta
+muscle -in B2_135_input_muscle.fasta -out B2_135_muscle.fasta -maxiters 1
+fasta_formatter -i B2_135_muscle.fasta -o B2_135_muscle.tab -t
+grep B2_reference_CT_converted B2_135_muscle.tab > B2_135_reference.tab
+awk '{print $2}' B2_135_reference.tab > B2_135_reference_sequence.tab
+awk '{print $1}' B2_135_muscle.tab > B2_135_uniquenames.tab
+awk '{print $2}' B2_135_muscle.tab > B2_135_sequences.tab
+B2_135=$(python find_CpGs_B2.py B2_135_reference_sequence.tab)
+cut -c $B2_135 B2_135_sequences.tab > B2_135_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_135_uniquenames.tab
+sed -i 's/;/ /g' B2_135_uniquenames.tab
+sed -i 's/=/ /g' B2_135_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_135_uniquenames.tab > B2_135_uniqueinfo.tab
+paste B2_135_uniqueinfo.tab B2_135_unnumbered_haplotypes.tab > B2_135_redundant_haplotypes.tab
+grep :136:1:N:0:51 B2_bowtie.sam > B2_136_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_136_bowtie.sam > B2_136_awk.fasta
+usearch -derep_fulllength B2_136_awk.fasta -fastaout B2_136_uniques.fasta -sizeout -relabel B2_136_
+cat B2_136_uniques.fasta B2_reference_CT_converted.fasta > B2_136_input_muscle.fasta
+muscle -in B2_136_input_muscle.fasta -out B2_136_muscle.fasta -maxiters 1
+fasta_formatter -i B2_136_muscle.fasta -o B2_136_muscle.tab -t
+grep B2_reference_CT_converted B2_136_muscle.tab > B2_136_reference.tab
+awk '{print $2}' B2_136_reference.tab > B2_136_reference_sequence.tab
+awk '{print $1}' B2_136_muscle.tab > B2_136_uniquenames.tab
+awk '{print $2}' B2_136_muscle.tab > B2_136_sequences.tab
+B2_136=$(python find_CpGs_B2.py B2_136_reference_sequence.tab)
+cut -c $B2_136 B2_136_sequences.tab > B2_136_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_136_uniquenames.tab
+sed -i 's/;/ /g' B2_136_uniquenames.tab
+sed -i 's/=/ /g' B2_136_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_136_uniquenames.tab > B2_136_uniqueinfo.tab
+paste B2_136_uniqueinfo.tab B2_136_unnumbered_haplotypes.tab > B2_136_redundant_haplotypes.tab
+grep :137:1:N:0:59 B2_bowtie.sam > B2_137_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_137_bowtie.sam > B2_137_awk.fasta
+usearch -derep_fulllength B2_137_awk.fasta -fastaout B2_137_uniques.fasta -sizeout -relabel B2_137_
+cat B2_137_uniques.fasta B2_reference_CT_converted.fasta > B2_137_input_muscle.fasta
+muscle -in B2_137_input_muscle.fasta -out B2_137_muscle.fasta -maxiters 1
+fasta_formatter -i B2_137_muscle.fasta -o B2_137_muscle.tab -t
+grep B2_reference_CT_converted B2_137_muscle.tab > B2_137_reference.tab
+awk '{print $2}' B2_137_reference.tab > B2_137_reference_sequence.tab
+awk '{print $1}' B2_137_muscle.tab > B2_137_uniquenames.tab
+awk '{print $2}' B2_137_muscle.tab > B2_137_sequences.tab
+B2_137=$(python find_CpGs_B2.py B2_137_reference_sequence.tab)
+cut -c $B2_137 B2_137_sequences.tab > B2_137_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_137_uniquenames.tab
+sed -i 's/;/ /g' B2_137_uniquenames.tab
+sed -i 's/=/ /g' B2_137_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_137_uniquenames.tab > B2_137_uniqueinfo.tab
+paste B2_137_uniqueinfo.tab B2_137_unnumbered_haplotypes.tab > B2_137_redundant_haplotypes.tab
+grep :138:1:N:0:4 B2_bowtie.sam > B2_138_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_138_bowtie.sam > B2_138_awk.fasta
+usearch -derep_fulllength B2_138_awk.fasta -fastaout B2_138_uniques.fasta -sizeout -relabel B2_138_
+cat B2_138_uniques.fasta B2_reference_CT_converted.fasta > B2_138_input_muscle.fasta
+muscle -in B2_138_input_muscle.fasta -out B2_138_muscle.fasta -maxiters 1
+fasta_formatter -i B2_138_muscle.fasta -o B2_138_muscle.tab -t
+grep B2_reference_CT_converted B2_138_muscle.tab > B2_138_reference.tab
+awk '{print $2}' B2_138_reference.tab > B2_138_reference_sequence.tab
+awk '{print $1}' B2_138_muscle.tab > B2_138_uniquenames.tab
+awk '{print $2}' B2_138_muscle.tab > B2_138_sequences.tab
+B2_138=$(python find_CpGs_B2.py B2_138_reference_sequence.tab)
+cut -c $B2_138 B2_138_sequences.tab > B2_138_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_138_uniquenames.tab
+sed -i 's/;/ /g' B2_138_uniquenames.tab
+sed -i 's/=/ /g' B2_138_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_138_uniquenames.tab > B2_138_uniqueinfo.tab
+paste B2_138_uniqueinfo.tab B2_138_unnumbered_haplotypes.tab > B2_138_redundant_haplotypes.tab
+grep :139:1:N:0:12 B2_bowtie.sam > B2_139_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_139_bowtie.sam > B2_139_awk.fasta
+usearch -derep_fulllength B2_139_awk.fasta -fastaout B2_139_uniques.fasta -sizeout -relabel B2_139_
+cat B2_139_uniques.fasta B2_reference_CT_converted.fasta > B2_139_input_muscle.fasta
+muscle -in B2_139_input_muscle.fasta -out B2_139_muscle.fasta -maxiters 1
+fasta_formatter -i B2_139_muscle.fasta -o B2_139_muscle.tab -t
+grep B2_reference_CT_converted B2_139_muscle.tab > B2_139_reference.tab
+awk '{print $2}' B2_139_reference.tab > B2_139_reference_sequence.tab
+awk '{print $1}' B2_139_muscle.tab > B2_139_uniquenames.tab
+awk '{print $2}' B2_139_muscle.tab > B2_139_sequences.tab
+B2_139=$(python find_CpGs_B2.py B2_139_reference_sequence.tab)
+cut -c $B2_139 B2_139_sequences.tab > B2_139_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_139_uniquenames.tab
+sed -i 's/;/ /g' B2_139_uniquenames.tab
+sed -i 's/=/ /g' B2_139_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_139_uniquenames.tab > B2_139_uniqueinfo.tab
+paste B2_139_uniqueinfo.tab B2_139_unnumbered_haplotypes.tab > B2_139_redundant_haplotypes.tab
+grep :140:1:N:0:20 B2_bowtie.sam > B2_140_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_140_bowtie.sam > B2_140_awk.fasta
+usearch -derep_fulllength B2_140_awk.fasta -fastaout B2_140_uniques.fasta -sizeout -relabel B2_140_
+cat B2_140_uniques.fasta B2_reference_CT_converted.fasta > B2_140_input_muscle.fasta
+muscle -in B2_140_input_muscle.fasta -out B2_140_muscle.fasta -maxiters 1
+fasta_formatter -i B2_140_muscle.fasta -o B2_140_muscle.tab -t
+grep B2_reference_CT_converted B2_140_muscle.tab > B2_140_reference.tab
+awk '{print $2}' B2_140_reference.tab > B2_140_reference_sequence.tab
+awk '{print $1}' B2_140_muscle.tab > B2_140_uniquenames.tab
+awk '{print $2}' B2_140_muscle.tab > B2_140_sequences.tab
+B2_140=$(python find_CpGs_B2.py B2_140_reference_sequence.tab)
+cut -c $B2_140 B2_140_sequences.tab > B2_140_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_140_uniquenames.tab
+sed -i 's/;/ /g' B2_140_uniquenames.tab
+sed -i 's/=/ /g' B2_140_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_140_uniquenames.tab > B2_140_uniqueinfo.tab
+paste B2_140_uniqueinfo.tab B2_140_unnumbered_haplotypes.tab > B2_140_redundant_haplotypes.tab
+grep :141:1:N:0:28 B2_bowtie.sam > B2_141_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_141_bowtie.sam > B2_141_awk.fasta
+usearch -derep_fulllength B2_141_awk.fasta -fastaout B2_141_uniques.fasta -sizeout -relabel B2_141_
+cat B2_141_uniques.fasta B2_reference_CT_converted.fasta > B2_141_input_muscle.fasta
+muscle -in B2_141_input_muscle.fasta -out B2_141_muscle.fasta -maxiters 1
+fasta_formatter -i B2_141_muscle.fasta -o B2_141_muscle.tab -t
+grep B2_reference_CT_converted B2_141_muscle.tab > B2_141_reference.tab
+awk '{print $2}' B2_141_reference.tab > B2_141_reference_sequence.tab
+awk '{print $1}' B2_141_muscle.tab > B2_141_uniquenames.tab
+awk '{print $2}' B2_141_muscle.tab > B2_141_sequences.tab
+B2_141=$(python find_CpGs_B2.py B2_141_reference_sequence.tab)
+cut -c $B2_141 B2_141_sequences.tab > B2_141_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_141_uniquenames.tab
+sed -i 's/;/ /g' B2_141_uniquenames.tab
+sed -i 's/=/ /g' B2_141_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_141_uniquenames.tab > B2_141_uniqueinfo.tab
+paste B2_141_uniqueinfo.tab B2_141_unnumbered_haplotypes.tab > B2_141_redundant_haplotypes.tab
+grep :142:1:N:0:36 B2_bowtie.sam > B2_142_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_142_bowtie.sam > B2_142_awk.fasta
+usearch -derep_fulllength B2_142_awk.fasta -fastaout B2_142_uniques.fasta -sizeout -relabel B2_142_
+cat B2_142_uniques.fasta B2_reference_CT_converted.fasta > B2_142_input_muscle.fasta
+muscle -in B2_142_input_muscle.fasta -out B2_142_muscle.fasta -maxiters 1
+fasta_formatter -i B2_142_muscle.fasta -o B2_142_muscle.tab -t
+grep B2_reference_CT_converted B2_142_muscle.tab > B2_142_reference.tab
+awk '{print $2}' B2_142_reference.tab > B2_142_reference_sequence.tab
+awk '{print $1}' B2_142_muscle.tab > B2_142_uniquenames.tab
+awk '{print $2}' B2_142_muscle.tab > B2_142_sequences.tab
+B2_142=$(python find_CpGs_B2.py B2_142_reference_sequence.tab)
+cut -c $B2_142 B2_142_sequences.tab > B2_142_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_142_uniquenames.tab
+sed -i 's/;/ /g' B2_142_uniquenames.tab
+sed -i 's/=/ /g' B2_142_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_142_uniquenames.tab > B2_142_uniqueinfo.tab
+paste B2_142_uniqueinfo.tab B2_142_unnumbered_haplotypes.tab > B2_142_redundant_haplotypes.tab
+grep :143:1:N:0:44 B2_bowtie.sam > B2_143_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_143_bowtie.sam > B2_143_awk.fasta
+usearch -derep_fulllength B2_143_awk.fasta -fastaout B2_143_uniques.fasta -sizeout -relabel B2_143_
+cat B2_143_uniques.fasta B2_reference_CT_converted.fasta > B2_143_input_muscle.fasta
+muscle -in B2_143_input_muscle.fasta -out B2_143_muscle.fasta -maxiters 1
+fasta_formatter -i B2_143_muscle.fasta -o B2_143_muscle.tab -t
+grep B2_reference_CT_converted B2_143_muscle.tab > B2_143_reference.tab
+awk '{print $2}' B2_143_reference.tab > B2_143_reference_sequence.tab
+awk '{print $1}' B2_143_muscle.tab > B2_143_uniquenames.tab
+awk '{print $2}' B2_143_muscle.tab > B2_143_sequences.tab
+B2_143=$(python find_CpGs_B2.py B2_143_reference_sequence.tab)
+cut -c $B2_143 B2_143_sequences.tab > B2_143_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_143_uniquenames.tab
+sed -i 's/;/ /g' B2_143_uniquenames.tab
+sed -i 's/=/ /g' B2_143_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_143_uniquenames.tab > B2_143_uniqueinfo.tab
+paste B2_143_uniqueinfo.tab B2_143_unnumbered_haplotypes.tab > B2_143_redundant_haplotypes.tab
+grep :144:1:N:0:52 B2_bowtie.sam > B2_144_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_144_bowtie.sam > B2_144_awk.fasta
+usearch -derep_fulllength B2_144_awk.fasta -fastaout B2_144_uniques.fasta -sizeout -relabel B2_144_
+cat B2_144_uniques.fasta B2_reference_CT_converted.fasta > B2_144_input_muscle.fasta
+muscle -in B2_144_input_muscle.fasta -out B2_144_muscle.fasta -maxiters 1
+fasta_formatter -i B2_144_muscle.fasta -o B2_144_muscle.tab -t
+grep B2_reference_CT_converted B2_144_muscle.tab > B2_144_reference.tab
+awk '{print $2}' B2_144_reference.tab > B2_144_reference_sequence.tab
+awk '{print $1}' B2_144_muscle.tab > B2_144_uniquenames.tab
+awk '{print $2}' B2_144_muscle.tab > B2_144_sequences.tab
+B2_144=$(python find_CpGs_B2.py B2_144_reference_sequence.tab)
+cut -c $B2_144 B2_144_sequences.tab > B2_144_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_144_uniquenames.tab
+sed -i 's/;/ /g' B2_144_uniquenames.tab
+sed -i 's/=/ /g' B2_144_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_144_uniquenames.tab > B2_144_uniqueinfo.tab
+paste B2_144_uniqueinfo.tab B2_144_unnumbered_haplotypes.tab > B2_144_redundant_haplotypes.tab
+grep :145:1:N:0:60 B2_bowtie.sam > B2_145_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_145_bowtie.sam > B2_145_awk.fasta
+usearch -derep_fulllength B2_145_awk.fasta -fastaout B2_145_uniques.fasta -sizeout -relabel B2_145_
+cat B2_145_uniques.fasta B2_reference_CT_converted.fasta > B2_145_input_muscle.fasta
+muscle -in B2_145_input_muscle.fasta -out B2_145_muscle.fasta -maxiters 1
+fasta_formatter -i B2_145_muscle.fasta -o B2_145_muscle.tab -t
+grep B2_reference_CT_converted B2_145_muscle.tab > B2_145_reference.tab
+awk '{print $2}' B2_145_reference.tab > B2_145_reference_sequence.tab
+awk '{print $1}' B2_145_muscle.tab > B2_145_uniquenames.tab
+awk '{print $2}' B2_145_muscle.tab > B2_145_sequences.tab
+B2_145=$(python find_CpGs_B2.py B2_145_reference_sequence.tab)
+cut -c $B2_145 B2_145_sequences.tab > B2_145_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_145_uniquenames.tab
+sed -i 's/;/ /g' B2_145_uniquenames.tab
+sed -i 's/=/ /g' B2_145_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_145_uniquenames.tab > B2_145_uniqueinfo.tab
+paste B2_145_uniqueinfo.tab B2_145_unnumbered_haplotypes.tab > B2_145_redundant_haplotypes.tab
+grep :146:1:N:0:5 B2_bowtie.sam > B2_146_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_146_bowtie.sam > B2_146_awk.fasta
+usearch -derep_fulllength B2_146_awk.fasta -fastaout B2_146_uniques.fasta -sizeout -relabel B2_146_
+cat B2_146_uniques.fasta B2_reference_CT_converted.fasta > B2_146_input_muscle.fasta
+muscle -in B2_146_input_muscle.fasta -out B2_146_muscle.fasta -maxiters 1
+fasta_formatter -i B2_146_muscle.fasta -o B2_146_muscle.tab -t
+grep B2_reference_CT_converted B2_146_muscle.tab > B2_146_reference.tab
+awk '{print $2}' B2_146_reference.tab > B2_146_reference_sequence.tab
+awk '{print $1}' B2_146_muscle.tab > B2_146_uniquenames.tab
+awk '{print $2}' B2_146_muscle.tab > B2_146_sequences.tab
+B2_146=$(python find_CpGs_B2.py B2_146_reference_sequence.tab)
+cut -c $B2_146 B2_146_sequences.tab > B2_146_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_146_uniquenames.tab
+sed -i 's/;/ /g' B2_146_uniquenames.tab
+sed -i 's/=/ /g' B2_146_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_146_uniquenames.tab > B2_146_uniqueinfo.tab
+paste B2_146_uniqueinfo.tab B2_146_unnumbered_haplotypes.tab > B2_146_redundant_haplotypes.tab
+grep :147:1:N:0:13 B2_bowtie.sam > B2_147_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_147_bowtie.sam > B2_147_awk.fasta
+usearch -derep_fulllength B2_147_awk.fasta -fastaout B2_147_uniques.fasta -sizeout -relabel B2_147_
+cat B2_147_uniques.fasta B2_reference_CT_converted.fasta > B2_147_input_muscle.fasta
+muscle -in B2_147_input_muscle.fasta -out B2_147_muscle.fasta -maxiters 1
+fasta_formatter -i B2_147_muscle.fasta -o B2_147_muscle.tab -t
+grep B2_reference_CT_converted B2_147_muscle.tab > B2_147_reference.tab
+awk '{print $2}' B2_147_reference.tab > B2_147_reference_sequence.tab
+awk '{print $1}' B2_147_muscle.tab > B2_147_uniquenames.tab
+awk '{print $2}' B2_147_muscle.tab > B2_147_sequences.tab
+B2_147=$(python find_CpGs_B2.py B2_147_reference_sequence.tab)
+cut -c $B2_147 B2_147_sequences.tab > B2_147_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_147_uniquenames.tab
+sed -i 's/;/ /g' B2_147_uniquenames.tab
+sed -i 's/=/ /g' B2_147_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_147_uniquenames.tab > B2_147_uniqueinfo.tab
+paste B2_147_uniqueinfo.tab B2_147_unnumbered_haplotypes.tab > B2_147_redundant_haplotypes.tab
+grep :148:1:N:0:21 B2_bowtie.sam > B2_148_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_148_bowtie.sam > B2_148_awk.fasta
+usearch -derep_fulllength B2_148_awk.fasta -fastaout B2_148_uniques.fasta -sizeout -relabel B2_148_
+cat B2_148_uniques.fasta B2_reference_CT_converted.fasta > B2_148_input_muscle.fasta
+muscle -in B2_148_input_muscle.fasta -out B2_148_muscle.fasta -maxiters 1
+fasta_formatter -i B2_148_muscle.fasta -o B2_148_muscle.tab -t
+grep B2_reference_CT_converted B2_148_muscle.tab > B2_148_reference.tab
+awk '{print $2}' B2_148_reference.tab > B2_148_reference_sequence.tab
+awk '{print $1}' B2_148_muscle.tab > B2_148_uniquenames.tab
+awk '{print $2}' B2_148_muscle.tab > B2_148_sequences.tab
+B2_148=$(python find_CpGs_B2.py B2_148_reference_sequence.tab)
+cut -c $B2_148 B2_148_sequences.tab > B2_148_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_148_uniquenames.tab
+sed -i 's/;/ /g' B2_148_uniquenames.tab
+sed -i 's/=/ /g' B2_148_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_148_uniquenames.tab > B2_148_uniqueinfo.tab
+paste B2_148_uniqueinfo.tab B2_148_unnumbered_haplotypes.tab > B2_148_redundant_haplotypes.tab
+grep :149:1:N:0:0 B2_bowtie.sam > B2_149_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_149_bowtie.sam > B2_149_awk.fasta
+usearch -derep_fulllength B2_149_awk.fasta -fastaout B2_149_uniques.fasta -sizeout -relabel B2_149_
+cat B2_149_uniques.fasta B2_reference_CT_converted.fasta > B2_149_input_muscle.fasta
+muscle -in B2_149_input_muscle.fasta -out B2_149_muscle.fasta -maxiters 1
+fasta_formatter -i B2_149_muscle.fasta -o B2_149_muscle.tab -t
+grep B2_reference_CT_converted B2_149_muscle.tab > B2_149_reference.tab
+awk '{print $2}' B2_149_reference.tab > B2_149_reference_sequence.tab
+awk '{print $1}' B2_149_muscle.tab > B2_149_uniquenames.tab
+awk '{print $2}' B2_149_muscle.tab > B2_149_sequences.tab
+B2_149=$(python find_CpGs_B2.py B2_149_reference_sequence.tab)
+cut -c $B2_149 B2_149_sequences.tab > B2_149_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_149_uniquenames.tab
+sed -i 's/;/ /g' B2_149_uniquenames.tab
+sed -i 's/=/ /g' B2_149_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_149_uniquenames.tab > B2_149_uniqueinfo.tab
+paste B2_149_uniqueinfo.tab B2_149_unnumbered_haplotypes.tab > B2_149_redundant_haplotypes.tab
+grep :150:1:N:0:0 B2_bowtie.sam > B2_150_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_150_bowtie.sam > B2_150_awk.fasta
+usearch -derep_fulllength B2_150_awk.fasta -fastaout B2_150_uniques.fasta -sizeout -relabel B2_150_
+cat B2_150_uniques.fasta B2_reference_CT_converted.fasta > B2_150_input_muscle.fasta
+muscle -in B2_150_input_muscle.fasta -out B2_150_muscle.fasta -maxiters 1
+fasta_formatter -i B2_150_muscle.fasta -o B2_150_muscle.tab -t
+grep B2_reference_CT_converted B2_150_muscle.tab > B2_150_reference.tab
+awk '{print $2}' B2_150_reference.tab > B2_150_reference_sequence.tab
+awk '{print $1}' B2_150_muscle.tab > B2_150_uniquenames.tab
+awk '{print $2}' B2_150_muscle.tab > B2_150_sequences.tab
+B2_150=$(python find_CpGs_B2.py B2_150_reference_sequence.tab)
+cut -c $B2_150 B2_150_sequences.tab > B2_150_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_150_uniquenames.tab
+sed -i 's/;/ /g' B2_150_uniquenames.tab
+sed -i 's/=/ /g' B2_150_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_150_uniquenames.tab > B2_150_uniqueinfo.tab
+paste B2_150_uniqueinfo.tab B2_150_unnumbered_haplotypes.tab > B2_150_redundant_haplotypes.tab
+grep :151:1:N:0:0 B2_bowtie.sam > B2_151_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_151_bowtie.sam > B2_151_awk.fasta
+usearch -derep_fulllength B2_151_awk.fasta -fastaout B2_151_uniques.fasta -sizeout -relabel B2_151_
+cat B2_151_uniques.fasta B2_reference_CT_converted.fasta > B2_151_input_muscle.fasta
+muscle -in B2_151_input_muscle.fasta -out B2_151_muscle.fasta -maxiters 1
+fasta_formatter -i B2_151_muscle.fasta -o B2_151_muscle.tab -t
+grep B2_reference_CT_converted B2_151_muscle.tab > B2_151_reference.tab
+awk '{print $2}' B2_151_reference.tab > B2_151_reference_sequence.tab
+awk '{print $1}' B2_151_muscle.tab > B2_151_uniquenames.tab
+awk '{print $2}' B2_151_muscle.tab > B2_151_sequences.tab
+B2_151=$(python find_CpGs_B2.py B2_151_reference_sequence.tab)
+cut -c $B2_151 B2_151_sequences.tab > B2_151_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_151_uniquenames.tab
+sed -i 's/;/ /g' B2_151_uniquenames.tab
+sed -i 's/=/ /g' B2_151_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_151_uniquenames.tab > B2_151_uniqueinfo.tab
+paste B2_151_uniqueinfo.tab B2_151_unnumbered_haplotypes.tab > B2_151_redundant_haplotypes.tab
+grep :152:1:N:0:0 B2_bowtie.sam > B2_152_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_152_bowtie.sam > B2_152_awk.fasta
+usearch -derep_fulllength B2_152_awk.fasta -fastaout B2_152_uniques.fasta -sizeout -relabel B2_152_
+cat B2_152_uniques.fasta B2_reference_CT_converted.fasta > B2_152_input_muscle.fasta
+muscle -in B2_152_input_muscle.fasta -out B2_152_muscle.fasta -maxiters 1
+fasta_formatter -i B2_152_muscle.fasta -o B2_152_muscle.tab -t
+grep B2_reference_CT_converted B2_152_muscle.tab > B2_152_reference.tab
+awk '{print $2}' B2_152_reference.tab > B2_152_reference_sequence.tab
+awk '{print $1}' B2_152_muscle.tab > B2_152_uniquenames.tab
+awk '{print $2}' B2_152_muscle.tab > B2_152_sequences.tab
+B2_152=$(python find_CpGs_B2.py B2_152_reference_sequence.tab)
+cut -c $B2_152 B2_152_sequences.tab > B2_152_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_152_uniquenames.tab
+sed -i 's/;/ /g' B2_152_uniquenames.tab
+sed -i 's/=/ /g' B2_152_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_152_uniquenames.tab > B2_152_uniqueinfo.tab
+paste B2_152_uniqueinfo.tab B2_152_unnumbered_haplotypes.tab > B2_152_redundant_haplotypes.tab
+grep :153:1:N:0:0 B2_bowtie.sam > B2_153_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_153_bowtie.sam > B2_153_awk.fasta
+usearch -derep_fulllength B2_153_awk.fasta -fastaout B2_153_uniques.fasta -sizeout -relabel B2_153_
+cat B2_153_uniques.fasta B2_reference_CT_converted.fasta > B2_153_input_muscle.fasta
+muscle -in B2_153_input_muscle.fasta -out B2_153_muscle.fasta -maxiters 1
+fasta_formatter -i B2_153_muscle.fasta -o B2_153_muscle.tab -t
+grep B2_reference_CT_converted B2_153_muscle.tab > B2_153_reference.tab
+awk '{print $2}' B2_153_reference.tab > B2_153_reference_sequence.tab
+awk '{print $1}' B2_153_muscle.tab > B2_153_uniquenames.tab
+awk '{print $2}' B2_153_muscle.tab > B2_153_sequences.tab
+B2_153=$(python find_CpGs_B2.py B2_153_reference_sequence.tab)
+cut -c $B2_153 B2_153_sequences.tab > B2_153_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_153_uniquenames.tab
+sed -i 's/;/ /g' B2_153_uniquenames.tab
+sed -i 's/=/ /g' B2_153_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_153_uniquenames.tab > B2_153_uniqueinfo.tab
+paste B2_153_uniqueinfo.tab B2_153_unnumbered_haplotypes.tab > B2_153_redundant_haplotypes.tab
+grep :154:1:N:0:0 B2_bowtie.sam > B2_154_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_154_bowtie.sam > B2_154_awk.fasta
+usearch -derep_fulllength B2_154_awk.fasta -fastaout B2_154_uniques.fasta -sizeout -relabel B2_154_
+cat B2_154_uniques.fasta B2_reference_CT_converted.fasta > B2_154_input_muscle.fasta
+muscle -in B2_154_input_muscle.fasta -out B2_154_muscle.fasta -maxiters 1
+fasta_formatter -i B2_154_muscle.fasta -o B2_154_muscle.tab -t
+grep B2_reference_CT_converted B2_154_muscle.tab > B2_154_reference.tab
+awk '{print $2}' B2_154_reference.tab > B2_154_reference_sequence.tab
+awk '{print $1}' B2_154_muscle.tab > B2_154_uniquenames.tab
+awk '{print $2}' B2_154_muscle.tab > B2_154_sequences.tab
+B2_154=$(python find_CpGs_B2.py B2_154_reference_sequence.tab)
+cut -c $B2_154 B2_154_sequences.tab > B2_154_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_154_uniquenames.tab
+sed -i 's/;/ /g' B2_154_uniquenames.tab
+sed -i 's/=/ /g' B2_154_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_154_uniquenames.tab > B2_154_uniqueinfo.tab
+paste B2_154_uniqueinfo.tab B2_154_unnumbered_haplotypes.tab > B2_154_redundant_haplotypes.tab
+grep :155:1:N:0:0 B2_bowtie.sam > B2_155_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_155_bowtie.sam > B2_155_awk.fasta
+usearch -derep_fulllength B2_155_awk.fasta -fastaout B2_155_uniques.fasta -sizeout -relabel B2_155_
+cat B2_155_uniques.fasta B2_reference_CT_converted.fasta > B2_155_input_muscle.fasta
+muscle -in B2_155_input_muscle.fasta -out B2_155_muscle.fasta -maxiters 1
+fasta_formatter -i B2_155_muscle.fasta -o B2_155_muscle.tab -t
+grep B2_reference_CT_converted B2_155_muscle.tab > B2_155_reference.tab
+awk '{print $2}' B2_155_reference.tab > B2_155_reference_sequence.tab
+awk '{print $1}' B2_155_muscle.tab > B2_155_uniquenames.tab
+awk '{print $2}' B2_155_muscle.tab > B2_155_sequences.tab
+B2_155=$(python find_CpGs_B2.py B2_155_reference_sequence.tab)
+cut -c $B2_155 B2_155_sequences.tab > B2_155_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_155_uniquenames.tab
+sed -i 's/;/ /g' B2_155_uniquenames.tab
+sed -i 's/=/ /g' B2_155_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_155_uniquenames.tab > B2_155_uniqueinfo.tab
+paste B2_155_uniqueinfo.tab B2_155_unnumbered_haplotypes.tab > B2_155_redundant_haplotypes.tab
+grep :156:1:N:0:0 B2_bowtie.sam > B2_156_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_156_bowtie.sam > B2_156_awk.fasta
+usearch -derep_fulllength B2_156_awk.fasta -fastaout B2_156_uniques.fasta -sizeout -relabel B2_156_
+cat B2_156_uniques.fasta B2_reference_CT_converted.fasta > B2_156_input_muscle.fasta
+muscle -in B2_156_input_muscle.fasta -out B2_156_muscle.fasta -maxiters 1
+fasta_formatter -i B2_156_muscle.fasta -o B2_156_muscle.tab -t
+grep B2_reference_CT_converted B2_156_muscle.tab > B2_156_reference.tab
+awk '{print $2}' B2_156_reference.tab > B2_156_reference_sequence.tab
+awk '{print $1}' B2_156_muscle.tab > B2_156_uniquenames.tab
+awk '{print $2}' B2_156_muscle.tab > B2_156_sequences.tab
+B2_156=$(python find_CpGs_B2.py B2_156_reference_sequence.tab)
+cut -c $B2_156 B2_156_sequences.tab > B2_156_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_156_uniquenames.tab
+sed -i 's/;/ /g' B2_156_uniquenames.tab
+sed -i 's/=/ /g' B2_156_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_156_uniquenames.tab > B2_156_uniqueinfo.tab
+paste B2_156_uniqueinfo.tab B2_156_unnumbered_haplotypes.tab > B2_156_redundant_haplotypes.tab
+grep :157:1:N:0:29 B2_bowtie.sam > B2_157_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_157_bowtie.sam > B2_157_awk.fasta
+usearch -derep_fulllength B2_157_awk.fasta -fastaout B2_157_uniques.fasta -sizeout -relabel B2_157_
+cat B2_157_uniques.fasta B2_reference_CT_converted.fasta > B2_157_input_muscle.fasta
+muscle -in B2_157_input_muscle.fasta -out B2_157_muscle.fasta -maxiters 1
+fasta_formatter -i B2_157_muscle.fasta -o B2_157_muscle.tab -t
+grep B2_reference_CT_converted B2_157_muscle.tab > B2_157_reference.tab
+awk '{print $2}' B2_157_reference.tab > B2_157_reference_sequence.tab
+awk '{print $1}' B2_157_muscle.tab > B2_157_uniquenames.tab
+awk '{print $2}' B2_157_muscle.tab > B2_157_sequences.tab
+B2_157=$(python find_CpGs_B2.py B2_157_reference_sequence.tab)
+cut -c $B2_157 B2_157_sequences.tab > B2_157_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_157_uniquenames.tab
+sed -i 's/;/ /g' B2_157_uniquenames.tab
+sed -i 's/=/ /g' B2_157_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_157_uniquenames.tab > B2_157_uniqueinfo.tab
+paste B2_157_uniqueinfo.tab B2_157_unnumbered_haplotypes.tab > B2_157_redundant_haplotypes.tab
+grep :158:1:N:0:37 B2_bowtie.sam > B2_158_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_158_bowtie.sam > B2_158_awk.fasta
+usearch -derep_fulllength B2_158_awk.fasta -fastaout B2_158_uniques.fasta -sizeout -relabel B2_158_
+cat B2_158_uniques.fasta B2_reference_CT_converted.fasta > B2_158_input_muscle.fasta
+muscle -in B2_158_input_muscle.fasta -out B2_158_muscle.fasta -maxiters 1
+fasta_formatter -i B2_158_muscle.fasta -o B2_158_muscle.tab -t
+grep B2_reference_CT_converted B2_158_muscle.tab > B2_158_reference.tab
+awk '{print $2}' B2_158_reference.tab > B2_158_reference_sequence.tab
+awk '{print $1}' B2_158_muscle.tab > B2_158_uniquenames.tab
+awk '{print $2}' B2_158_muscle.tab > B2_158_sequences.tab
+B2_158=$(python find_CpGs_B2.py B2_158_reference_sequence.tab)
+cut -c $B2_158 B2_158_sequences.tab > B2_158_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_158_uniquenames.tab
+sed -i 's/;/ /g' B2_158_uniquenames.tab
+sed -i 's/=/ /g' B2_158_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_158_uniquenames.tab > B2_158_uniqueinfo.tab
+paste B2_158_uniqueinfo.tab B2_158_unnumbered_haplotypes.tab > B2_158_redundant_haplotypes.tab
+grep :159:1:N:0:45 B2_bowtie.sam > B2_159_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_159_bowtie.sam > B2_159_awk.fasta
+usearch -derep_fulllength B2_159_awk.fasta -fastaout B2_159_uniques.fasta -sizeout -relabel B2_159_
+cat B2_159_uniques.fasta B2_reference_CT_converted.fasta > B2_159_input_muscle.fasta
+muscle -in B2_159_input_muscle.fasta -out B2_159_muscle.fasta -maxiters 1
+fasta_formatter -i B2_159_muscle.fasta -o B2_159_muscle.tab -t
+grep B2_reference_CT_converted B2_159_muscle.tab > B2_159_reference.tab
+awk '{print $2}' B2_159_reference.tab > B2_159_reference_sequence.tab
+awk '{print $1}' B2_159_muscle.tab > B2_159_uniquenames.tab
+awk '{print $2}' B2_159_muscle.tab > B2_159_sequences.tab
+B2_159=$(python find_CpGs_B2.py B2_159_reference_sequence.tab)
+cut -c $B2_159 B2_159_sequences.tab > B2_159_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_159_uniquenames.tab
+sed -i 's/;/ /g' B2_159_uniquenames.tab
+sed -i 's/=/ /g' B2_159_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_159_uniquenames.tab > B2_159_uniqueinfo.tab
+paste B2_159_uniqueinfo.tab B2_159_unnumbered_haplotypes.tab > B2_159_redundant_haplotypes.tab
+grep :160:1:N:0:53 B2_bowtie.sam > B2_160_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_160_bowtie.sam > B2_160_awk.fasta
+usearch -derep_fulllength B2_160_awk.fasta -fastaout B2_160_uniques.fasta -sizeout -relabel B2_160_
+cat B2_160_uniques.fasta B2_reference_CT_converted.fasta > B2_160_input_muscle.fasta
+muscle -in B2_160_input_muscle.fasta -out B2_160_muscle.fasta -maxiters 1
+fasta_formatter -i B2_160_muscle.fasta -o B2_160_muscle.tab -t
+grep B2_reference_CT_converted B2_160_muscle.tab > B2_160_reference.tab
+awk '{print $2}' B2_160_reference.tab > B2_160_reference_sequence.tab
+awk '{print $1}' B2_160_muscle.tab > B2_160_uniquenames.tab
+awk '{print $2}' B2_160_muscle.tab > B2_160_sequences.tab
+B2_160=$(python find_CpGs_B2.py B2_160_reference_sequence.tab)
+cut -c $B2_160 B2_160_sequences.tab > B2_160_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_160_uniquenames.tab
+sed -i 's/;/ /g' B2_160_uniquenames.tab
+sed -i 's/=/ /g' B2_160_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_160_uniquenames.tab > B2_160_uniqueinfo.tab
+paste B2_160_uniqueinfo.tab B2_160_unnumbered_haplotypes.tab > B2_160_redundant_haplotypes.tab
+grep :161:1:N:0:61 B2_bowtie.sam > B2_161_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_161_bowtie.sam > B2_161_awk.fasta
+usearch -derep_fulllength B2_161_awk.fasta -fastaout B2_161_uniques.fasta -sizeout -relabel B2_161_
+cat B2_161_uniques.fasta B2_reference_CT_converted.fasta > B2_161_input_muscle.fasta
+muscle -in B2_161_input_muscle.fasta -out B2_161_muscle.fasta -maxiters 1
+fasta_formatter -i B2_161_muscle.fasta -o B2_161_muscle.tab -t
+grep B2_reference_CT_converted B2_161_muscle.tab > B2_161_reference.tab
+awk '{print $2}' B2_161_reference.tab > B2_161_reference_sequence.tab
+awk '{print $1}' B2_161_muscle.tab > B2_161_uniquenames.tab
+awk '{print $2}' B2_161_muscle.tab > B2_161_sequences.tab
+B2_161=$(python find_CpGs_B2.py B2_161_reference_sequence.tab)
+cut -c $B2_161 B2_161_sequences.tab > B2_161_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_161_uniquenames.tab
+sed -i 's/;/ /g' B2_161_uniquenames.tab
+sed -i 's/=/ /g' B2_161_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_161_uniquenames.tab > B2_161_uniqueinfo.tab
+paste B2_161_uniqueinfo.tab B2_161_unnumbered_haplotypes.tab > B2_161_redundant_haplotypes.tab
+grep :162:1:N:0:6 B2_bowtie.sam > B2_162_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_162_bowtie.sam > B2_162_awk.fasta
+usearch -derep_fulllength B2_162_awk.fasta -fastaout B2_162_uniques.fasta -sizeout -relabel B2_162_
+cat B2_162_uniques.fasta B2_reference_CT_converted.fasta > B2_162_input_muscle.fasta
+muscle -in B2_162_input_muscle.fasta -out B2_162_muscle.fasta -maxiters 1
+fasta_formatter -i B2_162_muscle.fasta -o B2_162_muscle.tab -t
+grep B2_reference_CT_converted B2_162_muscle.tab > B2_162_reference.tab
+awk '{print $2}' B2_162_reference.tab > B2_162_reference_sequence.tab
+awk '{print $1}' B2_162_muscle.tab > B2_162_uniquenames.tab
+awk '{print $2}' B2_162_muscle.tab > B2_162_sequences.tab
+B2_162=$(python find_CpGs_B2.py B2_162_reference_sequence.tab)
+cut -c $B2_162 B2_162_sequences.tab > B2_162_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_162_uniquenames.tab
+sed -i 's/;/ /g' B2_162_uniquenames.tab
+sed -i 's/=/ /g' B2_162_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_162_uniquenames.tab > B2_162_uniqueinfo.tab
+paste B2_162_uniqueinfo.tab B2_162_unnumbered_haplotypes.tab > B2_162_redundant_haplotypes.tab
+grep :163:1:N:0:14 B2_bowtie.sam > B2_163_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_163_bowtie.sam > B2_163_awk.fasta
+usearch -derep_fulllength B2_163_awk.fasta -fastaout B2_163_uniques.fasta -sizeout -relabel B2_163_
+cat B2_163_uniques.fasta B2_reference_CT_converted.fasta > B2_163_input_muscle.fasta
+muscle -in B2_163_input_muscle.fasta -out B2_163_muscle.fasta -maxiters 1
+fasta_formatter -i B2_163_muscle.fasta -o B2_163_muscle.tab -t
+grep B2_reference_CT_converted B2_163_muscle.tab > B2_163_reference.tab
+awk '{print $2}' B2_163_reference.tab > B2_163_reference_sequence.tab
+awk '{print $1}' B2_163_muscle.tab > B2_163_uniquenames.tab
+awk '{print $2}' B2_163_muscle.tab > B2_163_sequences.tab
+B2_163=$(python find_CpGs_B2.py B2_163_reference_sequence.tab)
+cut -c $B2_163 B2_163_sequences.tab > B2_163_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_163_uniquenames.tab
+sed -i 's/;/ /g' B2_163_uniquenames.tab
+sed -i 's/=/ /g' B2_163_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_163_uniquenames.tab > B2_163_uniqueinfo.tab
+paste B2_163_uniqueinfo.tab B2_163_unnumbered_haplotypes.tab > B2_163_redundant_haplotypes.tab
+grep :164:1:N:0:22 B2_bowtie.sam > B2_164_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_164_bowtie.sam > B2_164_awk.fasta
+usearch -derep_fulllength B2_164_awk.fasta -fastaout B2_164_uniques.fasta -sizeout -relabel B2_164_
+cat B2_164_uniques.fasta B2_reference_CT_converted.fasta > B2_164_input_muscle.fasta
+muscle -in B2_164_input_muscle.fasta -out B2_164_muscle.fasta -maxiters 1
+fasta_formatter -i B2_164_muscle.fasta -o B2_164_muscle.tab -t
+grep B2_reference_CT_converted B2_164_muscle.tab > B2_164_reference.tab
+awk '{print $2}' B2_164_reference.tab > B2_164_reference_sequence.tab
+awk '{print $1}' B2_164_muscle.tab > B2_164_uniquenames.tab
+awk '{print $2}' B2_164_muscle.tab > B2_164_sequences.tab
+B2_164=$(python find_CpGs_B2.py B2_164_reference_sequence.tab)
+cut -c $B2_164 B2_164_sequences.tab > B2_164_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_164_uniquenames.tab
+sed -i 's/;/ /g' B2_164_uniquenames.tab
+sed -i 's/=/ /g' B2_164_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_164_uniquenames.tab > B2_164_uniqueinfo.tab
+paste B2_164_uniqueinfo.tab B2_164_unnumbered_haplotypes.tab > B2_164_redundant_haplotypes.tab
+grep :213:1:N:0:30 B2_bowtie.sam > B2_213_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_213_bowtie.sam > B2_213_awk.fasta
+usearch -derep_fulllength B2_213_awk.fasta -fastaout B2_213_uniques.fasta -sizeout -relabel B2_213_
+cat B2_213_uniques.fasta B2_reference_CT_converted.fasta > B2_213_input_muscle.fasta
+muscle -in B2_213_input_muscle.fasta -out B2_213_muscle.fasta -maxiters 1
+fasta_formatter -i B2_213_muscle.fasta -o B2_213_muscle.tab -t
+grep B2_reference_CT_converted B2_213_muscle.tab > B2_213_reference.tab
+awk '{print $2}' B2_213_reference.tab > B2_213_reference_sequence.tab
+awk '{print $1}' B2_213_muscle.tab > B2_213_uniquenames.tab
+awk '{print $2}' B2_213_muscle.tab > B2_213_sequences.tab
+B2_213=$(python find_CpGs_B2.py B2_213_reference_sequence.tab)
+cut -c $B2_213 B2_213_sequences.tab > B2_213_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_213_uniquenames.tab
+sed -i 's/;/ /g' B2_213_uniquenames.tab
+sed -i 's/=/ /g' B2_213_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_213_uniquenames.tab > B2_213_uniqueinfo.tab
+paste B2_213_uniqueinfo.tab B2_213_unnumbered_haplotypes.tab > B2_213_redundant_haplotypes.tab
+grep :214:1:N:0:38 B2_bowtie.sam > B2_214_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_214_bowtie.sam > B2_214_awk.fasta
+usearch -derep_fulllength B2_214_awk.fasta -fastaout B2_214_uniques.fasta -sizeout -relabel B2_214_
+cat B2_214_uniques.fasta B2_reference_CT_converted.fasta > B2_214_input_muscle.fasta
+muscle -in B2_214_input_muscle.fasta -out B2_214_muscle.fasta -maxiters 1
+fasta_formatter -i B2_214_muscle.fasta -o B2_214_muscle.tab -t
+grep B2_reference_CT_converted B2_214_muscle.tab > B2_214_reference.tab
+awk '{print $2}' B2_214_reference.tab > B2_214_reference_sequence.tab
+awk '{print $1}' B2_214_muscle.tab > B2_214_uniquenames.tab
+awk '{print $2}' B2_214_muscle.tab > B2_214_sequences.tab
+B2_214=$(python find_CpGs_B2.py B2_214_reference_sequence.tab)
+cut -c $B2_214 B2_214_sequences.tab > B2_214_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_214_uniquenames.tab
+sed -i 's/;/ /g' B2_214_uniquenames.tab
+sed -i 's/=/ /g' B2_214_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_214_uniquenames.tab > B2_214_uniqueinfo.tab
+paste B2_214_uniqueinfo.tab B2_214_unnumbered_haplotypes.tab > B2_214_redundant_haplotypes.tab
+grep :215:1:N:0:46 B2_bowtie.sam > B2_215_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_215_bowtie.sam > B2_215_awk.fasta
+usearch -derep_fulllength B2_215_awk.fasta -fastaout B2_215_uniques.fasta -sizeout -relabel B2_215_
+cat B2_215_uniques.fasta B2_reference_CT_converted.fasta > B2_215_input_muscle.fasta
+muscle -in B2_215_input_muscle.fasta -out B2_215_muscle.fasta -maxiters 1
+fasta_formatter -i B2_215_muscle.fasta -o B2_215_muscle.tab -t
+grep B2_reference_CT_converted B2_215_muscle.tab > B2_215_reference.tab
+awk '{print $2}' B2_215_reference.tab > B2_215_reference_sequence.tab
+awk '{print $1}' B2_215_muscle.tab > B2_215_uniquenames.tab
+awk '{print $2}' B2_215_muscle.tab > B2_215_sequences.tab
+B2_215=$(python find_CpGs_B2.py B2_215_reference_sequence.tab)
+cut -c $B2_215 B2_215_sequences.tab > B2_215_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_215_uniquenames.tab
+sed -i 's/;/ /g' B2_215_uniquenames.tab
+sed -i 's/=/ /g' B2_215_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_215_uniquenames.tab > B2_215_uniqueinfo.tab
+paste B2_215_uniqueinfo.tab B2_215_unnumbered_haplotypes.tab > B2_215_redundant_haplotypes.tab
+grep :216:1:N:0:54 B2_bowtie.sam > B2_216_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_216_bowtie.sam > B2_216_awk.fasta
+usearch -derep_fulllength B2_216_awk.fasta -fastaout B2_216_uniques.fasta -sizeout -relabel B2_216_
+cat B2_216_uniques.fasta B2_reference_CT_converted.fasta > B2_216_input_muscle.fasta
+muscle -in B2_216_input_muscle.fasta -out B2_216_muscle.fasta -maxiters 1
+fasta_formatter -i B2_216_muscle.fasta -o B2_216_muscle.tab -t
+grep B2_reference_CT_converted B2_216_muscle.tab > B2_216_reference.tab
+awk '{print $2}' B2_216_reference.tab > B2_216_reference_sequence.tab
+awk '{print $1}' B2_216_muscle.tab > B2_216_uniquenames.tab
+awk '{print $2}' B2_216_muscle.tab > B2_216_sequences.tab
+B2_216=$(python find_CpGs_B2.py B2_216_reference_sequence.tab)
+cut -c $B2_216 B2_216_sequences.tab > B2_216_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_216_uniquenames.tab
+sed -i 's/;/ /g' B2_216_uniquenames.tab
+sed -i 's/=/ /g' B2_216_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_216_uniquenames.tab > B2_216_uniqueinfo.tab
+paste B2_216_uniqueinfo.tab B2_216_unnumbered_haplotypes.tab > B2_216_redundant_haplotypes.tab
+grep :217:1:N:0:7 B2_bowtie.sam > B2_217_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_217_bowtie.sam > B2_217_awk.fasta
+usearch -derep_fulllength B2_217_awk.fasta -fastaout B2_217_uniques.fasta -sizeout -relabel B2_217_
+cat B2_217_uniques.fasta B2_reference_CT_converted.fasta > B2_217_input_muscle.fasta
+muscle -in B2_217_input_muscle.fasta -out B2_217_muscle.fasta -maxiters 1
+fasta_formatter -i B2_217_muscle.fasta -o B2_217_muscle.tab -t
+grep B2_reference_CT_converted B2_217_muscle.tab > B2_217_reference.tab
+awk '{print $2}' B2_217_reference.tab > B2_217_reference_sequence.tab
+awk '{print $1}' B2_217_muscle.tab > B2_217_uniquenames.tab
+awk '{print $2}' B2_217_muscle.tab > B2_217_sequences.tab
+B2_217=$(python find_CpGs_B2.py B2_217_reference_sequence.tab)
+cut -c $B2_217 B2_217_sequences.tab > B2_217_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_217_uniquenames.tab
+sed -i 's/;/ /g' B2_217_uniquenames.tab
+sed -i 's/=/ /g' B2_217_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_217_uniquenames.tab > B2_217_uniqueinfo.tab
+paste B2_217_uniqueinfo.tab B2_217_unnumbered_haplotypes.tab > B2_217_redundant_haplotypes.tab
+grep :218:1:N:0:15 B2_bowtie.sam > B2_218_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_218_bowtie.sam > B2_218_awk.fasta
+usearch -derep_fulllength B2_218_awk.fasta -fastaout B2_218_uniques.fasta -sizeout -relabel B2_218_
+cat B2_218_uniques.fasta B2_reference_CT_converted.fasta > B2_218_input_muscle.fasta
+muscle -in B2_218_input_muscle.fasta -out B2_218_muscle.fasta -maxiters 1
+fasta_formatter -i B2_218_muscle.fasta -o B2_218_muscle.tab -t
+grep B2_reference_CT_converted B2_218_muscle.tab > B2_218_reference.tab
+awk '{print $2}' B2_218_reference.tab > B2_218_reference_sequence.tab
+awk '{print $1}' B2_218_muscle.tab > B2_218_uniquenames.tab
+awk '{print $2}' B2_218_muscle.tab > B2_218_sequences.tab
+B2_218=$(python find_CpGs_B2.py B2_218_reference_sequence.tab)
+cut -c $B2_218 B2_218_sequences.tab > B2_218_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_218_uniquenames.tab
+sed -i 's/;/ /g' B2_218_uniquenames.tab
+sed -i 's/=/ /g' B2_218_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_218_uniquenames.tab > B2_218_uniqueinfo.tab
+paste B2_218_uniqueinfo.tab B2_218_unnumbered_haplotypes.tab > B2_218_redundant_haplotypes.tab
+grep :219:1:N:0:23 B2_bowtie.sam > B2_219_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_219_bowtie.sam > B2_219_awk.fasta
+usearch -derep_fulllength B2_219_awk.fasta -fastaout B2_219_uniques.fasta -sizeout -relabel B2_219_
+cat B2_219_uniques.fasta B2_reference_CT_converted.fasta > B2_219_input_muscle.fasta
+muscle -in B2_219_input_muscle.fasta -out B2_219_muscle.fasta -maxiters 1
+fasta_formatter -i B2_219_muscle.fasta -o B2_219_muscle.tab -t
+grep B2_reference_CT_converted B2_219_muscle.tab > B2_219_reference.tab
+awk '{print $2}' B2_219_reference.tab > B2_219_reference_sequence.tab
+awk '{print $1}' B2_219_muscle.tab > B2_219_uniquenames.tab
+awk '{print $2}' B2_219_muscle.tab > B2_219_sequences.tab
+B2_219=$(python find_CpGs_B2.py B2_219_reference_sequence.tab)
+cut -c $B2_219 B2_219_sequences.tab > B2_219_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_219_uniquenames.tab
+sed -i 's/;/ /g' B2_219_uniquenames.tab
+sed -i 's/=/ /g' B2_219_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_219_uniquenames.tab > B2_219_uniqueinfo.tab
+paste B2_219_uniqueinfo.tab B2_219_unnumbered_haplotypes.tab > B2_219_redundant_haplotypes.tab
+grep :220:1:N:0:31 B2_bowtie.sam > B2_220_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_220_bowtie.sam > B2_220_awk.fasta
+usearch -derep_fulllength B2_220_awk.fasta -fastaout B2_220_uniques.fasta -sizeout -relabel B2_220_
+cat B2_220_uniques.fasta B2_reference_CT_converted.fasta > B2_220_input_muscle.fasta
+muscle -in B2_220_input_muscle.fasta -out B2_220_muscle.fasta -maxiters 1
+fasta_formatter -i B2_220_muscle.fasta -o B2_220_muscle.tab -t
+grep B2_reference_CT_converted B2_220_muscle.tab > B2_220_reference.tab
+awk '{print $2}' B2_220_reference.tab > B2_220_reference_sequence.tab
+awk '{print $1}' B2_220_muscle.tab > B2_220_uniquenames.tab
+awk '{print $2}' B2_220_muscle.tab > B2_220_sequences.tab
+B2_220=$(python find_CpGs_B2.py B2_220_reference_sequence.tab)
+cut -c $B2_220 B2_220_sequences.tab > B2_220_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_220_uniquenames.tab
+sed -i 's/;/ /g' B2_220_uniquenames.tab
+sed -i 's/=/ /g' B2_220_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_220_uniquenames.tab > B2_220_uniqueinfo.tab
+paste B2_220_uniqueinfo.tab B2_220_unnumbered_haplotypes.tab > B2_220_redundant_haplotypes.tab
+grep :283:1:N:0:39 B2_bowtie.sam > B2_283_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_283_bowtie.sam > B2_283_awk.fasta
+usearch -derep_fulllength B2_283_awk.fasta -fastaout B2_283_uniques.fasta -sizeout -relabel B2_283_
+cat B2_283_uniques.fasta B2_reference_CT_converted.fasta > B2_283_input_muscle.fasta
+muscle -in B2_283_input_muscle.fasta -out B2_283_muscle.fasta -maxiters 1
+fasta_formatter -i B2_283_muscle.fasta -o B2_283_muscle.tab -t
+grep B2_reference_CT_converted B2_283_muscle.tab > B2_283_reference.tab
+awk '{print $2}' B2_283_reference.tab > B2_283_reference_sequence.tab
+awk '{print $1}' B2_283_muscle.tab > B2_283_uniquenames.tab
+awk '{print $2}' B2_283_muscle.tab > B2_283_sequences.tab
+B2_283=$(python find_CpGs_B2.py B2_283_reference_sequence.tab)
+cut -c $B2_283 B2_283_sequences.tab > B2_283_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_283_uniquenames.tab
+sed -i 's/;/ /g' B2_283_uniquenames.tab
+sed -i 's/=/ /g' B2_283_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_283_uniquenames.tab > B2_283_uniqueinfo.tab
+paste B2_283_uniqueinfo.tab B2_283_unnumbered_haplotypes.tab > B2_283_redundant_haplotypes.tab
+grep :284:1:N:0:47 B2_bowtie.sam > B2_284_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_284_bowtie.sam > B2_284_awk.fasta
+usearch -derep_fulllength B2_284_awk.fasta -fastaout B2_284_uniques.fasta -sizeout -relabel B2_284_
+cat B2_284_uniques.fasta B2_reference_CT_converted.fasta > B2_284_input_muscle.fasta
+muscle -in B2_284_input_muscle.fasta -out B2_284_muscle.fasta -maxiters 1
+fasta_formatter -i B2_284_muscle.fasta -o B2_284_muscle.tab -t
+grep B2_reference_CT_converted B2_284_muscle.tab > B2_284_reference.tab
+awk '{print $2}' B2_284_reference.tab > B2_284_reference_sequence.tab
+awk '{print $1}' B2_284_muscle.tab > B2_284_uniquenames.tab
+awk '{print $2}' B2_284_muscle.tab > B2_284_sequences.tab
+B2_284=$(python find_CpGs_B2.py B2_284_reference_sequence.tab)
+cut -c $B2_284 B2_284_sequences.tab > B2_284_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_284_uniquenames.tab
+sed -i 's/;/ /g' B2_284_uniquenames.tab
+sed -i 's/=/ /g' B2_284_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_284_uniquenames.tab > B2_284_uniqueinfo.tab
+paste B2_284_uniqueinfo.tab B2_284_unnumbered_haplotypes.tab > B2_284_redundant_haplotypes.tab
+grep :285:1:N:0:55 B2_bowtie.sam > B2_285_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_285_bowtie.sam > B2_285_awk.fasta
+usearch -derep_fulllength B2_285_awk.fasta -fastaout B2_285_uniques.fasta -sizeout -relabel B2_285_
+cat B2_285_uniques.fasta B2_reference_CT_converted.fasta > B2_285_input_muscle.fasta
+muscle -in B2_285_input_muscle.fasta -out B2_285_muscle.fasta -maxiters 1
+fasta_formatter -i B2_285_muscle.fasta -o B2_285_muscle.tab -t
+grep B2_reference_CT_converted B2_285_muscle.tab > B2_285_reference.tab
+awk '{print $2}' B2_285_reference.tab > B2_285_reference_sequence.tab
+awk '{print $1}' B2_285_muscle.tab > B2_285_uniquenames.tab
+awk '{print $2}' B2_285_muscle.tab > B2_285_sequences.tab
+B2_285=$(python find_CpGs_B2.py B2_285_reference_sequence.tab)
+cut -c $B2_285 B2_285_sequences.tab > B2_285_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_285_uniquenames.tab
+sed -i 's/;/ /g' B2_285_uniquenames.tab
+sed -i 's/=/ /g' B2_285_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_285_uniquenames.tab > B2_285_uniqueinfo.tab
+paste B2_285_uniqueinfo.tab B2_285_unnumbered_haplotypes.tab > B2_285_redundant_haplotypes.tab
+grep :286:1:N:0:8 B2_bowtie.sam > B2_286_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_286_bowtie.sam > B2_286_awk.fasta
+usearch -derep_fulllength B2_286_awk.fasta -fastaout B2_286_uniques.fasta -sizeout -relabel B2_286_
+cat B2_286_uniques.fasta B2_reference_CT_converted.fasta > B2_286_input_muscle.fasta
+muscle -in B2_286_input_muscle.fasta -out B2_286_muscle.fasta -maxiters 1
+fasta_formatter -i B2_286_muscle.fasta -o B2_286_muscle.tab -t
+grep B2_reference_CT_converted B2_286_muscle.tab > B2_286_reference.tab
+awk '{print $2}' B2_286_reference.tab > B2_286_reference_sequence.tab
+awk '{print $1}' B2_286_muscle.tab > B2_286_uniquenames.tab
+awk '{print $2}' B2_286_muscle.tab > B2_286_sequences.tab
+B2_286=$(python find_CpGs_B2.py B2_286_reference_sequence.tab)
+cut -c $B2_286 B2_286_sequences.tab > B2_286_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_286_uniquenames.tab
+sed -i 's/;/ /g' B2_286_uniquenames.tab
+sed -i 's/=/ /g' B2_286_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_286_uniquenames.tab > B2_286_uniqueinfo.tab
+paste B2_286_uniqueinfo.tab B2_286_unnumbered_haplotypes.tab > B2_286_redundant_haplotypes.tab
+grep :287:1:N:0:16 B2_bowtie.sam > B2_287_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_287_bowtie.sam > B2_287_awk.fasta
+usearch -derep_fulllength B2_287_awk.fasta -fastaout B2_287_uniques.fasta -sizeout -relabel B2_287_
+cat B2_287_uniques.fasta B2_reference_CT_converted.fasta > B2_287_input_muscle.fasta
+muscle -in B2_287_input_muscle.fasta -out B2_287_muscle.fasta -maxiters 1
+fasta_formatter -i B2_287_muscle.fasta -o B2_287_muscle.tab -t
+grep B2_reference_CT_converted B2_287_muscle.tab > B2_287_reference.tab
+awk '{print $2}' B2_287_reference.tab > B2_287_reference_sequence.tab
+awk '{print $1}' B2_287_muscle.tab > B2_287_uniquenames.tab
+awk '{print $2}' B2_287_muscle.tab > B2_287_sequences.tab
+B2_287=$(python find_CpGs_B2.py B2_287_reference_sequence.tab)
+cut -c $B2_287 B2_287_sequences.tab > B2_287_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_287_uniquenames.tab
+sed -i 's/;/ /g' B2_287_uniquenames.tab
+sed -i 's/=/ /g' B2_287_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_287_uniquenames.tab > B2_287_uniqueinfo.tab
+paste B2_287_uniqueinfo.tab B2_287_unnumbered_haplotypes.tab > B2_287_redundant_haplotypes.tab
+grep :288:1:N:0:24 B2_bowtie.sam > B2_288_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_288_bowtie.sam > B2_288_awk.fasta
+usearch -derep_fulllength B2_288_awk.fasta -fastaout B2_288_uniques.fasta -sizeout -relabel B2_288_
+cat B2_288_uniques.fasta B2_reference_CT_converted.fasta > B2_288_input_muscle.fasta
+muscle -in B2_288_input_muscle.fasta -out B2_288_muscle.fasta -maxiters 1
+fasta_formatter -i B2_288_muscle.fasta -o B2_288_muscle.tab -t
+grep B2_reference_CT_converted B2_288_muscle.tab > B2_288_reference.tab
+awk '{print $2}' B2_288_reference.tab > B2_288_reference_sequence.tab
+awk '{print $1}' B2_288_muscle.tab > B2_288_uniquenames.tab
+awk '{print $2}' B2_288_muscle.tab > B2_288_sequences.tab
+B2_288=$(python find_CpGs_B2.py B2_288_reference_sequence.tab)
+cut -c $B2_288 B2_288_sequences.tab > B2_288_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_288_uniquenames.tab
+sed -i 's/;/ /g' B2_288_uniquenames.tab
+sed -i 's/=/ /g' B2_288_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_288_uniquenames.tab > B2_288_uniqueinfo.tab
+paste B2_288_uniqueinfo.tab B2_288_unnumbered_haplotypes.tab > B2_288_redundant_haplotypes.tab
+grep :289:1:N:0:32 B2_bowtie.sam > B2_289_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_289_bowtie.sam > B2_289_awk.fasta
+usearch -derep_fulllength B2_289_awk.fasta -fastaout B2_289_uniques.fasta -sizeout -relabel B2_289_
+cat B2_289_uniques.fasta B2_reference_CT_converted.fasta > B2_289_input_muscle.fasta
+muscle -in B2_289_input_muscle.fasta -out B2_289_muscle.fasta -maxiters 1
+fasta_formatter -i B2_289_muscle.fasta -o B2_289_muscle.tab -t
+grep B2_reference_CT_converted B2_289_muscle.tab > B2_289_reference.tab
+awk '{print $2}' B2_289_reference.tab > B2_289_reference_sequence.tab
+awk '{print $1}' B2_289_muscle.tab > B2_289_uniquenames.tab
+awk '{print $2}' B2_289_muscle.tab > B2_289_sequences.tab
+B2_289=$(python find_CpGs_B2.py B2_289_reference_sequence.tab)
+cut -c $B2_289 B2_289_sequences.tab > B2_289_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_289_uniquenames.tab
+sed -i 's/;/ /g' B2_289_uniquenames.tab
+sed -i 's/=/ /g' B2_289_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_289_uniquenames.tab > B2_289_uniqueinfo.tab
+paste B2_289_uniqueinfo.tab B2_289_unnumbered_haplotypes.tab > B2_289_redundant_haplotypes.tab
+grep :290:1:N:0:40 B2_bowtie.sam > B2_290_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_290_bowtie.sam > B2_290_awk.fasta
+usearch -derep_fulllength B2_290_awk.fasta -fastaout B2_290_uniques.fasta -sizeout -relabel B2_290_
+cat B2_290_uniques.fasta B2_reference_CT_converted.fasta > B2_290_input_muscle.fasta
+muscle -in B2_290_input_muscle.fasta -out B2_290_muscle.fasta -maxiters 1
+fasta_formatter -i B2_290_muscle.fasta -o B2_290_muscle.tab -t
+grep B2_reference_CT_converted B2_290_muscle.tab > B2_290_reference.tab
+awk '{print $2}' B2_290_reference.tab > B2_290_reference_sequence.tab
+awk '{print $1}' B2_290_muscle.tab > B2_290_uniquenames.tab
+awk '{print $2}' B2_290_muscle.tab > B2_290_sequences.tab
+B2_290=$(python find_CpGs_B2.py B2_290_reference_sequence.tab)
+cut -c $B2_290 B2_290_sequences.tab > B2_290_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_290_uniquenames.tab
+sed -i 's/;/ /g' B2_290_uniquenames.tab
+sed -i 's/=/ /g' B2_290_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_290_uniquenames.tab > B2_290_uniqueinfo.tab
+paste B2_290_uniqueinfo.tab B2_290_unnumbered_haplotypes.tab > B2_290_redundant_haplotypes.tab
+grep :291:1:N:0:48 B2_bowtie.sam > B2_291_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_291_bowtie.sam > B2_291_awk.fasta
+usearch -derep_fulllength B2_291_awk.fasta -fastaout B2_291_uniques.fasta -sizeout -relabel B2_291_
+cat B2_291_uniques.fasta B2_reference_CT_converted.fasta > B2_291_input_muscle.fasta
+muscle -in B2_291_input_muscle.fasta -out B2_291_muscle.fasta -maxiters 1
+fasta_formatter -i B2_291_muscle.fasta -o B2_291_muscle.tab -t
+grep B2_reference_CT_converted B2_291_muscle.tab > B2_291_reference.tab
+awk '{print $2}' B2_291_reference.tab > B2_291_reference_sequence.tab
+awk '{print $1}' B2_291_muscle.tab > B2_291_uniquenames.tab
+awk '{print $2}' B2_291_muscle.tab > B2_291_sequences.tab
+B2_291=$(python find_CpGs_B2.py B2_291_reference_sequence.tab)
+cut -c $B2_291 B2_291_sequences.tab > B2_291_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_291_uniquenames.tab
+sed -i 's/;/ /g' B2_291_uniquenames.tab
+sed -i 's/=/ /g' B2_291_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_291_uniquenames.tab > B2_291_uniqueinfo.tab
+paste B2_291_uniqueinfo.tab B2_291_unnumbered_haplotypes.tab > B2_291_redundant_haplotypes.tab
+grep :292:1:N:0:56 B2_bowtie.sam > B2_292_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_292_bowtie.sam > B2_292_awk.fasta
+usearch -derep_fulllength B2_292_awk.fasta -fastaout B2_292_uniques.fasta -sizeout -relabel B2_292_
+cat B2_292_uniques.fasta B2_reference_CT_converted.fasta > B2_292_input_muscle.fasta
+muscle -in B2_292_input_muscle.fasta -out B2_292_muscle.fasta -maxiters 1
+fasta_formatter -i B2_292_muscle.fasta -o B2_292_muscle.tab -t
+grep B2_reference_CT_converted B2_292_muscle.tab > B2_292_reference.tab
+awk '{print $2}' B2_292_reference.tab > B2_292_reference_sequence.tab
+awk '{print $1}' B2_292_muscle.tab > B2_292_uniquenames.tab
+awk '{print $2}' B2_292_muscle.tab > B2_292_sequences.tab
+B2_292=$(python find_CpGs_B2.py B2_292_reference_sequence.tab)
+cut -c $B2_292 B2_292_sequences.tab > B2_292_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_292_uniquenames.tab
+sed -i 's/;/ /g' B2_292_uniquenames.tab
+sed -i 's/=/ /g' B2_292_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_292_uniquenames.tab > B2_292_uniqueinfo.tab
+paste B2_292_uniqueinfo.tab B2_292_unnumbered_haplotypes.tab > B2_292_redundant_haplotypes.tab
+grep :629:1:N:0:1 B2_bowtie.sam > B2_629_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_629_bowtie.sam > B2_629_awk.fasta
+usearch -derep_fulllength B2_629_awk.fasta -fastaout B2_629_uniques.fasta -sizeout -relabel B2_629_
+cat B2_629_uniques.fasta B2_reference_CT_converted.fasta > B2_629_input_muscle.fasta
+muscle -in B2_629_input_muscle.fasta -out B2_629_muscle.fasta -maxiters 1
+fasta_formatter -i B2_629_muscle.fasta -o B2_629_muscle.tab -t
+grep B2_reference_CT_converted B2_629_muscle.tab > B2_629_reference.tab
+awk '{print $2}' B2_629_reference.tab > B2_629_reference_sequence.tab
+awk '{print $1}' B2_629_muscle.tab > B2_629_uniquenames.tab
+awk '{print $2}' B2_629_muscle.tab > B2_629_sequences.tab
+B2_629=$(python find_CpGs_B2.py B2_629_reference_sequence.tab)
+cut -c $B2_629 B2_629_sequences.tab > B2_629_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_629_uniquenames.tab
+sed -i 's/;/ /g' B2_629_uniquenames.tab
+sed -i 's/=/ /g' B2_629_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_629_uniquenames.tab > B2_629_uniqueinfo.tab
+paste B2_629_uniqueinfo.tab B2_629_unnumbered_haplotypes.tab > B2_629_redundant_haplotypes.tab
+grep :630:1:N:0:9 B2_bowtie.sam > B2_630_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_630_bowtie.sam > B2_630_awk.fasta
+usearch -derep_fulllength B2_630_awk.fasta -fastaout B2_630_uniques.fasta -sizeout -relabel B2_630_
+cat B2_630_uniques.fasta B2_reference_CT_converted.fasta > B2_630_input_muscle.fasta
+muscle -in B2_630_input_muscle.fasta -out B2_630_muscle.fasta -maxiters 1
+fasta_formatter -i B2_630_muscle.fasta -o B2_630_muscle.tab -t
+grep B2_reference_CT_converted B2_630_muscle.tab > B2_630_reference.tab
+awk '{print $2}' B2_630_reference.tab > B2_630_reference_sequence.tab
+awk '{print $1}' B2_630_muscle.tab > B2_630_uniquenames.tab
+awk '{print $2}' B2_630_muscle.tab > B2_630_sequences.tab
+B2_630=$(python find_CpGs_B2.py B2_630_reference_sequence.tab)
+cut -c $B2_630 B2_630_sequences.tab > B2_630_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_630_uniquenames.tab
+sed -i 's/;/ /g' B2_630_uniquenames.tab
+sed -i 's/=/ /g' B2_630_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_630_uniquenames.tab > B2_630_uniqueinfo.tab
+paste B2_630_uniqueinfo.tab B2_630_unnumbered_haplotypes.tab > B2_630_redundant_haplotypes.tab
+grep :631:1:N:0:17 B2_bowtie.sam > B2_631_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_631_bowtie.sam > B2_631_awk.fasta
+usearch -derep_fulllength B2_631_awk.fasta -fastaout B2_631_uniques.fasta -sizeout -relabel B2_631_
+cat B2_631_uniques.fasta B2_reference_CT_converted.fasta > B2_631_input_muscle.fasta
+muscle -in B2_631_input_muscle.fasta -out B2_631_muscle.fasta -maxiters 1
+fasta_formatter -i B2_631_muscle.fasta -o B2_631_muscle.tab -t
+grep B2_reference_CT_converted B2_631_muscle.tab > B2_631_reference.tab
+awk '{print $2}' B2_631_reference.tab > B2_631_reference_sequence.tab
+awk '{print $1}' B2_631_muscle.tab > B2_631_uniquenames.tab
+awk '{print $2}' B2_631_muscle.tab > B2_631_sequences.tab
+B2_631=$(python find_CpGs_B2.py B2_631_reference_sequence.tab)
+cut -c $B2_631 B2_631_sequences.tab > B2_631_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_631_uniquenames.tab
+sed -i 's/;/ /g' B2_631_uniquenames.tab
+sed -i 's/=/ /g' B2_631_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_631_uniquenames.tab > B2_631_uniqueinfo.tab
+paste B2_631_uniqueinfo.tab B2_631_unnumbered_haplotypes.tab > B2_631_redundant_haplotypes.tab
+grep :632:1:N:0:25 B2_bowtie.sam > B2_632_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_632_bowtie.sam > B2_632_awk.fasta
+usearch -derep_fulllength B2_632_awk.fasta -fastaout B2_632_uniques.fasta -sizeout -relabel B2_632_
+cat B2_632_uniques.fasta B2_reference_CT_converted.fasta > B2_632_input_muscle.fasta
+muscle -in B2_632_input_muscle.fasta -out B2_632_muscle.fasta -maxiters 1
+fasta_formatter -i B2_632_muscle.fasta -o B2_632_muscle.tab -t
+grep B2_reference_CT_converted B2_632_muscle.tab > B2_632_reference.tab
+awk '{print $2}' B2_632_reference.tab > B2_632_reference_sequence.tab
+awk '{print $1}' B2_632_muscle.tab > B2_632_uniquenames.tab
+awk '{print $2}' B2_632_muscle.tab > B2_632_sequences.tab
+B2_632=$(python find_CpGs_B2.py B2_632_reference_sequence.tab)
+cut -c $B2_632 B2_632_sequences.tab > B2_632_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_632_uniquenames.tab
+sed -i 's/;/ /g' B2_632_uniquenames.tab
+sed -i 's/=/ /g' B2_632_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_632_uniquenames.tab > B2_632_uniqueinfo.tab
+paste B2_632_uniqueinfo.tab B2_632_unnumbered_haplotypes.tab > B2_632_redundant_haplotypes.tab
+grep :633:1:N:0:33 B2_bowtie.sam > B2_633_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_633_bowtie.sam > B2_633_awk.fasta
+usearch -derep_fulllength B2_633_awk.fasta -fastaout B2_633_uniques.fasta -sizeout -relabel B2_633_
+cat B2_633_uniques.fasta B2_reference_CT_converted.fasta > B2_633_input_muscle.fasta
+muscle -in B2_633_input_muscle.fasta -out B2_633_muscle.fasta -maxiters 1
+fasta_formatter -i B2_633_muscle.fasta -o B2_633_muscle.tab -t
+grep B2_reference_CT_converted B2_633_muscle.tab > B2_633_reference.tab
+awk '{print $2}' B2_633_reference.tab > B2_633_reference_sequence.tab
+awk '{print $1}' B2_633_muscle.tab > B2_633_uniquenames.tab
+awk '{print $2}' B2_633_muscle.tab > B2_633_sequences.tab
+B2_633=$(python find_CpGs_B2.py B2_633_reference_sequence.tab)
+cut -c $B2_633 B2_633_sequences.tab > B2_633_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_633_uniquenames.tab
+sed -i 's/;/ /g' B2_633_uniquenames.tab
+sed -i 's/=/ /g' B2_633_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_633_uniquenames.tab > B2_633_uniqueinfo.tab
+paste B2_633_uniqueinfo.tab B2_633_unnumbered_haplotypes.tab > B2_633_redundant_haplotypes.tab
+grep :634:1:N:0:41 B2_bowtie.sam > B2_634_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_634_bowtie.sam > B2_634_awk.fasta
+usearch -derep_fulllength B2_634_awk.fasta -fastaout B2_634_uniques.fasta -sizeout -relabel B2_634_
+cat B2_634_uniques.fasta B2_reference_CT_converted.fasta > B2_634_input_muscle.fasta
+muscle -in B2_634_input_muscle.fasta -out B2_634_muscle.fasta -maxiters 1
+fasta_formatter -i B2_634_muscle.fasta -o B2_634_muscle.tab -t
+grep B2_reference_CT_converted B2_634_muscle.tab > B2_634_reference.tab
+awk '{print $2}' B2_634_reference.tab > B2_634_reference_sequence.tab
+awk '{print $1}' B2_634_muscle.tab > B2_634_uniquenames.tab
+awk '{print $2}' B2_634_muscle.tab > B2_634_sequences.tab
+B2_634=$(python find_CpGs_B2.py B2_634_reference_sequence.tab)
+cut -c $B2_634 B2_634_sequences.tab > B2_634_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_634_uniquenames.tab
+sed -i 's/;/ /g' B2_634_uniquenames.tab
+sed -i 's/=/ /g' B2_634_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_634_uniquenames.tab > B2_634_uniqueinfo.tab
+paste B2_634_uniqueinfo.tab B2_634_unnumbered_haplotypes.tab > B2_634_redundant_haplotypes.tab
+grep :635:1:N:0:49 B2_bowtie.sam > B2_635_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_635_bowtie.sam > B2_635_awk.fasta
+usearch -derep_fulllength B2_635_awk.fasta -fastaout B2_635_uniques.fasta -sizeout -relabel B2_635_
+cat B2_635_uniques.fasta B2_reference_CT_converted.fasta > B2_635_input_muscle.fasta
+muscle -in B2_635_input_muscle.fasta -out B2_635_muscle.fasta -maxiters 1
+fasta_formatter -i B2_635_muscle.fasta -o B2_635_muscle.tab -t
+grep B2_reference_CT_converted B2_635_muscle.tab > B2_635_reference.tab
+awk '{print $2}' B2_635_reference.tab > B2_635_reference_sequence.tab
+awk '{print $1}' B2_635_muscle.tab > B2_635_uniquenames.tab
+awk '{print $2}' B2_635_muscle.tab > B2_635_sequences.tab
+B2_635=$(python find_CpGs_B2.py B2_635_reference_sequence.tab)
+cut -c $B2_635 B2_635_sequences.tab > B2_635_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_635_uniquenames.tab
+sed -i 's/;/ /g' B2_635_uniquenames.tab
+sed -i 's/=/ /g' B2_635_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_635_uniquenames.tab > B2_635_uniqueinfo.tab
+paste B2_635_uniqueinfo.tab B2_635_unnumbered_haplotypes.tab > B2_635_redundant_haplotypes.tab
+grep :636:1:N:0:57 B2_bowtie.sam > B2_636_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_636_bowtie.sam > B2_636_awk.fasta
+usearch -derep_fulllength B2_636_awk.fasta -fastaout B2_636_uniques.fasta -sizeout -relabel B2_636_
+cat B2_636_uniques.fasta B2_reference_CT_converted.fasta > B2_636_input_muscle.fasta
+muscle -in B2_636_input_muscle.fasta -out B2_636_muscle.fasta -maxiters 1
+fasta_formatter -i B2_636_muscle.fasta -o B2_636_muscle.tab -t
+grep B2_reference_CT_converted B2_636_muscle.tab > B2_636_reference.tab
+awk '{print $2}' B2_636_reference.tab > B2_636_reference_sequence.tab
+awk '{print $1}' B2_636_muscle.tab > B2_636_uniquenames.tab
+awk '{print $2}' B2_636_muscle.tab > B2_636_sequences.tab
+B2_636=$(python find_CpGs_B2.py B2_636_reference_sequence.tab)
+cut -c $B2_636 B2_636_sequences.tab > B2_636_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_636_uniquenames.tab
+sed -i 's/;/ /g' B2_636_uniquenames.tab
+sed -i 's/=/ /g' B2_636_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_636_uniquenames.tab > B2_636_uniqueinfo.tab
+paste B2_636_uniqueinfo.tab B2_636_unnumbered_haplotypes.tab > B2_636_redundant_haplotypes.tab
+grep :637:1:N:0:65 B2_bowtie.sam > B2_637_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_637_bowtie.sam > B2_637_awk.fasta
+usearch -derep_fulllength B2_637_awk.fasta -fastaout B2_637_uniques.fasta -sizeout -relabel B2_637_
+cat B2_637_uniques.fasta B2_reference_CT_converted.fasta > B2_637_input_muscle.fasta
+muscle -in B2_637_input_muscle.fasta -out B2_637_muscle.fasta -maxiters 1
+fasta_formatter -i B2_637_muscle.fasta -o B2_637_muscle.tab -t
+grep B2_reference_CT_converted B2_637_muscle.tab > B2_637_reference.tab
+awk '{print $2}' B2_637_reference.tab > B2_637_reference_sequence.tab
+awk '{print $1}' B2_637_muscle.tab > B2_637_uniquenames.tab
+awk '{print $2}' B2_637_muscle.tab > B2_637_sequences.tab
+B2_637=$(python find_CpGs_B2.py B2_637_reference_sequence.tab)
+cut -c $B2_637 B2_637_sequences.tab > B2_637_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_637_uniquenames.tab
+sed -i 's/;/ /g' B2_637_uniquenames.tab
+sed -i 's/=/ /g' B2_637_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_637_uniquenames.tab > B2_637_uniqueinfo.tab
+paste B2_637_uniqueinfo.tab B2_637_unnumbered_haplotypes.tab > B2_637_redundant_haplotypes.tab
+grep :638:1:N:0:73 B2_bowtie.sam > B2_638_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_638_bowtie.sam > B2_638_awk.fasta
+usearch -derep_fulllength B2_638_awk.fasta -fastaout B2_638_uniques.fasta -sizeout -relabel B2_638_
+cat B2_638_uniques.fasta B2_reference_CT_converted.fasta > B2_638_input_muscle.fasta
+muscle -in B2_638_input_muscle.fasta -out B2_638_muscle.fasta -maxiters 1
+fasta_formatter -i B2_638_muscle.fasta -o B2_638_muscle.tab -t
+grep B2_reference_CT_converted B2_638_muscle.tab > B2_638_reference.tab
+awk '{print $2}' B2_638_reference.tab > B2_638_reference_sequence.tab
+awk '{print $1}' B2_638_muscle.tab > B2_638_uniquenames.tab
+awk '{print $2}' B2_638_muscle.tab > B2_638_sequences.tab
+B2_638=$(python find_CpGs_B2.py B2_638_reference_sequence.tab)
+cut -c $B2_638 B2_638_sequences.tab > B2_638_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_638_uniquenames.tab
+sed -i 's/;/ /g' B2_638_uniquenames.tab
+sed -i 's/=/ /g' B2_638_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_638_uniquenames.tab > B2_638_uniqueinfo.tab
+paste B2_638_uniqueinfo.tab B2_638_unnumbered_haplotypes.tab > B2_638_redundant_haplotypes.tab
+grep :639:1:N:0:81 B2_bowtie.sam > B2_639_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_639_bowtie.sam > B2_639_awk.fasta
+usearch -derep_fulllength B2_639_awk.fasta -fastaout B2_639_uniques.fasta -sizeout -relabel B2_639_
+cat B2_639_uniques.fasta B2_reference_CT_converted.fasta > B2_639_input_muscle.fasta
+muscle -in B2_639_input_muscle.fasta -out B2_639_muscle.fasta -maxiters 1
+fasta_formatter -i B2_639_muscle.fasta -o B2_639_muscle.tab -t
+grep B2_reference_CT_converted B2_639_muscle.tab > B2_639_reference.tab
+awk '{print $2}' B2_639_reference.tab > B2_639_reference_sequence.tab
+awk '{print $1}' B2_639_muscle.tab > B2_639_uniquenames.tab
+awk '{print $2}' B2_639_muscle.tab > B2_639_sequences.tab
+B2_639=$(python find_CpGs_B2.py B2_639_reference_sequence.tab)
+cut -c $B2_639 B2_639_sequences.tab > B2_639_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_639_uniquenames.tab
+sed -i 's/;/ /g' B2_639_uniquenames.tab
+sed -i 's/=/ /g' B2_639_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_639_uniquenames.tab > B2_639_uniqueinfo.tab
+paste B2_639_uniqueinfo.tab B2_639_unnumbered_haplotypes.tab > B2_639_redundant_haplotypes.tab
+grep :640:1:N:0:89 B2_bowtie.sam > B2_640_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_640_bowtie.sam > B2_640_awk.fasta
+usearch -derep_fulllength B2_640_awk.fasta -fastaout B2_640_uniques.fasta -sizeout -relabel B2_640_
+cat B2_640_uniques.fasta B2_reference_CT_converted.fasta > B2_640_input_muscle.fasta
+muscle -in B2_640_input_muscle.fasta -out B2_640_muscle.fasta -maxiters 1
+fasta_formatter -i B2_640_muscle.fasta -o B2_640_muscle.tab -t
+grep B2_reference_CT_converted B2_640_muscle.tab > B2_640_reference.tab
+awk '{print $2}' B2_640_reference.tab > B2_640_reference_sequence.tab
+awk '{print $1}' B2_640_muscle.tab > B2_640_uniquenames.tab
+awk '{print $2}' B2_640_muscle.tab > B2_640_sequences.tab
+B2_640=$(python find_CpGs_B2.py B2_640_reference_sequence.tab)
+cut -c $B2_640 B2_640_sequences.tab > B2_640_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_640_uniquenames.tab
+sed -i 's/;/ /g' B2_640_uniquenames.tab
+sed -i 's/=/ /g' B2_640_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_640_uniquenames.tab > B2_640_uniqueinfo.tab
+paste B2_640_uniqueinfo.tab B2_640_unnumbered_haplotypes.tab > B2_640_redundant_haplotypes.tab
+grep :641:1:N:0:2 B2_bowtie.sam > B2_641_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_641_bowtie.sam > B2_641_awk.fasta
+usearch -derep_fulllength B2_641_awk.fasta -fastaout B2_641_uniques.fasta -sizeout -relabel B2_641_
+cat B2_641_uniques.fasta B2_reference_CT_converted.fasta > B2_641_input_muscle.fasta
+muscle -in B2_641_input_muscle.fasta -out B2_641_muscle.fasta -maxiters 1
+fasta_formatter -i B2_641_muscle.fasta -o B2_641_muscle.tab -t
+grep B2_reference_CT_converted B2_641_muscle.tab > B2_641_reference.tab
+awk '{print $2}' B2_641_reference.tab > B2_641_reference_sequence.tab
+awk '{print $1}' B2_641_muscle.tab > B2_641_uniquenames.tab
+awk '{print $2}' B2_641_muscle.tab > B2_641_sequences.tab
+B2_641=$(python find_CpGs_B2.py B2_641_reference_sequence.tab)
+cut -c $B2_641 B2_641_sequences.tab > B2_641_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_641_uniquenames.tab
+sed -i 's/;/ /g' B2_641_uniquenames.tab
+sed -i 's/=/ /g' B2_641_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_641_uniquenames.tab > B2_641_uniqueinfo.tab
+paste B2_641_uniqueinfo.tab B2_641_unnumbered_haplotypes.tab > B2_641_redundant_haplotypes.tab
+grep :642:1:N:0:10 B2_bowtie.sam > B2_642_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_642_bowtie.sam > B2_642_awk.fasta
+usearch -derep_fulllength B2_642_awk.fasta -fastaout B2_642_uniques.fasta -sizeout -relabel B2_642_
+cat B2_642_uniques.fasta B2_reference_CT_converted.fasta > B2_642_input_muscle.fasta
+muscle -in B2_642_input_muscle.fasta -out B2_642_muscle.fasta -maxiters 1
+fasta_formatter -i B2_642_muscle.fasta -o B2_642_muscle.tab -t
+grep B2_reference_CT_converted B2_642_muscle.tab > B2_642_reference.tab
+awk '{print $2}' B2_642_reference.tab > B2_642_reference_sequence.tab
+awk '{print $1}' B2_642_muscle.tab > B2_642_uniquenames.tab
+awk '{print $2}' B2_642_muscle.tab > B2_642_sequences.tab
+B2_642=$(python find_CpGs_B2.py B2_642_reference_sequence.tab)
+cut -c $B2_642 B2_642_sequences.tab > B2_642_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_642_uniquenames.tab
+sed -i 's/;/ /g' B2_642_uniquenames.tab
+sed -i 's/=/ /g' B2_642_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_642_uniquenames.tab > B2_642_uniqueinfo.tab
+paste B2_642_uniqueinfo.tab B2_642_unnumbered_haplotypes.tab > B2_642_redundant_haplotypes.tab
+grep :643:1:N:0:18 B2_bowtie.sam > B2_643_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_643_bowtie.sam > B2_643_awk.fasta
+usearch -derep_fulllength B2_643_awk.fasta -fastaout B2_643_uniques.fasta -sizeout -relabel B2_643_
+cat B2_643_uniques.fasta B2_reference_CT_converted.fasta > B2_643_input_muscle.fasta
+muscle -in B2_643_input_muscle.fasta -out B2_643_muscle.fasta -maxiters 1
+fasta_formatter -i B2_643_muscle.fasta -o B2_643_muscle.tab -t
+grep B2_reference_CT_converted B2_643_muscle.tab > B2_643_reference.tab
+awk '{print $2}' B2_643_reference.tab > B2_643_reference_sequence.tab
+awk '{print $1}' B2_643_muscle.tab > B2_643_uniquenames.tab
+awk '{print $2}' B2_643_muscle.tab > B2_643_sequences.tab
+B2_643=$(python find_CpGs_B2.py B2_643_reference_sequence.tab)
+cut -c $B2_643 B2_643_sequences.tab > B2_643_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_643_uniquenames.tab
+sed -i 's/;/ /g' B2_643_uniquenames.tab
+sed -i 's/=/ /g' B2_643_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_643_uniquenames.tab > B2_643_uniqueinfo.tab
+paste B2_643_uniqueinfo.tab B2_643_unnumbered_haplotypes.tab > B2_643_redundant_haplotypes.tab
+grep :644:1:N:0:26 B2_bowtie.sam > B2_644_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_644_bowtie.sam > B2_644_awk.fasta
+usearch -derep_fulllength B2_644_awk.fasta -fastaout B2_644_uniques.fasta -sizeout -relabel B2_644_
+cat B2_644_uniques.fasta B2_reference_CT_converted.fasta > B2_644_input_muscle.fasta
+muscle -in B2_644_input_muscle.fasta -out B2_644_muscle.fasta -maxiters 1
+fasta_formatter -i B2_644_muscle.fasta -o B2_644_muscle.tab -t
+grep B2_reference_CT_converted B2_644_muscle.tab > B2_644_reference.tab
+awk '{print $2}' B2_644_reference.tab > B2_644_reference_sequence.tab
+awk '{print $1}' B2_644_muscle.tab > B2_644_uniquenames.tab
+awk '{print $2}' B2_644_muscle.tab > B2_644_sequences.tab
+B2_644=$(python find_CpGs_B2.py B2_644_reference_sequence.tab)
+cut -c $B2_644 B2_644_sequences.tab > B2_644_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_644_uniquenames.tab
+sed -i 's/;/ /g' B2_644_uniquenames.tab
+sed -i 's/=/ /g' B2_644_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_644_uniquenames.tab > B2_644_uniqueinfo.tab
+paste B2_644_uniqueinfo.tab B2_644_unnumbered_haplotypes.tab > B2_644_redundant_haplotypes.tab
+grep :645:1:N:0:34 B2_bowtie.sam > B2_645_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_645_bowtie.sam > B2_645_awk.fasta
+usearch -derep_fulllength B2_645_awk.fasta -fastaout B2_645_uniques.fasta -sizeout -relabel B2_645_
+cat B2_645_uniques.fasta B2_reference_CT_converted.fasta > B2_645_input_muscle.fasta
+muscle -in B2_645_input_muscle.fasta -out B2_645_muscle.fasta -maxiters 1
+fasta_formatter -i B2_645_muscle.fasta -o B2_645_muscle.tab -t
+grep B2_reference_CT_converted B2_645_muscle.tab > B2_645_reference.tab
+awk '{print $2}' B2_645_reference.tab > B2_645_reference_sequence.tab
+awk '{print $1}' B2_645_muscle.tab > B2_645_uniquenames.tab
+awk '{print $2}' B2_645_muscle.tab > B2_645_sequences.tab
+B2_645=$(python find_CpGs_B2.py B2_645_reference_sequence.tab)
+cut -c $B2_645 B2_645_sequences.tab > B2_645_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_645_uniquenames.tab
+sed -i 's/;/ /g' B2_645_uniquenames.tab
+sed -i 's/=/ /g' B2_645_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_645_uniquenames.tab > B2_645_uniqueinfo.tab
+paste B2_645_uniqueinfo.tab B2_645_unnumbered_haplotypes.tab > B2_645_redundant_haplotypes.tab
+grep :646:1:N:0:42 B2_bowtie.sam > B2_646_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_646_bowtie.sam > B2_646_awk.fasta
+usearch -derep_fulllength B2_646_awk.fasta -fastaout B2_646_uniques.fasta -sizeout -relabel B2_646_
+cat B2_646_uniques.fasta B2_reference_CT_converted.fasta > B2_646_input_muscle.fasta
+muscle -in B2_646_input_muscle.fasta -out B2_646_muscle.fasta -maxiters 1
+fasta_formatter -i B2_646_muscle.fasta -o B2_646_muscle.tab -t
+grep B2_reference_CT_converted B2_646_muscle.tab > B2_646_reference.tab
+awk '{print $2}' B2_646_reference.tab > B2_646_reference_sequence.tab
+awk '{print $1}' B2_646_muscle.tab > B2_646_uniquenames.tab
+awk '{print $2}' B2_646_muscle.tab > B2_646_sequences.tab
+B2_646=$(python find_CpGs_B2.py B2_646_reference_sequence.tab)
+cut -c $B2_646 B2_646_sequences.tab > B2_646_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_646_uniquenames.tab
+sed -i 's/;/ /g' B2_646_uniquenames.tab
+sed -i 's/=/ /g' B2_646_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_646_uniquenames.tab > B2_646_uniqueinfo.tab
+paste B2_646_uniqueinfo.tab B2_646_unnumbered_haplotypes.tab > B2_646_redundant_haplotypes.tab
+grep :647:1:N:0:50 B2_bowtie.sam > B2_647_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_647_bowtie.sam > B2_647_awk.fasta
+usearch -derep_fulllength B2_647_awk.fasta -fastaout B2_647_uniques.fasta -sizeout -relabel B2_647_
+cat B2_647_uniques.fasta B2_reference_CT_converted.fasta > B2_647_input_muscle.fasta
+muscle -in B2_647_input_muscle.fasta -out B2_647_muscle.fasta -maxiters 1
+fasta_formatter -i B2_647_muscle.fasta -o B2_647_muscle.tab -t
+grep B2_reference_CT_converted B2_647_muscle.tab > B2_647_reference.tab
+awk '{print $2}' B2_647_reference.tab > B2_647_reference_sequence.tab
+awk '{print $1}' B2_647_muscle.tab > B2_647_uniquenames.tab
+awk '{print $2}' B2_647_muscle.tab > B2_647_sequences.tab
+B2_647=$(python find_CpGs_B2.py B2_647_reference_sequence.tab)
+cut -c $B2_647 B2_647_sequences.tab > B2_647_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_647_uniquenames.tab
+sed -i 's/;/ /g' B2_647_uniquenames.tab
+sed -i 's/=/ /g' B2_647_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_647_uniquenames.tab > B2_647_uniqueinfo.tab
+paste B2_647_uniqueinfo.tab B2_647_unnumbered_haplotypes.tab > B2_647_redundant_haplotypes.tab
+grep :648:1:N:0:58 B2_bowtie.sam > B2_648_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_648_bowtie.sam > B2_648_awk.fasta
+usearch -derep_fulllength B2_648_awk.fasta -fastaout B2_648_uniques.fasta -sizeout -relabel B2_648_
+cat B2_648_uniques.fasta B2_reference_CT_converted.fasta > B2_648_input_muscle.fasta
+muscle -in B2_648_input_muscle.fasta -out B2_648_muscle.fasta -maxiters 1
+fasta_formatter -i B2_648_muscle.fasta -o B2_648_muscle.tab -t
+grep B2_reference_CT_converted B2_648_muscle.tab > B2_648_reference.tab
+awk '{print $2}' B2_648_reference.tab > B2_648_reference_sequence.tab
+awk '{print $1}' B2_648_muscle.tab > B2_648_uniquenames.tab
+awk '{print $2}' B2_648_muscle.tab > B2_648_sequences.tab
+B2_648=$(python find_CpGs_B2.py B2_648_reference_sequence.tab)
+cut -c $B2_648 B2_648_sequences.tab > B2_648_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_648_uniquenames.tab
+sed -i 's/;/ /g' B2_648_uniquenames.tab
+sed -i 's/=/ /g' B2_648_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_648_uniquenames.tab > B2_648_uniqueinfo.tab
+paste B2_648_uniqueinfo.tab B2_648_unnumbered_haplotypes.tab > B2_648_redundant_haplotypes.tab
+grep :649:1:N:0:66 B2_bowtie.sam > B2_649_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_649_bowtie.sam > B2_649_awk.fasta
+usearch -derep_fulllength B2_649_awk.fasta -fastaout B2_649_uniques.fasta -sizeout -relabel B2_649_
+cat B2_649_uniques.fasta B2_reference_CT_converted.fasta > B2_649_input_muscle.fasta
+muscle -in B2_649_input_muscle.fasta -out B2_649_muscle.fasta -maxiters 1
+fasta_formatter -i B2_649_muscle.fasta -o B2_649_muscle.tab -t
+grep B2_reference_CT_converted B2_649_muscle.tab > B2_649_reference.tab
+awk '{print $2}' B2_649_reference.tab > B2_649_reference_sequence.tab
+awk '{print $1}' B2_649_muscle.tab > B2_649_uniquenames.tab
+awk '{print $2}' B2_649_muscle.tab > B2_649_sequences.tab
+B2_649=$(python find_CpGs_B2.py B2_649_reference_sequence.tab)
+cut -c $B2_649 B2_649_sequences.tab > B2_649_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_649_uniquenames.tab
+sed -i 's/;/ /g' B2_649_uniquenames.tab
+sed -i 's/=/ /g' B2_649_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_649_uniquenames.tab > B2_649_uniqueinfo.tab
+paste B2_649_uniqueinfo.tab B2_649_unnumbered_haplotypes.tab > B2_649_redundant_haplotypes.tab
+grep :650:1:N:0:74 B2_bowtie.sam > B2_650_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_650_bowtie.sam > B2_650_awk.fasta
+usearch -derep_fulllength B2_650_awk.fasta -fastaout B2_650_uniques.fasta -sizeout -relabel B2_650_
+cat B2_650_uniques.fasta B2_reference_CT_converted.fasta > B2_650_input_muscle.fasta
+muscle -in B2_650_input_muscle.fasta -out B2_650_muscle.fasta -maxiters 1
+fasta_formatter -i B2_650_muscle.fasta -o B2_650_muscle.tab -t
+grep B2_reference_CT_converted B2_650_muscle.tab > B2_650_reference.tab
+awk '{print $2}' B2_650_reference.tab > B2_650_reference_sequence.tab
+awk '{print $1}' B2_650_muscle.tab > B2_650_uniquenames.tab
+awk '{print $2}' B2_650_muscle.tab > B2_650_sequences.tab
+B2_650=$(python find_CpGs_B2.py B2_650_reference_sequence.tab)
+cut -c $B2_650 B2_650_sequences.tab > B2_650_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_650_uniquenames.tab
+sed -i 's/;/ /g' B2_650_uniquenames.tab
+sed -i 's/=/ /g' B2_650_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_650_uniquenames.tab > B2_650_uniqueinfo.tab
+paste B2_650_uniqueinfo.tab B2_650_unnumbered_haplotypes.tab > B2_650_redundant_haplotypes.tab
+grep :651:1:N:0:82 B2_bowtie.sam > B2_651_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_651_bowtie.sam > B2_651_awk.fasta
+usearch -derep_fulllength B2_651_awk.fasta -fastaout B2_651_uniques.fasta -sizeout -relabel B2_651_
+cat B2_651_uniques.fasta B2_reference_CT_converted.fasta > B2_651_input_muscle.fasta
+muscle -in B2_651_input_muscle.fasta -out B2_651_muscle.fasta -maxiters 1
+fasta_formatter -i B2_651_muscle.fasta -o B2_651_muscle.tab -t
+grep B2_reference_CT_converted B2_651_muscle.tab > B2_651_reference.tab
+awk '{print $2}' B2_651_reference.tab > B2_651_reference_sequence.tab
+awk '{print $1}' B2_651_muscle.tab > B2_651_uniquenames.tab
+awk '{print $2}' B2_651_muscle.tab > B2_651_sequences.tab
+B2_651=$(python find_CpGs_B2.py B2_651_reference_sequence.tab)
+cut -c $B2_651 B2_651_sequences.tab > B2_651_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_651_uniquenames.tab
+sed -i 's/;/ /g' B2_651_uniquenames.tab
+sed -i 's/=/ /g' B2_651_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_651_uniquenames.tab > B2_651_uniqueinfo.tab
+paste B2_651_uniqueinfo.tab B2_651_unnumbered_haplotypes.tab > B2_651_redundant_haplotypes.tab
+grep :652:1:N:0:90 B2_bowtie.sam > B2_652_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_652_bowtie.sam > B2_652_awk.fasta
+usearch -derep_fulllength B2_652_awk.fasta -fastaout B2_652_uniques.fasta -sizeout -relabel B2_652_
+cat B2_652_uniques.fasta B2_reference_CT_converted.fasta > B2_652_input_muscle.fasta
+muscle -in B2_652_input_muscle.fasta -out B2_652_muscle.fasta -maxiters 1
+fasta_formatter -i B2_652_muscle.fasta -o B2_652_muscle.tab -t
+grep B2_reference_CT_converted B2_652_muscle.tab > B2_652_reference.tab
+awk '{print $2}' B2_652_reference.tab > B2_652_reference_sequence.tab
+awk '{print $1}' B2_652_muscle.tab > B2_652_uniquenames.tab
+awk '{print $2}' B2_652_muscle.tab > B2_652_sequences.tab
+B2_652=$(python find_CpGs_B2.py B2_652_reference_sequence.tab)
+cut -c $B2_652 B2_652_sequences.tab > B2_652_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_652_uniquenames.tab
+sed -i 's/;/ /g' B2_652_uniquenames.tab
+sed -i 's/=/ /g' B2_652_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_652_uniquenames.tab > B2_652_uniqueinfo.tab
+paste B2_652_uniqueinfo.tab B2_652_unnumbered_haplotypes.tab > B2_652_redundant_haplotypes.tab
+grep :653:1:N:0:3 B2_bowtie.sam > B2_653_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_653_bowtie.sam > B2_653_awk.fasta
+usearch -derep_fulllength B2_653_awk.fasta -fastaout B2_653_uniques.fasta -sizeout -relabel B2_653_
+cat B2_653_uniques.fasta B2_reference_CT_converted.fasta > B2_653_input_muscle.fasta
+muscle -in B2_653_input_muscle.fasta -out B2_653_muscle.fasta -maxiters 1
+fasta_formatter -i B2_653_muscle.fasta -o B2_653_muscle.tab -t
+grep B2_reference_CT_converted B2_653_muscle.tab > B2_653_reference.tab
+awk '{print $2}' B2_653_reference.tab > B2_653_reference_sequence.tab
+awk '{print $1}' B2_653_muscle.tab > B2_653_uniquenames.tab
+awk '{print $2}' B2_653_muscle.tab > B2_653_sequences.tab
+B2_653=$(python find_CpGs_B2.py B2_653_reference_sequence.tab)
+cut -c $B2_653 B2_653_sequences.tab > B2_653_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_653_uniquenames.tab
+sed -i 's/;/ /g' B2_653_uniquenames.tab
+sed -i 's/=/ /g' B2_653_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_653_uniquenames.tab > B2_653_uniqueinfo.tab
+paste B2_653_uniqueinfo.tab B2_653_unnumbered_haplotypes.tab > B2_653_redundant_haplotypes.tab
+grep :654:1:N:0:11 B2_bowtie.sam > B2_654_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_654_bowtie.sam > B2_654_awk.fasta
+usearch -derep_fulllength B2_654_awk.fasta -fastaout B2_654_uniques.fasta -sizeout -relabel B2_654_
+cat B2_654_uniques.fasta B2_reference_CT_converted.fasta > B2_654_input_muscle.fasta
+muscle -in B2_654_input_muscle.fasta -out B2_654_muscle.fasta -maxiters 1
+fasta_formatter -i B2_654_muscle.fasta -o B2_654_muscle.tab -t
+grep B2_reference_CT_converted B2_654_muscle.tab > B2_654_reference.tab
+awk '{print $2}' B2_654_reference.tab > B2_654_reference_sequence.tab
+awk '{print $1}' B2_654_muscle.tab > B2_654_uniquenames.tab
+awk '{print $2}' B2_654_muscle.tab > B2_654_sequences.tab
+B2_654=$(python find_CpGs_B2.py B2_654_reference_sequence.tab)
+cut -c $B2_654 B2_654_sequences.tab > B2_654_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_654_uniquenames.tab
+sed -i 's/;/ /g' B2_654_uniquenames.tab
+sed -i 's/=/ /g' B2_654_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_654_uniquenames.tab > B2_654_uniqueinfo.tab
+paste B2_654_uniqueinfo.tab B2_654_unnumbered_haplotypes.tab > B2_654_redundant_haplotypes.tab
+grep :655:1:N:0:19 B2_bowtie.sam > B2_655_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_655_bowtie.sam > B2_655_awk.fasta
+usearch -derep_fulllength B2_655_awk.fasta -fastaout B2_655_uniques.fasta -sizeout -relabel B2_655_
+cat B2_655_uniques.fasta B2_reference_CT_converted.fasta > B2_655_input_muscle.fasta
+muscle -in B2_655_input_muscle.fasta -out B2_655_muscle.fasta -maxiters 1
+fasta_formatter -i B2_655_muscle.fasta -o B2_655_muscle.tab -t
+grep B2_reference_CT_converted B2_655_muscle.tab > B2_655_reference.tab
+awk '{print $2}' B2_655_reference.tab > B2_655_reference_sequence.tab
+awk '{print $1}' B2_655_muscle.tab > B2_655_uniquenames.tab
+awk '{print $2}' B2_655_muscle.tab > B2_655_sequences.tab
+B2_655=$(python find_CpGs_B2.py B2_655_reference_sequence.tab)
+cut -c $B2_655 B2_655_sequences.tab > B2_655_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_655_uniquenames.tab
+sed -i 's/;/ /g' B2_655_uniquenames.tab
+sed -i 's/=/ /g' B2_655_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_655_uniquenames.tab > B2_655_uniqueinfo.tab
+paste B2_655_uniqueinfo.tab B2_655_unnumbered_haplotypes.tab > B2_655_redundant_haplotypes.tab
+grep :656:1:N:0:27 B2_bowtie.sam > B2_656_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_656_bowtie.sam > B2_656_awk.fasta
+usearch -derep_fulllength B2_656_awk.fasta -fastaout B2_656_uniques.fasta -sizeout -relabel B2_656_
+cat B2_656_uniques.fasta B2_reference_CT_converted.fasta > B2_656_input_muscle.fasta
+muscle -in B2_656_input_muscle.fasta -out B2_656_muscle.fasta -maxiters 1
+fasta_formatter -i B2_656_muscle.fasta -o B2_656_muscle.tab -t
+grep B2_reference_CT_converted B2_656_muscle.tab > B2_656_reference.tab
+awk '{print $2}' B2_656_reference.tab > B2_656_reference_sequence.tab
+awk '{print $1}' B2_656_muscle.tab > B2_656_uniquenames.tab
+awk '{print $2}' B2_656_muscle.tab > B2_656_sequences.tab
+B2_656=$(python find_CpGs_B2.py B2_656_reference_sequence.tab)
+cut -c $B2_656 B2_656_sequences.tab > B2_656_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_656_uniquenames.tab
+sed -i 's/;/ /g' B2_656_uniquenames.tab
+sed -i 's/=/ /g' B2_656_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_656_uniquenames.tab > B2_656_uniqueinfo.tab
+paste B2_656_uniqueinfo.tab B2_656_unnumbered_haplotypes.tab > B2_656_redundant_haplotypes.tab
+grep :657:1:N:0:35 B2_bowtie.sam > B2_657_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_657_bowtie.sam > B2_657_awk.fasta
+usearch -derep_fulllength B2_657_awk.fasta -fastaout B2_657_uniques.fasta -sizeout -relabel B2_657_
+cat B2_657_uniques.fasta B2_reference_CT_converted.fasta > B2_657_input_muscle.fasta
+muscle -in B2_657_input_muscle.fasta -out B2_657_muscle.fasta -maxiters 1
+fasta_formatter -i B2_657_muscle.fasta -o B2_657_muscle.tab -t
+grep B2_reference_CT_converted B2_657_muscle.tab > B2_657_reference.tab
+awk '{print $2}' B2_657_reference.tab > B2_657_reference_sequence.tab
+awk '{print $1}' B2_657_muscle.tab > B2_657_uniquenames.tab
+awk '{print $2}' B2_657_muscle.tab > B2_657_sequences.tab
+B2_657=$(python find_CpGs_B2.py B2_657_reference_sequence.tab)
+cut -c $B2_657 B2_657_sequences.tab > B2_657_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_657_uniquenames.tab
+sed -i 's/;/ /g' B2_657_uniquenames.tab
+sed -i 's/=/ /g' B2_657_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_657_uniquenames.tab > B2_657_uniqueinfo.tab
+paste B2_657_uniqueinfo.tab B2_657_unnumbered_haplotypes.tab > B2_657_redundant_haplotypes.tab
+grep :658:1:N:0:43 B2_bowtie.sam > B2_658_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_658_bowtie.sam > B2_658_awk.fasta
+usearch -derep_fulllength B2_658_awk.fasta -fastaout B2_658_uniques.fasta -sizeout -relabel B2_658_
+cat B2_658_uniques.fasta B2_reference_CT_converted.fasta > B2_658_input_muscle.fasta
+muscle -in B2_658_input_muscle.fasta -out B2_658_muscle.fasta -maxiters 1
+fasta_formatter -i B2_658_muscle.fasta -o B2_658_muscle.tab -t
+grep B2_reference_CT_converted B2_658_muscle.tab > B2_658_reference.tab
+awk '{print $2}' B2_658_reference.tab > B2_658_reference_sequence.tab
+awk '{print $1}' B2_658_muscle.tab > B2_658_uniquenames.tab
+awk '{print $2}' B2_658_muscle.tab > B2_658_sequences.tab
+B2_658=$(python find_CpGs_B2.py B2_658_reference_sequence.tab)
+cut -c $B2_658 B2_658_sequences.tab > B2_658_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_658_uniquenames.tab
+sed -i 's/;/ /g' B2_658_uniquenames.tab
+sed -i 's/=/ /g' B2_658_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_658_uniquenames.tab > B2_658_uniqueinfo.tab
+paste B2_658_uniqueinfo.tab B2_658_unnumbered_haplotypes.tab > B2_658_redundant_haplotypes.tab
+grep :659:1:N:0:51 B2_bowtie.sam > B2_659_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_659_bowtie.sam > B2_659_awk.fasta
+usearch -derep_fulllength B2_659_awk.fasta -fastaout B2_659_uniques.fasta -sizeout -relabel B2_659_
+cat B2_659_uniques.fasta B2_reference_CT_converted.fasta > B2_659_input_muscle.fasta
+muscle -in B2_659_input_muscle.fasta -out B2_659_muscle.fasta -maxiters 1
+fasta_formatter -i B2_659_muscle.fasta -o B2_659_muscle.tab -t
+grep B2_reference_CT_converted B2_659_muscle.tab > B2_659_reference.tab
+awk '{print $2}' B2_659_reference.tab > B2_659_reference_sequence.tab
+awk '{print $1}' B2_659_muscle.tab > B2_659_uniquenames.tab
+awk '{print $2}' B2_659_muscle.tab > B2_659_sequences.tab
+B2_659=$(python find_CpGs_B2.py B2_659_reference_sequence.tab)
+cut -c $B2_659 B2_659_sequences.tab > B2_659_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_659_uniquenames.tab
+sed -i 's/;/ /g' B2_659_uniquenames.tab
+sed -i 's/=/ /g' B2_659_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_659_uniquenames.tab > B2_659_uniqueinfo.tab
+paste B2_659_uniqueinfo.tab B2_659_unnumbered_haplotypes.tab > B2_659_redundant_haplotypes.tab
+grep :660:1:N:0:59 B2_bowtie.sam > B2_660_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_660_bowtie.sam > B2_660_awk.fasta
+usearch -derep_fulllength B2_660_awk.fasta -fastaout B2_660_uniques.fasta -sizeout -relabel B2_660_
+cat B2_660_uniques.fasta B2_reference_CT_converted.fasta > B2_660_input_muscle.fasta
+muscle -in B2_660_input_muscle.fasta -out B2_660_muscle.fasta -maxiters 1
+fasta_formatter -i B2_660_muscle.fasta -o B2_660_muscle.tab -t
+grep B2_reference_CT_converted B2_660_muscle.tab > B2_660_reference.tab
+awk '{print $2}' B2_660_reference.tab > B2_660_reference_sequence.tab
+awk '{print $1}' B2_660_muscle.tab > B2_660_uniquenames.tab
+awk '{print $2}' B2_660_muscle.tab > B2_660_sequences.tab
+B2_660=$(python find_CpGs_B2.py B2_660_reference_sequence.tab)
+cut -c $B2_660 B2_660_sequences.tab > B2_660_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_660_uniquenames.tab
+sed -i 's/;/ /g' B2_660_uniquenames.tab
+sed -i 's/=/ /g' B2_660_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_660_uniquenames.tab > B2_660_uniqueinfo.tab
+paste B2_660_uniqueinfo.tab B2_660_unnumbered_haplotypes.tab > B2_660_redundant_haplotypes.tab
+grep :661:1:N:0:67 B2_bowtie.sam > B2_661_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_661_bowtie.sam > B2_661_awk.fasta
+usearch -derep_fulllength B2_661_awk.fasta -fastaout B2_661_uniques.fasta -sizeout -relabel B2_661_
+cat B2_661_uniques.fasta B2_reference_CT_converted.fasta > B2_661_input_muscle.fasta
+muscle -in B2_661_input_muscle.fasta -out B2_661_muscle.fasta -maxiters 1
+fasta_formatter -i B2_661_muscle.fasta -o B2_661_muscle.tab -t
+grep B2_reference_CT_converted B2_661_muscle.tab > B2_661_reference.tab
+awk '{print $2}' B2_661_reference.tab > B2_661_reference_sequence.tab
+awk '{print $1}' B2_661_muscle.tab > B2_661_uniquenames.tab
+awk '{print $2}' B2_661_muscle.tab > B2_661_sequences.tab
+B2_661=$(python find_CpGs_B2.py B2_661_reference_sequence.tab)
+cut -c $B2_661 B2_661_sequences.tab > B2_661_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_661_uniquenames.tab
+sed -i 's/;/ /g' B2_661_uniquenames.tab
+sed -i 's/=/ /g' B2_661_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_661_uniquenames.tab > B2_661_uniqueinfo.tab
+paste B2_661_uniqueinfo.tab B2_661_unnumbered_haplotypes.tab > B2_661_redundant_haplotypes.tab
+grep :662:1:N:0:75 B2_bowtie.sam > B2_662_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_662_bowtie.sam > B2_662_awk.fasta
+usearch -derep_fulllength B2_662_awk.fasta -fastaout B2_662_uniques.fasta -sizeout -relabel B2_662_
+cat B2_662_uniques.fasta B2_reference_CT_converted.fasta > B2_662_input_muscle.fasta
+muscle -in B2_662_input_muscle.fasta -out B2_662_muscle.fasta -maxiters 1
+fasta_formatter -i B2_662_muscle.fasta -o B2_662_muscle.tab -t
+grep B2_reference_CT_converted B2_662_muscle.tab > B2_662_reference.tab
+awk '{print $2}' B2_662_reference.tab > B2_662_reference_sequence.tab
+awk '{print $1}' B2_662_muscle.tab > B2_662_uniquenames.tab
+awk '{print $2}' B2_662_muscle.tab > B2_662_sequences.tab
+B2_662=$(python find_CpGs_B2.py B2_662_reference_sequence.tab)
+cut -c $B2_662 B2_662_sequences.tab > B2_662_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_662_uniquenames.tab
+sed -i 's/;/ /g' B2_662_uniquenames.tab
+sed -i 's/=/ /g' B2_662_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_662_uniquenames.tab > B2_662_uniqueinfo.tab
+paste B2_662_uniqueinfo.tab B2_662_unnumbered_haplotypes.tab > B2_662_redundant_haplotypes.tab
+grep :663:1:N:0:83 B2_bowtie.sam > B2_663_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_663_bowtie.sam > B2_663_awk.fasta
+usearch -derep_fulllength B2_663_awk.fasta -fastaout B2_663_uniques.fasta -sizeout -relabel B2_663_
+cat B2_663_uniques.fasta B2_reference_CT_converted.fasta > B2_663_input_muscle.fasta
+muscle -in B2_663_input_muscle.fasta -out B2_663_muscle.fasta -maxiters 1
+fasta_formatter -i B2_663_muscle.fasta -o B2_663_muscle.tab -t
+grep B2_reference_CT_converted B2_663_muscle.tab > B2_663_reference.tab
+awk '{print $2}' B2_663_reference.tab > B2_663_reference_sequence.tab
+awk '{print $1}' B2_663_muscle.tab > B2_663_uniquenames.tab
+awk '{print $2}' B2_663_muscle.tab > B2_663_sequences.tab
+B2_663=$(python find_CpGs_B2.py B2_663_reference_sequence.tab)
+cut -c $B2_663 B2_663_sequences.tab > B2_663_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_663_uniquenames.tab
+sed -i 's/;/ /g' B2_663_uniquenames.tab
+sed -i 's/=/ /g' B2_663_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_663_uniquenames.tab > B2_663_uniqueinfo.tab
+paste B2_663_uniqueinfo.tab B2_663_unnumbered_haplotypes.tab > B2_663_redundant_haplotypes.tab
+grep :664:1:N:0:91 B2_bowtie.sam > B2_664_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_664_bowtie.sam > B2_664_awk.fasta
+usearch -derep_fulllength B2_664_awk.fasta -fastaout B2_664_uniques.fasta -sizeout -relabel B2_664_
+cat B2_664_uniques.fasta B2_reference_CT_converted.fasta > B2_664_input_muscle.fasta
+muscle -in B2_664_input_muscle.fasta -out B2_664_muscle.fasta -maxiters 1
+fasta_formatter -i B2_664_muscle.fasta -o B2_664_muscle.tab -t
+grep B2_reference_CT_converted B2_664_muscle.tab > B2_664_reference.tab
+awk '{print $2}' B2_664_reference.tab > B2_664_reference_sequence.tab
+awk '{print $1}' B2_664_muscle.tab > B2_664_uniquenames.tab
+awk '{print $2}' B2_664_muscle.tab > B2_664_sequences.tab
+B2_664=$(python find_CpGs_B2.py B2_664_reference_sequence.tab)
+cut -c $B2_664 B2_664_sequences.tab > B2_664_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_664_uniquenames.tab
+sed -i 's/;/ /g' B2_664_uniquenames.tab
+sed -i 's/=/ /g' B2_664_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_664_uniquenames.tab > B2_664_uniqueinfo.tab
+paste B2_664_uniqueinfo.tab B2_664_unnumbered_haplotypes.tab > B2_664_redundant_haplotypes.tab
+grep :665:1:N:0:4 B2_bowtie.sam > B2_665_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_665_bowtie.sam > B2_665_awk.fasta
+usearch -derep_fulllength B2_665_awk.fasta -fastaout B2_665_uniques.fasta -sizeout -relabel B2_665_
+cat B2_665_uniques.fasta B2_reference_CT_converted.fasta > B2_665_input_muscle.fasta
+muscle -in B2_665_input_muscle.fasta -out B2_665_muscle.fasta -maxiters 1
+fasta_formatter -i B2_665_muscle.fasta -o B2_665_muscle.tab -t
+grep B2_reference_CT_converted B2_665_muscle.tab > B2_665_reference.tab
+awk '{print $2}' B2_665_reference.tab > B2_665_reference_sequence.tab
+awk '{print $1}' B2_665_muscle.tab > B2_665_uniquenames.tab
+awk '{print $2}' B2_665_muscle.tab > B2_665_sequences.tab
+B2_665=$(python find_CpGs_B2.py B2_665_reference_sequence.tab)
+cut -c $B2_665 B2_665_sequences.tab > B2_665_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_665_uniquenames.tab
+sed -i 's/;/ /g' B2_665_uniquenames.tab
+sed -i 's/=/ /g' B2_665_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_665_uniquenames.tab > B2_665_uniqueinfo.tab
+paste B2_665_uniqueinfo.tab B2_665_unnumbered_haplotypes.tab > B2_665_redundant_haplotypes.tab
+grep :666:1:N:0:12 B2_bowtie.sam > B2_666_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_666_bowtie.sam > B2_666_awk.fasta
+usearch -derep_fulllength B2_666_awk.fasta -fastaout B2_666_uniques.fasta -sizeout -relabel B2_666_
+cat B2_666_uniques.fasta B2_reference_CT_converted.fasta > B2_666_input_muscle.fasta
+muscle -in B2_666_input_muscle.fasta -out B2_666_muscle.fasta -maxiters 1
+fasta_formatter -i B2_666_muscle.fasta -o B2_666_muscle.tab -t
+grep B2_reference_CT_converted B2_666_muscle.tab > B2_666_reference.tab
+awk '{print $2}' B2_666_reference.tab > B2_666_reference_sequence.tab
+awk '{print $1}' B2_666_muscle.tab > B2_666_uniquenames.tab
+awk '{print $2}' B2_666_muscle.tab > B2_666_sequences.tab
+B2_666=$(python find_CpGs_B2.py B2_666_reference_sequence.tab)
+cut -c $B2_666 B2_666_sequences.tab > B2_666_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_666_uniquenames.tab
+sed -i 's/;/ /g' B2_666_uniquenames.tab
+sed -i 's/=/ /g' B2_666_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_666_uniquenames.tab > B2_666_uniqueinfo.tab
+paste B2_666_uniqueinfo.tab B2_666_unnumbered_haplotypes.tab > B2_666_redundant_haplotypes.tab
+grep :667:1:N:0:20 B2_bowtie.sam > B2_667_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_667_bowtie.sam > B2_667_awk.fasta
+usearch -derep_fulllength B2_667_awk.fasta -fastaout B2_667_uniques.fasta -sizeout -relabel B2_667_
+cat B2_667_uniques.fasta B2_reference_CT_converted.fasta > B2_667_input_muscle.fasta
+muscle -in B2_667_input_muscle.fasta -out B2_667_muscle.fasta -maxiters 1
+fasta_formatter -i B2_667_muscle.fasta -o B2_667_muscle.tab -t
+grep B2_reference_CT_converted B2_667_muscle.tab > B2_667_reference.tab
+awk '{print $2}' B2_667_reference.tab > B2_667_reference_sequence.tab
+awk '{print $1}' B2_667_muscle.tab > B2_667_uniquenames.tab
+awk '{print $2}' B2_667_muscle.tab > B2_667_sequences.tab
+B2_667=$(python find_CpGs_B2.py B2_667_reference_sequence.tab)
+cut -c $B2_667 B2_667_sequences.tab > B2_667_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_667_uniquenames.tab
+sed -i 's/;/ /g' B2_667_uniquenames.tab
+sed -i 's/=/ /g' B2_667_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_667_uniquenames.tab > B2_667_uniqueinfo.tab
+paste B2_667_uniqueinfo.tab B2_667_unnumbered_haplotypes.tab > B2_667_redundant_haplotypes.tab
+grep :668:1:N:0:28 B2_bowtie.sam > B2_668_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_668_bowtie.sam > B2_668_awk.fasta
+usearch -derep_fulllength B2_668_awk.fasta -fastaout B2_668_uniques.fasta -sizeout -relabel B2_668_
+cat B2_668_uniques.fasta B2_reference_CT_converted.fasta > B2_668_input_muscle.fasta
+muscle -in B2_668_input_muscle.fasta -out B2_668_muscle.fasta -maxiters 1
+fasta_formatter -i B2_668_muscle.fasta -o B2_668_muscle.tab -t
+grep B2_reference_CT_converted B2_668_muscle.tab > B2_668_reference.tab
+awk '{print $2}' B2_668_reference.tab > B2_668_reference_sequence.tab
+awk '{print $1}' B2_668_muscle.tab > B2_668_uniquenames.tab
+awk '{print $2}' B2_668_muscle.tab > B2_668_sequences.tab
+B2_668=$(python find_CpGs_B2.py B2_668_reference_sequence.tab)
+cut -c $B2_668 B2_668_sequences.tab > B2_668_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_668_uniquenames.tab
+sed -i 's/;/ /g' B2_668_uniquenames.tab
+sed -i 's/=/ /g' B2_668_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_668_uniquenames.tab > B2_668_uniqueinfo.tab
+paste B2_668_uniqueinfo.tab B2_668_unnumbered_haplotypes.tab > B2_668_redundant_haplotypes.tab
+grep :669:1:N:0:36 B2_bowtie.sam > B2_669_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_669_bowtie.sam > B2_669_awk.fasta
+usearch -derep_fulllength B2_669_awk.fasta -fastaout B2_669_uniques.fasta -sizeout -relabel B2_669_
+cat B2_669_uniques.fasta B2_reference_CT_converted.fasta > B2_669_input_muscle.fasta
+muscle -in B2_669_input_muscle.fasta -out B2_669_muscle.fasta -maxiters 1
+fasta_formatter -i B2_669_muscle.fasta -o B2_669_muscle.tab -t
+grep B2_reference_CT_converted B2_669_muscle.tab > B2_669_reference.tab
+awk '{print $2}' B2_669_reference.tab > B2_669_reference_sequence.tab
+awk '{print $1}' B2_669_muscle.tab > B2_669_uniquenames.tab
+awk '{print $2}' B2_669_muscle.tab > B2_669_sequences.tab
+B2_669=$(python find_CpGs_B2.py B2_669_reference_sequence.tab)
+cut -c $B2_669 B2_669_sequences.tab > B2_669_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_669_uniquenames.tab
+sed -i 's/;/ /g' B2_669_uniquenames.tab
+sed -i 's/=/ /g' B2_669_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_669_uniquenames.tab > B2_669_uniqueinfo.tab
+paste B2_669_uniqueinfo.tab B2_669_unnumbered_haplotypes.tab > B2_669_redundant_haplotypes.tab
+grep :670:1:N:0:44 B2_bowtie.sam > B2_670_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_670_bowtie.sam > B2_670_awk.fasta
+usearch -derep_fulllength B2_670_awk.fasta -fastaout B2_670_uniques.fasta -sizeout -relabel B2_670_
+cat B2_670_uniques.fasta B2_reference_CT_converted.fasta > B2_670_input_muscle.fasta
+muscle -in B2_670_input_muscle.fasta -out B2_670_muscle.fasta -maxiters 1
+fasta_formatter -i B2_670_muscle.fasta -o B2_670_muscle.tab -t
+grep B2_reference_CT_converted B2_670_muscle.tab > B2_670_reference.tab
+awk '{print $2}' B2_670_reference.tab > B2_670_reference_sequence.tab
+awk '{print $1}' B2_670_muscle.tab > B2_670_uniquenames.tab
+awk '{print $2}' B2_670_muscle.tab > B2_670_sequences.tab
+B2_670=$(python find_CpGs_B2.py B2_670_reference_sequence.tab)
+cut -c $B2_670 B2_670_sequences.tab > B2_670_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_670_uniquenames.tab
+sed -i 's/;/ /g' B2_670_uniquenames.tab
+sed -i 's/=/ /g' B2_670_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_670_uniquenames.tab > B2_670_uniqueinfo.tab
+paste B2_670_uniqueinfo.tab B2_670_unnumbered_haplotypes.tab > B2_670_redundant_haplotypes.tab
+grep :671:1:N:0:52 B2_bowtie.sam > B2_671_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_671_bowtie.sam > B2_671_awk.fasta
+usearch -derep_fulllength B2_671_awk.fasta -fastaout B2_671_uniques.fasta -sizeout -relabel B2_671_
+cat B2_671_uniques.fasta B2_reference_CT_converted.fasta > B2_671_input_muscle.fasta
+muscle -in B2_671_input_muscle.fasta -out B2_671_muscle.fasta -maxiters 1
+fasta_formatter -i B2_671_muscle.fasta -o B2_671_muscle.tab -t
+grep B2_reference_CT_converted B2_671_muscle.tab > B2_671_reference.tab
+awk '{print $2}' B2_671_reference.tab > B2_671_reference_sequence.tab
+awk '{print $1}' B2_671_muscle.tab > B2_671_uniquenames.tab
+awk '{print $2}' B2_671_muscle.tab > B2_671_sequences.tab
+B2_671=$(python find_CpGs_B2.py B2_671_reference_sequence.tab)
+cut -c $B2_671 B2_671_sequences.tab > B2_671_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_671_uniquenames.tab
+sed -i 's/;/ /g' B2_671_uniquenames.tab
+sed -i 's/=/ /g' B2_671_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_671_uniquenames.tab > B2_671_uniqueinfo.tab
+paste B2_671_uniqueinfo.tab B2_671_unnumbered_haplotypes.tab > B2_671_redundant_haplotypes.tab
+grep :672:1:N:0:60 B2_bowtie.sam > B2_672_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_672_bowtie.sam > B2_672_awk.fasta
+usearch -derep_fulllength B2_672_awk.fasta -fastaout B2_672_uniques.fasta -sizeout -relabel B2_672_
+cat B2_672_uniques.fasta B2_reference_CT_converted.fasta > B2_672_input_muscle.fasta
+muscle -in B2_672_input_muscle.fasta -out B2_672_muscle.fasta -maxiters 1
+fasta_formatter -i B2_672_muscle.fasta -o B2_672_muscle.tab -t
+grep B2_reference_CT_converted B2_672_muscle.tab > B2_672_reference.tab
+awk '{print $2}' B2_672_reference.tab > B2_672_reference_sequence.tab
+awk '{print $1}' B2_672_muscle.tab > B2_672_uniquenames.tab
+awk '{print $2}' B2_672_muscle.tab > B2_672_sequences.tab
+B2_672=$(python find_CpGs_B2.py B2_672_reference_sequence.tab)
+cut -c $B2_672 B2_672_sequences.tab > B2_672_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_672_uniquenames.tab
+sed -i 's/;/ /g' B2_672_uniquenames.tab
+sed -i 's/=/ /g' B2_672_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_672_uniquenames.tab > B2_672_uniqueinfo.tab
+paste B2_672_uniqueinfo.tab B2_672_unnumbered_haplotypes.tab > B2_672_redundant_haplotypes.tab
+grep :673:1:N:0:68 B2_bowtie.sam > B2_673_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_673_bowtie.sam > B2_673_awk.fasta
+usearch -derep_fulllength B2_673_awk.fasta -fastaout B2_673_uniques.fasta -sizeout -relabel B2_673_
+cat B2_673_uniques.fasta B2_reference_CT_converted.fasta > B2_673_input_muscle.fasta
+muscle -in B2_673_input_muscle.fasta -out B2_673_muscle.fasta -maxiters 1
+fasta_formatter -i B2_673_muscle.fasta -o B2_673_muscle.tab -t
+grep B2_reference_CT_converted B2_673_muscle.tab > B2_673_reference.tab
+awk '{print $2}' B2_673_reference.tab > B2_673_reference_sequence.tab
+awk '{print $1}' B2_673_muscle.tab > B2_673_uniquenames.tab
+awk '{print $2}' B2_673_muscle.tab > B2_673_sequences.tab
+B2_673=$(python find_CpGs_B2.py B2_673_reference_sequence.tab)
+cut -c $B2_673 B2_673_sequences.tab > B2_673_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_673_uniquenames.tab
+sed -i 's/;/ /g' B2_673_uniquenames.tab
+sed -i 's/=/ /g' B2_673_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_673_uniquenames.tab > B2_673_uniqueinfo.tab
+paste B2_673_uniqueinfo.tab B2_673_unnumbered_haplotypes.tab > B2_673_redundant_haplotypes.tab
+grep :674:1:N:0:76 B2_bowtie.sam > B2_674_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_674_bowtie.sam > B2_674_awk.fasta
+usearch -derep_fulllength B2_674_awk.fasta -fastaout B2_674_uniques.fasta -sizeout -relabel B2_674_
+cat B2_674_uniques.fasta B2_reference_CT_converted.fasta > B2_674_input_muscle.fasta
+muscle -in B2_674_input_muscle.fasta -out B2_674_muscle.fasta -maxiters 1
+fasta_formatter -i B2_674_muscle.fasta -o B2_674_muscle.tab -t
+grep B2_reference_CT_converted B2_674_muscle.tab > B2_674_reference.tab
+awk '{print $2}' B2_674_reference.tab > B2_674_reference_sequence.tab
+awk '{print $1}' B2_674_muscle.tab > B2_674_uniquenames.tab
+awk '{print $2}' B2_674_muscle.tab > B2_674_sequences.tab
+B2_674=$(python find_CpGs_B2.py B2_674_reference_sequence.tab)
+cut -c $B2_674 B2_674_sequences.tab > B2_674_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_674_uniquenames.tab
+sed -i 's/;/ /g' B2_674_uniquenames.tab
+sed -i 's/=/ /g' B2_674_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_674_uniquenames.tab > B2_674_uniqueinfo.tab
+paste B2_674_uniqueinfo.tab B2_674_unnumbered_haplotypes.tab > B2_674_redundant_haplotypes.tab
+grep :675:1:N:0:84 B2_bowtie.sam > B2_675_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_675_bowtie.sam > B2_675_awk.fasta
+usearch -derep_fulllength B2_675_awk.fasta -fastaout B2_675_uniques.fasta -sizeout -relabel B2_675_
+cat B2_675_uniques.fasta B2_reference_CT_converted.fasta > B2_675_input_muscle.fasta
+muscle -in B2_675_input_muscle.fasta -out B2_675_muscle.fasta -maxiters 1
+fasta_formatter -i B2_675_muscle.fasta -o B2_675_muscle.tab -t
+grep B2_reference_CT_converted B2_675_muscle.tab > B2_675_reference.tab
+awk '{print $2}' B2_675_reference.tab > B2_675_reference_sequence.tab
+awk '{print $1}' B2_675_muscle.tab > B2_675_uniquenames.tab
+awk '{print $2}' B2_675_muscle.tab > B2_675_sequences.tab
+B2_675=$(python find_CpGs_B2.py B2_675_reference_sequence.tab)
+cut -c $B2_675 B2_675_sequences.tab > B2_675_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_675_uniquenames.tab
+sed -i 's/;/ /g' B2_675_uniquenames.tab
+sed -i 's/=/ /g' B2_675_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_675_uniquenames.tab > B2_675_uniqueinfo.tab
+paste B2_675_uniqueinfo.tab B2_675_unnumbered_haplotypes.tab > B2_675_redundant_haplotypes.tab
+grep :676:1:N:0:92 B2_bowtie.sam > B2_676_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_676_bowtie.sam > B2_676_awk.fasta
+usearch -derep_fulllength B2_676_awk.fasta -fastaout B2_676_uniques.fasta -sizeout -relabel B2_676_
+cat B2_676_uniques.fasta B2_reference_CT_converted.fasta > B2_676_input_muscle.fasta
+muscle -in B2_676_input_muscle.fasta -out B2_676_muscle.fasta -maxiters 1
+fasta_formatter -i B2_676_muscle.fasta -o B2_676_muscle.tab -t
+grep B2_reference_CT_converted B2_676_muscle.tab > B2_676_reference.tab
+awk '{print $2}' B2_676_reference.tab > B2_676_reference_sequence.tab
+awk '{print $1}' B2_676_muscle.tab > B2_676_uniquenames.tab
+awk '{print $2}' B2_676_muscle.tab > B2_676_sequences.tab
+B2_676=$(python find_CpGs_B2.py B2_676_reference_sequence.tab)
+cut -c $B2_676 B2_676_sequences.tab > B2_676_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_676_uniquenames.tab
+sed -i 's/;/ /g' B2_676_uniquenames.tab
+sed -i 's/=/ /g' B2_676_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_676_uniquenames.tab > B2_676_uniqueinfo.tab
+paste B2_676_uniqueinfo.tab B2_676_unnumbered_haplotypes.tab > B2_676_redundant_haplotypes.tab
+grep :677:1:N:0:5 B2_bowtie.sam > B2_677_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_677_bowtie.sam > B2_677_awk.fasta
+usearch -derep_fulllength B2_677_awk.fasta -fastaout B2_677_uniques.fasta -sizeout -relabel B2_677_
+cat B2_677_uniques.fasta B2_reference_CT_converted.fasta > B2_677_input_muscle.fasta
+muscle -in B2_677_input_muscle.fasta -out B2_677_muscle.fasta -maxiters 1
+fasta_formatter -i B2_677_muscle.fasta -o B2_677_muscle.tab -t
+grep B2_reference_CT_converted B2_677_muscle.tab > B2_677_reference.tab
+awk '{print $2}' B2_677_reference.tab > B2_677_reference_sequence.tab
+awk '{print $1}' B2_677_muscle.tab > B2_677_uniquenames.tab
+awk '{print $2}' B2_677_muscle.tab > B2_677_sequences.tab
+B2_677=$(python find_CpGs_B2.py B2_677_reference_sequence.tab)
+cut -c $B2_677 B2_677_sequences.tab > B2_677_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_677_uniquenames.tab
+sed -i 's/;/ /g' B2_677_uniquenames.tab
+sed -i 's/=/ /g' B2_677_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_677_uniquenames.tab > B2_677_uniqueinfo.tab
+paste B2_677_uniqueinfo.tab B2_677_unnumbered_haplotypes.tab > B2_677_redundant_haplotypes.tab
+grep :678:1:N:0:13 B2_bowtie.sam > B2_678_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_678_bowtie.sam > B2_678_awk.fasta
+usearch -derep_fulllength B2_678_awk.fasta -fastaout B2_678_uniques.fasta -sizeout -relabel B2_678_
+cat B2_678_uniques.fasta B2_reference_CT_converted.fasta > B2_678_input_muscle.fasta
+muscle -in B2_678_input_muscle.fasta -out B2_678_muscle.fasta -maxiters 1
+fasta_formatter -i B2_678_muscle.fasta -o B2_678_muscle.tab -t
+grep B2_reference_CT_converted B2_678_muscle.tab > B2_678_reference.tab
+awk '{print $2}' B2_678_reference.tab > B2_678_reference_sequence.tab
+awk '{print $1}' B2_678_muscle.tab > B2_678_uniquenames.tab
+awk '{print $2}' B2_678_muscle.tab > B2_678_sequences.tab
+B2_678=$(python find_CpGs_B2.py B2_678_reference_sequence.tab)
+cut -c $B2_678 B2_678_sequences.tab > B2_678_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_678_uniquenames.tab
+sed -i 's/;/ /g' B2_678_uniquenames.tab
+sed -i 's/=/ /g' B2_678_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_678_uniquenames.tab > B2_678_uniqueinfo.tab
+paste B2_678_uniqueinfo.tab B2_678_unnumbered_haplotypes.tab > B2_678_redundant_haplotypes.tab
+grep :679:1:N:0:21 B2_bowtie.sam > B2_679_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_679_bowtie.sam > B2_679_awk.fasta
+usearch -derep_fulllength B2_679_awk.fasta -fastaout B2_679_uniques.fasta -sizeout -relabel B2_679_
+cat B2_679_uniques.fasta B2_reference_CT_converted.fasta > B2_679_input_muscle.fasta
+muscle -in B2_679_input_muscle.fasta -out B2_679_muscle.fasta -maxiters 1
+fasta_formatter -i B2_679_muscle.fasta -o B2_679_muscle.tab -t
+grep B2_reference_CT_converted B2_679_muscle.tab > B2_679_reference.tab
+awk '{print $2}' B2_679_reference.tab > B2_679_reference_sequence.tab
+awk '{print $1}' B2_679_muscle.tab > B2_679_uniquenames.tab
+awk '{print $2}' B2_679_muscle.tab > B2_679_sequences.tab
+B2_679=$(python find_CpGs_B2.py B2_679_reference_sequence.tab)
+cut -c $B2_679 B2_679_sequences.tab > B2_679_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_679_uniquenames.tab
+sed -i 's/;/ /g' B2_679_uniquenames.tab
+sed -i 's/=/ /g' B2_679_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_679_uniquenames.tab > B2_679_uniqueinfo.tab
+paste B2_679_uniqueinfo.tab B2_679_unnumbered_haplotypes.tab > B2_679_redundant_haplotypes.tab
+grep :680:1:N:0:29 B2_bowtie.sam > B2_680_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_680_bowtie.sam > B2_680_awk.fasta
+usearch -derep_fulllength B2_680_awk.fasta -fastaout B2_680_uniques.fasta -sizeout -relabel B2_680_
+cat B2_680_uniques.fasta B2_reference_CT_converted.fasta > B2_680_input_muscle.fasta
+muscle -in B2_680_input_muscle.fasta -out B2_680_muscle.fasta -maxiters 1
+fasta_formatter -i B2_680_muscle.fasta -o B2_680_muscle.tab -t
+grep B2_reference_CT_converted B2_680_muscle.tab > B2_680_reference.tab
+awk '{print $2}' B2_680_reference.tab > B2_680_reference_sequence.tab
+awk '{print $1}' B2_680_muscle.tab > B2_680_uniquenames.tab
+awk '{print $2}' B2_680_muscle.tab > B2_680_sequences.tab
+B2_680=$(python find_CpGs_B2.py B2_680_reference_sequence.tab)
+cut -c $B2_680 B2_680_sequences.tab > B2_680_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_680_uniquenames.tab
+sed -i 's/;/ /g' B2_680_uniquenames.tab
+sed -i 's/=/ /g' B2_680_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_680_uniquenames.tab > B2_680_uniqueinfo.tab
+paste B2_680_uniqueinfo.tab B2_680_unnumbered_haplotypes.tab > B2_680_redundant_haplotypes.tab
+grep :681:1:N:0:37 B2_bowtie.sam > B2_681_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_681_bowtie.sam > B2_681_awk.fasta
+usearch -derep_fulllength B2_681_awk.fasta -fastaout B2_681_uniques.fasta -sizeout -relabel B2_681_
+cat B2_681_uniques.fasta B2_reference_CT_converted.fasta > B2_681_input_muscle.fasta
+muscle -in B2_681_input_muscle.fasta -out B2_681_muscle.fasta -maxiters 1
+fasta_formatter -i B2_681_muscle.fasta -o B2_681_muscle.tab -t
+grep B2_reference_CT_converted B2_681_muscle.tab > B2_681_reference.tab
+awk '{print $2}' B2_681_reference.tab > B2_681_reference_sequence.tab
+awk '{print $1}' B2_681_muscle.tab > B2_681_uniquenames.tab
+awk '{print $2}' B2_681_muscle.tab > B2_681_sequences.tab
+B2_681=$(python find_CpGs_B2.py B2_681_reference_sequence.tab)
+cut -c $B2_681 B2_681_sequences.tab > B2_681_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_681_uniquenames.tab
+sed -i 's/;/ /g' B2_681_uniquenames.tab
+sed -i 's/=/ /g' B2_681_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_681_uniquenames.tab > B2_681_uniqueinfo.tab
+paste B2_681_uniqueinfo.tab B2_681_unnumbered_haplotypes.tab > B2_681_redundant_haplotypes.tab
+grep :682:1:N:0:45 B2_bowtie.sam > B2_682_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_682_bowtie.sam > B2_682_awk.fasta
+usearch -derep_fulllength B2_682_awk.fasta -fastaout B2_682_uniques.fasta -sizeout -relabel B2_682_
+cat B2_682_uniques.fasta B2_reference_CT_converted.fasta > B2_682_input_muscle.fasta
+muscle -in B2_682_input_muscle.fasta -out B2_682_muscle.fasta -maxiters 1
+fasta_formatter -i B2_682_muscle.fasta -o B2_682_muscle.tab -t
+grep B2_reference_CT_converted B2_682_muscle.tab > B2_682_reference.tab
+awk '{print $2}' B2_682_reference.tab > B2_682_reference_sequence.tab
+awk '{print $1}' B2_682_muscle.tab > B2_682_uniquenames.tab
+awk '{print $2}' B2_682_muscle.tab > B2_682_sequences.tab
+B2_682=$(python find_CpGs_B2.py B2_682_reference_sequence.tab)
+cut -c $B2_682 B2_682_sequences.tab > B2_682_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_682_uniquenames.tab
+sed -i 's/;/ /g' B2_682_uniquenames.tab
+sed -i 's/=/ /g' B2_682_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_682_uniquenames.tab > B2_682_uniqueinfo.tab
+paste B2_682_uniqueinfo.tab B2_682_unnumbered_haplotypes.tab > B2_682_redundant_haplotypes.tab
+grep :683:1:N:0:53 B2_bowtie.sam > B2_683_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_683_bowtie.sam > B2_683_awk.fasta
+usearch -derep_fulllength B2_683_awk.fasta -fastaout B2_683_uniques.fasta -sizeout -relabel B2_683_
+cat B2_683_uniques.fasta B2_reference_CT_converted.fasta > B2_683_input_muscle.fasta
+muscle -in B2_683_input_muscle.fasta -out B2_683_muscle.fasta -maxiters 1
+fasta_formatter -i B2_683_muscle.fasta -o B2_683_muscle.tab -t
+grep B2_reference_CT_converted B2_683_muscle.tab > B2_683_reference.tab
+awk '{print $2}' B2_683_reference.tab > B2_683_reference_sequence.tab
+awk '{print $1}' B2_683_muscle.tab > B2_683_uniquenames.tab
+awk '{print $2}' B2_683_muscle.tab > B2_683_sequences.tab
+B2_683=$(python find_CpGs_B2.py B2_683_reference_sequence.tab)
+cut -c $B2_683 B2_683_sequences.tab > B2_683_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_683_uniquenames.tab
+sed -i 's/;/ /g' B2_683_uniquenames.tab
+sed -i 's/=/ /g' B2_683_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_683_uniquenames.tab > B2_683_uniqueinfo.tab
+paste B2_683_uniqueinfo.tab B2_683_unnumbered_haplotypes.tab > B2_683_redundant_haplotypes.tab
+grep :684:1:N:0:61 B2_bowtie.sam > B2_684_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_684_bowtie.sam > B2_684_awk.fasta
+usearch -derep_fulllength B2_684_awk.fasta -fastaout B2_684_uniques.fasta -sizeout -relabel B2_684_
+cat B2_684_uniques.fasta B2_reference_CT_converted.fasta > B2_684_input_muscle.fasta
+muscle -in B2_684_input_muscle.fasta -out B2_684_muscle.fasta -maxiters 1
+fasta_formatter -i B2_684_muscle.fasta -o B2_684_muscle.tab -t
+grep B2_reference_CT_converted B2_684_muscle.tab > B2_684_reference.tab
+awk '{print $2}' B2_684_reference.tab > B2_684_reference_sequence.tab
+awk '{print $1}' B2_684_muscle.tab > B2_684_uniquenames.tab
+awk '{print $2}' B2_684_muscle.tab > B2_684_sequences.tab
+B2_684=$(python find_CpGs_B2.py B2_684_reference_sequence.tab)
+cut -c $B2_684 B2_684_sequences.tab > B2_684_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_684_uniquenames.tab
+sed -i 's/;/ /g' B2_684_uniquenames.tab
+sed -i 's/=/ /g' B2_684_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_684_uniquenames.tab > B2_684_uniqueinfo.tab
+paste B2_684_uniqueinfo.tab B2_684_unnumbered_haplotypes.tab > B2_684_redundant_haplotypes.tab
+grep :685:1:N:0:69 B2_bowtie.sam > B2_685_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_685_bowtie.sam > B2_685_awk.fasta
+usearch -derep_fulllength B2_685_awk.fasta -fastaout B2_685_uniques.fasta -sizeout -relabel B2_685_
+cat B2_685_uniques.fasta B2_reference_CT_converted.fasta > B2_685_input_muscle.fasta
+muscle -in B2_685_input_muscle.fasta -out B2_685_muscle.fasta -maxiters 1
+fasta_formatter -i B2_685_muscle.fasta -o B2_685_muscle.tab -t
+grep B2_reference_CT_converted B2_685_muscle.tab > B2_685_reference.tab
+awk '{print $2}' B2_685_reference.tab > B2_685_reference_sequence.tab
+awk '{print $1}' B2_685_muscle.tab > B2_685_uniquenames.tab
+awk '{print $2}' B2_685_muscle.tab > B2_685_sequences.tab
+B2_685=$(python find_CpGs_B2.py B2_685_reference_sequence.tab)
+cut -c $B2_685 B2_685_sequences.tab > B2_685_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_685_uniquenames.tab
+sed -i 's/;/ /g' B2_685_uniquenames.tab
+sed -i 's/=/ /g' B2_685_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_685_uniquenames.tab > B2_685_uniqueinfo.tab
+paste B2_685_uniqueinfo.tab B2_685_unnumbered_haplotypes.tab > B2_685_redundant_haplotypes.tab
+grep :686:1:N:0:77 B2_bowtie.sam > B2_686_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_686_bowtie.sam > B2_686_awk.fasta
+usearch -derep_fulllength B2_686_awk.fasta -fastaout B2_686_uniques.fasta -sizeout -relabel B2_686_
+cat B2_686_uniques.fasta B2_reference_CT_converted.fasta > B2_686_input_muscle.fasta
+muscle -in B2_686_input_muscle.fasta -out B2_686_muscle.fasta -maxiters 1
+fasta_formatter -i B2_686_muscle.fasta -o B2_686_muscle.tab -t
+grep B2_reference_CT_converted B2_686_muscle.tab > B2_686_reference.tab
+awk '{print $2}' B2_686_reference.tab > B2_686_reference_sequence.tab
+awk '{print $1}' B2_686_muscle.tab > B2_686_uniquenames.tab
+awk '{print $2}' B2_686_muscle.tab > B2_686_sequences.tab
+B2_686=$(python find_CpGs_B2.py B2_686_reference_sequence.tab)
+cut -c $B2_686 B2_686_sequences.tab > B2_686_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_686_uniquenames.tab
+sed -i 's/;/ /g' B2_686_uniquenames.tab
+sed -i 's/=/ /g' B2_686_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_686_uniquenames.tab > B2_686_uniqueinfo.tab
+paste B2_686_uniqueinfo.tab B2_686_unnumbered_haplotypes.tab > B2_686_redundant_haplotypes.tab
+grep :687:1:N:0:85 B2_bowtie.sam > B2_687_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_687_bowtie.sam > B2_687_awk.fasta
+usearch -derep_fulllength B2_687_awk.fasta -fastaout B2_687_uniques.fasta -sizeout -relabel B2_687_
+cat B2_687_uniques.fasta B2_reference_CT_converted.fasta > B2_687_input_muscle.fasta
+muscle -in B2_687_input_muscle.fasta -out B2_687_muscle.fasta -maxiters 1
+fasta_formatter -i B2_687_muscle.fasta -o B2_687_muscle.tab -t
+grep B2_reference_CT_converted B2_687_muscle.tab > B2_687_reference.tab
+awk '{print $2}' B2_687_reference.tab > B2_687_reference_sequence.tab
+awk '{print $1}' B2_687_muscle.tab > B2_687_uniquenames.tab
+awk '{print $2}' B2_687_muscle.tab > B2_687_sequences.tab
+B2_687=$(python find_CpGs_B2.py B2_687_reference_sequence.tab)
+cut -c $B2_687 B2_687_sequences.tab > B2_687_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_687_uniquenames.tab
+sed -i 's/;/ /g' B2_687_uniquenames.tab
+sed -i 's/=/ /g' B2_687_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_687_uniquenames.tab > B2_687_uniqueinfo.tab
+paste B2_687_uniqueinfo.tab B2_687_unnumbered_haplotypes.tab > B2_687_redundant_haplotypes.tab
+grep :688:1:N:0:93 B2_bowtie.sam > B2_688_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_688_bowtie.sam > B2_688_awk.fasta
+usearch -derep_fulllength B2_688_awk.fasta -fastaout B2_688_uniques.fasta -sizeout -relabel B2_688_
+cat B2_688_uniques.fasta B2_reference_CT_converted.fasta > B2_688_input_muscle.fasta
+muscle -in B2_688_input_muscle.fasta -out B2_688_muscle.fasta -maxiters 1
+fasta_formatter -i B2_688_muscle.fasta -o B2_688_muscle.tab -t
+grep B2_reference_CT_converted B2_688_muscle.tab > B2_688_reference.tab
+awk '{print $2}' B2_688_reference.tab > B2_688_reference_sequence.tab
+awk '{print $1}' B2_688_muscle.tab > B2_688_uniquenames.tab
+awk '{print $2}' B2_688_muscle.tab > B2_688_sequences.tab
+B2_688=$(python find_CpGs_B2.py B2_688_reference_sequence.tab)
+cut -c $B2_688 B2_688_sequences.tab > B2_688_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_688_uniquenames.tab
+sed -i 's/;/ /g' B2_688_uniquenames.tab
+sed -i 's/=/ /g' B2_688_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_688_uniquenames.tab > B2_688_uniqueinfo.tab
+paste B2_688_uniqueinfo.tab B2_688_unnumbered_haplotypes.tab > B2_688_redundant_haplotypes.tab
+grep :689:1:N:0:6 B2_bowtie.sam > B2_689_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_689_bowtie.sam > B2_689_awk.fasta
+usearch -derep_fulllength B2_689_awk.fasta -fastaout B2_689_uniques.fasta -sizeout -relabel B2_689_
+cat B2_689_uniques.fasta B2_reference_CT_converted.fasta > B2_689_input_muscle.fasta
+muscle -in B2_689_input_muscle.fasta -out B2_689_muscle.fasta -maxiters 1
+fasta_formatter -i B2_689_muscle.fasta -o B2_689_muscle.tab -t
+grep B2_reference_CT_converted B2_689_muscle.tab > B2_689_reference.tab
+awk '{print $2}' B2_689_reference.tab > B2_689_reference_sequence.tab
+awk '{print $1}' B2_689_muscle.tab > B2_689_uniquenames.tab
+awk '{print $2}' B2_689_muscle.tab > B2_689_sequences.tab
+B2_689=$(python find_CpGs_B2.py B2_689_reference_sequence.tab)
+cut -c $B2_689 B2_689_sequences.tab > B2_689_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_689_uniquenames.tab
+sed -i 's/;/ /g' B2_689_uniquenames.tab
+sed -i 's/=/ /g' B2_689_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_689_uniquenames.tab > B2_689_uniqueinfo.tab
+paste B2_689_uniqueinfo.tab B2_689_unnumbered_haplotypes.tab > B2_689_redundant_haplotypes.tab
+grep :690:1:N:0:14 B2_bowtie.sam > B2_690_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_690_bowtie.sam > B2_690_awk.fasta
+usearch -derep_fulllength B2_690_awk.fasta -fastaout B2_690_uniques.fasta -sizeout -relabel B2_690_
+cat B2_690_uniques.fasta B2_reference_CT_converted.fasta > B2_690_input_muscle.fasta
+muscle -in B2_690_input_muscle.fasta -out B2_690_muscle.fasta -maxiters 1
+fasta_formatter -i B2_690_muscle.fasta -o B2_690_muscle.tab -t
+grep B2_reference_CT_converted B2_690_muscle.tab > B2_690_reference.tab
+awk '{print $2}' B2_690_reference.tab > B2_690_reference_sequence.tab
+awk '{print $1}' B2_690_muscle.tab > B2_690_uniquenames.tab
+awk '{print $2}' B2_690_muscle.tab > B2_690_sequences.tab
+B2_690=$(python find_CpGs_B2.py B2_690_reference_sequence.tab)
+cut -c $B2_690 B2_690_sequences.tab > B2_690_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_690_uniquenames.tab
+sed -i 's/;/ /g' B2_690_uniquenames.tab
+sed -i 's/=/ /g' B2_690_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_690_uniquenames.tab > B2_690_uniqueinfo.tab
+paste B2_690_uniqueinfo.tab B2_690_unnumbered_haplotypes.tab > B2_690_redundant_haplotypes.tab
+grep :691:1:N:0:22 B2_bowtie.sam > B2_691_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_691_bowtie.sam > B2_691_awk.fasta
+usearch -derep_fulllength B2_691_awk.fasta -fastaout B2_691_uniques.fasta -sizeout -relabel B2_691_
+cat B2_691_uniques.fasta B2_reference_CT_converted.fasta > B2_691_input_muscle.fasta
+muscle -in B2_691_input_muscle.fasta -out B2_691_muscle.fasta -maxiters 1
+fasta_formatter -i B2_691_muscle.fasta -o B2_691_muscle.tab -t
+grep B2_reference_CT_converted B2_691_muscle.tab > B2_691_reference.tab
+awk '{print $2}' B2_691_reference.tab > B2_691_reference_sequence.tab
+awk '{print $1}' B2_691_muscle.tab > B2_691_uniquenames.tab
+awk '{print $2}' B2_691_muscle.tab > B2_691_sequences.tab
+B2_691=$(python find_CpGs_B2.py B2_691_reference_sequence.tab)
+cut -c $B2_691 B2_691_sequences.tab > B2_691_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_691_uniquenames.tab
+sed -i 's/;/ /g' B2_691_uniquenames.tab
+sed -i 's/=/ /g' B2_691_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_691_uniquenames.tab > B2_691_uniqueinfo.tab
+paste B2_691_uniqueinfo.tab B2_691_unnumbered_haplotypes.tab > B2_691_redundant_haplotypes.tab
+grep :692:1:N:0:30 B2_bowtie.sam > B2_692_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_692_bowtie.sam > B2_692_awk.fasta
+usearch -derep_fulllength B2_692_awk.fasta -fastaout B2_692_uniques.fasta -sizeout -relabel B2_692_
+cat B2_692_uniques.fasta B2_reference_CT_converted.fasta > B2_692_input_muscle.fasta
+muscle -in B2_692_input_muscle.fasta -out B2_692_muscle.fasta -maxiters 1
+fasta_formatter -i B2_692_muscle.fasta -o B2_692_muscle.tab -t
+grep B2_reference_CT_converted B2_692_muscle.tab > B2_692_reference.tab
+awk '{print $2}' B2_692_reference.tab > B2_692_reference_sequence.tab
+awk '{print $1}' B2_692_muscle.tab > B2_692_uniquenames.tab
+awk '{print $2}' B2_692_muscle.tab > B2_692_sequences.tab
+B2_692=$(python find_CpGs_B2.py B2_692_reference_sequence.tab)
+cut -c $B2_692 B2_692_sequences.tab > B2_692_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_692_uniquenames.tab
+sed -i 's/;/ /g' B2_692_uniquenames.tab
+sed -i 's/=/ /g' B2_692_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_692_uniquenames.tab > B2_692_uniqueinfo.tab
+paste B2_692_uniqueinfo.tab B2_692_unnumbered_haplotypes.tab > B2_692_redundant_haplotypes.tab
+grep :693:1:N:0:38 B2_bowtie.sam > B2_693_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_693_bowtie.sam > B2_693_awk.fasta
+usearch -derep_fulllength B2_693_awk.fasta -fastaout B2_693_uniques.fasta -sizeout -relabel B2_693_
+cat B2_693_uniques.fasta B2_reference_CT_converted.fasta > B2_693_input_muscle.fasta
+muscle -in B2_693_input_muscle.fasta -out B2_693_muscle.fasta -maxiters 1
+fasta_formatter -i B2_693_muscle.fasta -o B2_693_muscle.tab -t
+grep B2_reference_CT_converted B2_693_muscle.tab > B2_693_reference.tab
+awk '{print $2}' B2_693_reference.tab > B2_693_reference_sequence.tab
+awk '{print $1}' B2_693_muscle.tab > B2_693_uniquenames.tab
+awk '{print $2}' B2_693_muscle.tab > B2_693_sequences.tab
+B2_693=$(python find_CpGs_B2.py B2_693_reference_sequence.tab)
+cut -c $B2_693 B2_693_sequences.tab > B2_693_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_693_uniquenames.tab
+sed -i 's/;/ /g' B2_693_uniquenames.tab
+sed -i 's/=/ /g' B2_693_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_693_uniquenames.tab > B2_693_uniqueinfo.tab
+paste B2_693_uniqueinfo.tab B2_693_unnumbered_haplotypes.tab > B2_693_redundant_haplotypes.tab
+grep :694:1:N:0:46 B2_bowtie.sam > B2_694_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_694_bowtie.sam > B2_694_awk.fasta
+usearch -derep_fulllength B2_694_awk.fasta -fastaout B2_694_uniques.fasta -sizeout -relabel B2_694_
+cat B2_694_uniques.fasta B2_reference_CT_converted.fasta > B2_694_input_muscle.fasta
+muscle -in B2_694_input_muscle.fasta -out B2_694_muscle.fasta -maxiters 1
+fasta_formatter -i B2_694_muscle.fasta -o B2_694_muscle.tab -t
+grep B2_reference_CT_converted B2_694_muscle.tab > B2_694_reference.tab
+awk '{print $2}' B2_694_reference.tab > B2_694_reference_sequence.tab
+awk '{print $1}' B2_694_muscle.tab > B2_694_uniquenames.tab
+awk '{print $2}' B2_694_muscle.tab > B2_694_sequences.tab
+B2_694=$(python find_CpGs_B2.py B2_694_reference_sequence.tab)
+cut -c $B2_694 B2_694_sequences.tab > B2_694_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_694_uniquenames.tab
+sed -i 's/;/ /g' B2_694_uniquenames.tab
+sed -i 's/=/ /g' B2_694_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_694_uniquenames.tab > B2_694_uniqueinfo.tab
+paste B2_694_uniqueinfo.tab B2_694_unnumbered_haplotypes.tab > B2_694_redundant_haplotypes.tab
+grep :695:1:N:0:54 B2_bowtie.sam > B2_695_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_695_bowtie.sam > B2_695_awk.fasta
+usearch -derep_fulllength B2_695_awk.fasta -fastaout B2_695_uniques.fasta -sizeout -relabel B2_695_
+cat B2_695_uniques.fasta B2_reference_CT_converted.fasta > B2_695_input_muscle.fasta
+muscle -in B2_695_input_muscle.fasta -out B2_695_muscle.fasta -maxiters 1
+fasta_formatter -i B2_695_muscle.fasta -o B2_695_muscle.tab -t
+grep B2_reference_CT_converted B2_695_muscle.tab > B2_695_reference.tab
+awk '{print $2}' B2_695_reference.tab > B2_695_reference_sequence.tab
+awk '{print $1}' B2_695_muscle.tab > B2_695_uniquenames.tab
+awk '{print $2}' B2_695_muscle.tab > B2_695_sequences.tab
+B2_695=$(python find_CpGs_B2.py B2_695_reference_sequence.tab)
+cut -c $B2_695 B2_695_sequences.tab > B2_695_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_695_uniquenames.tab
+sed -i 's/;/ /g' B2_695_uniquenames.tab
+sed -i 's/=/ /g' B2_695_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_695_uniquenames.tab > B2_695_uniqueinfo.tab
+paste B2_695_uniqueinfo.tab B2_695_unnumbered_haplotypes.tab > B2_695_redundant_haplotypes.tab
+grep :696:1:N:0:62 B2_bowtie.sam > B2_696_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_696_bowtie.sam > B2_696_awk.fasta
+usearch -derep_fulllength B2_696_awk.fasta -fastaout B2_696_uniques.fasta -sizeout -relabel B2_696_
+cat B2_696_uniques.fasta B2_reference_CT_converted.fasta > B2_696_input_muscle.fasta
+muscle -in B2_696_input_muscle.fasta -out B2_696_muscle.fasta -maxiters 1
+fasta_formatter -i B2_696_muscle.fasta -o B2_696_muscle.tab -t
+grep B2_reference_CT_converted B2_696_muscle.tab > B2_696_reference.tab
+awk '{print $2}' B2_696_reference.tab > B2_696_reference_sequence.tab
+awk '{print $1}' B2_696_muscle.tab > B2_696_uniquenames.tab
+awk '{print $2}' B2_696_muscle.tab > B2_696_sequences.tab
+B2_696=$(python find_CpGs_B2.py B2_696_reference_sequence.tab)
+cut -c $B2_696 B2_696_sequences.tab > B2_696_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_696_uniquenames.tab
+sed -i 's/;/ /g' B2_696_uniquenames.tab
+sed -i 's/=/ /g' B2_696_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_696_uniquenames.tab > B2_696_uniqueinfo.tab
+paste B2_696_uniqueinfo.tab B2_696_unnumbered_haplotypes.tab > B2_696_redundant_haplotypes.tab
+grep :697:1:N:0:70 B2_bowtie.sam > B2_697_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_697_bowtie.sam > B2_697_awk.fasta
+usearch -derep_fulllength B2_697_awk.fasta -fastaout B2_697_uniques.fasta -sizeout -relabel B2_697_
+cat B2_697_uniques.fasta B2_reference_CT_converted.fasta > B2_697_input_muscle.fasta
+muscle -in B2_697_input_muscle.fasta -out B2_697_muscle.fasta -maxiters 1
+fasta_formatter -i B2_697_muscle.fasta -o B2_697_muscle.tab -t
+grep B2_reference_CT_converted B2_697_muscle.tab > B2_697_reference.tab
+awk '{print $2}' B2_697_reference.tab > B2_697_reference_sequence.tab
+awk '{print $1}' B2_697_muscle.tab > B2_697_uniquenames.tab
+awk '{print $2}' B2_697_muscle.tab > B2_697_sequences.tab
+B2_697=$(python find_CpGs_B2.py B2_697_reference_sequence.tab)
+cut -c $B2_697 B2_697_sequences.tab > B2_697_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_697_uniquenames.tab
+sed -i 's/;/ /g' B2_697_uniquenames.tab
+sed -i 's/=/ /g' B2_697_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_697_uniquenames.tab > B2_697_uniqueinfo.tab
+paste B2_697_uniqueinfo.tab B2_697_unnumbered_haplotypes.tab > B2_697_redundant_haplotypes.tab
+grep :698:1:N:0:78 B2_bowtie.sam > B2_698_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_698_bowtie.sam > B2_698_awk.fasta
+usearch -derep_fulllength B2_698_awk.fasta -fastaout B2_698_uniques.fasta -sizeout -relabel B2_698_
+cat B2_698_uniques.fasta B2_reference_CT_converted.fasta > B2_698_input_muscle.fasta
+muscle -in B2_698_input_muscle.fasta -out B2_698_muscle.fasta -maxiters 1
+fasta_formatter -i B2_698_muscle.fasta -o B2_698_muscle.tab -t
+grep B2_reference_CT_converted B2_698_muscle.tab > B2_698_reference.tab
+awk '{print $2}' B2_698_reference.tab > B2_698_reference_sequence.tab
+awk '{print $1}' B2_698_muscle.tab > B2_698_uniquenames.tab
+awk '{print $2}' B2_698_muscle.tab > B2_698_sequences.tab
+B2_698=$(python find_CpGs_B2.py B2_698_reference_sequence.tab)
+cut -c $B2_698 B2_698_sequences.tab > B2_698_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_698_uniquenames.tab
+sed -i 's/;/ /g' B2_698_uniquenames.tab
+sed -i 's/=/ /g' B2_698_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_698_uniquenames.tab > B2_698_uniqueinfo.tab
+paste B2_698_uniqueinfo.tab B2_698_unnumbered_haplotypes.tab > B2_698_redundant_haplotypes.tab
+grep :699:1:N:0:86 B2_bowtie.sam > B2_699_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_699_bowtie.sam > B2_699_awk.fasta
+usearch -derep_fulllength B2_699_awk.fasta -fastaout B2_699_uniques.fasta -sizeout -relabel B2_699_
+cat B2_699_uniques.fasta B2_reference_CT_converted.fasta > B2_699_input_muscle.fasta
+muscle -in B2_699_input_muscle.fasta -out B2_699_muscle.fasta -maxiters 1
+fasta_formatter -i B2_699_muscle.fasta -o B2_699_muscle.tab -t
+grep B2_reference_CT_converted B2_699_muscle.tab > B2_699_reference.tab
+awk '{print $2}' B2_699_reference.tab > B2_699_reference_sequence.tab
+awk '{print $1}' B2_699_muscle.tab > B2_699_uniquenames.tab
+awk '{print $2}' B2_699_muscle.tab > B2_699_sequences.tab
+B2_699=$(python find_CpGs_B2.py B2_699_reference_sequence.tab)
+cut -c $B2_699 B2_699_sequences.tab > B2_699_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_699_uniquenames.tab
+sed -i 's/;/ /g' B2_699_uniquenames.tab
+sed -i 's/=/ /g' B2_699_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_699_uniquenames.tab > B2_699_uniqueinfo.tab
+paste B2_699_uniqueinfo.tab B2_699_unnumbered_haplotypes.tab > B2_699_redundant_haplotypes.tab
+grep :700:1:N:0:94 B2_bowtie.sam > B2_700_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_700_bowtie.sam > B2_700_awk.fasta
+usearch -derep_fulllength B2_700_awk.fasta -fastaout B2_700_uniques.fasta -sizeout -relabel B2_700_
+cat B2_700_uniques.fasta B2_reference_CT_converted.fasta > B2_700_input_muscle.fasta
+muscle -in B2_700_input_muscle.fasta -out B2_700_muscle.fasta -maxiters 1
+fasta_formatter -i B2_700_muscle.fasta -o B2_700_muscle.tab -t
+grep B2_reference_CT_converted B2_700_muscle.tab > B2_700_reference.tab
+awk '{print $2}' B2_700_reference.tab > B2_700_reference_sequence.tab
+awk '{print $1}' B2_700_muscle.tab > B2_700_uniquenames.tab
+awk '{print $2}' B2_700_muscle.tab > B2_700_sequences.tab
+B2_700=$(python find_CpGs_B2.py B2_700_reference_sequence.tab)
+cut -c $B2_700 B2_700_sequences.tab > B2_700_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_700_uniquenames.tab
+sed -i 's/;/ /g' B2_700_uniquenames.tab
+sed -i 's/=/ /g' B2_700_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_700_uniquenames.tab > B2_700_uniqueinfo.tab
+paste B2_700_uniqueinfo.tab B2_700_unnumbered_haplotypes.tab > B2_700_redundant_haplotypes.tab
+grep :701:1:N:0:7 B2_bowtie.sam > B2_701_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_701_bowtie.sam > B2_701_awk.fasta
+usearch -derep_fulllength B2_701_awk.fasta -fastaout B2_701_uniques.fasta -sizeout -relabel B2_701_
+cat B2_701_uniques.fasta B2_reference_CT_converted.fasta > B2_701_input_muscle.fasta
+muscle -in B2_701_input_muscle.fasta -out B2_701_muscle.fasta -maxiters 1
+fasta_formatter -i B2_701_muscle.fasta -o B2_701_muscle.tab -t
+grep B2_reference_CT_converted B2_701_muscle.tab > B2_701_reference.tab
+awk '{print $2}' B2_701_reference.tab > B2_701_reference_sequence.tab
+awk '{print $1}' B2_701_muscle.tab > B2_701_uniquenames.tab
+awk '{print $2}' B2_701_muscle.tab > B2_701_sequences.tab
+B2_701=$(python find_CpGs_B2.py B2_701_reference_sequence.tab)
+cut -c $B2_701 B2_701_sequences.tab > B2_701_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_701_uniquenames.tab
+sed -i 's/;/ /g' B2_701_uniquenames.tab
+sed -i 's/=/ /g' B2_701_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_701_uniquenames.tab > B2_701_uniqueinfo.tab
+paste B2_701_uniqueinfo.tab B2_701_unnumbered_haplotypes.tab > B2_701_redundant_haplotypes.tab
+grep :702:1:N:0:15 B2_bowtie.sam > B2_702_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_702_bowtie.sam > B2_702_awk.fasta
+usearch -derep_fulllength B2_702_awk.fasta -fastaout B2_702_uniques.fasta -sizeout -relabel B2_702_
+cat B2_702_uniques.fasta B2_reference_CT_converted.fasta > B2_702_input_muscle.fasta
+muscle -in B2_702_input_muscle.fasta -out B2_702_muscle.fasta -maxiters 1
+fasta_formatter -i B2_702_muscle.fasta -o B2_702_muscle.tab -t
+grep B2_reference_CT_converted B2_702_muscle.tab > B2_702_reference.tab
+awk '{print $2}' B2_702_reference.tab > B2_702_reference_sequence.tab
+awk '{print $1}' B2_702_muscle.tab > B2_702_uniquenames.tab
+awk '{print $2}' B2_702_muscle.tab > B2_702_sequences.tab
+B2_702=$(python find_CpGs_B2.py B2_702_reference_sequence.tab)
+cut -c $B2_702 B2_702_sequences.tab > B2_702_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_702_uniquenames.tab
+sed -i 's/;/ /g' B2_702_uniquenames.tab
+sed -i 's/=/ /g' B2_702_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_702_uniquenames.tab > B2_702_uniqueinfo.tab
+paste B2_702_uniqueinfo.tab B2_702_unnumbered_haplotypes.tab > B2_702_redundant_haplotypes.tab
+grep :703:1:N:0:23 B2_bowtie.sam > B2_703_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_703_bowtie.sam > B2_703_awk.fasta
+usearch -derep_fulllength B2_703_awk.fasta -fastaout B2_703_uniques.fasta -sizeout -relabel B2_703_
+cat B2_703_uniques.fasta B2_reference_CT_converted.fasta > B2_703_input_muscle.fasta
+muscle -in B2_703_input_muscle.fasta -out B2_703_muscle.fasta -maxiters 1
+fasta_formatter -i B2_703_muscle.fasta -o B2_703_muscle.tab -t
+grep B2_reference_CT_converted B2_703_muscle.tab > B2_703_reference.tab
+awk '{print $2}' B2_703_reference.tab > B2_703_reference_sequence.tab
+awk '{print $1}' B2_703_muscle.tab > B2_703_uniquenames.tab
+awk '{print $2}' B2_703_muscle.tab > B2_703_sequences.tab
+B2_703=$(python find_CpGs_B2.py B2_703_reference_sequence.tab)
+cut -c $B2_703 B2_703_sequences.tab > B2_703_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_703_uniquenames.tab
+sed -i 's/;/ /g' B2_703_uniquenames.tab
+sed -i 's/=/ /g' B2_703_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_703_uniquenames.tab > B2_703_uniqueinfo.tab
+paste B2_703_uniqueinfo.tab B2_703_unnumbered_haplotypes.tab > B2_703_redundant_haplotypes.tab
+grep :704:1:N:0:31 B2_bowtie.sam > B2_704_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_704_bowtie.sam > B2_704_awk.fasta
+usearch -derep_fulllength B2_704_awk.fasta -fastaout B2_704_uniques.fasta -sizeout -relabel B2_704_
+cat B2_704_uniques.fasta B2_reference_CT_converted.fasta > B2_704_input_muscle.fasta
+muscle -in B2_704_input_muscle.fasta -out B2_704_muscle.fasta -maxiters 1
+fasta_formatter -i B2_704_muscle.fasta -o B2_704_muscle.tab -t
+grep B2_reference_CT_converted B2_704_muscle.tab > B2_704_reference.tab
+awk '{print $2}' B2_704_reference.tab > B2_704_reference_sequence.tab
+awk '{print $1}' B2_704_muscle.tab > B2_704_uniquenames.tab
+awk '{print $2}' B2_704_muscle.tab > B2_704_sequences.tab
+B2_704=$(python find_CpGs_B2.py B2_704_reference_sequence.tab)
+cut -c $B2_704 B2_704_sequences.tab > B2_704_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_704_uniquenames.tab
+sed -i 's/;/ /g' B2_704_uniquenames.tab
+sed -i 's/=/ /g' B2_704_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_704_uniquenames.tab > B2_704_uniqueinfo.tab
+paste B2_704_uniqueinfo.tab B2_704_unnumbered_haplotypes.tab > B2_704_redundant_haplotypes.tab
+grep :705:1:N:0:39 B2_bowtie.sam > B2_705_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_705_bowtie.sam > B2_705_awk.fasta
+usearch -derep_fulllength B2_705_awk.fasta -fastaout B2_705_uniques.fasta -sizeout -relabel B2_705_
+cat B2_705_uniques.fasta B2_reference_CT_converted.fasta > B2_705_input_muscle.fasta
+muscle -in B2_705_input_muscle.fasta -out B2_705_muscle.fasta -maxiters 1
+fasta_formatter -i B2_705_muscle.fasta -o B2_705_muscle.tab -t
+grep B2_reference_CT_converted B2_705_muscle.tab > B2_705_reference.tab
+awk '{print $2}' B2_705_reference.tab > B2_705_reference_sequence.tab
+awk '{print $1}' B2_705_muscle.tab > B2_705_uniquenames.tab
+awk '{print $2}' B2_705_muscle.tab > B2_705_sequences.tab
+B2_705=$(python find_CpGs_B2.py B2_705_reference_sequence.tab)
+cut -c $B2_705 B2_705_sequences.tab > B2_705_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_705_uniquenames.tab
+sed -i 's/;/ /g' B2_705_uniquenames.tab
+sed -i 's/=/ /g' B2_705_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_705_uniquenames.tab > B2_705_uniqueinfo.tab
+paste B2_705_uniqueinfo.tab B2_705_unnumbered_haplotypes.tab > B2_705_redundant_haplotypes.tab
+grep :706:1:N:0:47 B2_bowtie.sam > B2_706_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_706_bowtie.sam > B2_706_awk.fasta
+usearch -derep_fulllength B2_706_awk.fasta -fastaout B2_706_uniques.fasta -sizeout -relabel B2_706_
+cat B2_706_uniques.fasta B2_reference_CT_converted.fasta > B2_706_input_muscle.fasta
+muscle -in B2_706_input_muscle.fasta -out B2_706_muscle.fasta -maxiters 1
+fasta_formatter -i B2_706_muscle.fasta -o B2_706_muscle.tab -t
+grep B2_reference_CT_converted B2_706_muscle.tab > B2_706_reference.tab
+awk '{print $2}' B2_706_reference.tab > B2_706_reference_sequence.tab
+awk '{print $1}' B2_706_muscle.tab > B2_706_uniquenames.tab
+awk '{print $2}' B2_706_muscle.tab > B2_706_sequences.tab
+B2_706=$(python find_CpGs_B2.py B2_706_reference_sequence.tab)
+cut -c $B2_706 B2_706_sequences.tab > B2_706_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_706_uniquenames.tab
+sed -i 's/;/ /g' B2_706_uniquenames.tab
+sed -i 's/=/ /g' B2_706_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_706_uniquenames.tab > B2_706_uniqueinfo.tab
+paste B2_706_uniqueinfo.tab B2_706_unnumbered_haplotypes.tab > B2_706_redundant_haplotypes.tab
+grep :707:1:N:0:55 B2_bowtie.sam > B2_707_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_707_bowtie.sam > B2_707_awk.fasta
+usearch -derep_fulllength B2_707_awk.fasta -fastaout B2_707_uniques.fasta -sizeout -relabel B2_707_
+cat B2_707_uniques.fasta B2_reference_CT_converted.fasta > B2_707_input_muscle.fasta
+muscle -in B2_707_input_muscle.fasta -out B2_707_muscle.fasta -maxiters 1
+fasta_formatter -i B2_707_muscle.fasta -o B2_707_muscle.tab -t
+grep B2_reference_CT_converted B2_707_muscle.tab > B2_707_reference.tab
+awk '{print $2}' B2_707_reference.tab > B2_707_reference_sequence.tab
+awk '{print $1}' B2_707_muscle.tab > B2_707_uniquenames.tab
+awk '{print $2}' B2_707_muscle.tab > B2_707_sequences.tab
+B2_707=$(python find_CpGs_B2.py B2_707_reference_sequence.tab)
+cut -c $B2_707 B2_707_sequences.tab > B2_707_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_707_uniquenames.tab
+sed -i 's/;/ /g' B2_707_uniquenames.tab
+sed -i 's/=/ /g' B2_707_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_707_uniquenames.tab > B2_707_uniqueinfo.tab
+paste B2_707_uniqueinfo.tab B2_707_unnumbered_haplotypes.tab > B2_707_redundant_haplotypes.tab
+grep :708:1:N:0:63 B2_bowtie.sam > B2_708_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_708_bowtie.sam > B2_708_awk.fasta
+usearch -derep_fulllength B2_708_awk.fasta -fastaout B2_708_uniques.fasta -sizeout -relabel B2_708_
+cat B2_708_uniques.fasta B2_reference_CT_converted.fasta > B2_708_input_muscle.fasta
+muscle -in B2_708_input_muscle.fasta -out B2_708_muscle.fasta -maxiters 1
+fasta_formatter -i B2_708_muscle.fasta -o B2_708_muscle.tab -t
+grep B2_reference_CT_converted B2_708_muscle.tab > B2_708_reference.tab
+awk '{print $2}' B2_708_reference.tab > B2_708_reference_sequence.tab
+awk '{print $1}' B2_708_muscle.tab > B2_708_uniquenames.tab
+awk '{print $2}' B2_708_muscle.tab > B2_708_sequences.tab
+B2_708=$(python find_CpGs_B2.py B2_708_reference_sequence.tab)
+cut -c $B2_708 B2_708_sequences.tab > B2_708_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_708_uniquenames.tab
+sed -i 's/;/ /g' B2_708_uniquenames.tab
+sed -i 's/=/ /g' B2_708_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_708_uniquenames.tab > B2_708_uniqueinfo.tab
+paste B2_708_uniqueinfo.tab B2_708_unnumbered_haplotypes.tab > B2_708_redundant_haplotypes.tab
+grep :709:1:N:0:71 B2_bowtie.sam > B2_709_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_709_bowtie.sam > B2_709_awk.fasta
+usearch -derep_fulllength B2_709_awk.fasta -fastaout B2_709_uniques.fasta -sizeout -relabel B2_709_
+cat B2_709_uniques.fasta B2_reference_CT_converted.fasta > B2_709_input_muscle.fasta
+muscle -in B2_709_input_muscle.fasta -out B2_709_muscle.fasta -maxiters 1
+fasta_formatter -i B2_709_muscle.fasta -o B2_709_muscle.tab -t
+grep B2_reference_CT_converted B2_709_muscle.tab > B2_709_reference.tab
+awk '{print $2}' B2_709_reference.tab > B2_709_reference_sequence.tab
+awk '{print $1}' B2_709_muscle.tab > B2_709_uniquenames.tab
+awk '{print $2}' B2_709_muscle.tab > B2_709_sequences.tab
+B2_709=$(python find_CpGs_B2.py B2_709_reference_sequence.tab)
+cut -c $B2_709 B2_709_sequences.tab > B2_709_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_709_uniquenames.tab
+sed -i 's/;/ /g' B2_709_uniquenames.tab
+sed -i 's/=/ /g' B2_709_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_709_uniquenames.tab > B2_709_uniqueinfo.tab
+paste B2_709_uniqueinfo.tab B2_709_unnumbered_haplotypes.tab > B2_709_redundant_haplotypes.tab
+grep :711:1:N:0:79 B2_bowtie.sam > B2_711_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_711_bowtie.sam > B2_711_awk.fasta
+usearch -derep_fulllength B2_711_awk.fasta -fastaout B2_711_uniques.fasta -sizeout -relabel B2_711_
+cat B2_711_uniques.fasta B2_reference_CT_converted.fasta > B2_711_input_muscle.fasta
+muscle -in B2_711_input_muscle.fasta -out B2_711_muscle.fasta -maxiters 1
+fasta_formatter -i B2_711_muscle.fasta -o B2_711_muscle.tab -t
+grep B2_reference_CT_converted B2_711_muscle.tab > B2_711_reference.tab
+awk '{print $2}' B2_711_reference.tab > B2_711_reference_sequence.tab
+awk '{print $1}' B2_711_muscle.tab > B2_711_uniquenames.tab
+awk '{print $2}' B2_711_muscle.tab > B2_711_sequences.tab
+B2_711=$(python find_CpGs_B2.py B2_711_reference_sequence.tab)
+cut -c $B2_711 B2_711_sequences.tab > B2_711_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_711_uniquenames.tab
+sed -i 's/;/ /g' B2_711_uniquenames.tab
+sed -i 's/=/ /g' B2_711_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_711_uniquenames.tab > B2_711_uniqueinfo.tab
+paste B2_711_uniqueinfo.tab B2_711_unnumbered_haplotypes.tab > B2_711_redundant_haplotypes.tab
+grep :712:1:N:0:87 B2_bowtie.sam > B2_712_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_712_bowtie.sam > B2_712_awk.fasta
+usearch -derep_fulllength B2_712_awk.fasta -fastaout B2_712_uniques.fasta -sizeout -relabel B2_712_
+cat B2_712_uniques.fasta B2_reference_CT_converted.fasta > B2_712_input_muscle.fasta
+muscle -in B2_712_input_muscle.fasta -out B2_712_muscle.fasta -maxiters 1
+fasta_formatter -i B2_712_muscle.fasta -o B2_712_muscle.tab -t
+grep B2_reference_CT_converted B2_712_muscle.tab > B2_712_reference.tab
+awk '{print $2}' B2_712_reference.tab > B2_712_reference_sequence.tab
+awk '{print $1}' B2_712_muscle.tab > B2_712_uniquenames.tab
+awk '{print $2}' B2_712_muscle.tab > B2_712_sequences.tab
+B2_712=$(python find_CpGs_B2.py B2_712_reference_sequence.tab)
+cut -c $B2_712 B2_712_sequences.tab > B2_712_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_712_uniquenames.tab
+sed -i 's/;/ /g' B2_712_uniquenames.tab
+sed -i 's/=/ /g' B2_712_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_712_uniquenames.tab > B2_712_uniqueinfo.tab
+paste B2_712_uniqueinfo.tab B2_712_unnumbered_haplotypes.tab > B2_712_redundant_haplotypes.tab
+grep :713:1:N:0:95 B2_bowtie.sam > B2_713_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_713_bowtie.sam > B2_713_awk.fasta
+usearch -derep_fulllength B2_713_awk.fasta -fastaout B2_713_uniques.fasta -sizeout -relabel B2_713_
+cat B2_713_uniques.fasta B2_reference_CT_converted.fasta > B2_713_input_muscle.fasta
+muscle -in B2_713_input_muscle.fasta -out B2_713_muscle.fasta -maxiters 1
+fasta_formatter -i B2_713_muscle.fasta -o B2_713_muscle.tab -t
+grep B2_reference_CT_converted B2_713_muscle.tab > B2_713_reference.tab
+awk '{print $2}' B2_713_reference.tab > B2_713_reference_sequence.tab
+awk '{print $1}' B2_713_muscle.tab > B2_713_uniquenames.tab
+awk '{print $2}' B2_713_muscle.tab > B2_713_sequences.tab
+B2_713=$(python find_CpGs_B2.py B2_713_reference_sequence.tab)
+cut -c $B2_713 B2_713_sequences.tab > B2_713_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_713_uniquenames.tab
+sed -i 's/;/ /g' B2_713_uniquenames.tab
+sed -i 's/=/ /g' B2_713_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_713_uniquenames.tab > B2_713_uniqueinfo.tab
+paste B2_713_uniqueinfo.tab B2_713_unnumbered_haplotypes.tab > B2_713_redundant_haplotypes.tab
+grep :714:1:N:0:8 B2_bowtie.sam > B2_714_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_714_bowtie.sam > B2_714_awk.fasta
+usearch -derep_fulllength B2_714_awk.fasta -fastaout B2_714_uniques.fasta -sizeout -relabel B2_714_
+cat B2_714_uniques.fasta B2_reference_CT_converted.fasta > B2_714_input_muscle.fasta
+muscle -in B2_714_input_muscle.fasta -out B2_714_muscle.fasta -maxiters 1
+fasta_formatter -i B2_714_muscle.fasta -o B2_714_muscle.tab -t
+grep B2_reference_CT_converted B2_714_muscle.tab > B2_714_reference.tab
+awk '{print $2}' B2_714_reference.tab > B2_714_reference_sequence.tab
+awk '{print $1}' B2_714_muscle.tab > B2_714_uniquenames.tab
+awk '{print $2}' B2_714_muscle.tab > B2_714_sequences.tab
+B2_714=$(python find_CpGs_B2.py B2_714_reference_sequence.tab)
+cut -c $B2_714 B2_714_sequences.tab > B2_714_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_714_uniquenames.tab
+sed -i 's/;/ /g' B2_714_uniquenames.tab
+sed -i 's/=/ /g' B2_714_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_714_uniquenames.tab > B2_714_uniqueinfo.tab
+paste B2_714_uniqueinfo.tab B2_714_unnumbered_haplotypes.tab > B2_714_redundant_haplotypes.tab
+grep :715:1:N:0:16 B2_bowtie.sam > B2_715_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_715_bowtie.sam > B2_715_awk.fasta
+usearch -derep_fulllength B2_715_awk.fasta -fastaout B2_715_uniques.fasta -sizeout -relabel B2_715_
+cat B2_715_uniques.fasta B2_reference_CT_converted.fasta > B2_715_input_muscle.fasta
+muscle -in B2_715_input_muscle.fasta -out B2_715_muscle.fasta -maxiters 1
+fasta_formatter -i B2_715_muscle.fasta -o B2_715_muscle.tab -t
+grep B2_reference_CT_converted B2_715_muscle.tab > B2_715_reference.tab
+awk '{print $2}' B2_715_reference.tab > B2_715_reference_sequence.tab
+awk '{print $1}' B2_715_muscle.tab > B2_715_uniquenames.tab
+awk '{print $2}' B2_715_muscle.tab > B2_715_sequences.tab
+B2_715=$(python find_CpGs_B2.py B2_715_reference_sequence.tab)
+cut -c $B2_715 B2_715_sequences.tab > B2_715_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_715_uniquenames.tab
+sed -i 's/;/ /g' B2_715_uniquenames.tab
+sed -i 's/=/ /g' B2_715_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_715_uniquenames.tab > B2_715_uniqueinfo.tab
+paste B2_715_uniqueinfo.tab B2_715_unnumbered_haplotypes.tab > B2_715_redundant_haplotypes.tab
+grep :NC1:1:N:0:24 B2_bowtie.sam > B2_NC1_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_NC1_bowtie.sam > B2_NC1_awk.fasta
+usearch -derep_fulllength B2_NC1_awk.fasta -fastaout B2_NC1_uniques.fasta -sizeout -relabel B2_NC1_
+cat B2_NC1_uniques.fasta B2_reference_CT_converted.fasta > B2_NC1_input_muscle.fasta
+muscle -in B2_NC1_input_muscle.fasta -out B2_NC1_muscle.fasta -maxiters 1
+fasta_formatter -i B2_NC1_muscle.fasta -o B2_NC1_muscle.tab -t
+grep B2_reference_CT_converted B2_NC1_muscle.tab > B2_NC1_reference.tab
+awk '{print $2}' B2_NC1_reference.tab > B2_NC1_reference_sequence.tab
+awk '{print $1}' B2_NC1_muscle.tab > B2_NC1_uniquenames.tab
+awk '{print $2}' B2_NC1_muscle.tab > B2_NC1_sequences.tab
+B2_NC1=$(python find_CpGs_B2.py B2_NC1_reference_sequence.tab)
+cut -c $B2_NC1 B2_NC1_sequences.tab > B2_NC1_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_NC1_uniquenames.tab
+sed -i 's/;/ /g' B2_NC1_uniquenames.tab
+sed -i 's/=/ /g' B2_NC1_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_NC1_uniquenames.tab > B2_NC1_uniqueinfo.tab
+paste B2_NC1_uniqueinfo.tab B2_NC1_unnumbered_haplotypes.tab > B2_NC1_redundant_haplotypes.tab
+grep :NC2:1:N:0:62 B2_bowtie.sam > B2_NC2_bowtie.sam
+awk '{print ">" $1 "\n" $10}' B2_NC2_bowtie.sam > B2_NC2_awk.fasta
+usearch -derep_fulllength B2_NC2_awk.fasta -fastaout B2_NC2_uniques.fasta -sizeout -relabel B2_NC2_
+cat B2_NC2_uniques.fasta B2_reference_CT_converted.fasta > B2_NC2_input_muscle.fasta
+muscle -in B2_NC2_input_muscle.fasta -out B2_NC2_muscle.fasta -maxiters 1
+fasta_formatter -i B2_NC2_muscle.fasta -o B2_NC2_muscle.tab -t
+grep B2_reference_CT_converted B2_NC2_muscle.tab > B2_NC2_reference.tab
+awk '{print $2}' B2_NC2_reference.tab > B2_NC2_reference_sequence.tab
+awk '{print $1}' B2_NC2_muscle.tab > B2_NC2_uniquenames.tab
+awk '{print $2}' B2_NC2_muscle.tab > B2_NC2_sequences.tab
+B2_NC2=$(python find_CpGs_B2.py B2_NC2_reference_sequence.tab)
+cut -c $B2_NC2 B2_NC2_sequences.tab > B2_NC2_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' B2_NC2_uniquenames.tab
+sed -i 's/;/ /g' B2_NC2_uniquenames.tab
+sed -i 's/=/ /g' B2_NC2_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' B2_NC2_uniquenames.tab > B2_NC2_uniqueinfo.tab
+paste B2_NC2_uniqueinfo.tab B2_NC2_unnumbered_haplotypes.tab > B2_NC2_redundant_haplotypes.tab

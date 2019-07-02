@@ -1,0 +1,1 @@
+sample	amp_bp	amplicon	bp	original_base	A	G	C	T	del	ins	inserted	ambiguous	prop_C_error	percent_C_error

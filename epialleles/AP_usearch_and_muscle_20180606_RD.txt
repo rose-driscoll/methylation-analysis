@@ -1,0 +1,2946 @@
+module load usearch
+module load muscle
+module load fastx
+module load python
+grep AP_reference_CT_converted all_bowtie.sam > AP_bowtie.sam
+grep :011:1:N:0:32 AP_bowtie.sam > AP_011_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_011_bowtie.sam > AP_011_awk.fasta
+usearch -derep_fulllength AP_011_awk.fasta -fastaout AP_011_uniques.fasta -sizeout -relabel AP_011_
+cat AP_011_uniques.fasta AP_reference_CT_converted.fasta > AP_011_input_muscle.fasta
+muscle -in AP_011_input_muscle.fasta -out AP_011_muscle.fasta -maxiters 1
+fasta_formatter -i AP_011_muscle.fasta -o AP_011_muscle.tab -t
+grep AP_reference_CT_converted AP_011_muscle.tab > AP_011_reference.tab
+awk '{print $2}' AP_011_reference.tab > AP_011_reference_sequence.tab
+awk '{print $1}' AP_011_muscle.tab > AP_011_uniquenames.tab
+awk '{print $2}' AP_011_muscle.tab > AP_011_sequences.tab
+AP_011=$(python find_CpGs_AP.py AP_011_reference_sequence.tab)
+cut -c $AP_011 AP_011_sequences.tab > AP_011_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_011_uniquenames.tab
+sed -i 's/;/ /g' AP_011_uniquenames.tab
+sed -i 's/=/ /g' AP_011_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_011_uniquenames.tab > AP_011_uniqueinfo.tab
+paste AP_011_uniqueinfo.tab AP_011_unnumbered_haplotypes.tab > AP_011_redundant_haplotypes.tab
+grep :012:1:N:0:40 AP_bowtie.sam > AP_012_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_012_bowtie.sam > AP_012_awk.fasta
+usearch -derep_fulllength AP_012_awk.fasta -fastaout AP_012_uniques.fasta -sizeout -relabel AP_012_
+cat AP_012_uniques.fasta AP_reference_CT_converted.fasta > AP_012_input_muscle.fasta
+muscle -in AP_012_input_muscle.fasta -out AP_012_muscle.fasta -maxiters 1
+fasta_formatter -i AP_012_muscle.fasta -o AP_012_muscle.tab -t
+grep AP_reference_CT_converted AP_012_muscle.tab > AP_012_reference.tab
+awk '{print $2}' AP_012_reference.tab > AP_012_reference_sequence.tab
+awk '{print $1}' AP_012_muscle.tab > AP_012_uniquenames.tab
+awk '{print $2}' AP_012_muscle.tab > AP_012_sequences.tab
+AP_012=$(python find_CpGs_AP.py AP_012_reference_sequence.tab)
+cut -c $AP_012 AP_012_sequences.tab > AP_012_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_012_uniquenames.tab
+sed -i 's/;/ /g' AP_012_uniquenames.tab
+sed -i 's/=/ /g' AP_012_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_012_uniquenames.tab > AP_012_uniqueinfo.tab
+paste AP_012_uniqueinfo.tab AP_012_unnumbered_haplotypes.tab > AP_012_redundant_haplotypes.tab
+grep :013:1:N:0:48 AP_bowtie.sam > AP_013_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_013_bowtie.sam > AP_013_awk.fasta
+usearch -derep_fulllength AP_013_awk.fasta -fastaout AP_013_uniques.fasta -sizeout -relabel AP_013_
+cat AP_013_uniques.fasta AP_reference_CT_converted.fasta > AP_013_input_muscle.fasta
+muscle -in AP_013_input_muscle.fasta -out AP_013_muscle.fasta -maxiters 1
+fasta_formatter -i AP_013_muscle.fasta -o AP_013_muscle.tab -t
+grep AP_reference_CT_converted AP_013_muscle.tab > AP_013_reference.tab
+awk '{print $2}' AP_013_reference.tab > AP_013_reference_sequence.tab
+awk '{print $1}' AP_013_muscle.tab > AP_013_uniquenames.tab
+awk '{print $2}' AP_013_muscle.tab > AP_013_sequences.tab
+AP_013=$(python find_CpGs_AP.py AP_013_reference_sequence.tab)
+cut -c $AP_013 AP_013_sequences.tab > AP_013_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_013_uniquenames.tab
+sed -i 's/;/ /g' AP_013_uniquenames.tab
+sed -i 's/=/ /g' AP_013_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_013_uniquenames.tab > AP_013_uniqueinfo.tab
+paste AP_013_uniqueinfo.tab AP_013_unnumbered_haplotypes.tab > AP_013_redundant_haplotypes.tab
+grep :014:1:N:0:56 AP_bowtie.sam > AP_014_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_014_bowtie.sam > AP_014_awk.fasta
+usearch -derep_fulllength AP_014_awk.fasta -fastaout AP_014_uniques.fasta -sizeout -relabel AP_014_
+cat AP_014_uniques.fasta AP_reference_CT_converted.fasta > AP_014_input_muscle.fasta
+muscle -in AP_014_input_muscle.fasta -out AP_014_muscle.fasta -maxiters 1
+fasta_formatter -i AP_014_muscle.fasta -o AP_014_muscle.tab -t
+grep AP_reference_CT_converted AP_014_muscle.tab > AP_014_reference.tab
+awk '{print $2}' AP_014_reference.tab > AP_014_reference_sequence.tab
+awk '{print $1}' AP_014_muscle.tab > AP_014_uniquenames.tab
+awk '{print $2}' AP_014_muscle.tab > AP_014_sequences.tab
+AP_014=$(python find_CpGs_AP.py AP_014_reference_sequence.tab)
+cut -c $AP_014 AP_014_sequences.tab > AP_014_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_014_uniquenames.tab
+sed -i 's/;/ /g' AP_014_uniquenames.tab
+sed -i 's/=/ /g' AP_014_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_014_uniquenames.tab > AP_014_uniqueinfo.tab
+paste AP_014_uniqueinfo.tab AP_014_unnumbered_haplotypes.tab > AP_014_redundant_haplotypes.tab
+grep :015:1:N:0:64 AP_bowtie.sam > AP_015_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_015_bowtie.sam > AP_015_awk.fasta
+usearch -derep_fulllength AP_015_awk.fasta -fastaout AP_015_uniques.fasta -sizeout -relabel AP_015_
+cat AP_015_uniques.fasta AP_reference_CT_converted.fasta > AP_015_input_muscle.fasta
+muscle -in AP_015_input_muscle.fasta -out AP_015_muscle.fasta -maxiters 1
+fasta_formatter -i AP_015_muscle.fasta -o AP_015_muscle.tab -t
+grep AP_reference_CT_converted AP_015_muscle.tab > AP_015_reference.tab
+awk '{print $2}' AP_015_reference.tab > AP_015_reference_sequence.tab
+awk '{print $1}' AP_015_muscle.tab > AP_015_uniquenames.tab
+awk '{print $2}' AP_015_muscle.tab > AP_015_sequences.tab
+AP_015=$(python find_CpGs_AP.py AP_015_reference_sequence.tab)
+cut -c $AP_015 AP_015_sequences.tab > AP_015_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_015_uniquenames.tab
+sed -i 's/;/ /g' AP_015_uniquenames.tab
+sed -i 's/=/ /g' AP_015_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_015_uniquenames.tab > AP_015_uniqueinfo.tab
+paste AP_015_uniqueinfo.tab AP_015_unnumbered_haplotypes.tab > AP_015_redundant_haplotypes.tab
+grep :016:1:N:0:72 AP_bowtie.sam > AP_016_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_016_bowtie.sam > AP_016_awk.fasta
+usearch -derep_fulllength AP_016_awk.fasta -fastaout AP_016_uniques.fasta -sizeout -relabel AP_016_
+cat AP_016_uniques.fasta AP_reference_CT_converted.fasta > AP_016_input_muscle.fasta
+muscle -in AP_016_input_muscle.fasta -out AP_016_muscle.fasta -maxiters 1
+fasta_formatter -i AP_016_muscle.fasta -o AP_016_muscle.tab -t
+grep AP_reference_CT_converted AP_016_muscle.tab > AP_016_reference.tab
+awk '{print $2}' AP_016_reference.tab > AP_016_reference_sequence.tab
+awk '{print $1}' AP_016_muscle.tab > AP_016_uniquenames.tab
+awk '{print $2}' AP_016_muscle.tab > AP_016_sequences.tab
+AP_016=$(python find_CpGs_AP.py AP_016_reference_sequence.tab)
+cut -c $AP_016 AP_016_sequences.tab > AP_016_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_016_uniquenames.tab
+sed -i 's/;/ /g' AP_016_uniquenames.tab
+sed -i 's/=/ /g' AP_016_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_016_uniquenames.tab > AP_016_uniqueinfo.tab
+paste AP_016_uniqueinfo.tab AP_016_unnumbered_haplotypes.tab > AP_016_redundant_haplotypes.tab
+grep :017:1:N:0:80 AP_bowtie.sam > AP_017_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_017_bowtie.sam > AP_017_awk.fasta
+usearch -derep_fulllength AP_017_awk.fasta -fastaout AP_017_uniques.fasta -sizeout -relabel AP_017_
+cat AP_017_uniques.fasta AP_reference_CT_converted.fasta > AP_017_input_muscle.fasta
+muscle -in AP_017_input_muscle.fasta -out AP_017_muscle.fasta -maxiters 1
+fasta_formatter -i AP_017_muscle.fasta -o AP_017_muscle.tab -t
+grep AP_reference_CT_converted AP_017_muscle.tab > AP_017_reference.tab
+awk '{print $2}' AP_017_reference.tab > AP_017_reference_sequence.tab
+awk '{print $1}' AP_017_muscle.tab > AP_017_uniquenames.tab
+awk '{print $2}' AP_017_muscle.tab > AP_017_sequences.tab
+AP_017=$(python find_CpGs_AP.py AP_017_reference_sequence.tab)
+cut -c $AP_017 AP_017_sequences.tab > AP_017_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_017_uniquenames.tab
+sed -i 's/;/ /g' AP_017_uniquenames.tab
+sed -i 's/=/ /g' AP_017_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_017_uniquenames.tab > AP_017_uniqueinfo.tab
+paste AP_017_uniqueinfo.tab AP_017_unnumbered_haplotypes.tab > AP_017_redundant_haplotypes.tab
+grep :018:1:N:0:88 AP_bowtie.sam > AP_018_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_018_bowtie.sam > AP_018_awk.fasta
+usearch -derep_fulllength AP_018_awk.fasta -fastaout AP_018_uniques.fasta -sizeout -relabel AP_018_
+cat AP_018_uniques.fasta AP_reference_CT_converted.fasta > AP_018_input_muscle.fasta
+muscle -in AP_018_input_muscle.fasta -out AP_018_muscle.fasta -maxiters 1
+fasta_formatter -i AP_018_muscle.fasta -o AP_018_muscle.tab -t
+grep AP_reference_CT_converted AP_018_muscle.tab > AP_018_reference.tab
+awk '{print $2}' AP_018_reference.tab > AP_018_reference_sequence.tab
+awk '{print $1}' AP_018_muscle.tab > AP_018_uniquenames.tab
+awk '{print $2}' AP_018_muscle.tab > AP_018_sequences.tab
+AP_018=$(python find_CpGs_AP.py AP_018_reference_sequence.tab)
+cut -c $AP_018 AP_018_sequences.tab > AP_018_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_018_uniquenames.tab
+sed -i 's/;/ /g' AP_018_uniquenames.tab
+sed -i 's/=/ /g' AP_018_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_018_uniquenames.tab > AP_018_uniqueinfo.tab
+paste AP_018_uniqueinfo.tab AP_018_unnumbered_haplotypes.tab > AP_018_redundant_haplotypes.tab
+grep :019:1:N:0:96 AP_bowtie.sam > AP_019_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_019_bowtie.sam > AP_019_awk.fasta
+usearch -derep_fulllength AP_019_awk.fasta -fastaout AP_019_uniques.fasta -sizeout -relabel AP_019_
+cat AP_019_uniques.fasta AP_reference_CT_converted.fasta > AP_019_input_muscle.fasta
+muscle -in AP_019_input_muscle.fasta -out AP_019_muscle.fasta -maxiters 1
+fasta_formatter -i AP_019_muscle.fasta -o AP_019_muscle.tab -t
+grep AP_reference_CT_converted AP_019_muscle.tab > AP_019_reference.tab
+awk '{print $2}' AP_019_reference.tab > AP_019_reference_sequence.tab
+awk '{print $1}' AP_019_muscle.tab > AP_019_uniquenames.tab
+awk '{print $2}' AP_019_muscle.tab > AP_019_sequences.tab
+AP_019=$(python find_CpGs_AP.py AP_019_reference_sequence.tab)
+cut -c $AP_019 AP_019_sequences.tab > AP_019_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_019_uniquenames.tab
+sed -i 's/;/ /g' AP_019_uniquenames.tab
+sed -i 's/=/ /g' AP_019_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_019_uniquenames.tab > AP_019_uniqueinfo.tab
+paste AP_019_uniqueinfo.tab AP_019_unnumbered_haplotypes.tab > AP_019_redundant_haplotypes.tab
+grep :020:1:N:0:1 AP_bowtie.sam > AP_020_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_020_bowtie.sam > AP_020_awk.fasta
+usearch -derep_fulllength AP_020_awk.fasta -fastaout AP_020_uniques.fasta -sizeout -relabel AP_020_
+cat AP_020_uniques.fasta AP_reference_CT_converted.fasta > AP_020_input_muscle.fasta
+muscle -in AP_020_input_muscle.fasta -out AP_020_muscle.fasta -maxiters 1
+fasta_formatter -i AP_020_muscle.fasta -o AP_020_muscle.tab -t
+grep AP_reference_CT_converted AP_020_muscle.tab > AP_020_reference.tab
+awk '{print $2}' AP_020_reference.tab > AP_020_reference_sequence.tab
+awk '{print $1}' AP_020_muscle.tab > AP_020_uniquenames.tab
+awk '{print $2}' AP_020_muscle.tab > AP_020_sequences.tab
+AP_020=$(python find_CpGs_AP.py AP_020_reference_sequence.tab)
+cut -c $AP_020 AP_020_sequences.tab > AP_020_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_020_uniquenames.tab
+sed -i 's/;/ /g' AP_020_uniquenames.tab
+sed -i 's/=/ /g' AP_020_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_020_uniquenames.tab > AP_020_uniqueinfo.tab
+paste AP_020_uniqueinfo.tab AP_020_unnumbered_haplotypes.tab > AP_020_redundant_haplotypes.tab
+grep :061:1:N:0:9 AP_bowtie.sam > AP_061_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_061_bowtie.sam > AP_061_awk.fasta
+usearch -derep_fulllength AP_061_awk.fasta -fastaout AP_061_uniques.fasta -sizeout -relabel AP_061_
+cat AP_061_uniques.fasta AP_reference_CT_converted.fasta > AP_061_input_muscle.fasta
+muscle -in AP_061_input_muscle.fasta -out AP_061_muscle.fasta -maxiters 1
+fasta_formatter -i AP_061_muscle.fasta -o AP_061_muscle.tab -t
+grep AP_reference_CT_converted AP_061_muscle.tab > AP_061_reference.tab
+awk '{print $2}' AP_061_reference.tab > AP_061_reference_sequence.tab
+awk '{print $1}' AP_061_muscle.tab > AP_061_uniquenames.tab
+awk '{print $2}' AP_061_muscle.tab > AP_061_sequences.tab
+AP_061=$(python find_CpGs_AP.py AP_061_reference_sequence.tab)
+cut -c $AP_061 AP_061_sequences.tab > AP_061_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_061_uniquenames.tab
+sed -i 's/;/ /g' AP_061_uniquenames.tab
+sed -i 's/=/ /g' AP_061_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_061_uniquenames.tab > AP_061_uniqueinfo.tab
+paste AP_061_uniqueinfo.tab AP_061_unnumbered_haplotypes.tab > AP_061_redundant_haplotypes.tab
+grep :062:1:N:0:17 AP_bowtie.sam > AP_062_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_062_bowtie.sam > AP_062_awk.fasta
+usearch -derep_fulllength AP_062_awk.fasta -fastaout AP_062_uniques.fasta -sizeout -relabel AP_062_
+cat AP_062_uniques.fasta AP_reference_CT_converted.fasta > AP_062_input_muscle.fasta
+muscle -in AP_062_input_muscle.fasta -out AP_062_muscle.fasta -maxiters 1
+fasta_formatter -i AP_062_muscle.fasta -o AP_062_muscle.tab -t
+grep AP_reference_CT_converted AP_062_muscle.tab > AP_062_reference.tab
+awk '{print $2}' AP_062_reference.tab > AP_062_reference_sequence.tab
+awk '{print $1}' AP_062_muscle.tab > AP_062_uniquenames.tab
+awk '{print $2}' AP_062_muscle.tab > AP_062_sequences.tab
+AP_062=$(python find_CpGs_AP.py AP_062_reference_sequence.tab)
+cut -c $AP_062 AP_062_sequences.tab > AP_062_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_062_uniquenames.tab
+sed -i 's/;/ /g' AP_062_uniquenames.tab
+sed -i 's/=/ /g' AP_062_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_062_uniquenames.tab > AP_062_uniqueinfo.tab
+paste AP_062_uniqueinfo.tab AP_062_unnumbered_haplotypes.tab > AP_062_redundant_haplotypes.tab
+grep :063:1:N:0:25 AP_bowtie.sam > AP_063_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_063_bowtie.sam > AP_063_awk.fasta
+usearch -derep_fulllength AP_063_awk.fasta -fastaout AP_063_uniques.fasta -sizeout -relabel AP_063_
+cat AP_063_uniques.fasta AP_reference_CT_converted.fasta > AP_063_input_muscle.fasta
+muscle -in AP_063_input_muscle.fasta -out AP_063_muscle.fasta -maxiters 1
+fasta_formatter -i AP_063_muscle.fasta -o AP_063_muscle.tab -t
+grep AP_reference_CT_converted AP_063_muscle.tab > AP_063_reference.tab
+awk '{print $2}' AP_063_reference.tab > AP_063_reference_sequence.tab
+awk '{print $1}' AP_063_muscle.tab > AP_063_uniquenames.tab
+awk '{print $2}' AP_063_muscle.tab > AP_063_sequences.tab
+AP_063=$(python find_CpGs_AP.py AP_063_reference_sequence.tab)
+cut -c $AP_063 AP_063_sequences.tab > AP_063_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_063_uniquenames.tab
+sed -i 's/;/ /g' AP_063_uniquenames.tab
+sed -i 's/=/ /g' AP_063_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_063_uniquenames.tab > AP_063_uniqueinfo.tab
+paste AP_063_uniqueinfo.tab AP_063_unnumbered_haplotypes.tab > AP_063_redundant_haplotypes.tab
+grep :064:1:N:0:33 AP_bowtie.sam > AP_064_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_064_bowtie.sam > AP_064_awk.fasta
+usearch -derep_fulllength AP_064_awk.fasta -fastaout AP_064_uniques.fasta -sizeout -relabel AP_064_
+cat AP_064_uniques.fasta AP_reference_CT_converted.fasta > AP_064_input_muscle.fasta
+muscle -in AP_064_input_muscle.fasta -out AP_064_muscle.fasta -maxiters 1
+fasta_formatter -i AP_064_muscle.fasta -o AP_064_muscle.tab -t
+grep AP_reference_CT_converted AP_064_muscle.tab > AP_064_reference.tab
+awk '{print $2}' AP_064_reference.tab > AP_064_reference_sequence.tab
+awk '{print $1}' AP_064_muscle.tab > AP_064_uniquenames.tab
+awk '{print $2}' AP_064_muscle.tab > AP_064_sequences.tab
+AP_064=$(python find_CpGs_AP.py AP_064_reference_sequence.tab)
+cut -c $AP_064 AP_064_sequences.tab > AP_064_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_064_uniquenames.tab
+sed -i 's/;/ /g' AP_064_uniquenames.tab
+sed -i 's/=/ /g' AP_064_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_064_uniquenames.tab > AP_064_uniqueinfo.tab
+paste AP_064_uniqueinfo.tab AP_064_unnumbered_haplotypes.tab > AP_064_redundant_haplotypes.tab
+grep :065:1:N:0:41 AP_bowtie.sam > AP_065_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_065_bowtie.sam > AP_065_awk.fasta
+usearch -derep_fulllength AP_065_awk.fasta -fastaout AP_065_uniques.fasta -sizeout -relabel AP_065_
+cat AP_065_uniques.fasta AP_reference_CT_converted.fasta > AP_065_input_muscle.fasta
+muscle -in AP_065_input_muscle.fasta -out AP_065_muscle.fasta -maxiters 1
+fasta_formatter -i AP_065_muscle.fasta -o AP_065_muscle.tab -t
+grep AP_reference_CT_converted AP_065_muscle.tab > AP_065_reference.tab
+awk '{print $2}' AP_065_reference.tab > AP_065_reference_sequence.tab
+awk '{print $1}' AP_065_muscle.tab > AP_065_uniquenames.tab
+awk '{print $2}' AP_065_muscle.tab > AP_065_sequences.tab
+AP_065=$(python find_CpGs_AP.py AP_065_reference_sequence.tab)
+cut -c $AP_065 AP_065_sequences.tab > AP_065_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_065_uniquenames.tab
+sed -i 's/;/ /g' AP_065_uniquenames.tab
+sed -i 's/=/ /g' AP_065_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_065_uniquenames.tab > AP_065_uniqueinfo.tab
+paste AP_065_uniqueinfo.tab AP_065_unnumbered_haplotypes.tab > AP_065_redundant_haplotypes.tab
+grep :066:1:N:0:49 AP_bowtie.sam > AP_066_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_066_bowtie.sam > AP_066_awk.fasta
+usearch -derep_fulllength AP_066_awk.fasta -fastaout AP_066_uniques.fasta -sizeout -relabel AP_066_
+cat AP_066_uniques.fasta AP_reference_CT_converted.fasta > AP_066_input_muscle.fasta
+muscle -in AP_066_input_muscle.fasta -out AP_066_muscle.fasta -maxiters 1
+fasta_formatter -i AP_066_muscle.fasta -o AP_066_muscle.tab -t
+grep AP_reference_CT_converted AP_066_muscle.tab > AP_066_reference.tab
+awk '{print $2}' AP_066_reference.tab > AP_066_reference_sequence.tab
+awk '{print $1}' AP_066_muscle.tab > AP_066_uniquenames.tab
+awk '{print $2}' AP_066_muscle.tab > AP_066_sequences.tab
+AP_066=$(python find_CpGs_AP.py AP_066_reference_sequence.tab)
+cut -c $AP_066 AP_066_sequences.tab > AP_066_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_066_uniquenames.tab
+sed -i 's/;/ /g' AP_066_uniquenames.tab
+sed -i 's/=/ /g' AP_066_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_066_uniquenames.tab > AP_066_uniqueinfo.tab
+paste AP_066_uniqueinfo.tab AP_066_unnumbered_haplotypes.tab > AP_066_redundant_haplotypes.tab
+grep :067:1:N:0:57 AP_bowtie.sam > AP_067_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_067_bowtie.sam > AP_067_awk.fasta
+usearch -derep_fulllength AP_067_awk.fasta -fastaout AP_067_uniques.fasta -sizeout -relabel AP_067_
+cat AP_067_uniques.fasta AP_reference_CT_converted.fasta > AP_067_input_muscle.fasta
+muscle -in AP_067_input_muscle.fasta -out AP_067_muscle.fasta -maxiters 1
+fasta_formatter -i AP_067_muscle.fasta -o AP_067_muscle.tab -t
+grep AP_reference_CT_converted AP_067_muscle.tab > AP_067_reference.tab
+awk '{print $2}' AP_067_reference.tab > AP_067_reference_sequence.tab
+awk '{print $1}' AP_067_muscle.tab > AP_067_uniquenames.tab
+awk '{print $2}' AP_067_muscle.tab > AP_067_sequences.tab
+AP_067=$(python find_CpGs_AP.py AP_067_reference_sequence.tab)
+cut -c $AP_067 AP_067_sequences.tab > AP_067_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_067_uniquenames.tab
+sed -i 's/;/ /g' AP_067_uniquenames.tab
+sed -i 's/=/ /g' AP_067_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_067_uniquenames.tab > AP_067_uniqueinfo.tab
+paste AP_067_uniqueinfo.tab AP_067_unnumbered_haplotypes.tab > AP_067_redundant_haplotypes.tab
+grep :068:1:N:0:2 AP_bowtie.sam > AP_068_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_068_bowtie.sam > AP_068_awk.fasta
+usearch -derep_fulllength AP_068_awk.fasta -fastaout AP_068_uniques.fasta -sizeout -relabel AP_068_
+cat AP_068_uniques.fasta AP_reference_CT_converted.fasta > AP_068_input_muscle.fasta
+muscle -in AP_068_input_muscle.fasta -out AP_068_muscle.fasta -maxiters 1
+fasta_formatter -i AP_068_muscle.fasta -o AP_068_muscle.tab -t
+grep AP_reference_CT_converted AP_068_muscle.tab > AP_068_reference.tab
+awk '{print $2}' AP_068_reference.tab > AP_068_reference_sequence.tab
+awk '{print $1}' AP_068_muscle.tab > AP_068_uniquenames.tab
+awk '{print $2}' AP_068_muscle.tab > AP_068_sequences.tab
+AP_068=$(python find_CpGs_AP.py AP_068_reference_sequence.tab)
+cut -c $AP_068 AP_068_sequences.tab > AP_068_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_068_uniquenames.tab
+sed -i 's/;/ /g' AP_068_uniquenames.tab
+sed -i 's/=/ /g' AP_068_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_068_uniquenames.tab > AP_068_uniqueinfo.tab
+paste AP_068_uniqueinfo.tab AP_068_unnumbered_haplotypes.tab > AP_068_redundant_haplotypes.tab
+grep :115:1:N:0:10 AP_bowtie.sam > AP_115_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_115_bowtie.sam > AP_115_awk.fasta
+usearch -derep_fulllength AP_115_awk.fasta -fastaout AP_115_uniques.fasta -sizeout -relabel AP_115_
+cat AP_115_uniques.fasta AP_reference_CT_converted.fasta > AP_115_input_muscle.fasta
+muscle -in AP_115_input_muscle.fasta -out AP_115_muscle.fasta -maxiters 1
+fasta_formatter -i AP_115_muscle.fasta -o AP_115_muscle.tab -t
+grep AP_reference_CT_converted AP_115_muscle.tab > AP_115_reference.tab
+awk '{print $2}' AP_115_reference.tab > AP_115_reference_sequence.tab
+awk '{print $1}' AP_115_muscle.tab > AP_115_uniquenames.tab
+awk '{print $2}' AP_115_muscle.tab > AP_115_sequences.tab
+AP_115=$(python find_CpGs_AP.py AP_115_reference_sequence.tab)
+cut -c $AP_115 AP_115_sequences.tab > AP_115_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_115_uniquenames.tab
+sed -i 's/;/ /g' AP_115_uniquenames.tab
+sed -i 's/=/ /g' AP_115_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_115_uniquenames.tab > AP_115_uniqueinfo.tab
+paste AP_115_uniqueinfo.tab AP_115_unnumbered_haplotypes.tab > AP_115_redundant_haplotypes.tab
+grep :116:1:N:0:18 AP_bowtie.sam > AP_116_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_116_bowtie.sam > AP_116_awk.fasta
+usearch -derep_fulllength AP_116_awk.fasta -fastaout AP_116_uniques.fasta -sizeout -relabel AP_116_
+cat AP_116_uniques.fasta AP_reference_CT_converted.fasta > AP_116_input_muscle.fasta
+muscle -in AP_116_input_muscle.fasta -out AP_116_muscle.fasta -maxiters 1
+fasta_formatter -i AP_116_muscle.fasta -o AP_116_muscle.tab -t
+grep AP_reference_CT_converted AP_116_muscle.tab > AP_116_reference.tab
+awk '{print $2}' AP_116_reference.tab > AP_116_reference_sequence.tab
+awk '{print $1}' AP_116_muscle.tab > AP_116_uniquenames.tab
+awk '{print $2}' AP_116_muscle.tab > AP_116_sequences.tab
+AP_116=$(python find_CpGs_AP.py AP_116_reference_sequence.tab)
+cut -c $AP_116 AP_116_sequences.tab > AP_116_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_116_uniquenames.tab
+sed -i 's/;/ /g' AP_116_uniquenames.tab
+sed -i 's/=/ /g' AP_116_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_116_uniquenames.tab > AP_116_uniqueinfo.tab
+paste AP_116_uniqueinfo.tab AP_116_unnumbered_haplotypes.tab > AP_116_redundant_haplotypes.tab
+grep :117:1:N:0:26 AP_bowtie.sam > AP_117_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_117_bowtie.sam > AP_117_awk.fasta
+usearch -derep_fulllength AP_117_awk.fasta -fastaout AP_117_uniques.fasta -sizeout -relabel AP_117_
+cat AP_117_uniques.fasta AP_reference_CT_converted.fasta > AP_117_input_muscle.fasta
+muscle -in AP_117_input_muscle.fasta -out AP_117_muscle.fasta -maxiters 1
+fasta_formatter -i AP_117_muscle.fasta -o AP_117_muscle.tab -t
+grep AP_reference_CT_converted AP_117_muscle.tab > AP_117_reference.tab
+awk '{print $2}' AP_117_reference.tab > AP_117_reference_sequence.tab
+awk '{print $1}' AP_117_muscle.tab > AP_117_uniquenames.tab
+awk '{print $2}' AP_117_muscle.tab > AP_117_sequences.tab
+AP_117=$(python find_CpGs_AP.py AP_117_reference_sequence.tab)
+cut -c $AP_117 AP_117_sequences.tab > AP_117_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_117_uniquenames.tab
+sed -i 's/;/ /g' AP_117_uniquenames.tab
+sed -i 's/=/ /g' AP_117_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_117_uniquenames.tab > AP_117_uniqueinfo.tab
+paste AP_117_uniqueinfo.tab AP_117_unnumbered_haplotypes.tab > AP_117_redundant_haplotypes.tab
+grep :118:1:N:0:34 AP_bowtie.sam > AP_118_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_118_bowtie.sam > AP_118_awk.fasta
+usearch -derep_fulllength AP_118_awk.fasta -fastaout AP_118_uniques.fasta -sizeout -relabel AP_118_
+cat AP_118_uniques.fasta AP_reference_CT_converted.fasta > AP_118_input_muscle.fasta
+muscle -in AP_118_input_muscle.fasta -out AP_118_muscle.fasta -maxiters 1
+fasta_formatter -i AP_118_muscle.fasta -o AP_118_muscle.tab -t
+grep AP_reference_CT_converted AP_118_muscle.tab > AP_118_reference.tab
+awk '{print $2}' AP_118_reference.tab > AP_118_reference_sequence.tab
+awk '{print $1}' AP_118_muscle.tab > AP_118_uniquenames.tab
+awk '{print $2}' AP_118_muscle.tab > AP_118_sequences.tab
+AP_118=$(python find_CpGs_AP.py AP_118_reference_sequence.tab)
+cut -c $AP_118 AP_118_sequences.tab > AP_118_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_118_uniquenames.tab
+sed -i 's/;/ /g' AP_118_uniquenames.tab
+sed -i 's/=/ /g' AP_118_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_118_uniquenames.tab > AP_118_uniqueinfo.tab
+paste AP_118_uniqueinfo.tab AP_118_unnumbered_haplotypes.tab > AP_118_redundant_haplotypes.tab
+grep :119:1:N:0:42 AP_bowtie.sam > AP_119_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_119_bowtie.sam > AP_119_awk.fasta
+usearch -derep_fulllength AP_119_awk.fasta -fastaout AP_119_uniques.fasta -sizeout -relabel AP_119_
+cat AP_119_uniques.fasta AP_reference_CT_converted.fasta > AP_119_input_muscle.fasta
+muscle -in AP_119_input_muscle.fasta -out AP_119_muscle.fasta -maxiters 1
+fasta_formatter -i AP_119_muscle.fasta -o AP_119_muscle.tab -t
+grep AP_reference_CT_converted AP_119_muscle.tab > AP_119_reference.tab
+awk '{print $2}' AP_119_reference.tab > AP_119_reference_sequence.tab
+awk '{print $1}' AP_119_muscle.tab > AP_119_uniquenames.tab
+awk '{print $2}' AP_119_muscle.tab > AP_119_sequences.tab
+AP_119=$(python find_CpGs_AP.py AP_119_reference_sequence.tab)
+cut -c $AP_119 AP_119_sequences.tab > AP_119_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_119_uniquenames.tab
+sed -i 's/;/ /g' AP_119_uniquenames.tab
+sed -i 's/=/ /g' AP_119_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_119_uniquenames.tab > AP_119_uniqueinfo.tab
+paste AP_119_uniqueinfo.tab AP_119_unnumbered_haplotypes.tab > AP_119_redundant_haplotypes.tab
+grep :120:1:N:0:50 AP_bowtie.sam > AP_120_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_120_bowtie.sam > AP_120_awk.fasta
+usearch -derep_fulllength AP_120_awk.fasta -fastaout AP_120_uniques.fasta -sizeout -relabel AP_120_
+cat AP_120_uniques.fasta AP_reference_CT_converted.fasta > AP_120_input_muscle.fasta
+muscle -in AP_120_input_muscle.fasta -out AP_120_muscle.fasta -maxiters 1
+fasta_formatter -i AP_120_muscle.fasta -o AP_120_muscle.tab -t
+grep AP_reference_CT_converted AP_120_muscle.tab > AP_120_reference.tab
+awk '{print $2}' AP_120_reference.tab > AP_120_reference_sequence.tab
+awk '{print $1}' AP_120_muscle.tab > AP_120_uniquenames.tab
+awk '{print $2}' AP_120_muscle.tab > AP_120_sequences.tab
+AP_120=$(python find_CpGs_AP.py AP_120_reference_sequence.tab)
+cut -c $AP_120 AP_120_sequences.tab > AP_120_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_120_uniquenames.tab
+sed -i 's/;/ /g' AP_120_uniquenames.tab
+sed -i 's/=/ /g' AP_120_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_120_uniquenames.tab > AP_120_uniqueinfo.tab
+paste AP_120_uniqueinfo.tab AP_120_unnumbered_haplotypes.tab > AP_120_redundant_haplotypes.tab
+grep :121:1:N:0:0 AP_bowtie.sam > AP_121_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_121_bowtie.sam > AP_121_awk.fasta
+usearch -derep_fulllength AP_121_awk.fasta -fastaout AP_121_uniques.fasta -sizeout -relabel AP_121_
+cat AP_121_uniques.fasta AP_reference_CT_converted.fasta > AP_121_input_muscle.fasta
+muscle -in AP_121_input_muscle.fasta -out AP_121_muscle.fasta -maxiters 1
+fasta_formatter -i AP_121_muscle.fasta -o AP_121_muscle.tab -t
+grep AP_reference_CT_converted AP_121_muscle.tab > AP_121_reference.tab
+awk '{print $2}' AP_121_reference.tab > AP_121_reference_sequence.tab
+awk '{print $1}' AP_121_muscle.tab > AP_121_uniquenames.tab
+awk '{print $2}' AP_121_muscle.tab > AP_121_sequences.tab
+AP_121=$(python find_CpGs_AP.py AP_121_reference_sequence.tab)
+cut -c $AP_121 AP_121_sequences.tab > AP_121_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_121_uniquenames.tab
+sed -i 's/;/ /g' AP_121_uniquenames.tab
+sed -i 's/=/ /g' AP_121_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_121_uniquenames.tab > AP_121_uniqueinfo.tab
+paste AP_121_uniqueinfo.tab AP_121_unnumbered_haplotypes.tab > AP_121_redundant_haplotypes.tab
+grep :122:1:N:0:0 AP_bowtie.sam > AP_122_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_122_bowtie.sam > AP_122_awk.fasta
+usearch -derep_fulllength AP_122_awk.fasta -fastaout AP_122_uniques.fasta -sizeout -relabel AP_122_
+cat AP_122_uniques.fasta AP_reference_CT_converted.fasta > AP_122_input_muscle.fasta
+muscle -in AP_122_input_muscle.fasta -out AP_122_muscle.fasta -maxiters 1
+fasta_formatter -i AP_122_muscle.fasta -o AP_122_muscle.tab -t
+grep AP_reference_CT_converted AP_122_muscle.tab > AP_122_reference.tab
+awk '{print $2}' AP_122_reference.tab > AP_122_reference_sequence.tab
+awk '{print $1}' AP_122_muscle.tab > AP_122_uniquenames.tab
+awk '{print $2}' AP_122_muscle.tab > AP_122_sequences.tab
+AP_122=$(python find_CpGs_AP.py AP_122_reference_sequence.tab)
+cut -c $AP_122 AP_122_sequences.tab > AP_122_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_122_uniquenames.tab
+sed -i 's/;/ /g' AP_122_uniquenames.tab
+sed -i 's/=/ /g' AP_122_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_122_uniquenames.tab > AP_122_uniqueinfo.tab
+paste AP_122_uniqueinfo.tab AP_122_unnumbered_haplotypes.tab > AP_122_redundant_haplotypes.tab
+grep :123:1:N:0:0 AP_bowtie.sam > AP_123_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_123_bowtie.sam > AP_123_awk.fasta
+usearch -derep_fulllength AP_123_awk.fasta -fastaout AP_123_uniques.fasta -sizeout -relabel AP_123_
+cat AP_123_uniques.fasta AP_reference_CT_converted.fasta > AP_123_input_muscle.fasta
+muscle -in AP_123_input_muscle.fasta -out AP_123_muscle.fasta -maxiters 1
+fasta_formatter -i AP_123_muscle.fasta -o AP_123_muscle.tab -t
+grep AP_reference_CT_converted AP_123_muscle.tab > AP_123_reference.tab
+awk '{print $2}' AP_123_reference.tab > AP_123_reference_sequence.tab
+awk '{print $1}' AP_123_muscle.tab > AP_123_uniquenames.tab
+awk '{print $2}' AP_123_muscle.tab > AP_123_sequences.tab
+AP_123=$(python find_CpGs_AP.py AP_123_reference_sequence.tab)
+cut -c $AP_123 AP_123_sequences.tab > AP_123_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_123_uniquenames.tab
+sed -i 's/;/ /g' AP_123_uniquenames.tab
+sed -i 's/=/ /g' AP_123_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_123_uniquenames.tab > AP_123_uniqueinfo.tab
+paste AP_123_uniqueinfo.tab AP_123_unnumbered_haplotypes.tab > AP_123_redundant_haplotypes.tab
+grep :124:1:N:0:0 AP_bowtie.sam > AP_124_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_124_bowtie.sam > AP_124_awk.fasta
+usearch -derep_fulllength AP_124_awk.fasta -fastaout AP_124_uniques.fasta -sizeout -relabel AP_124_
+cat AP_124_uniques.fasta AP_reference_CT_converted.fasta > AP_124_input_muscle.fasta
+muscle -in AP_124_input_muscle.fasta -out AP_124_muscle.fasta -maxiters 1
+fasta_formatter -i AP_124_muscle.fasta -o AP_124_muscle.tab -t
+grep AP_reference_CT_converted AP_124_muscle.tab > AP_124_reference.tab
+awk '{print $2}' AP_124_reference.tab > AP_124_reference_sequence.tab
+awk '{print $1}' AP_124_muscle.tab > AP_124_uniquenames.tab
+awk '{print $2}' AP_124_muscle.tab > AP_124_sequences.tab
+AP_124=$(python find_CpGs_AP.py AP_124_reference_sequence.tab)
+cut -c $AP_124 AP_124_sequences.tab > AP_124_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_124_uniquenames.tab
+sed -i 's/;/ /g' AP_124_uniquenames.tab
+sed -i 's/=/ /g' AP_124_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_124_uniquenames.tab > AP_124_uniqueinfo.tab
+paste AP_124_uniqueinfo.tab AP_124_unnumbered_haplotypes.tab > AP_124_redundant_haplotypes.tab
+grep :126:1:N:0:0 AP_bowtie.sam > AP_126_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_126_bowtie.sam > AP_126_awk.fasta
+usearch -derep_fulllength AP_126_awk.fasta -fastaout AP_126_uniques.fasta -sizeout -relabel AP_126_
+cat AP_126_uniques.fasta AP_reference_CT_converted.fasta > AP_126_input_muscle.fasta
+muscle -in AP_126_input_muscle.fasta -out AP_126_muscle.fasta -maxiters 1
+fasta_formatter -i AP_126_muscle.fasta -o AP_126_muscle.tab -t
+grep AP_reference_CT_converted AP_126_muscle.tab > AP_126_reference.tab
+awk '{print $2}' AP_126_reference.tab > AP_126_reference_sequence.tab
+awk '{print $1}' AP_126_muscle.tab > AP_126_uniquenames.tab
+awk '{print $2}' AP_126_muscle.tab > AP_126_sequences.tab
+AP_126=$(python find_CpGs_AP.py AP_126_reference_sequence.tab)
+cut -c $AP_126 AP_126_sequences.tab > AP_126_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_126_uniquenames.tab
+sed -i 's/;/ /g' AP_126_uniquenames.tab
+sed -i 's/=/ /g' AP_126_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_126_uniquenames.tab > AP_126_uniqueinfo.tab
+paste AP_126_uniqueinfo.tab AP_126_unnumbered_haplotypes.tab > AP_126_redundant_haplotypes.tab
+grep :127:1:N:0:0 AP_bowtie.sam > AP_127_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_127_bowtie.sam > AP_127_awk.fasta
+usearch -derep_fulllength AP_127_awk.fasta -fastaout AP_127_uniques.fasta -sizeout -relabel AP_127_
+cat AP_127_uniques.fasta AP_reference_CT_converted.fasta > AP_127_input_muscle.fasta
+muscle -in AP_127_input_muscle.fasta -out AP_127_muscle.fasta -maxiters 1
+fasta_formatter -i AP_127_muscle.fasta -o AP_127_muscle.tab -t
+grep AP_reference_CT_converted AP_127_muscle.tab > AP_127_reference.tab
+awk '{print $2}' AP_127_reference.tab > AP_127_reference_sequence.tab
+awk '{print $1}' AP_127_muscle.tab > AP_127_uniquenames.tab
+awk '{print $2}' AP_127_muscle.tab > AP_127_sequences.tab
+AP_127=$(python find_CpGs_AP.py AP_127_reference_sequence.tab)
+cut -c $AP_127 AP_127_sequences.tab > AP_127_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_127_uniquenames.tab
+sed -i 's/;/ /g' AP_127_uniquenames.tab
+sed -i 's/=/ /g' AP_127_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_127_uniquenames.tab > AP_127_uniqueinfo.tab
+paste AP_127_uniqueinfo.tab AP_127_unnumbered_haplotypes.tab > AP_127_redundant_haplotypes.tab
+grep :128:1:N:0:0 AP_bowtie.sam > AP_128_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_128_bowtie.sam > AP_128_awk.fasta
+usearch -derep_fulllength AP_128_awk.fasta -fastaout AP_128_uniques.fasta -sizeout -relabel AP_128_
+cat AP_128_uniques.fasta AP_reference_CT_converted.fasta > AP_128_input_muscle.fasta
+muscle -in AP_128_input_muscle.fasta -out AP_128_muscle.fasta -maxiters 1
+fasta_formatter -i AP_128_muscle.fasta -o AP_128_muscle.tab -t
+grep AP_reference_CT_converted AP_128_muscle.tab > AP_128_reference.tab
+awk '{print $2}' AP_128_reference.tab > AP_128_reference_sequence.tab
+awk '{print $1}' AP_128_muscle.tab > AP_128_uniquenames.tab
+awk '{print $2}' AP_128_muscle.tab > AP_128_sequences.tab
+AP_128=$(python find_CpGs_AP.py AP_128_reference_sequence.tab)
+cut -c $AP_128 AP_128_sequences.tab > AP_128_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_128_uniquenames.tab
+sed -i 's/;/ /g' AP_128_uniquenames.tab
+sed -i 's/=/ /g' AP_128_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_128_uniquenames.tab > AP_128_uniqueinfo.tab
+paste AP_128_uniqueinfo.tab AP_128_unnumbered_haplotypes.tab > AP_128_redundant_haplotypes.tab
+grep :129:1:N:0:58 AP_bowtie.sam > AP_129_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_129_bowtie.sam > AP_129_awk.fasta
+usearch -derep_fulllength AP_129_awk.fasta -fastaout AP_129_uniques.fasta -sizeout -relabel AP_129_
+cat AP_129_uniques.fasta AP_reference_CT_converted.fasta > AP_129_input_muscle.fasta
+muscle -in AP_129_input_muscle.fasta -out AP_129_muscle.fasta -maxiters 1
+fasta_formatter -i AP_129_muscle.fasta -o AP_129_muscle.tab -t
+grep AP_reference_CT_converted AP_129_muscle.tab > AP_129_reference.tab
+awk '{print $2}' AP_129_reference.tab > AP_129_reference_sequence.tab
+awk '{print $1}' AP_129_muscle.tab > AP_129_uniquenames.tab
+awk '{print $2}' AP_129_muscle.tab > AP_129_sequences.tab
+AP_129=$(python find_CpGs_AP.py AP_129_reference_sequence.tab)
+cut -c $AP_129 AP_129_sequences.tab > AP_129_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_129_uniquenames.tab
+sed -i 's/;/ /g' AP_129_uniquenames.tab
+sed -i 's/=/ /g' AP_129_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_129_uniquenames.tab > AP_129_uniqueinfo.tab
+paste AP_129_uniqueinfo.tab AP_129_unnumbered_haplotypes.tab > AP_129_redundant_haplotypes.tab
+grep :130:1:N:0:3 AP_bowtie.sam > AP_130_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_130_bowtie.sam > AP_130_awk.fasta
+usearch -derep_fulllength AP_130_awk.fasta -fastaout AP_130_uniques.fasta -sizeout -relabel AP_130_
+cat AP_130_uniques.fasta AP_reference_CT_converted.fasta > AP_130_input_muscle.fasta
+muscle -in AP_130_input_muscle.fasta -out AP_130_muscle.fasta -maxiters 1
+fasta_formatter -i AP_130_muscle.fasta -o AP_130_muscle.tab -t
+grep AP_reference_CT_converted AP_130_muscle.tab > AP_130_reference.tab
+awk '{print $2}' AP_130_reference.tab > AP_130_reference_sequence.tab
+awk '{print $1}' AP_130_muscle.tab > AP_130_uniquenames.tab
+awk '{print $2}' AP_130_muscle.tab > AP_130_sequences.tab
+AP_130=$(python find_CpGs_AP.py AP_130_reference_sequence.tab)
+cut -c $AP_130 AP_130_sequences.tab > AP_130_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_130_uniquenames.tab
+sed -i 's/;/ /g' AP_130_uniquenames.tab
+sed -i 's/=/ /g' AP_130_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_130_uniquenames.tab > AP_130_uniqueinfo.tab
+paste AP_130_uniqueinfo.tab AP_130_unnumbered_haplotypes.tab > AP_130_redundant_haplotypes.tab
+grep :131:1:N:0:11 AP_bowtie.sam > AP_131_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_131_bowtie.sam > AP_131_awk.fasta
+usearch -derep_fulllength AP_131_awk.fasta -fastaout AP_131_uniques.fasta -sizeout -relabel AP_131_
+cat AP_131_uniques.fasta AP_reference_CT_converted.fasta > AP_131_input_muscle.fasta
+muscle -in AP_131_input_muscle.fasta -out AP_131_muscle.fasta -maxiters 1
+fasta_formatter -i AP_131_muscle.fasta -o AP_131_muscle.tab -t
+grep AP_reference_CT_converted AP_131_muscle.tab > AP_131_reference.tab
+awk '{print $2}' AP_131_reference.tab > AP_131_reference_sequence.tab
+awk '{print $1}' AP_131_muscle.tab > AP_131_uniquenames.tab
+awk '{print $2}' AP_131_muscle.tab > AP_131_sequences.tab
+AP_131=$(python find_CpGs_AP.py AP_131_reference_sequence.tab)
+cut -c $AP_131 AP_131_sequences.tab > AP_131_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_131_uniquenames.tab
+sed -i 's/;/ /g' AP_131_uniquenames.tab
+sed -i 's/=/ /g' AP_131_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_131_uniquenames.tab > AP_131_uniqueinfo.tab
+paste AP_131_uniqueinfo.tab AP_131_unnumbered_haplotypes.tab > AP_131_redundant_haplotypes.tab
+grep :132:1:N:0:19 AP_bowtie.sam > AP_132_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_132_bowtie.sam > AP_132_awk.fasta
+usearch -derep_fulllength AP_132_awk.fasta -fastaout AP_132_uniques.fasta -sizeout -relabel AP_132_
+cat AP_132_uniques.fasta AP_reference_CT_converted.fasta > AP_132_input_muscle.fasta
+muscle -in AP_132_input_muscle.fasta -out AP_132_muscle.fasta -maxiters 1
+fasta_formatter -i AP_132_muscle.fasta -o AP_132_muscle.tab -t
+grep AP_reference_CT_converted AP_132_muscle.tab > AP_132_reference.tab
+awk '{print $2}' AP_132_reference.tab > AP_132_reference_sequence.tab
+awk '{print $1}' AP_132_muscle.tab > AP_132_uniquenames.tab
+awk '{print $2}' AP_132_muscle.tab > AP_132_sequences.tab
+AP_132=$(python find_CpGs_AP.py AP_132_reference_sequence.tab)
+cut -c $AP_132 AP_132_sequences.tab > AP_132_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_132_uniquenames.tab
+sed -i 's/;/ /g' AP_132_uniquenames.tab
+sed -i 's/=/ /g' AP_132_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_132_uniquenames.tab > AP_132_uniqueinfo.tab
+paste AP_132_uniqueinfo.tab AP_132_unnumbered_haplotypes.tab > AP_132_redundant_haplotypes.tab
+grep :133:1:N:0:27 AP_bowtie.sam > AP_133_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_133_bowtie.sam > AP_133_awk.fasta
+usearch -derep_fulllength AP_133_awk.fasta -fastaout AP_133_uniques.fasta -sizeout -relabel AP_133_
+cat AP_133_uniques.fasta AP_reference_CT_converted.fasta > AP_133_input_muscle.fasta
+muscle -in AP_133_input_muscle.fasta -out AP_133_muscle.fasta -maxiters 1
+fasta_formatter -i AP_133_muscle.fasta -o AP_133_muscle.tab -t
+grep AP_reference_CT_converted AP_133_muscle.tab > AP_133_reference.tab
+awk '{print $2}' AP_133_reference.tab > AP_133_reference_sequence.tab
+awk '{print $1}' AP_133_muscle.tab > AP_133_uniquenames.tab
+awk '{print $2}' AP_133_muscle.tab > AP_133_sequences.tab
+AP_133=$(python find_CpGs_AP.py AP_133_reference_sequence.tab)
+cut -c $AP_133 AP_133_sequences.tab > AP_133_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_133_uniquenames.tab
+sed -i 's/;/ /g' AP_133_uniquenames.tab
+sed -i 's/=/ /g' AP_133_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_133_uniquenames.tab > AP_133_uniqueinfo.tab
+paste AP_133_uniqueinfo.tab AP_133_unnumbered_haplotypes.tab > AP_133_redundant_haplotypes.tab
+grep :134:1:N:0:35 AP_bowtie.sam > AP_134_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_134_bowtie.sam > AP_134_awk.fasta
+usearch -derep_fulllength AP_134_awk.fasta -fastaout AP_134_uniques.fasta -sizeout -relabel AP_134_
+cat AP_134_uniques.fasta AP_reference_CT_converted.fasta > AP_134_input_muscle.fasta
+muscle -in AP_134_input_muscle.fasta -out AP_134_muscle.fasta -maxiters 1
+fasta_formatter -i AP_134_muscle.fasta -o AP_134_muscle.tab -t
+grep AP_reference_CT_converted AP_134_muscle.tab > AP_134_reference.tab
+awk '{print $2}' AP_134_reference.tab > AP_134_reference_sequence.tab
+awk '{print $1}' AP_134_muscle.tab > AP_134_uniquenames.tab
+awk '{print $2}' AP_134_muscle.tab > AP_134_sequences.tab
+AP_134=$(python find_CpGs_AP.py AP_134_reference_sequence.tab)
+cut -c $AP_134 AP_134_sequences.tab > AP_134_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_134_uniquenames.tab
+sed -i 's/;/ /g' AP_134_uniquenames.tab
+sed -i 's/=/ /g' AP_134_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_134_uniquenames.tab > AP_134_uniqueinfo.tab
+paste AP_134_uniqueinfo.tab AP_134_unnumbered_haplotypes.tab > AP_134_redundant_haplotypes.tab
+grep :135:1:N:0:43 AP_bowtie.sam > AP_135_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_135_bowtie.sam > AP_135_awk.fasta
+usearch -derep_fulllength AP_135_awk.fasta -fastaout AP_135_uniques.fasta -sizeout -relabel AP_135_
+cat AP_135_uniques.fasta AP_reference_CT_converted.fasta > AP_135_input_muscle.fasta
+muscle -in AP_135_input_muscle.fasta -out AP_135_muscle.fasta -maxiters 1
+fasta_formatter -i AP_135_muscle.fasta -o AP_135_muscle.tab -t
+grep AP_reference_CT_converted AP_135_muscle.tab > AP_135_reference.tab
+awk '{print $2}' AP_135_reference.tab > AP_135_reference_sequence.tab
+awk '{print $1}' AP_135_muscle.tab > AP_135_uniquenames.tab
+awk '{print $2}' AP_135_muscle.tab > AP_135_sequences.tab
+AP_135=$(python find_CpGs_AP.py AP_135_reference_sequence.tab)
+cut -c $AP_135 AP_135_sequences.tab > AP_135_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_135_uniquenames.tab
+sed -i 's/;/ /g' AP_135_uniquenames.tab
+sed -i 's/=/ /g' AP_135_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_135_uniquenames.tab > AP_135_uniqueinfo.tab
+paste AP_135_uniqueinfo.tab AP_135_unnumbered_haplotypes.tab > AP_135_redundant_haplotypes.tab
+grep :136:1:N:0:51 AP_bowtie.sam > AP_136_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_136_bowtie.sam > AP_136_awk.fasta
+usearch -derep_fulllength AP_136_awk.fasta -fastaout AP_136_uniques.fasta -sizeout -relabel AP_136_
+cat AP_136_uniques.fasta AP_reference_CT_converted.fasta > AP_136_input_muscle.fasta
+muscle -in AP_136_input_muscle.fasta -out AP_136_muscle.fasta -maxiters 1
+fasta_formatter -i AP_136_muscle.fasta -o AP_136_muscle.tab -t
+grep AP_reference_CT_converted AP_136_muscle.tab > AP_136_reference.tab
+awk '{print $2}' AP_136_reference.tab > AP_136_reference_sequence.tab
+awk '{print $1}' AP_136_muscle.tab > AP_136_uniquenames.tab
+awk '{print $2}' AP_136_muscle.tab > AP_136_sequences.tab
+AP_136=$(python find_CpGs_AP.py AP_136_reference_sequence.tab)
+cut -c $AP_136 AP_136_sequences.tab > AP_136_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_136_uniquenames.tab
+sed -i 's/;/ /g' AP_136_uniquenames.tab
+sed -i 's/=/ /g' AP_136_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_136_uniquenames.tab > AP_136_uniqueinfo.tab
+paste AP_136_uniqueinfo.tab AP_136_unnumbered_haplotypes.tab > AP_136_redundant_haplotypes.tab
+grep :137:1:N:0:59 AP_bowtie.sam > AP_137_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_137_bowtie.sam > AP_137_awk.fasta
+usearch -derep_fulllength AP_137_awk.fasta -fastaout AP_137_uniques.fasta -sizeout -relabel AP_137_
+cat AP_137_uniques.fasta AP_reference_CT_converted.fasta > AP_137_input_muscle.fasta
+muscle -in AP_137_input_muscle.fasta -out AP_137_muscle.fasta -maxiters 1
+fasta_formatter -i AP_137_muscle.fasta -o AP_137_muscle.tab -t
+grep AP_reference_CT_converted AP_137_muscle.tab > AP_137_reference.tab
+awk '{print $2}' AP_137_reference.tab > AP_137_reference_sequence.tab
+awk '{print $1}' AP_137_muscle.tab > AP_137_uniquenames.tab
+awk '{print $2}' AP_137_muscle.tab > AP_137_sequences.tab
+AP_137=$(python find_CpGs_AP.py AP_137_reference_sequence.tab)
+cut -c $AP_137 AP_137_sequences.tab > AP_137_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_137_uniquenames.tab
+sed -i 's/;/ /g' AP_137_uniquenames.tab
+sed -i 's/=/ /g' AP_137_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_137_uniquenames.tab > AP_137_uniqueinfo.tab
+paste AP_137_uniqueinfo.tab AP_137_unnumbered_haplotypes.tab > AP_137_redundant_haplotypes.tab
+grep :138:1:N:0:4 AP_bowtie.sam > AP_138_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_138_bowtie.sam > AP_138_awk.fasta
+usearch -derep_fulllength AP_138_awk.fasta -fastaout AP_138_uniques.fasta -sizeout -relabel AP_138_
+cat AP_138_uniques.fasta AP_reference_CT_converted.fasta > AP_138_input_muscle.fasta
+muscle -in AP_138_input_muscle.fasta -out AP_138_muscle.fasta -maxiters 1
+fasta_formatter -i AP_138_muscle.fasta -o AP_138_muscle.tab -t
+grep AP_reference_CT_converted AP_138_muscle.tab > AP_138_reference.tab
+awk '{print $2}' AP_138_reference.tab > AP_138_reference_sequence.tab
+awk '{print $1}' AP_138_muscle.tab > AP_138_uniquenames.tab
+awk '{print $2}' AP_138_muscle.tab > AP_138_sequences.tab
+AP_138=$(python find_CpGs_AP.py AP_138_reference_sequence.tab)
+cut -c $AP_138 AP_138_sequences.tab > AP_138_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_138_uniquenames.tab
+sed -i 's/;/ /g' AP_138_uniquenames.tab
+sed -i 's/=/ /g' AP_138_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_138_uniquenames.tab > AP_138_uniqueinfo.tab
+paste AP_138_uniqueinfo.tab AP_138_unnumbered_haplotypes.tab > AP_138_redundant_haplotypes.tab
+grep :139:1:N:0:12 AP_bowtie.sam > AP_139_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_139_bowtie.sam > AP_139_awk.fasta
+usearch -derep_fulllength AP_139_awk.fasta -fastaout AP_139_uniques.fasta -sizeout -relabel AP_139_
+cat AP_139_uniques.fasta AP_reference_CT_converted.fasta > AP_139_input_muscle.fasta
+muscle -in AP_139_input_muscle.fasta -out AP_139_muscle.fasta -maxiters 1
+fasta_formatter -i AP_139_muscle.fasta -o AP_139_muscle.tab -t
+grep AP_reference_CT_converted AP_139_muscle.tab > AP_139_reference.tab
+awk '{print $2}' AP_139_reference.tab > AP_139_reference_sequence.tab
+awk '{print $1}' AP_139_muscle.tab > AP_139_uniquenames.tab
+awk '{print $2}' AP_139_muscle.tab > AP_139_sequences.tab
+AP_139=$(python find_CpGs_AP.py AP_139_reference_sequence.tab)
+cut -c $AP_139 AP_139_sequences.tab > AP_139_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_139_uniquenames.tab
+sed -i 's/;/ /g' AP_139_uniquenames.tab
+sed -i 's/=/ /g' AP_139_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_139_uniquenames.tab > AP_139_uniqueinfo.tab
+paste AP_139_uniqueinfo.tab AP_139_unnumbered_haplotypes.tab > AP_139_redundant_haplotypes.tab
+grep :140:1:N:0:20 AP_bowtie.sam > AP_140_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_140_bowtie.sam > AP_140_awk.fasta
+usearch -derep_fulllength AP_140_awk.fasta -fastaout AP_140_uniques.fasta -sizeout -relabel AP_140_
+cat AP_140_uniques.fasta AP_reference_CT_converted.fasta > AP_140_input_muscle.fasta
+muscle -in AP_140_input_muscle.fasta -out AP_140_muscle.fasta -maxiters 1
+fasta_formatter -i AP_140_muscle.fasta -o AP_140_muscle.tab -t
+grep AP_reference_CT_converted AP_140_muscle.tab > AP_140_reference.tab
+awk '{print $2}' AP_140_reference.tab > AP_140_reference_sequence.tab
+awk '{print $1}' AP_140_muscle.tab > AP_140_uniquenames.tab
+awk '{print $2}' AP_140_muscle.tab > AP_140_sequences.tab
+AP_140=$(python find_CpGs_AP.py AP_140_reference_sequence.tab)
+cut -c $AP_140 AP_140_sequences.tab > AP_140_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_140_uniquenames.tab
+sed -i 's/;/ /g' AP_140_uniquenames.tab
+sed -i 's/=/ /g' AP_140_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_140_uniquenames.tab > AP_140_uniqueinfo.tab
+paste AP_140_uniqueinfo.tab AP_140_unnumbered_haplotypes.tab > AP_140_redundant_haplotypes.tab
+grep :141:1:N:0:28 AP_bowtie.sam > AP_141_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_141_bowtie.sam > AP_141_awk.fasta
+usearch -derep_fulllength AP_141_awk.fasta -fastaout AP_141_uniques.fasta -sizeout -relabel AP_141_
+cat AP_141_uniques.fasta AP_reference_CT_converted.fasta > AP_141_input_muscle.fasta
+muscle -in AP_141_input_muscle.fasta -out AP_141_muscle.fasta -maxiters 1
+fasta_formatter -i AP_141_muscle.fasta -o AP_141_muscle.tab -t
+grep AP_reference_CT_converted AP_141_muscle.tab > AP_141_reference.tab
+awk '{print $2}' AP_141_reference.tab > AP_141_reference_sequence.tab
+awk '{print $1}' AP_141_muscle.tab > AP_141_uniquenames.tab
+awk '{print $2}' AP_141_muscle.tab > AP_141_sequences.tab
+AP_141=$(python find_CpGs_AP.py AP_141_reference_sequence.tab)
+cut -c $AP_141 AP_141_sequences.tab > AP_141_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_141_uniquenames.tab
+sed -i 's/;/ /g' AP_141_uniquenames.tab
+sed -i 's/=/ /g' AP_141_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_141_uniquenames.tab > AP_141_uniqueinfo.tab
+paste AP_141_uniqueinfo.tab AP_141_unnumbered_haplotypes.tab > AP_141_redundant_haplotypes.tab
+grep :142:1:N:0:36 AP_bowtie.sam > AP_142_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_142_bowtie.sam > AP_142_awk.fasta
+usearch -derep_fulllength AP_142_awk.fasta -fastaout AP_142_uniques.fasta -sizeout -relabel AP_142_
+cat AP_142_uniques.fasta AP_reference_CT_converted.fasta > AP_142_input_muscle.fasta
+muscle -in AP_142_input_muscle.fasta -out AP_142_muscle.fasta -maxiters 1
+fasta_formatter -i AP_142_muscle.fasta -o AP_142_muscle.tab -t
+grep AP_reference_CT_converted AP_142_muscle.tab > AP_142_reference.tab
+awk '{print $2}' AP_142_reference.tab > AP_142_reference_sequence.tab
+awk '{print $1}' AP_142_muscle.tab > AP_142_uniquenames.tab
+awk '{print $2}' AP_142_muscle.tab > AP_142_sequences.tab
+AP_142=$(python find_CpGs_AP.py AP_142_reference_sequence.tab)
+cut -c $AP_142 AP_142_sequences.tab > AP_142_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_142_uniquenames.tab
+sed -i 's/;/ /g' AP_142_uniquenames.tab
+sed -i 's/=/ /g' AP_142_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_142_uniquenames.tab > AP_142_uniqueinfo.tab
+paste AP_142_uniqueinfo.tab AP_142_unnumbered_haplotypes.tab > AP_142_redundant_haplotypes.tab
+grep :143:1:N:0:44 AP_bowtie.sam > AP_143_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_143_bowtie.sam > AP_143_awk.fasta
+usearch -derep_fulllength AP_143_awk.fasta -fastaout AP_143_uniques.fasta -sizeout -relabel AP_143_
+cat AP_143_uniques.fasta AP_reference_CT_converted.fasta > AP_143_input_muscle.fasta
+muscle -in AP_143_input_muscle.fasta -out AP_143_muscle.fasta -maxiters 1
+fasta_formatter -i AP_143_muscle.fasta -o AP_143_muscle.tab -t
+grep AP_reference_CT_converted AP_143_muscle.tab > AP_143_reference.tab
+awk '{print $2}' AP_143_reference.tab > AP_143_reference_sequence.tab
+awk '{print $1}' AP_143_muscle.tab > AP_143_uniquenames.tab
+awk '{print $2}' AP_143_muscle.tab > AP_143_sequences.tab
+AP_143=$(python find_CpGs_AP.py AP_143_reference_sequence.tab)
+cut -c $AP_143 AP_143_sequences.tab > AP_143_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_143_uniquenames.tab
+sed -i 's/;/ /g' AP_143_uniquenames.tab
+sed -i 's/=/ /g' AP_143_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_143_uniquenames.tab > AP_143_uniqueinfo.tab
+paste AP_143_uniqueinfo.tab AP_143_unnumbered_haplotypes.tab > AP_143_redundant_haplotypes.tab
+grep :144:1:N:0:52 AP_bowtie.sam > AP_144_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_144_bowtie.sam > AP_144_awk.fasta
+usearch -derep_fulllength AP_144_awk.fasta -fastaout AP_144_uniques.fasta -sizeout -relabel AP_144_
+cat AP_144_uniques.fasta AP_reference_CT_converted.fasta > AP_144_input_muscle.fasta
+muscle -in AP_144_input_muscle.fasta -out AP_144_muscle.fasta -maxiters 1
+fasta_formatter -i AP_144_muscle.fasta -o AP_144_muscle.tab -t
+grep AP_reference_CT_converted AP_144_muscle.tab > AP_144_reference.tab
+awk '{print $2}' AP_144_reference.tab > AP_144_reference_sequence.tab
+awk '{print $1}' AP_144_muscle.tab > AP_144_uniquenames.tab
+awk '{print $2}' AP_144_muscle.tab > AP_144_sequences.tab
+AP_144=$(python find_CpGs_AP.py AP_144_reference_sequence.tab)
+cut -c $AP_144 AP_144_sequences.tab > AP_144_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_144_uniquenames.tab
+sed -i 's/;/ /g' AP_144_uniquenames.tab
+sed -i 's/=/ /g' AP_144_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_144_uniquenames.tab > AP_144_uniqueinfo.tab
+paste AP_144_uniqueinfo.tab AP_144_unnumbered_haplotypes.tab > AP_144_redundant_haplotypes.tab
+grep :145:1:N:0:60 AP_bowtie.sam > AP_145_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_145_bowtie.sam > AP_145_awk.fasta
+usearch -derep_fulllength AP_145_awk.fasta -fastaout AP_145_uniques.fasta -sizeout -relabel AP_145_
+cat AP_145_uniques.fasta AP_reference_CT_converted.fasta > AP_145_input_muscle.fasta
+muscle -in AP_145_input_muscle.fasta -out AP_145_muscle.fasta -maxiters 1
+fasta_formatter -i AP_145_muscle.fasta -o AP_145_muscle.tab -t
+grep AP_reference_CT_converted AP_145_muscle.tab > AP_145_reference.tab
+awk '{print $2}' AP_145_reference.tab > AP_145_reference_sequence.tab
+awk '{print $1}' AP_145_muscle.tab > AP_145_uniquenames.tab
+awk '{print $2}' AP_145_muscle.tab > AP_145_sequences.tab
+AP_145=$(python find_CpGs_AP.py AP_145_reference_sequence.tab)
+cut -c $AP_145 AP_145_sequences.tab > AP_145_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_145_uniquenames.tab
+sed -i 's/;/ /g' AP_145_uniquenames.tab
+sed -i 's/=/ /g' AP_145_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_145_uniquenames.tab > AP_145_uniqueinfo.tab
+paste AP_145_uniqueinfo.tab AP_145_unnumbered_haplotypes.tab > AP_145_redundant_haplotypes.tab
+grep :146:1:N:0:5 AP_bowtie.sam > AP_146_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_146_bowtie.sam > AP_146_awk.fasta
+usearch -derep_fulllength AP_146_awk.fasta -fastaout AP_146_uniques.fasta -sizeout -relabel AP_146_
+cat AP_146_uniques.fasta AP_reference_CT_converted.fasta > AP_146_input_muscle.fasta
+muscle -in AP_146_input_muscle.fasta -out AP_146_muscle.fasta -maxiters 1
+fasta_formatter -i AP_146_muscle.fasta -o AP_146_muscle.tab -t
+grep AP_reference_CT_converted AP_146_muscle.tab > AP_146_reference.tab
+awk '{print $2}' AP_146_reference.tab > AP_146_reference_sequence.tab
+awk '{print $1}' AP_146_muscle.tab > AP_146_uniquenames.tab
+awk '{print $2}' AP_146_muscle.tab > AP_146_sequences.tab
+AP_146=$(python find_CpGs_AP.py AP_146_reference_sequence.tab)
+cut -c $AP_146 AP_146_sequences.tab > AP_146_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_146_uniquenames.tab
+sed -i 's/;/ /g' AP_146_uniquenames.tab
+sed -i 's/=/ /g' AP_146_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_146_uniquenames.tab > AP_146_uniqueinfo.tab
+paste AP_146_uniqueinfo.tab AP_146_unnumbered_haplotypes.tab > AP_146_redundant_haplotypes.tab
+grep :147:1:N:0:13 AP_bowtie.sam > AP_147_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_147_bowtie.sam > AP_147_awk.fasta
+usearch -derep_fulllength AP_147_awk.fasta -fastaout AP_147_uniques.fasta -sizeout -relabel AP_147_
+cat AP_147_uniques.fasta AP_reference_CT_converted.fasta > AP_147_input_muscle.fasta
+muscle -in AP_147_input_muscle.fasta -out AP_147_muscle.fasta -maxiters 1
+fasta_formatter -i AP_147_muscle.fasta -o AP_147_muscle.tab -t
+grep AP_reference_CT_converted AP_147_muscle.tab > AP_147_reference.tab
+awk '{print $2}' AP_147_reference.tab > AP_147_reference_sequence.tab
+awk '{print $1}' AP_147_muscle.tab > AP_147_uniquenames.tab
+awk '{print $2}' AP_147_muscle.tab > AP_147_sequences.tab
+AP_147=$(python find_CpGs_AP.py AP_147_reference_sequence.tab)
+cut -c $AP_147 AP_147_sequences.tab > AP_147_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_147_uniquenames.tab
+sed -i 's/;/ /g' AP_147_uniquenames.tab
+sed -i 's/=/ /g' AP_147_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_147_uniquenames.tab > AP_147_uniqueinfo.tab
+paste AP_147_uniqueinfo.tab AP_147_unnumbered_haplotypes.tab > AP_147_redundant_haplotypes.tab
+grep :148:1:N:0:21 AP_bowtie.sam > AP_148_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_148_bowtie.sam > AP_148_awk.fasta
+usearch -derep_fulllength AP_148_awk.fasta -fastaout AP_148_uniques.fasta -sizeout -relabel AP_148_
+cat AP_148_uniques.fasta AP_reference_CT_converted.fasta > AP_148_input_muscle.fasta
+muscle -in AP_148_input_muscle.fasta -out AP_148_muscle.fasta -maxiters 1
+fasta_formatter -i AP_148_muscle.fasta -o AP_148_muscle.tab -t
+grep AP_reference_CT_converted AP_148_muscle.tab > AP_148_reference.tab
+awk '{print $2}' AP_148_reference.tab > AP_148_reference_sequence.tab
+awk '{print $1}' AP_148_muscle.tab > AP_148_uniquenames.tab
+awk '{print $2}' AP_148_muscle.tab > AP_148_sequences.tab
+AP_148=$(python find_CpGs_AP.py AP_148_reference_sequence.tab)
+cut -c $AP_148 AP_148_sequences.tab > AP_148_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_148_uniquenames.tab
+sed -i 's/;/ /g' AP_148_uniquenames.tab
+sed -i 's/=/ /g' AP_148_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_148_uniquenames.tab > AP_148_uniqueinfo.tab
+paste AP_148_uniqueinfo.tab AP_148_unnumbered_haplotypes.tab > AP_148_redundant_haplotypes.tab
+grep :149:1:N:0:0 AP_bowtie.sam > AP_149_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_149_bowtie.sam > AP_149_awk.fasta
+usearch -derep_fulllength AP_149_awk.fasta -fastaout AP_149_uniques.fasta -sizeout -relabel AP_149_
+cat AP_149_uniques.fasta AP_reference_CT_converted.fasta > AP_149_input_muscle.fasta
+muscle -in AP_149_input_muscle.fasta -out AP_149_muscle.fasta -maxiters 1
+fasta_formatter -i AP_149_muscle.fasta -o AP_149_muscle.tab -t
+grep AP_reference_CT_converted AP_149_muscle.tab > AP_149_reference.tab
+awk '{print $2}' AP_149_reference.tab > AP_149_reference_sequence.tab
+awk '{print $1}' AP_149_muscle.tab > AP_149_uniquenames.tab
+awk '{print $2}' AP_149_muscle.tab > AP_149_sequences.tab
+AP_149=$(python find_CpGs_AP.py AP_149_reference_sequence.tab)
+cut -c $AP_149 AP_149_sequences.tab > AP_149_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_149_uniquenames.tab
+sed -i 's/;/ /g' AP_149_uniquenames.tab
+sed -i 's/=/ /g' AP_149_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_149_uniquenames.tab > AP_149_uniqueinfo.tab
+paste AP_149_uniqueinfo.tab AP_149_unnumbered_haplotypes.tab > AP_149_redundant_haplotypes.tab
+grep :150:1:N:0:0 AP_bowtie.sam > AP_150_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_150_bowtie.sam > AP_150_awk.fasta
+usearch -derep_fulllength AP_150_awk.fasta -fastaout AP_150_uniques.fasta -sizeout -relabel AP_150_
+cat AP_150_uniques.fasta AP_reference_CT_converted.fasta > AP_150_input_muscle.fasta
+muscle -in AP_150_input_muscle.fasta -out AP_150_muscle.fasta -maxiters 1
+fasta_formatter -i AP_150_muscle.fasta -o AP_150_muscle.tab -t
+grep AP_reference_CT_converted AP_150_muscle.tab > AP_150_reference.tab
+awk '{print $2}' AP_150_reference.tab > AP_150_reference_sequence.tab
+awk '{print $1}' AP_150_muscle.tab > AP_150_uniquenames.tab
+awk '{print $2}' AP_150_muscle.tab > AP_150_sequences.tab
+AP_150=$(python find_CpGs_AP.py AP_150_reference_sequence.tab)
+cut -c $AP_150 AP_150_sequences.tab > AP_150_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_150_uniquenames.tab
+sed -i 's/;/ /g' AP_150_uniquenames.tab
+sed -i 's/=/ /g' AP_150_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_150_uniquenames.tab > AP_150_uniqueinfo.tab
+paste AP_150_uniqueinfo.tab AP_150_unnumbered_haplotypes.tab > AP_150_redundant_haplotypes.tab
+grep :151:1:N:0:0 AP_bowtie.sam > AP_151_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_151_bowtie.sam > AP_151_awk.fasta
+usearch -derep_fulllength AP_151_awk.fasta -fastaout AP_151_uniques.fasta -sizeout -relabel AP_151_
+cat AP_151_uniques.fasta AP_reference_CT_converted.fasta > AP_151_input_muscle.fasta
+muscle -in AP_151_input_muscle.fasta -out AP_151_muscle.fasta -maxiters 1
+fasta_formatter -i AP_151_muscle.fasta -o AP_151_muscle.tab -t
+grep AP_reference_CT_converted AP_151_muscle.tab > AP_151_reference.tab
+awk '{print $2}' AP_151_reference.tab > AP_151_reference_sequence.tab
+awk '{print $1}' AP_151_muscle.tab > AP_151_uniquenames.tab
+awk '{print $2}' AP_151_muscle.tab > AP_151_sequences.tab
+AP_151=$(python find_CpGs_AP.py AP_151_reference_sequence.tab)
+cut -c $AP_151 AP_151_sequences.tab > AP_151_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_151_uniquenames.tab
+sed -i 's/;/ /g' AP_151_uniquenames.tab
+sed -i 's/=/ /g' AP_151_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_151_uniquenames.tab > AP_151_uniqueinfo.tab
+paste AP_151_uniqueinfo.tab AP_151_unnumbered_haplotypes.tab > AP_151_redundant_haplotypes.tab
+grep :152:1:N:0:0 AP_bowtie.sam > AP_152_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_152_bowtie.sam > AP_152_awk.fasta
+usearch -derep_fulllength AP_152_awk.fasta -fastaout AP_152_uniques.fasta -sizeout -relabel AP_152_
+cat AP_152_uniques.fasta AP_reference_CT_converted.fasta > AP_152_input_muscle.fasta
+muscle -in AP_152_input_muscle.fasta -out AP_152_muscle.fasta -maxiters 1
+fasta_formatter -i AP_152_muscle.fasta -o AP_152_muscle.tab -t
+grep AP_reference_CT_converted AP_152_muscle.tab > AP_152_reference.tab
+awk '{print $2}' AP_152_reference.tab > AP_152_reference_sequence.tab
+awk '{print $1}' AP_152_muscle.tab > AP_152_uniquenames.tab
+awk '{print $2}' AP_152_muscle.tab > AP_152_sequences.tab
+AP_152=$(python find_CpGs_AP.py AP_152_reference_sequence.tab)
+cut -c $AP_152 AP_152_sequences.tab > AP_152_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_152_uniquenames.tab
+sed -i 's/;/ /g' AP_152_uniquenames.tab
+sed -i 's/=/ /g' AP_152_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_152_uniquenames.tab > AP_152_uniqueinfo.tab
+paste AP_152_uniqueinfo.tab AP_152_unnumbered_haplotypes.tab > AP_152_redundant_haplotypes.tab
+grep :153:1:N:0:0 AP_bowtie.sam > AP_153_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_153_bowtie.sam > AP_153_awk.fasta
+usearch -derep_fulllength AP_153_awk.fasta -fastaout AP_153_uniques.fasta -sizeout -relabel AP_153_
+cat AP_153_uniques.fasta AP_reference_CT_converted.fasta > AP_153_input_muscle.fasta
+muscle -in AP_153_input_muscle.fasta -out AP_153_muscle.fasta -maxiters 1
+fasta_formatter -i AP_153_muscle.fasta -o AP_153_muscle.tab -t
+grep AP_reference_CT_converted AP_153_muscle.tab > AP_153_reference.tab
+awk '{print $2}' AP_153_reference.tab > AP_153_reference_sequence.tab
+awk '{print $1}' AP_153_muscle.tab > AP_153_uniquenames.tab
+awk '{print $2}' AP_153_muscle.tab > AP_153_sequences.tab
+AP_153=$(python find_CpGs_AP.py AP_153_reference_sequence.tab)
+cut -c $AP_153 AP_153_sequences.tab > AP_153_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_153_uniquenames.tab
+sed -i 's/;/ /g' AP_153_uniquenames.tab
+sed -i 's/=/ /g' AP_153_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_153_uniquenames.tab > AP_153_uniqueinfo.tab
+paste AP_153_uniqueinfo.tab AP_153_unnumbered_haplotypes.tab > AP_153_redundant_haplotypes.tab
+grep :154:1:N:0:0 AP_bowtie.sam > AP_154_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_154_bowtie.sam > AP_154_awk.fasta
+usearch -derep_fulllength AP_154_awk.fasta -fastaout AP_154_uniques.fasta -sizeout -relabel AP_154_
+cat AP_154_uniques.fasta AP_reference_CT_converted.fasta > AP_154_input_muscle.fasta
+muscle -in AP_154_input_muscle.fasta -out AP_154_muscle.fasta -maxiters 1
+fasta_formatter -i AP_154_muscle.fasta -o AP_154_muscle.tab -t
+grep AP_reference_CT_converted AP_154_muscle.tab > AP_154_reference.tab
+awk '{print $2}' AP_154_reference.tab > AP_154_reference_sequence.tab
+awk '{print $1}' AP_154_muscle.tab > AP_154_uniquenames.tab
+awk '{print $2}' AP_154_muscle.tab > AP_154_sequences.tab
+AP_154=$(python find_CpGs_AP.py AP_154_reference_sequence.tab)
+cut -c $AP_154 AP_154_sequences.tab > AP_154_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_154_uniquenames.tab
+sed -i 's/;/ /g' AP_154_uniquenames.tab
+sed -i 's/=/ /g' AP_154_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_154_uniquenames.tab > AP_154_uniqueinfo.tab
+paste AP_154_uniqueinfo.tab AP_154_unnumbered_haplotypes.tab > AP_154_redundant_haplotypes.tab
+grep :155:1:N:0:0 AP_bowtie.sam > AP_155_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_155_bowtie.sam > AP_155_awk.fasta
+usearch -derep_fulllength AP_155_awk.fasta -fastaout AP_155_uniques.fasta -sizeout -relabel AP_155_
+cat AP_155_uniques.fasta AP_reference_CT_converted.fasta > AP_155_input_muscle.fasta
+muscle -in AP_155_input_muscle.fasta -out AP_155_muscle.fasta -maxiters 1
+fasta_formatter -i AP_155_muscle.fasta -o AP_155_muscle.tab -t
+grep AP_reference_CT_converted AP_155_muscle.tab > AP_155_reference.tab
+awk '{print $2}' AP_155_reference.tab > AP_155_reference_sequence.tab
+awk '{print $1}' AP_155_muscle.tab > AP_155_uniquenames.tab
+awk '{print $2}' AP_155_muscle.tab > AP_155_sequences.tab
+AP_155=$(python find_CpGs_AP.py AP_155_reference_sequence.tab)
+cut -c $AP_155 AP_155_sequences.tab > AP_155_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_155_uniquenames.tab
+sed -i 's/;/ /g' AP_155_uniquenames.tab
+sed -i 's/=/ /g' AP_155_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_155_uniquenames.tab > AP_155_uniqueinfo.tab
+paste AP_155_uniqueinfo.tab AP_155_unnumbered_haplotypes.tab > AP_155_redundant_haplotypes.tab
+grep :156:1:N:0:0 AP_bowtie.sam > AP_156_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_156_bowtie.sam > AP_156_awk.fasta
+usearch -derep_fulllength AP_156_awk.fasta -fastaout AP_156_uniques.fasta -sizeout -relabel AP_156_
+cat AP_156_uniques.fasta AP_reference_CT_converted.fasta > AP_156_input_muscle.fasta
+muscle -in AP_156_input_muscle.fasta -out AP_156_muscle.fasta -maxiters 1
+fasta_formatter -i AP_156_muscle.fasta -o AP_156_muscle.tab -t
+grep AP_reference_CT_converted AP_156_muscle.tab > AP_156_reference.tab
+awk '{print $2}' AP_156_reference.tab > AP_156_reference_sequence.tab
+awk '{print $1}' AP_156_muscle.tab > AP_156_uniquenames.tab
+awk '{print $2}' AP_156_muscle.tab > AP_156_sequences.tab
+AP_156=$(python find_CpGs_AP.py AP_156_reference_sequence.tab)
+cut -c $AP_156 AP_156_sequences.tab > AP_156_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_156_uniquenames.tab
+sed -i 's/;/ /g' AP_156_uniquenames.tab
+sed -i 's/=/ /g' AP_156_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_156_uniquenames.tab > AP_156_uniqueinfo.tab
+paste AP_156_uniqueinfo.tab AP_156_unnumbered_haplotypes.tab > AP_156_redundant_haplotypes.tab
+grep :157:1:N:0:29 AP_bowtie.sam > AP_157_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_157_bowtie.sam > AP_157_awk.fasta
+usearch -derep_fulllength AP_157_awk.fasta -fastaout AP_157_uniques.fasta -sizeout -relabel AP_157_
+cat AP_157_uniques.fasta AP_reference_CT_converted.fasta > AP_157_input_muscle.fasta
+muscle -in AP_157_input_muscle.fasta -out AP_157_muscle.fasta -maxiters 1
+fasta_formatter -i AP_157_muscle.fasta -o AP_157_muscle.tab -t
+grep AP_reference_CT_converted AP_157_muscle.tab > AP_157_reference.tab
+awk '{print $2}' AP_157_reference.tab > AP_157_reference_sequence.tab
+awk '{print $1}' AP_157_muscle.tab > AP_157_uniquenames.tab
+awk '{print $2}' AP_157_muscle.tab > AP_157_sequences.tab
+AP_157=$(python find_CpGs_AP.py AP_157_reference_sequence.tab)
+cut -c $AP_157 AP_157_sequences.tab > AP_157_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_157_uniquenames.tab
+sed -i 's/;/ /g' AP_157_uniquenames.tab
+sed -i 's/=/ /g' AP_157_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_157_uniquenames.tab > AP_157_uniqueinfo.tab
+paste AP_157_uniqueinfo.tab AP_157_unnumbered_haplotypes.tab > AP_157_redundant_haplotypes.tab
+grep :158:1:N:0:37 AP_bowtie.sam > AP_158_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_158_bowtie.sam > AP_158_awk.fasta
+usearch -derep_fulllength AP_158_awk.fasta -fastaout AP_158_uniques.fasta -sizeout -relabel AP_158_
+cat AP_158_uniques.fasta AP_reference_CT_converted.fasta > AP_158_input_muscle.fasta
+muscle -in AP_158_input_muscle.fasta -out AP_158_muscle.fasta -maxiters 1
+fasta_formatter -i AP_158_muscle.fasta -o AP_158_muscle.tab -t
+grep AP_reference_CT_converted AP_158_muscle.tab > AP_158_reference.tab
+awk '{print $2}' AP_158_reference.tab > AP_158_reference_sequence.tab
+awk '{print $1}' AP_158_muscle.tab > AP_158_uniquenames.tab
+awk '{print $2}' AP_158_muscle.tab > AP_158_sequences.tab
+AP_158=$(python find_CpGs_AP.py AP_158_reference_sequence.tab)
+cut -c $AP_158 AP_158_sequences.tab > AP_158_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_158_uniquenames.tab
+sed -i 's/;/ /g' AP_158_uniquenames.tab
+sed -i 's/=/ /g' AP_158_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_158_uniquenames.tab > AP_158_uniqueinfo.tab
+paste AP_158_uniqueinfo.tab AP_158_unnumbered_haplotypes.tab > AP_158_redundant_haplotypes.tab
+grep :159:1:N:0:45 AP_bowtie.sam > AP_159_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_159_bowtie.sam > AP_159_awk.fasta
+usearch -derep_fulllength AP_159_awk.fasta -fastaout AP_159_uniques.fasta -sizeout -relabel AP_159_
+cat AP_159_uniques.fasta AP_reference_CT_converted.fasta > AP_159_input_muscle.fasta
+muscle -in AP_159_input_muscle.fasta -out AP_159_muscle.fasta -maxiters 1
+fasta_formatter -i AP_159_muscle.fasta -o AP_159_muscle.tab -t
+grep AP_reference_CT_converted AP_159_muscle.tab > AP_159_reference.tab
+awk '{print $2}' AP_159_reference.tab > AP_159_reference_sequence.tab
+awk '{print $1}' AP_159_muscle.tab > AP_159_uniquenames.tab
+awk '{print $2}' AP_159_muscle.tab > AP_159_sequences.tab
+AP_159=$(python find_CpGs_AP.py AP_159_reference_sequence.tab)
+cut -c $AP_159 AP_159_sequences.tab > AP_159_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_159_uniquenames.tab
+sed -i 's/;/ /g' AP_159_uniquenames.tab
+sed -i 's/=/ /g' AP_159_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_159_uniquenames.tab > AP_159_uniqueinfo.tab
+paste AP_159_uniqueinfo.tab AP_159_unnumbered_haplotypes.tab > AP_159_redundant_haplotypes.tab
+grep :160:1:N:0:53 AP_bowtie.sam > AP_160_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_160_bowtie.sam > AP_160_awk.fasta
+usearch -derep_fulllength AP_160_awk.fasta -fastaout AP_160_uniques.fasta -sizeout -relabel AP_160_
+cat AP_160_uniques.fasta AP_reference_CT_converted.fasta > AP_160_input_muscle.fasta
+muscle -in AP_160_input_muscle.fasta -out AP_160_muscle.fasta -maxiters 1
+fasta_formatter -i AP_160_muscle.fasta -o AP_160_muscle.tab -t
+grep AP_reference_CT_converted AP_160_muscle.tab > AP_160_reference.tab
+awk '{print $2}' AP_160_reference.tab > AP_160_reference_sequence.tab
+awk '{print $1}' AP_160_muscle.tab > AP_160_uniquenames.tab
+awk '{print $2}' AP_160_muscle.tab > AP_160_sequences.tab
+AP_160=$(python find_CpGs_AP.py AP_160_reference_sequence.tab)
+cut -c $AP_160 AP_160_sequences.tab > AP_160_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_160_uniquenames.tab
+sed -i 's/;/ /g' AP_160_uniquenames.tab
+sed -i 's/=/ /g' AP_160_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_160_uniquenames.tab > AP_160_uniqueinfo.tab
+paste AP_160_uniqueinfo.tab AP_160_unnumbered_haplotypes.tab > AP_160_redundant_haplotypes.tab
+grep :161:1:N:0:61 AP_bowtie.sam > AP_161_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_161_bowtie.sam > AP_161_awk.fasta
+usearch -derep_fulllength AP_161_awk.fasta -fastaout AP_161_uniques.fasta -sizeout -relabel AP_161_
+cat AP_161_uniques.fasta AP_reference_CT_converted.fasta > AP_161_input_muscle.fasta
+muscle -in AP_161_input_muscle.fasta -out AP_161_muscle.fasta -maxiters 1
+fasta_formatter -i AP_161_muscle.fasta -o AP_161_muscle.tab -t
+grep AP_reference_CT_converted AP_161_muscle.tab > AP_161_reference.tab
+awk '{print $2}' AP_161_reference.tab > AP_161_reference_sequence.tab
+awk '{print $1}' AP_161_muscle.tab > AP_161_uniquenames.tab
+awk '{print $2}' AP_161_muscle.tab > AP_161_sequences.tab
+AP_161=$(python find_CpGs_AP.py AP_161_reference_sequence.tab)
+cut -c $AP_161 AP_161_sequences.tab > AP_161_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_161_uniquenames.tab
+sed -i 's/;/ /g' AP_161_uniquenames.tab
+sed -i 's/=/ /g' AP_161_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_161_uniquenames.tab > AP_161_uniqueinfo.tab
+paste AP_161_uniqueinfo.tab AP_161_unnumbered_haplotypes.tab > AP_161_redundant_haplotypes.tab
+grep :162:1:N:0:6 AP_bowtie.sam > AP_162_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_162_bowtie.sam > AP_162_awk.fasta
+usearch -derep_fulllength AP_162_awk.fasta -fastaout AP_162_uniques.fasta -sizeout -relabel AP_162_
+cat AP_162_uniques.fasta AP_reference_CT_converted.fasta > AP_162_input_muscle.fasta
+muscle -in AP_162_input_muscle.fasta -out AP_162_muscle.fasta -maxiters 1
+fasta_formatter -i AP_162_muscle.fasta -o AP_162_muscle.tab -t
+grep AP_reference_CT_converted AP_162_muscle.tab > AP_162_reference.tab
+awk '{print $2}' AP_162_reference.tab > AP_162_reference_sequence.tab
+awk '{print $1}' AP_162_muscle.tab > AP_162_uniquenames.tab
+awk '{print $2}' AP_162_muscle.tab > AP_162_sequences.tab
+AP_162=$(python find_CpGs_AP.py AP_162_reference_sequence.tab)
+cut -c $AP_162 AP_162_sequences.tab > AP_162_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_162_uniquenames.tab
+sed -i 's/;/ /g' AP_162_uniquenames.tab
+sed -i 's/=/ /g' AP_162_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_162_uniquenames.tab > AP_162_uniqueinfo.tab
+paste AP_162_uniqueinfo.tab AP_162_unnumbered_haplotypes.tab > AP_162_redundant_haplotypes.tab
+grep :163:1:N:0:14 AP_bowtie.sam > AP_163_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_163_bowtie.sam > AP_163_awk.fasta
+usearch -derep_fulllength AP_163_awk.fasta -fastaout AP_163_uniques.fasta -sizeout -relabel AP_163_
+cat AP_163_uniques.fasta AP_reference_CT_converted.fasta > AP_163_input_muscle.fasta
+muscle -in AP_163_input_muscle.fasta -out AP_163_muscle.fasta -maxiters 1
+fasta_formatter -i AP_163_muscle.fasta -o AP_163_muscle.tab -t
+grep AP_reference_CT_converted AP_163_muscle.tab > AP_163_reference.tab
+awk '{print $2}' AP_163_reference.tab > AP_163_reference_sequence.tab
+awk '{print $1}' AP_163_muscle.tab > AP_163_uniquenames.tab
+awk '{print $2}' AP_163_muscle.tab > AP_163_sequences.tab
+AP_163=$(python find_CpGs_AP.py AP_163_reference_sequence.tab)
+cut -c $AP_163 AP_163_sequences.tab > AP_163_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_163_uniquenames.tab
+sed -i 's/;/ /g' AP_163_uniquenames.tab
+sed -i 's/=/ /g' AP_163_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_163_uniquenames.tab > AP_163_uniqueinfo.tab
+paste AP_163_uniqueinfo.tab AP_163_unnumbered_haplotypes.tab > AP_163_redundant_haplotypes.tab
+grep :164:1:N:0:22 AP_bowtie.sam > AP_164_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_164_bowtie.sam > AP_164_awk.fasta
+usearch -derep_fulllength AP_164_awk.fasta -fastaout AP_164_uniques.fasta -sizeout -relabel AP_164_
+cat AP_164_uniques.fasta AP_reference_CT_converted.fasta > AP_164_input_muscle.fasta
+muscle -in AP_164_input_muscle.fasta -out AP_164_muscle.fasta -maxiters 1
+fasta_formatter -i AP_164_muscle.fasta -o AP_164_muscle.tab -t
+grep AP_reference_CT_converted AP_164_muscle.tab > AP_164_reference.tab
+awk '{print $2}' AP_164_reference.tab > AP_164_reference_sequence.tab
+awk '{print $1}' AP_164_muscle.tab > AP_164_uniquenames.tab
+awk '{print $2}' AP_164_muscle.tab > AP_164_sequences.tab
+AP_164=$(python find_CpGs_AP.py AP_164_reference_sequence.tab)
+cut -c $AP_164 AP_164_sequences.tab > AP_164_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_164_uniquenames.tab
+sed -i 's/;/ /g' AP_164_uniquenames.tab
+sed -i 's/=/ /g' AP_164_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_164_uniquenames.tab > AP_164_uniqueinfo.tab
+paste AP_164_uniqueinfo.tab AP_164_unnumbered_haplotypes.tab > AP_164_redundant_haplotypes.tab
+grep :213:1:N:0:30 AP_bowtie.sam > AP_213_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_213_bowtie.sam > AP_213_awk.fasta
+usearch -derep_fulllength AP_213_awk.fasta -fastaout AP_213_uniques.fasta -sizeout -relabel AP_213_
+cat AP_213_uniques.fasta AP_reference_CT_converted.fasta > AP_213_input_muscle.fasta
+muscle -in AP_213_input_muscle.fasta -out AP_213_muscle.fasta -maxiters 1
+fasta_formatter -i AP_213_muscle.fasta -o AP_213_muscle.tab -t
+grep AP_reference_CT_converted AP_213_muscle.tab > AP_213_reference.tab
+awk '{print $2}' AP_213_reference.tab > AP_213_reference_sequence.tab
+awk '{print $1}' AP_213_muscle.tab > AP_213_uniquenames.tab
+awk '{print $2}' AP_213_muscle.tab > AP_213_sequences.tab
+AP_213=$(python find_CpGs_AP.py AP_213_reference_sequence.tab)
+cut -c $AP_213 AP_213_sequences.tab > AP_213_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_213_uniquenames.tab
+sed -i 's/;/ /g' AP_213_uniquenames.tab
+sed -i 's/=/ /g' AP_213_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_213_uniquenames.tab > AP_213_uniqueinfo.tab
+paste AP_213_uniqueinfo.tab AP_213_unnumbered_haplotypes.tab > AP_213_redundant_haplotypes.tab
+grep :214:1:N:0:38 AP_bowtie.sam > AP_214_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_214_bowtie.sam > AP_214_awk.fasta
+usearch -derep_fulllength AP_214_awk.fasta -fastaout AP_214_uniques.fasta -sizeout -relabel AP_214_
+cat AP_214_uniques.fasta AP_reference_CT_converted.fasta > AP_214_input_muscle.fasta
+muscle -in AP_214_input_muscle.fasta -out AP_214_muscle.fasta -maxiters 1
+fasta_formatter -i AP_214_muscle.fasta -o AP_214_muscle.tab -t
+grep AP_reference_CT_converted AP_214_muscle.tab > AP_214_reference.tab
+awk '{print $2}' AP_214_reference.tab > AP_214_reference_sequence.tab
+awk '{print $1}' AP_214_muscle.tab > AP_214_uniquenames.tab
+awk '{print $2}' AP_214_muscle.tab > AP_214_sequences.tab
+AP_214=$(python find_CpGs_AP.py AP_214_reference_sequence.tab)
+cut -c $AP_214 AP_214_sequences.tab > AP_214_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_214_uniquenames.tab
+sed -i 's/;/ /g' AP_214_uniquenames.tab
+sed -i 's/=/ /g' AP_214_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_214_uniquenames.tab > AP_214_uniqueinfo.tab
+paste AP_214_uniqueinfo.tab AP_214_unnumbered_haplotypes.tab > AP_214_redundant_haplotypes.tab
+grep :215:1:N:0:46 AP_bowtie.sam > AP_215_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_215_bowtie.sam > AP_215_awk.fasta
+usearch -derep_fulllength AP_215_awk.fasta -fastaout AP_215_uniques.fasta -sizeout -relabel AP_215_
+cat AP_215_uniques.fasta AP_reference_CT_converted.fasta > AP_215_input_muscle.fasta
+muscle -in AP_215_input_muscle.fasta -out AP_215_muscle.fasta -maxiters 1
+fasta_formatter -i AP_215_muscle.fasta -o AP_215_muscle.tab -t
+grep AP_reference_CT_converted AP_215_muscle.tab > AP_215_reference.tab
+awk '{print $2}' AP_215_reference.tab > AP_215_reference_sequence.tab
+awk '{print $1}' AP_215_muscle.tab > AP_215_uniquenames.tab
+awk '{print $2}' AP_215_muscle.tab > AP_215_sequences.tab
+AP_215=$(python find_CpGs_AP.py AP_215_reference_sequence.tab)
+cut -c $AP_215 AP_215_sequences.tab > AP_215_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_215_uniquenames.tab
+sed -i 's/;/ /g' AP_215_uniquenames.tab
+sed -i 's/=/ /g' AP_215_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_215_uniquenames.tab > AP_215_uniqueinfo.tab
+paste AP_215_uniqueinfo.tab AP_215_unnumbered_haplotypes.tab > AP_215_redundant_haplotypes.tab
+grep :216:1:N:0:54 AP_bowtie.sam > AP_216_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_216_bowtie.sam > AP_216_awk.fasta
+usearch -derep_fulllength AP_216_awk.fasta -fastaout AP_216_uniques.fasta -sizeout -relabel AP_216_
+cat AP_216_uniques.fasta AP_reference_CT_converted.fasta > AP_216_input_muscle.fasta
+muscle -in AP_216_input_muscle.fasta -out AP_216_muscle.fasta -maxiters 1
+fasta_formatter -i AP_216_muscle.fasta -o AP_216_muscle.tab -t
+grep AP_reference_CT_converted AP_216_muscle.tab > AP_216_reference.tab
+awk '{print $2}' AP_216_reference.tab > AP_216_reference_sequence.tab
+awk '{print $1}' AP_216_muscle.tab > AP_216_uniquenames.tab
+awk '{print $2}' AP_216_muscle.tab > AP_216_sequences.tab
+AP_216=$(python find_CpGs_AP.py AP_216_reference_sequence.tab)
+cut -c $AP_216 AP_216_sequences.tab > AP_216_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_216_uniquenames.tab
+sed -i 's/;/ /g' AP_216_uniquenames.tab
+sed -i 's/=/ /g' AP_216_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_216_uniquenames.tab > AP_216_uniqueinfo.tab
+paste AP_216_uniqueinfo.tab AP_216_unnumbered_haplotypes.tab > AP_216_redundant_haplotypes.tab
+grep :217:1:N:0:7 AP_bowtie.sam > AP_217_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_217_bowtie.sam > AP_217_awk.fasta
+usearch -derep_fulllength AP_217_awk.fasta -fastaout AP_217_uniques.fasta -sizeout -relabel AP_217_
+cat AP_217_uniques.fasta AP_reference_CT_converted.fasta > AP_217_input_muscle.fasta
+muscle -in AP_217_input_muscle.fasta -out AP_217_muscle.fasta -maxiters 1
+fasta_formatter -i AP_217_muscle.fasta -o AP_217_muscle.tab -t
+grep AP_reference_CT_converted AP_217_muscle.tab > AP_217_reference.tab
+awk '{print $2}' AP_217_reference.tab > AP_217_reference_sequence.tab
+awk '{print $1}' AP_217_muscle.tab > AP_217_uniquenames.tab
+awk '{print $2}' AP_217_muscle.tab > AP_217_sequences.tab
+AP_217=$(python find_CpGs_AP.py AP_217_reference_sequence.tab)
+cut -c $AP_217 AP_217_sequences.tab > AP_217_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_217_uniquenames.tab
+sed -i 's/;/ /g' AP_217_uniquenames.tab
+sed -i 's/=/ /g' AP_217_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_217_uniquenames.tab > AP_217_uniqueinfo.tab
+paste AP_217_uniqueinfo.tab AP_217_unnumbered_haplotypes.tab > AP_217_redundant_haplotypes.tab
+grep :218:1:N:0:15 AP_bowtie.sam > AP_218_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_218_bowtie.sam > AP_218_awk.fasta
+usearch -derep_fulllength AP_218_awk.fasta -fastaout AP_218_uniques.fasta -sizeout -relabel AP_218_
+cat AP_218_uniques.fasta AP_reference_CT_converted.fasta > AP_218_input_muscle.fasta
+muscle -in AP_218_input_muscle.fasta -out AP_218_muscle.fasta -maxiters 1
+fasta_formatter -i AP_218_muscle.fasta -o AP_218_muscle.tab -t
+grep AP_reference_CT_converted AP_218_muscle.tab > AP_218_reference.tab
+awk '{print $2}' AP_218_reference.tab > AP_218_reference_sequence.tab
+awk '{print $1}' AP_218_muscle.tab > AP_218_uniquenames.tab
+awk '{print $2}' AP_218_muscle.tab > AP_218_sequences.tab
+AP_218=$(python find_CpGs_AP.py AP_218_reference_sequence.tab)
+cut -c $AP_218 AP_218_sequences.tab > AP_218_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_218_uniquenames.tab
+sed -i 's/;/ /g' AP_218_uniquenames.tab
+sed -i 's/=/ /g' AP_218_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_218_uniquenames.tab > AP_218_uniqueinfo.tab
+paste AP_218_uniqueinfo.tab AP_218_unnumbered_haplotypes.tab > AP_218_redundant_haplotypes.tab
+grep :219:1:N:0:23 AP_bowtie.sam > AP_219_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_219_bowtie.sam > AP_219_awk.fasta
+usearch -derep_fulllength AP_219_awk.fasta -fastaout AP_219_uniques.fasta -sizeout -relabel AP_219_
+cat AP_219_uniques.fasta AP_reference_CT_converted.fasta > AP_219_input_muscle.fasta
+muscle -in AP_219_input_muscle.fasta -out AP_219_muscle.fasta -maxiters 1
+fasta_formatter -i AP_219_muscle.fasta -o AP_219_muscle.tab -t
+grep AP_reference_CT_converted AP_219_muscle.tab > AP_219_reference.tab
+awk '{print $2}' AP_219_reference.tab > AP_219_reference_sequence.tab
+awk '{print $1}' AP_219_muscle.tab > AP_219_uniquenames.tab
+awk '{print $2}' AP_219_muscle.tab > AP_219_sequences.tab
+AP_219=$(python find_CpGs_AP.py AP_219_reference_sequence.tab)
+cut -c $AP_219 AP_219_sequences.tab > AP_219_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_219_uniquenames.tab
+sed -i 's/;/ /g' AP_219_uniquenames.tab
+sed -i 's/=/ /g' AP_219_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_219_uniquenames.tab > AP_219_uniqueinfo.tab
+paste AP_219_uniqueinfo.tab AP_219_unnumbered_haplotypes.tab > AP_219_redundant_haplotypes.tab
+grep :220:1:N:0:31 AP_bowtie.sam > AP_220_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_220_bowtie.sam > AP_220_awk.fasta
+usearch -derep_fulllength AP_220_awk.fasta -fastaout AP_220_uniques.fasta -sizeout -relabel AP_220_
+cat AP_220_uniques.fasta AP_reference_CT_converted.fasta > AP_220_input_muscle.fasta
+muscle -in AP_220_input_muscle.fasta -out AP_220_muscle.fasta -maxiters 1
+fasta_formatter -i AP_220_muscle.fasta -o AP_220_muscle.tab -t
+grep AP_reference_CT_converted AP_220_muscle.tab > AP_220_reference.tab
+awk '{print $2}' AP_220_reference.tab > AP_220_reference_sequence.tab
+awk '{print $1}' AP_220_muscle.tab > AP_220_uniquenames.tab
+awk '{print $2}' AP_220_muscle.tab > AP_220_sequences.tab
+AP_220=$(python find_CpGs_AP.py AP_220_reference_sequence.tab)
+cut -c $AP_220 AP_220_sequences.tab > AP_220_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_220_uniquenames.tab
+sed -i 's/;/ /g' AP_220_uniquenames.tab
+sed -i 's/=/ /g' AP_220_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_220_uniquenames.tab > AP_220_uniqueinfo.tab
+paste AP_220_uniqueinfo.tab AP_220_unnumbered_haplotypes.tab > AP_220_redundant_haplotypes.tab
+grep :283:1:N:0:39 AP_bowtie.sam > AP_283_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_283_bowtie.sam > AP_283_awk.fasta
+usearch -derep_fulllength AP_283_awk.fasta -fastaout AP_283_uniques.fasta -sizeout -relabel AP_283_
+cat AP_283_uniques.fasta AP_reference_CT_converted.fasta > AP_283_input_muscle.fasta
+muscle -in AP_283_input_muscle.fasta -out AP_283_muscle.fasta -maxiters 1
+fasta_formatter -i AP_283_muscle.fasta -o AP_283_muscle.tab -t
+grep AP_reference_CT_converted AP_283_muscle.tab > AP_283_reference.tab
+awk '{print $2}' AP_283_reference.tab > AP_283_reference_sequence.tab
+awk '{print $1}' AP_283_muscle.tab > AP_283_uniquenames.tab
+awk '{print $2}' AP_283_muscle.tab > AP_283_sequences.tab
+AP_283=$(python find_CpGs_AP.py AP_283_reference_sequence.tab)
+cut -c $AP_283 AP_283_sequences.tab > AP_283_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_283_uniquenames.tab
+sed -i 's/;/ /g' AP_283_uniquenames.tab
+sed -i 's/=/ /g' AP_283_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_283_uniquenames.tab > AP_283_uniqueinfo.tab
+paste AP_283_uniqueinfo.tab AP_283_unnumbered_haplotypes.tab > AP_283_redundant_haplotypes.tab
+grep :284:1:N:0:47 AP_bowtie.sam > AP_284_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_284_bowtie.sam > AP_284_awk.fasta
+usearch -derep_fulllength AP_284_awk.fasta -fastaout AP_284_uniques.fasta -sizeout -relabel AP_284_
+cat AP_284_uniques.fasta AP_reference_CT_converted.fasta > AP_284_input_muscle.fasta
+muscle -in AP_284_input_muscle.fasta -out AP_284_muscle.fasta -maxiters 1
+fasta_formatter -i AP_284_muscle.fasta -o AP_284_muscle.tab -t
+grep AP_reference_CT_converted AP_284_muscle.tab > AP_284_reference.tab
+awk '{print $2}' AP_284_reference.tab > AP_284_reference_sequence.tab
+awk '{print $1}' AP_284_muscle.tab > AP_284_uniquenames.tab
+awk '{print $2}' AP_284_muscle.tab > AP_284_sequences.tab
+AP_284=$(python find_CpGs_AP.py AP_284_reference_sequence.tab)
+cut -c $AP_284 AP_284_sequences.tab > AP_284_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_284_uniquenames.tab
+sed -i 's/;/ /g' AP_284_uniquenames.tab
+sed -i 's/=/ /g' AP_284_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_284_uniquenames.tab > AP_284_uniqueinfo.tab
+paste AP_284_uniqueinfo.tab AP_284_unnumbered_haplotypes.tab > AP_284_redundant_haplotypes.tab
+grep :285:1:N:0:55 AP_bowtie.sam > AP_285_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_285_bowtie.sam > AP_285_awk.fasta
+usearch -derep_fulllength AP_285_awk.fasta -fastaout AP_285_uniques.fasta -sizeout -relabel AP_285_
+cat AP_285_uniques.fasta AP_reference_CT_converted.fasta > AP_285_input_muscle.fasta
+muscle -in AP_285_input_muscle.fasta -out AP_285_muscle.fasta -maxiters 1
+fasta_formatter -i AP_285_muscle.fasta -o AP_285_muscle.tab -t
+grep AP_reference_CT_converted AP_285_muscle.tab > AP_285_reference.tab
+awk '{print $2}' AP_285_reference.tab > AP_285_reference_sequence.tab
+awk '{print $1}' AP_285_muscle.tab > AP_285_uniquenames.tab
+awk '{print $2}' AP_285_muscle.tab > AP_285_sequences.tab
+AP_285=$(python find_CpGs_AP.py AP_285_reference_sequence.tab)
+cut -c $AP_285 AP_285_sequences.tab > AP_285_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_285_uniquenames.tab
+sed -i 's/;/ /g' AP_285_uniquenames.tab
+sed -i 's/=/ /g' AP_285_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_285_uniquenames.tab > AP_285_uniqueinfo.tab
+paste AP_285_uniqueinfo.tab AP_285_unnumbered_haplotypes.tab > AP_285_redundant_haplotypes.tab
+grep :286:1:N:0:8 AP_bowtie.sam > AP_286_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_286_bowtie.sam > AP_286_awk.fasta
+usearch -derep_fulllength AP_286_awk.fasta -fastaout AP_286_uniques.fasta -sizeout -relabel AP_286_
+cat AP_286_uniques.fasta AP_reference_CT_converted.fasta > AP_286_input_muscle.fasta
+muscle -in AP_286_input_muscle.fasta -out AP_286_muscle.fasta -maxiters 1
+fasta_formatter -i AP_286_muscle.fasta -o AP_286_muscle.tab -t
+grep AP_reference_CT_converted AP_286_muscle.tab > AP_286_reference.tab
+awk '{print $2}' AP_286_reference.tab > AP_286_reference_sequence.tab
+awk '{print $1}' AP_286_muscle.tab > AP_286_uniquenames.tab
+awk '{print $2}' AP_286_muscle.tab > AP_286_sequences.tab
+AP_286=$(python find_CpGs_AP.py AP_286_reference_sequence.tab)
+cut -c $AP_286 AP_286_sequences.tab > AP_286_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_286_uniquenames.tab
+sed -i 's/;/ /g' AP_286_uniquenames.tab
+sed -i 's/=/ /g' AP_286_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_286_uniquenames.tab > AP_286_uniqueinfo.tab
+paste AP_286_uniqueinfo.tab AP_286_unnumbered_haplotypes.tab > AP_286_redundant_haplotypes.tab
+grep :287:1:N:0:16 AP_bowtie.sam > AP_287_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_287_bowtie.sam > AP_287_awk.fasta
+usearch -derep_fulllength AP_287_awk.fasta -fastaout AP_287_uniques.fasta -sizeout -relabel AP_287_
+cat AP_287_uniques.fasta AP_reference_CT_converted.fasta > AP_287_input_muscle.fasta
+muscle -in AP_287_input_muscle.fasta -out AP_287_muscle.fasta -maxiters 1
+fasta_formatter -i AP_287_muscle.fasta -o AP_287_muscle.tab -t
+grep AP_reference_CT_converted AP_287_muscle.tab > AP_287_reference.tab
+awk '{print $2}' AP_287_reference.tab > AP_287_reference_sequence.tab
+awk '{print $1}' AP_287_muscle.tab > AP_287_uniquenames.tab
+awk '{print $2}' AP_287_muscle.tab > AP_287_sequences.tab
+AP_287=$(python find_CpGs_AP.py AP_287_reference_sequence.tab)
+cut -c $AP_287 AP_287_sequences.tab > AP_287_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_287_uniquenames.tab
+sed -i 's/;/ /g' AP_287_uniquenames.tab
+sed -i 's/=/ /g' AP_287_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_287_uniquenames.tab > AP_287_uniqueinfo.tab
+paste AP_287_uniqueinfo.tab AP_287_unnumbered_haplotypes.tab > AP_287_redundant_haplotypes.tab
+grep :288:1:N:0:24 AP_bowtie.sam > AP_288_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_288_bowtie.sam > AP_288_awk.fasta
+usearch -derep_fulllength AP_288_awk.fasta -fastaout AP_288_uniques.fasta -sizeout -relabel AP_288_
+cat AP_288_uniques.fasta AP_reference_CT_converted.fasta > AP_288_input_muscle.fasta
+muscle -in AP_288_input_muscle.fasta -out AP_288_muscle.fasta -maxiters 1
+fasta_formatter -i AP_288_muscle.fasta -o AP_288_muscle.tab -t
+grep AP_reference_CT_converted AP_288_muscle.tab > AP_288_reference.tab
+awk '{print $2}' AP_288_reference.tab > AP_288_reference_sequence.tab
+awk '{print $1}' AP_288_muscle.tab > AP_288_uniquenames.tab
+awk '{print $2}' AP_288_muscle.tab > AP_288_sequences.tab
+AP_288=$(python find_CpGs_AP.py AP_288_reference_sequence.tab)
+cut -c $AP_288 AP_288_sequences.tab > AP_288_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_288_uniquenames.tab
+sed -i 's/;/ /g' AP_288_uniquenames.tab
+sed -i 's/=/ /g' AP_288_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_288_uniquenames.tab > AP_288_uniqueinfo.tab
+paste AP_288_uniqueinfo.tab AP_288_unnumbered_haplotypes.tab > AP_288_redundant_haplotypes.tab
+grep :289:1:N:0:32 AP_bowtie.sam > AP_289_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_289_bowtie.sam > AP_289_awk.fasta
+usearch -derep_fulllength AP_289_awk.fasta -fastaout AP_289_uniques.fasta -sizeout -relabel AP_289_
+cat AP_289_uniques.fasta AP_reference_CT_converted.fasta > AP_289_input_muscle.fasta
+muscle -in AP_289_input_muscle.fasta -out AP_289_muscle.fasta -maxiters 1
+fasta_formatter -i AP_289_muscle.fasta -o AP_289_muscle.tab -t
+grep AP_reference_CT_converted AP_289_muscle.tab > AP_289_reference.tab
+awk '{print $2}' AP_289_reference.tab > AP_289_reference_sequence.tab
+awk '{print $1}' AP_289_muscle.tab > AP_289_uniquenames.tab
+awk '{print $2}' AP_289_muscle.tab > AP_289_sequences.tab
+AP_289=$(python find_CpGs_AP.py AP_289_reference_sequence.tab)
+cut -c $AP_289 AP_289_sequences.tab > AP_289_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_289_uniquenames.tab
+sed -i 's/;/ /g' AP_289_uniquenames.tab
+sed -i 's/=/ /g' AP_289_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_289_uniquenames.tab > AP_289_uniqueinfo.tab
+paste AP_289_uniqueinfo.tab AP_289_unnumbered_haplotypes.tab > AP_289_redundant_haplotypes.tab
+grep :290:1:N:0:40 AP_bowtie.sam > AP_290_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_290_bowtie.sam > AP_290_awk.fasta
+usearch -derep_fulllength AP_290_awk.fasta -fastaout AP_290_uniques.fasta -sizeout -relabel AP_290_
+cat AP_290_uniques.fasta AP_reference_CT_converted.fasta > AP_290_input_muscle.fasta
+muscle -in AP_290_input_muscle.fasta -out AP_290_muscle.fasta -maxiters 1
+fasta_formatter -i AP_290_muscle.fasta -o AP_290_muscle.tab -t
+grep AP_reference_CT_converted AP_290_muscle.tab > AP_290_reference.tab
+awk '{print $2}' AP_290_reference.tab > AP_290_reference_sequence.tab
+awk '{print $1}' AP_290_muscle.tab > AP_290_uniquenames.tab
+awk '{print $2}' AP_290_muscle.tab > AP_290_sequences.tab
+AP_290=$(python find_CpGs_AP.py AP_290_reference_sequence.tab)
+cut -c $AP_290 AP_290_sequences.tab > AP_290_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_290_uniquenames.tab
+sed -i 's/;/ /g' AP_290_uniquenames.tab
+sed -i 's/=/ /g' AP_290_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_290_uniquenames.tab > AP_290_uniqueinfo.tab
+paste AP_290_uniqueinfo.tab AP_290_unnumbered_haplotypes.tab > AP_290_redundant_haplotypes.tab
+grep :291:1:N:0:48 AP_bowtie.sam > AP_291_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_291_bowtie.sam > AP_291_awk.fasta
+usearch -derep_fulllength AP_291_awk.fasta -fastaout AP_291_uniques.fasta -sizeout -relabel AP_291_
+cat AP_291_uniques.fasta AP_reference_CT_converted.fasta > AP_291_input_muscle.fasta
+muscle -in AP_291_input_muscle.fasta -out AP_291_muscle.fasta -maxiters 1
+fasta_formatter -i AP_291_muscle.fasta -o AP_291_muscle.tab -t
+grep AP_reference_CT_converted AP_291_muscle.tab > AP_291_reference.tab
+awk '{print $2}' AP_291_reference.tab > AP_291_reference_sequence.tab
+awk '{print $1}' AP_291_muscle.tab > AP_291_uniquenames.tab
+awk '{print $2}' AP_291_muscle.tab > AP_291_sequences.tab
+AP_291=$(python find_CpGs_AP.py AP_291_reference_sequence.tab)
+cut -c $AP_291 AP_291_sequences.tab > AP_291_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_291_uniquenames.tab
+sed -i 's/;/ /g' AP_291_uniquenames.tab
+sed -i 's/=/ /g' AP_291_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_291_uniquenames.tab > AP_291_uniqueinfo.tab
+paste AP_291_uniqueinfo.tab AP_291_unnumbered_haplotypes.tab > AP_291_redundant_haplotypes.tab
+grep :292:1:N:0:56 AP_bowtie.sam > AP_292_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_292_bowtie.sam > AP_292_awk.fasta
+usearch -derep_fulllength AP_292_awk.fasta -fastaout AP_292_uniques.fasta -sizeout -relabel AP_292_
+cat AP_292_uniques.fasta AP_reference_CT_converted.fasta > AP_292_input_muscle.fasta
+muscle -in AP_292_input_muscle.fasta -out AP_292_muscle.fasta -maxiters 1
+fasta_formatter -i AP_292_muscle.fasta -o AP_292_muscle.tab -t
+grep AP_reference_CT_converted AP_292_muscle.tab > AP_292_reference.tab
+awk '{print $2}' AP_292_reference.tab > AP_292_reference_sequence.tab
+awk '{print $1}' AP_292_muscle.tab > AP_292_uniquenames.tab
+awk '{print $2}' AP_292_muscle.tab > AP_292_sequences.tab
+AP_292=$(python find_CpGs_AP.py AP_292_reference_sequence.tab)
+cut -c $AP_292 AP_292_sequences.tab > AP_292_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_292_uniquenames.tab
+sed -i 's/;/ /g' AP_292_uniquenames.tab
+sed -i 's/=/ /g' AP_292_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_292_uniquenames.tab > AP_292_uniqueinfo.tab
+paste AP_292_uniqueinfo.tab AP_292_unnumbered_haplotypes.tab > AP_292_redundant_haplotypes.tab
+grep :629:1:N:0:1 AP_bowtie.sam > AP_629_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_629_bowtie.sam > AP_629_awk.fasta
+usearch -derep_fulllength AP_629_awk.fasta -fastaout AP_629_uniques.fasta -sizeout -relabel AP_629_
+cat AP_629_uniques.fasta AP_reference_CT_converted.fasta > AP_629_input_muscle.fasta
+muscle -in AP_629_input_muscle.fasta -out AP_629_muscle.fasta -maxiters 1
+fasta_formatter -i AP_629_muscle.fasta -o AP_629_muscle.tab -t
+grep AP_reference_CT_converted AP_629_muscle.tab > AP_629_reference.tab
+awk '{print $2}' AP_629_reference.tab > AP_629_reference_sequence.tab
+awk '{print $1}' AP_629_muscle.tab > AP_629_uniquenames.tab
+awk '{print $2}' AP_629_muscle.tab > AP_629_sequences.tab
+AP_629=$(python find_CpGs_AP.py AP_629_reference_sequence.tab)
+cut -c $AP_629 AP_629_sequences.tab > AP_629_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_629_uniquenames.tab
+sed -i 's/;/ /g' AP_629_uniquenames.tab
+sed -i 's/=/ /g' AP_629_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_629_uniquenames.tab > AP_629_uniqueinfo.tab
+paste AP_629_uniqueinfo.tab AP_629_unnumbered_haplotypes.tab > AP_629_redundant_haplotypes.tab
+grep :630:1:N:0:9 AP_bowtie.sam > AP_630_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_630_bowtie.sam > AP_630_awk.fasta
+usearch -derep_fulllength AP_630_awk.fasta -fastaout AP_630_uniques.fasta -sizeout -relabel AP_630_
+cat AP_630_uniques.fasta AP_reference_CT_converted.fasta > AP_630_input_muscle.fasta
+muscle -in AP_630_input_muscle.fasta -out AP_630_muscle.fasta -maxiters 1
+fasta_formatter -i AP_630_muscle.fasta -o AP_630_muscle.tab -t
+grep AP_reference_CT_converted AP_630_muscle.tab > AP_630_reference.tab
+awk '{print $2}' AP_630_reference.tab > AP_630_reference_sequence.tab
+awk '{print $1}' AP_630_muscle.tab > AP_630_uniquenames.tab
+awk '{print $2}' AP_630_muscle.tab > AP_630_sequences.tab
+AP_630=$(python find_CpGs_AP.py AP_630_reference_sequence.tab)
+cut -c $AP_630 AP_630_sequences.tab > AP_630_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_630_uniquenames.tab
+sed -i 's/;/ /g' AP_630_uniquenames.tab
+sed -i 's/=/ /g' AP_630_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_630_uniquenames.tab > AP_630_uniqueinfo.tab
+paste AP_630_uniqueinfo.tab AP_630_unnumbered_haplotypes.tab > AP_630_redundant_haplotypes.tab
+grep :631:1:N:0:17 AP_bowtie.sam > AP_631_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_631_bowtie.sam > AP_631_awk.fasta
+usearch -derep_fulllength AP_631_awk.fasta -fastaout AP_631_uniques.fasta -sizeout -relabel AP_631_
+cat AP_631_uniques.fasta AP_reference_CT_converted.fasta > AP_631_input_muscle.fasta
+muscle -in AP_631_input_muscle.fasta -out AP_631_muscle.fasta -maxiters 1
+fasta_formatter -i AP_631_muscle.fasta -o AP_631_muscle.tab -t
+grep AP_reference_CT_converted AP_631_muscle.tab > AP_631_reference.tab
+awk '{print $2}' AP_631_reference.tab > AP_631_reference_sequence.tab
+awk '{print $1}' AP_631_muscle.tab > AP_631_uniquenames.tab
+awk '{print $2}' AP_631_muscle.tab > AP_631_sequences.tab
+AP_631=$(python find_CpGs_AP.py AP_631_reference_sequence.tab)
+cut -c $AP_631 AP_631_sequences.tab > AP_631_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_631_uniquenames.tab
+sed -i 's/;/ /g' AP_631_uniquenames.tab
+sed -i 's/=/ /g' AP_631_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_631_uniquenames.tab > AP_631_uniqueinfo.tab
+paste AP_631_uniqueinfo.tab AP_631_unnumbered_haplotypes.tab > AP_631_redundant_haplotypes.tab
+grep :632:1:N:0:25 AP_bowtie.sam > AP_632_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_632_bowtie.sam > AP_632_awk.fasta
+usearch -derep_fulllength AP_632_awk.fasta -fastaout AP_632_uniques.fasta -sizeout -relabel AP_632_
+cat AP_632_uniques.fasta AP_reference_CT_converted.fasta > AP_632_input_muscle.fasta
+muscle -in AP_632_input_muscle.fasta -out AP_632_muscle.fasta -maxiters 1
+fasta_formatter -i AP_632_muscle.fasta -o AP_632_muscle.tab -t
+grep AP_reference_CT_converted AP_632_muscle.tab > AP_632_reference.tab
+awk '{print $2}' AP_632_reference.tab > AP_632_reference_sequence.tab
+awk '{print $1}' AP_632_muscle.tab > AP_632_uniquenames.tab
+awk '{print $2}' AP_632_muscle.tab > AP_632_sequences.tab
+AP_632=$(python find_CpGs_AP.py AP_632_reference_sequence.tab)
+cut -c $AP_632 AP_632_sequences.tab > AP_632_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_632_uniquenames.tab
+sed -i 's/;/ /g' AP_632_uniquenames.tab
+sed -i 's/=/ /g' AP_632_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_632_uniquenames.tab > AP_632_uniqueinfo.tab
+paste AP_632_uniqueinfo.tab AP_632_unnumbered_haplotypes.tab > AP_632_redundant_haplotypes.tab
+grep :633:1:N:0:33 AP_bowtie.sam > AP_633_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_633_bowtie.sam > AP_633_awk.fasta
+usearch -derep_fulllength AP_633_awk.fasta -fastaout AP_633_uniques.fasta -sizeout -relabel AP_633_
+cat AP_633_uniques.fasta AP_reference_CT_converted.fasta > AP_633_input_muscle.fasta
+muscle -in AP_633_input_muscle.fasta -out AP_633_muscle.fasta -maxiters 1
+fasta_formatter -i AP_633_muscle.fasta -o AP_633_muscle.tab -t
+grep AP_reference_CT_converted AP_633_muscle.tab > AP_633_reference.tab
+awk '{print $2}' AP_633_reference.tab > AP_633_reference_sequence.tab
+awk '{print $1}' AP_633_muscle.tab > AP_633_uniquenames.tab
+awk '{print $2}' AP_633_muscle.tab > AP_633_sequences.tab
+AP_633=$(python find_CpGs_AP.py AP_633_reference_sequence.tab)
+cut -c $AP_633 AP_633_sequences.tab > AP_633_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_633_uniquenames.tab
+sed -i 's/;/ /g' AP_633_uniquenames.tab
+sed -i 's/=/ /g' AP_633_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_633_uniquenames.tab > AP_633_uniqueinfo.tab
+paste AP_633_uniqueinfo.tab AP_633_unnumbered_haplotypes.tab > AP_633_redundant_haplotypes.tab
+grep :634:1:N:0:41 AP_bowtie.sam > AP_634_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_634_bowtie.sam > AP_634_awk.fasta
+usearch -derep_fulllength AP_634_awk.fasta -fastaout AP_634_uniques.fasta -sizeout -relabel AP_634_
+cat AP_634_uniques.fasta AP_reference_CT_converted.fasta > AP_634_input_muscle.fasta
+muscle -in AP_634_input_muscle.fasta -out AP_634_muscle.fasta -maxiters 1
+fasta_formatter -i AP_634_muscle.fasta -o AP_634_muscle.tab -t
+grep AP_reference_CT_converted AP_634_muscle.tab > AP_634_reference.tab
+awk '{print $2}' AP_634_reference.tab > AP_634_reference_sequence.tab
+awk '{print $1}' AP_634_muscle.tab > AP_634_uniquenames.tab
+awk '{print $2}' AP_634_muscle.tab > AP_634_sequences.tab
+AP_634=$(python find_CpGs_AP.py AP_634_reference_sequence.tab)
+cut -c $AP_634 AP_634_sequences.tab > AP_634_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_634_uniquenames.tab
+sed -i 's/;/ /g' AP_634_uniquenames.tab
+sed -i 's/=/ /g' AP_634_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_634_uniquenames.tab > AP_634_uniqueinfo.tab
+paste AP_634_uniqueinfo.tab AP_634_unnumbered_haplotypes.tab > AP_634_redundant_haplotypes.tab
+grep :635:1:N:0:49 AP_bowtie.sam > AP_635_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_635_bowtie.sam > AP_635_awk.fasta
+usearch -derep_fulllength AP_635_awk.fasta -fastaout AP_635_uniques.fasta -sizeout -relabel AP_635_
+cat AP_635_uniques.fasta AP_reference_CT_converted.fasta > AP_635_input_muscle.fasta
+muscle -in AP_635_input_muscle.fasta -out AP_635_muscle.fasta -maxiters 1
+fasta_formatter -i AP_635_muscle.fasta -o AP_635_muscle.tab -t
+grep AP_reference_CT_converted AP_635_muscle.tab > AP_635_reference.tab
+awk '{print $2}' AP_635_reference.tab > AP_635_reference_sequence.tab
+awk '{print $1}' AP_635_muscle.tab > AP_635_uniquenames.tab
+awk '{print $2}' AP_635_muscle.tab > AP_635_sequences.tab
+AP_635=$(python find_CpGs_AP.py AP_635_reference_sequence.tab)
+cut -c $AP_635 AP_635_sequences.tab > AP_635_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_635_uniquenames.tab
+sed -i 's/;/ /g' AP_635_uniquenames.tab
+sed -i 's/=/ /g' AP_635_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_635_uniquenames.tab > AP_635_uniqueinfo.tab
+paste AP_635_uniqueinfo.tab AP_635_unnumbered_haplotypes.tab > AP_635_redundant_haplotypes.tab
+grep :636:1:N:0:57 AP_bowtie.sam > AP_636_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_636_bowtie.sam > AP_636_awk.fasta
+usearch -derep_fulllength AP_636_awk.fasta -fastaout AP_636_uniques.fasta -sizeout -relabel AP_636_
+cat AP_636_uniques.fasta AP_reference_CT_converted.fasta > AP_636_input_muscle.fasta
+muscle -in AP_636_input_muscle.fasta -out AP_636_muscle.fasta -maxiters 1
+fasta_formatter -i AP_636_muscle.fasta -o AP_636_muscle.tab -t
+grep AP_reference_CT_converted AP_636_muscle.tab > AP_636_reference.tab
+awk '{print $2}' AP_636_reference.tab > AP_636_reference_sequence.tab
+awk '{print $1}' AP_636_muscle.tab > AP_636_uniquenames.tab
+awk '{print $2}' AP_636_muscle.tab > AP_636_sequences.tab
+AP_636=$(python find_CpGs_AP.py AP_636_reference_sequence.tab)
+cut -c $AP_636 AP_636_sequences.tab > AP_636_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_636_uniquenames.tab
+sed -i 's/;/ /g' AP_636_uniquenames.tab
+sed -i 's/=/ /g' AP_636_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_636_uniquenames.tab > AP_636_uniqueinfo.tab
+paste AP_636_uniqueinfo.tab AP_636_unnumbered_haplotypes.tab > AP_636_redundant_haplotypes.tab
+grep :637:1:N:0:65 AP_bowtie.sam > AP_637_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_637_bowtie.sam > AP_637_awk.fasta
+usearch -derep_fulllength AP_637_awk.fasta -fastaout AP_637_uniques.fasta -sizeout -relabel AP_637_
+cat AP_637_uniques.fasta AP_reference_CT_converted.fasta > AP_637_input_muscle.fasta
+muscle -in AP_637_input_muscle.fasta -out AP_637_muscle.fasta -maxiters 1
+fasta_formatter -i AP_637_muscle.fasta -o AP_637_muscle.tab -t
+grep AP_reference_CT_converted AP_637_muscle.tab > AP_637_reference.tab
+awk '{print $2}' AP_637_reference.tab > AP_637_reference_sequence.tab
+awk '{print $1}' AP_637_muscle.tab > AP_637_uniquenames.tab
+awk '{print $2}' AP_637_muscle.tab > AP_637_sequences.tab
+AP_637=$(python find_CpGs_AP.py AP_637_reference_sequence.tab)
+cut -c $AP_637 AP_637_sequences.tab > AP_637_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_637_uniquenames.tab
+sed -i 's/;/ /g' AP_637_uniquenames.tab
+sed -i 's/=/ /g' AP_637_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_637_uniquenames.tab > AP_637_uniqueinfo.tab
+paste AP_637_uniqueinfo.tab AP_637_unnumbered_haplotypes.tab > AP_637_redundant_haplotypes.tab
+grep :638:1:N:0:73 AP_bowtie.sam > AP_638_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_638_bowtie.sam > AP_638_awk.fasta
+usearch -derep_fulllength AP_638_awk.fasta -fastaout AP_638_uniques.fasta -sizeout -relabel AP_638_
+cat AP_638_uniques.fasta AP_reference_CT_converted.fasta > AP_638_input_muscle.fasta
+muscle -in AP_638_input_muscle.fasta -out AP_638_muscle.fasta -maxiters 1
+fasta_formatter -i AP_638_muscle.fasta -o AP_638_muscle.tab -t
+grep AP_reference_CT_converted AP_638_muscle.tab > AP_638_reference.tab
+awk '{print $2}' AP_638_reference.tab > AP_638_reference_sequence.tab
+awk '{print $1}' AP_638_muscle.tab > AP_638_uniquenames.tab
+awk '{print $2}' AP_638_muscle.tab > AP_638_sequences.tab
+AP_638=$(python find_CpGs_AP.py AP_638_reference_sequence.tab)
+cut -c $AP_638 AP_638_sequences.tab > AP_638_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_638_uniquenames.tab
+sed -i 's/;/ /g' AP_638_uniquenames.tab
+sed -i 's/=/ /g' AP_638_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_638_uniquenames.tab > AP_638_uniqueinfo.tab
+paste AP_638_uniqueinfo.tab AP_638_unnumbered_haplotypes.tab > AP_638_redundant_haplotypes.tab
+grep :639:1:N:0:81 AP_bowtie.sam > AP_639_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_639_bowtie.sam > AP_639_awk.fasta
+usearch -derep_fulllength AP_639_awk.fasta -fastaout AP_639_uniques.fasta -sizeout -relabel AP_639_
+cat AP_639_uniques.fasta AP_reference_CT_converted.fasta > AP_639_input_muscle.fasta
+muscle -in AP_639_input_muscle.fasta -out AP_639_muscle.fasta -maxiters 1
+fasta_formatter -i AP_639_muscle.fasta -o AP_639_muscle.tab -t
+grep AP_reference_CT_converted AP_639_muscle.tab > AP_639_reference.tab
+awk '{print $2}' AP_639_reference.tab > AP_639_reference_sequence.tab
+awk '{print $1}' AP_639_muscle.tab > AP_639_uniquenames.tab
+awk '{print $2}' AP_639_muscle.tab > AP_639_sequences.tab
+AP_639=$(python find_CpGs_AP.py AP_639_reference_sequence.tab)
+cut -c $AP_639 AP_639_sequences.tab > AP_639_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_639_uniquenames.tab
+sed -i 's/;/ /g' AP_639_uniquenames.tab
+sed -i 's/=/ /g' AP_639_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_639_uniquenames.tab > AP_639_uniqueinfo.tab
+paste AP_639_uniqueinfo.tab AP_639_unnumbered_haplotypes.tab > AP_639_redundant_haplotypes.tab
+grep :640:1:N:0:89 AP_bowtie.sam > AP_640_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_640_bowtie.sam > AP_640_awk.fasta
+usearch -derep_fulllength AP_640_awk.fasta -fastaout AP_640_uniques.fasta -sizeout -relabel AP_640_
+cat AP_640_uniques.fasta AP_reference_CT_converted.fasta > AP_640_input_muscle.fasta
+muscle -in AP_640_input_muscle.fasta -out AP_640_muscle.fasta -maxiters 1
+fasta_formatter -i AP_640_muscle.fasta -o AP_640_muscle.tab -t
+grep AP_reference_CT_converted AP_640_muscle.tab > AP_640_reference.tab
+awk '{print $2}' AP_640_reference.tab > AP_640_reference_sequence.tab
+awk '{print $1}' AP_640_muscle.tab > AP_640_uniquenames.tab
+awk '{print $2}' AP_640_muscle.tab > AP_640_sequences.tab
+AP_640=$(python find_CpGs_AP.py AP_640_reference_sequence.tab)
+cut -c $AP_640 AP_640_sequences.tab > AP_640_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_640_uniquenames.tab
+sed -i 's/;/ /g' AP_640_uniquenames.tab
+sed -i 's/=/ /g' AP_640_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_640_uniquenames.tab > AP_640_uniqueinfo.tab
+paste AP_640_uniqueinfo.tab AP_640_unnumbered_haplotypes.tab > AP_640_redundant_haplotypes.tab
+grep :641:1:N:0:2 AP_bowtie.sam > AP_641_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_641_bowtie.sam > AP_641_awk.fasta
+usearch -derep_fulllength AP_641_awk.fasta -fastaout AP_641_uniques.fasta -sizeout -relabel AP_641_
+cat AP_641_uniques.fasta AP_reference_CT_converted.fasta > AP_641_input_muscle.fasta
+muscle -in AP_641_input_muscle.fasta -out AP_641_muscle.fasta -maxiters 1
+fasta_formatter -i AP_641_muscle.fasta -o AP_641_muscle.tab -t
+grep AP_reference_CT_converted AP_641_muscle.tab > AP_641_reference.tab
+awk '{print $2}' AP_641_reference.tab > AP_641_reference_sequence.tab
+awk '{print $1}' AP_641_muscle.tab > AP_641_uniquenames.tab
+awk '{print $2}' AP_641_muscle.tab > AP_641_sequences.tab
+AP_641=$(python find_CpGs_AP.py AP_641_reference_sequence.tab)
+cut -c $AP_641 AP_641_sequences.tab > AP_641_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_641_uniquenames.tab
+sed -i 's/;/ /g' AP_641_uniquenames.tab
+sed -i 's/=/ /g' AP_641_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_641_uniquenames.tab > AP_641_uniqueinfo.tab
+paste AP_641_uniqueinfo.tab AP_641_unnumbered_haplotypes.tab > AP_641_redundant_haplotypes.tab
+grep :642:1:N:0:10 AP_bowtie.sam > AP_642_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_642_bowtie.sam > AP_642_awk.fasta
+usearch -derep_fulllength AP_642_awk.fasta -fastaout AP_642_uniques.fasta -sizeout -relabel AP_642_
+cat AP_642_uniques.fasta AP_reference_CT_converted.fasta > AP_642_input_muscle.fasta
+muscle -in AP_642_input_muscle.fasta -out AP_642_muscle.fasta -maxiters 1
+fasta_formatter -i AP_642_muscle.fasta -o AP_642_muscle.tab -t
+grep AP_reference_CT_converted AP_642_muscle.tab > AP_642_reference.tab
+awk '{print $2}' AP_642_reference.tab > AP_642_reference_sequence.tab
+awk '{print $1}' AP_642_muscle.tab > AP_642_uniquenames.tab
+awk '{print $2}' AP_642_muscle.tab > AP_642_sequences.tab
+AP_642=$(python find_CpGs_AP.py AP_642_reference_sequence.tab)
+cut -c $AP_642 AP_642_sequences.tab > AP_642_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_642_uniquenames.tab
+sed -i 's/;/ /g' AP_642_uniquenames.tab
+sed -i 's/=/ /g' AP_642_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_642_uniquenames.tab > AP_642_uniqueinfo.tab
+paste AP_642_uniqueinfo.tab AP_642_unnumbered_haplotypes.tab > AP_642_redundant_haplotypes.tab
+grep :643:1:N:0:18 AP_bowtie.sam > AP_643_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_643_bowtie.sam > AP_643_awk.fasta
+usearch -derep_fulllength AP_643_awk.fasta -fastaout AP_643_uniques.fasta -sizeout -relabel AP_643_
+cat AP_643_uniques.fasta AP_reference_CT_converted.fasta > AP_643_input_muscle.fasta
+muscle -in AP_643_input_muscle.fasta -out AP_643_muscle.fasta -maxiters 1
+fasta_formatter -i AP_643_muscle.fasta -o AP_643_muscle.tab -t
+grep AP_reference_CT_converted AP_643_muscle.tab > AP_643_reference.tab
+awk '{print $2}' AP_643_reference.tab > AP_643_reference_sequence.tab
+awk '{print $1}' AP_643_muscle.tab > AP_643_uniquenames.tab
+awk '{print $2}' AP_643_muscle.tab > AP_643_sequences.tab
+AP_643=$(python find_CpGs_AP.py AP_643_reference_sequence.tab)
+cut -c $AP_643 AP_643_sequences.tab > AP_643_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_643_uniquenames.tab
+sed -i 's/;/ /g' AP_643_uniquenames.tab
+sed -i 's/=/ /g' AP_643_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_643_uniquenames.tab > AP_643_uniqueinfo.tab
+paste AP_643_uniqueinfo.tab AP_643_unnumbered_haplotypes.tab > AP_643_redundant_haplotypes.tab
+grep :644:1:N:0:26 AP_bowtie.sam > AP_644_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_644_bowtie.sam > AP_644_awk.fasta
+usearch -derep_fulllength AP_644_awk.fasta -fastaout AP_644_uniques.fasta -sizeout -relabel AP_644_
+cat AP_644_uniques.fasta AP_reference_CT_converted.fasta > AP_644_input_muscle.fasta
+muscle -in AP_644_input_muscle.fasta -out AP_644_muscle.fasta -maxiters 1
+fasta_formatter -i AP_644_muscle.fasta -o AP_644_muscle.tab -t
+grep AP_reference_CT_converted AP_644_muscle.tab > AP_644_reference.tab
+awk '{print $2}' AP_644_reference.tab > AP_644_reference_sequence.tab
+awk '{print $1}' AP_644_muscle.tab > AP_644_uniquenames.tab
+awk '{print $2}' AP_644_muscle.tab > AP_644_sequences.tab
+AP_644=$(python find_CpGs_AP.py AP_644_reference_sequence.tab)
+cut -c $AP_644 AP_644_sequences.tab > AP_644_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_644_uniquenames.tab
+sed -i 's/;/ /g' AP_644_uniquenames.tab
+sed -i 's/=/ /g' AP_644_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_644_uniquenames.tab > AP_644_uniqueinfo.tab
+paste AP_644_uniqueinfo.tab AP_644_unnumbered_haplotypes.tab > AP_644_redundant_haplotypes.tab
+grep :645:1:N:0:34 AP_bowtie.sam > AP_645_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_645_bowtie.sam > AP_645_awk.fasta
+usearch -derep_fulllength AP_645_awk.fasta -fastaout AP_645_uniques.fasta -sizeout -relabel AP_645_
+cat AP_645_uniques.fasta AP_reference_CT_converted.fasta > AP_645_input_muscle.fasta
+muscle -in AP_645_input_muscle.fasta -out AP_645_muscle.fasta -maxiters 1
+fasta_formatter -i AP_645_muscle.fasta -o AP_645_muscle.tab -t
+grep AP_reference_CT_converted AP_645_muscle.tab > AP_645_reference.tab
+awk '{print $2}' AP_645_reference.tab > AP_645_reference_sequence.tab
+awk '{print $1}' AP_645_muscle.tab > AP_645_uniquenames.tab
+awk '{print $2}' AP_645_muscle.tab > AP_645_sequences.tab
+AP_645=$(python find_CpGs_AP.py AP_645_reference_sequence.tab)
+cut -c $AP_645 AP_645_sequences.tab > AP_645_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_645_uniquenames.tab
+sed -i 's/;/ /g' AP_645_uniquenames.tab
+sed -i 's/=/ /g' AP_645_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_645_uniquenames.tab > AP_645_uniqueinfo.tab
+paste AP_645_uniqueinfo.tab AP_645_unnumbered_haplotypes.tab > AP_645_redundant_haplotypes.tab
+grep :646:1:N:0:42 AP_bowtie.sam > AP_646_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_646_bowtie.sam > AP_646_awk.fasta
+usearch -derep_fulllength AP_646_awk.fasta -fastaout AP_646_uniques.fasta -sizeout -relabel AP_646_
+cat AP_646_uniques.fasta AP_reference_CT_converted.fasta > AP_646_input_muscle.fasta
+muscle -in AP_646_input_muscle.fasta -out AP_646_muscle.fasta -maxiters 1
+fasta_formatter -i AP_646_muscle.fasta -o AP_646_muscle.tab -t
+grep AP_reference_CT_converted AP_646_muscle.tab > AP_646_reference.tab
+awk '{print $2}' AP_646_reference.tab > AP_646_reference_sequence.tab
+awk '{print $1}' AP_646_muscle.tab > AP_646_uniquenames.tab
+awk '{print $2}' AP_646_muscle.tab > AP_646_sequences.tab
+AP_646=$(python find_CpGs_AP.py AP_646_reference_sequence.tab)
+cut -c $AP_646 AP_646_sequences.tab > AP_646_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_646_uniquenames.tab
+sed -i 's/;/ /g' AP_646_uniquenames.tab
+sed -i 's/=/ /g' AP_646_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_646_uniquenames.tab > AP_646_uniqueinfo.tab
+paste AP_646_uniqueinfo.tab AP_646_unnumbered_haplotypes.tab > AP_646_redundant_haplotypes.tab
+grep :647:1:N:0:50 AP_bowtie.sam > AP_647_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_647_bowtie.sam > AP_647_awk.fasta
+usearch -derep_fulllength AP_647_awk.fasta -fastaout AP_647_uniques.fasta -sizeout -relabel AP_647_
+cat AP_647_uniques.fasta AP_reference_CT_converted.fasta > AP_647_input_muscle.fasta
+muscle -in AP_647_input_muscle.fasta -out AP_647_muscle.fasta -maxiters 1
+fasta_formatter -i AP_647_muscle.fasta -o AP_647_muscle.tab -t
+grep AP_reference_CT_converted AP_647_muscle.tab > AP_647_reference.tab
+awk '{print $2}' AP_647_reference.tab > AP_647_reference_sequence.tab
+awk '{print $1}' AP_647_muscle.tab > AP_647_uniquenames.tab
+awk '{print $2}' AP_647_muscle.tab > AP_647_sequences.tab
+AP_647=$(python find_CpGs_AP.py AP_647_reference_sequence.tab)
+cut -c $AP_647 AP_647_sequences.tab > AP_647_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_647_uniquenames.tab
+sed -i 's/;/ /g' AP_647_uniquenames.tab
+sed -i 's/=/ /g' AP_647_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_647_uniquenames.tab > AP_647_uniqueinfo.tab
+paste AP_647_uniqueinfo.tab AP_647_unnumbered_haplotypes.tab > AP_647_redundant_haplotypes.tab
+grep :648:1:N:0:58 AP_bowtie.sam > AP_648_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_648_bowtie.sam > AP_648_awk.fasta
+usearch -derep_fulllength AP_648_awk.fasta -fastaout AP_648_uniques.fasta -sizeout -relabel AP_648_
+cat AP_648_uniques.fasta AP_reference_CT_converted.fasta > AP_648_input_muscle.fasta
+muscle -in AP_648_input_muscle.fasta -out AP_648_muscle.fasta -maxiters 1
+fasta_formatter -i AP_648_muscle.fasta -o AP_648_muscle.tab -t
+grep AP_reference_CT_converted AP_648_muscle.tab > AP_648_reference.tab
+awk '{print $2}' AP_648_reference.tab > AP_648_reference_sequence.tab
+awk '{print $1}' AP_648_muscle.tab > AP_648_uniquenames.tab
+awk '{print $2}' AP_648_muscle.tab > AP_648_sequences.tab
+AP_648=$(python find_CpGs_AP.py AP_648_reference_sequence.tab)
+cut -c $AP_648 AP_648_sequences.tab > AP_648_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_648_uniquenames.tab
+sed -i 's/;/ /g' AP_648_uniquenames.tab
+sed -i 's/=/ /g' AP_648_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_648_uniquenames.tab > AP_648_uniqueinfo.tab
+paste AP_648_uniqueinfo.tab AP_648_unnumbered_haplotypes.tab > AP_648_redundant_haplotypes.tab
+grep :649:1:N:0:66 AP_bowtie.sam > AP_649_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_649_bowtie.sam > AP_649_awk.fasta
+usearch -derep_fulllength AP_649_awk.fasta -fastaout AP_649_uniques.fasta -sizeout -relabel AP_649_
+cat AP_649_uniques.fasta AP_reference_CT_converted.fasta > AP_649_input_muscle.fasta
+muscle -in AP_649_input_muscle.fasta -out AP_649_muscle.fasta -maxiters 1
+fasta_formatter -i AP_649_muscle.fasta -o AP_649_muscle.tab -t
+grep AP_reference_CT_converted AP_649_muscle.tab > AP_649_reference.tab
+awk '{print $2}' AP_649_reference.tab > AP_649_reference_sequence.tab
+awk '{print $1}' AP_649_muscle.tab > AP_649_uniquenames.tab
+awk '{print $2}' AP_649_muscle.tab > AP_649_sequences.tab
+AP_649=$(python find_CpGs_AP.py AP_649_reference_sequence.tab)
+cut -c $AP_649 AP_649_sequences.tab > AP_649_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_649_uniquenames.tab
+sed -i 's/;/ /g' AP_649_uniquenames.tab
+sed -i 's/=/ /g' AP_649_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_649_uniquenames.tab > AP_649_uniqueinfo.tab
+paste AP_649_uniqueinfo.tab AP_649_unnumbered_haplotypes.tab > AP_649_redundant_haplotypes.tab
+grep :650:1:N:0:74 AP_bowtie.sam > AP_650_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_650_bowtie.sam > AP_650_awk.fasta
+usearch -derep_fulllength AP_650_awk.fasta -fastaout AP_650_uniques.fasta -sizeout -relabel AP_650_
+cat AP_650_uniques.fasta AP_reference_CT_converted.fasta > AP_650_input_muscle.fasta
+muscle -in AP_650_input_muscle.fasta -out AP_650_muscle.fasta -maxiters 1
+fasta_formatter -i AP_650_muscle.fasta -o AP_650_muscle.tab -t
+grep AP_reference_CT_converted AP_650_muscle.tab > AP_650_reference.tab
+awk '{print $2}' AP_650_reference.tab > AP_650_reference_sequence.tab
+awk '{print $1}' AP_650_muscle.tab > AP_650_uniquenames.tab
+awk '{print $2}' AP_650_muscle.tab > AP_650_sequences.tab
+AP_650=$(python find_CpGs_AP.py AP_650_reference_sequence.tab)
+cut -c $AP_650 AP_650_sequences.tab > AP_650_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_650_uniquenames.tab
+sed -i 's/;/ /g' AP_650_uniquenames.tab
+sed -i 's/=/ /g' AP_650_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_650_uniquenames.tab > AP_650_uniqueinfo.tab
+paste AP_650_uniqueinfo.tab AP_650_unnumbered_haplotypes.tab > AP_650_redundant_haplotypes.tab
+grep :651:1:N:0:82 AP_bowtie.sam > AP_651_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_651_bowtie.sam > AP_651_awk.fasta
+usearch -derep_fulllength AP_651_awk.fasta -fastaout AP_651_uniques.fasta -sizeout -relabel AP_651_
+cat AP_651_uniques.fasta AP_reference_CT_converted.fasta > AP_651_input_muscle.fasta
+muscle -in AP_651_input_muscle.fasta -out AP_651_muscle.fasta -maxiters 1
+fasta_formatter -i AP_651_muscle.fasta -o AP_651_muscle.tab -t
+grep AP_reference_CT_converted AP_651_muscle.tab > AP_651_reference.tab
+awk '{print $2}' AP_651_reference.tab > AP_651_reference_sequence.tab
+awk '{print $1}' AP_651_muscle.tab > AP_651_uniquenames.tab
+awk '{print $2}' AP_651_muscle.tab > AP_651_sequences.tab
+AP_651=$(python find_CpGs_AP.py AP_651_reference_sequence.tab)
+cut -c $AP_651 AP_651_sequences.tab > AP_651_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_651_uniquenames.tab
+sed -i 's/;/ /g' AP_651_uniquenames.tab
+sed -i 's/=/ /g' AP_651_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_651_uniquenames.tab > AP_651_uniqueinfo.tab
+paste AP_651_uniqueinfo.tab AP_651_unnumbered_haplotypes.tab > AP_651_redundant_haplotypes.tab
+grep :652:1:N:0:90 AP_bowtie.sam > AP_652_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_652_bowtie.sam > AP_652_awk.fasta
+usearch -derep_fulllength AP_652_awk.fasta -fastaout AP_652_uniques.fasta -sizeout -relabel AP_652_
+cat AP_652_uniques.fasta AP_reference_CT_converted.fasta > AP_652_input_muscle.fasta
+muscle -in AP_652_input_muscle.fasta -out AP_652_muscle.fasta -maxiters 1
+fasta_formatter -i AP_652_muscle.fasta -o AP_652_muscle.tab -t
+grep AP_reference_CT_converted AP_652_muscle.tab > AP_652_reference.tab
+awk '{print $2}' AP_652_reference.tab > AP_652_reference_sequence.tab
+awk '{print $1}' AP_652_muscle.tab > AP_652_uniquenames.tab
+awk '{print $2}' AP_652_muscle.tab > AP_652_sequences.tab
+AP_652=$(python find_CpGs_AP.py AP_652_reference_sequence.tab)
+cut -c $AP_652 AP_652_sequences.tab > AP_652_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_652_uniquenames.tab
+sed -i 's/;/ /g' AP_652_uniquenames.tab
+sed -i 's/=/ /g' AP_652_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_652_uniquenames.tab > AP_652_uniqueinfo.tab
+paste AP_652_uniqueinfo.tab AP_652_unnumbered_haplotypes.tab > AP_652_redundant_haplotypes.tab
+grep :653:1:N:0:3 AP_bowtie.sam > AP_653_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_653_bowtie.sam > AP_653_awk.fasta
+usearch -derep_fulllength AP_653_awk.fasta -fastaout AP_653_uniques.fasta -sizeout -relabel AP_653_
+cat AP_653_uniques.fasta AP_reference_CT_converted.fasta > AP_653_input_muscle.fasta
+muscle -in AP_653_input_muscle.fasta -out AP_653_muscle.fasta -maxiters 1
+fasta_formatter -i AP_653_muscle.fasta -o AP_653_muscle.tab -t
+grep AP_reference_CT_converted AP_653_muscle.tab > AP_653_reference.tab
+awk '{print $2}' AP_653_reference.tab > AP_653_reference_sequence.tab
+awk '{print $1}' AP_653_muscle.tab > AP_653_uniquenames.tab
+awk '{print $2}' AP_653_muscle.tab > AP_653_sequences.tab
+AP_653=$(python find_CpGs_AP.py AP_653_reference_sequence.tab)
+cut -c $AP_653 AP_653_sequences.tab > AP_653_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_653_uniquenames.tab
+sed -i 's/;/ /g' AP_653_uniquenames.tab
+sed -i 's/=/ /g' AP_653_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_653_uniquenames.tab > AP_653_uniqueinfo.tab
+paste AP_653_uniqueinfo.tab AP_653_unnumbered_haplotypes.tab > AP_653_redundant_haplotypes.tab
+grep :654:1:N:0:11 AP_bowtie.sam > AP_654_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_654_bowtie.sam > AP_654_awk.fasta
+usearch -derep_fulllength AP_654_awk.fasta -fastaout AP_654_uniques.fasta -sizeout -relabel AP_654_
+cat AP_654_uniques.fasta AP_reference_CT_converted.fasta > AP_654_input_muscle.fasta
+muscle -in AP_654_input_muscle.fasta -out AP_654_muscle.fasta -maxiters 1
+fasta_formatter -i AP_654_muscle.fasta -o AP_654_muscle.tab -t
+grep AP_reference_CT_converted AP_654_muscle.tab > AP_654_reference.tab
+awk '{print $2}' AP_654_reference.tab > AP_654_reference_sequence.tab
+awk '{print $1}' AP_654_muscle.tab > AP_654_uniquenames.tab
+awk '{print $2}' AP_654_muscle.tab > AP_654_sequences.tab
+AP_654=$(python find_CpGs_AP.py AP_654_reference_sequence.tab)
+cut -c $AP_654 AP_654_sequences.tab > AP_654_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_654_uniquenames.tab
+sed -i 's/;/ /g' AP_654_uniquenames.tab
+sed -i 's/=/ /g' AP_654_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_654_uniquenames.tab > AP_654_uniqueinfo.tab
+paste AP_654_uniqueinfo.tab AP_654_unnumbered_haplotypes.tab > AP_654_redundant_haplotypes.tab
+grep :655:1:N:0:19 AP_bowtie.sam > AP_655_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_655_bowtie.sam > AP_655_awk.fasta
+usearch -derep_fulllength AP_655_awk.fasta -fastaout AP_655_uniques.fasta -sizeout -relabel AP_655_
+cat AP_655_uniques.fasta AP_reference_CT_converted.fasta > AP_655_input_muscle.fasta
+muscle -in AP_655_input_muscle.fasta -out AP_655_muscle.fasta -maxiters 1
+fasta_formatter -i AP_655_muscle.fasta -o AP_655_muscle.tab -t
+grep AP_reference_CT_converted AP_655_muscle.tab > AP_655_reference.tab
+awk '{print $2}' AP_655_reference.tab > AP_655_reference_sequence.tab
+awk '{print $1}' AP_655_muscle.tab > AP_655_uniquenames.tab
+awk '{print $2}' AP_655_muscle.tab > AP_655_sequences.tab
+AP_655=$(python find_CpGs_AP.py AP_655_reference_sequence.tab)
+cut -c $AP_655 AP_655_sequences.tab > AP_655_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_655_uniquenames.tab
+sed -i 's/;/ /g' AP_655_uniquenames.tab
+sed -i 's/=/ /g' AP_655_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_655_uniquenames.tab > AP_655_uniqueinfo.tab
+paste AP_655_uniqueinfo.tab AP_655_unnumbered_haplotypes.tab > AP_655_redundant_haplotypes.tab
+grep :656:1:N:0:27 AP_bowtie.sam > AP_656_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_656_bowtie.sam > AP_656_awk.fasta
+usearch -derep_fulllength AP_656_awk.fasta -fastaout AP_656_uniques.fasta -sizeout -relabel AP_656_
+cat AP_656_uniques.fasta AP_reference_CT_converted.fasta > AP_656_input_muscle.fasta
+muscle -in AP_656_input_muscle.fasta -out AP_656_muscle.fasta -maxiters 1
+fasta_formatter -i AP_656_muscle.fasta -o AP_656_muscle.tab -t
+grep AP_reference_CT_converted AP_656_muscle.tab > AP_656_reference.tab
+awk '{print $2}' AP_656_reference.tab > AP_656_reference_sequence.tab
+awk '{print $1}' AP_656_muscle.tab > AP_656_uniquenames.tab
+awk '{print $2}' AP_656_muscle.tab > AP_656_sequences.tab
+AP_656=$(python find_CpGs_AP.py AP_656_reference_sequence.tab)
+cut -c $AP_656 AP_656_sequences.tab > AP_656_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_656_uniquenames.tab
+sed -i 's/;/ /g' AP_656_uniquenames.tab
+sed -i 's/=/ /g' AP_656_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_656_uniquenames.tab > AP_656_uniqueinfo.tab
+paste AP_656_uniqueinfo.tab AP_656_unnumbered_haplotypes.tab > AP_656_redundant_haplotypes.tab
+grep :657:1:N:0:35 AP_bowtie.sam > AP_657_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_657_bowtie.sam > AP_657_awk.fasta
+usearch -derep_fulllength AP_657_awk.fasta -fastaout AP_657_uniques.fasta -sizeout -relabel AP_657_
+cat AP_657_uniques.fasta AP_reference_CT_converted.fasta > AP_657_input_muscle.fasta
+muscle -in AP_657_input_muscle.fasta -out AP_657_muscle.fasta -maxiters 1
+fasta_formatter -i AP_657_muscle.fasta -o AP_657_muscle.tab -t
+grep AP_reference_CT_converted AP_657_muscle.tab > AP_657_reference.tab
+awk '{print $2}' AP_657_reference.tab > AP_657_reference_sequence.tab
+awk '{print $1}' AP_657_muscle.tab > AP_657_uniquenames.tab
+awk '{print $2}' AP_657_muscle.tab > AP_657_sequences.tab
+AP_657=$(python find_CpGs_AP.py AP_657_reference_sequence.tab)
+cut -c $AP_657 AP_657_sequences.tab > AP_657_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_657_uniquenames.tab
+sed -i 's/;/ /g' AP_657_uniquenames.tab
+sed -i 's/=/ /g' AP_657_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_657_uniquenames.tab > AP_657_uniqueinfo.tab
+paste AP_657_uniqueinfo.tab AP_657_unnumbered_haplotypes.tab > AP_657_redundant_haplotypes.tab
+grep :658:1:N:0:43 AP_bowtie.sam > AP_658_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_658_bowtie.sam > AP_658_awk.fasta
+usearch -derep_fulllength AP_658_awk.fasta -fastaout AP_658_uniques.fasta -sizeout -relabel AP_658_
+cat AP_658_uniques.fasta AP_reference_CT_converted.fasta > AP_658_input_muscle.fasta
+muscle -in AP_658_input_muscle.fasta -out AP_658_muscle.fasta -maxiters 1
+fasta_formatter -i AP_658_muscle.fasta -o AP_658_muscle.tab -t
+grep AP_reference_CT_converted AP_658_muscle.tab > AP_658_reference.tab
+awk '{print $2}' AP_658_reference.tab > AP_658_reference_sequence.tab
+awk '{print $1}' AP_658_muscle.tab > AP_658_uniquenames.tab
+awk '{print $2}' AP_658_muscle.tab > AP_658_sequences.tab
+AP_658=$(python find_CpGs_AP.py AP_658_reference_sequence.tab)
+cut -c $AP_658 AP_658_sequences.tab > AP_658_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_658_uniquenames.tab
+sed -i 's/;/ /g' AP_658_uniquenames.tab
+sed -i 's/=/ /g' AP_658_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_658_uniquenames.tab > AP_658_uniqueinfo.tab
+paste AP_658_uniqueinfo.tab AP_658_unnumbered_haplotypes.tab > AP_658_redundant_haplotypes.tab
+grep :659:1:N:0:51 AP_bowtie.sam > AP_659_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_659_bowtie.sam > AP_659_awk.fasta
+usearch -derep_fulllength AP_659_awk.fasta -fastaout AP_659_uniques.fasta -sizeout -relabel AP_659_
+cat AP_659_uniques.fasta AP_reference_CT_converted.fasta > AP_659_input_muscle.fasta
+muscle -in AP_659_input_muscle.fasta -out AP_659_muscle.fasta -maxiters 1
+fasta_formatter -i AP_659_muscle.fasta -o AP_659_muscle.tab -t
+grep AP_reference_CT_converted AP_659_muscle.tab > AP_659_reference.tab
+awk '{print $2}' AP_659_reference.tab > AP_659_reference_sequence.tab
+awk '{print $1}' AP_659_muscle.tab > AP_659_uniquenames.tab
+awk '{print $2}' AP_659_muscle.tab > AP_659_sequences.tab
+AP_659=$(python find_CpGs_AP.py AP_659_reference_sequence.tab)
+cut -c $AP_659 AP_659_sequences.tab > AP_659_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_659_uniquenames.tab
+sed -i 's/;/ /g' AP_659_uniquenames.tab
+sed -i 's/=/ /g' AP_659_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_659_uniquenames.tab > AP_659_uniqueinfo.tab
+paste AP_659_uniqueinfo.tab AP_659_unnumbered_haplotypes.tab > AP_659_redundant_haplotypes.tab
+grep :660:1:N:0:59 AP_bowtie.sam > AP_660_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_660_bowtie.sam > AP_660_awk.fasta
+usearch -derep_fulllength AP_660_awk.fasta -fastaout AP_660_uniques.fasta -sizeout -relabel AP_660_
+cat AP_660_uniques.fasta AP_reference_CT_converted.fasta > AP_660_input_muscle.fasta
+muscle -in AP_660_input_muscle.fasta -out AP_660_muscle.fasta -maxiters 1
+fasta_formatter -i AP_660_muscle.fasta -o AP_660_muscle.tab -t
+grep AP_reference_CT_converted AP_660_muscle.tab > AP_660_reference.tab
+awk '{print $2}' AP_660_reference.tab > AP_660_reference_sequence.tab
+awk '{print $1}' AP_660_muscle.tab > AP_660_uniquenames.tab
+awk '{print $2}' AP_660_muscle.tab > AP_660_sequences.tab
+AP_660=$(python find_CpGs_AP.py AP_660_reference_sequence.tab)
+cut -c $AP_660 AP_660_sequences.tab > AP_660_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_660_uniquenames.tab
+sed -i 's/;/ /g' AP_660_uniquenames.tab
+sed -i 's/=/ /g' AP_660_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_660_uniquenames.tab > AP_660_uniqueinfo.tab
+paste AP_660_uniqueinfo.tab AP_660_unnumbered_haplotypes.tab > AP_660_redundant_haplotypes.tab
+grep :661:1:N:0:67 AP_bowtie.sam > AP_661_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_661_bowtie.sam > AP_661_awk.fasta
+usearch -derep_fulllength AP_661_awk.fasta -fastaout AP_661_uniques.fasta -sizeout -relabel AP_661_
+cat AP_661_uniques.fasta AP_reference_CT_converted.fasta > AP_661_input_muscle.fasta
+muscle -in AP_661_input_muscle.fasta -out AP_661_muscle.fasta -maxiters 1
+fasta_formatter -i AP_661_muscle.fasta -o AP_661_muscle.tab -t
+grep AP_reference_CT_converted AP_661_muscle.tab > AP_661_reference.tab
+awk '{print $2}' AP_661_reference.tab > AP_661_reference_sequence.tab
+awk '{print $1}' AP_661_muscle.tab > AP_661_uniquenames.tab
+awk '{print $2}' AP_661_muscle.tab > AP_661_sequences.tab
+AP_661=$(python find_CpGs_AP.py AP_661_reference_sequence.tab)
+cut -c $AP_661 AP_661_sequences.tab > AP_661_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_661_uniquenames.tab
+sed -i 's/;/ /g' AP_661_uniquenames.tab
+sed -i 's/=/ /g' AP_661_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_661_uniquenames.tab > AP_661_uniqueinfo.tab
+paste AP_661_uniqueinfo.tab AP_661_unnumbered_haplotypes.tab > AP_661_redundant_haplotypes.tab
+grep :662:1:N:0:75 AP_bowtie.sam > AP_662_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_662_bowtie.sam > AP_662_awk.fasta
+usearch -derep_fulllength AP_662_awk.fasta -fastaout AP_662_uniques.fasta -sizeout -relabel AP_662_
+cat AP_662_uniques.fasta AP_reference_CT_converted.fasta > AP_662_input_muscle.fasta
+muscle -in AP_662_input_muscle.fasta -out AP_662_muscle.fasta -maxiters 1
+fasta_formatter -i AP_662_muscle.fasta -o AP_662_muscle.tab -t
+grep AP_reference_CT_converted AP_662_muscle.tab > AP_662_reference.tab
+awk '{print $2}' AP_662_reference.tab > AP_662_reference_sequence.tab
+awk '{print $1}' AP_662_muscle.tab > AP_662_uniquenames.tab
+awk '{print $2}' AP_662_muscle.tab > AP_662_sequences.tab
+AP_662=$(python find_CpGs_AP.py AP_662_reference_sequence.tab)
+cut -c $AP_662 AP_662_sequences.tab > AP_662_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_662_uniquenames.tab
+sed -i 's/;/ /g' AP_662_uniquenames.tab
+sed -i 's/=/ /g' AP_662_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_662_uniquenames.tab > AP_662_uniqueinfo.tab
+paste AP_662_uniqueinfo.tab AP_662_unnumbered_haplotypes.tab > AP_662_redundant_haplotypes.tab
+grep :663:1:N:0:83 AP_bowtie.sam > AP_663_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_663_bowtie.sam > AP_663_awk.fasta
+usearch -derep_fulllength AP_663_awk.fasta -fastaout AP_663_uniques.fasta -sizeout -relabel AP_663_
+cat AP_663_uniques.fasta AP_reference_CT_converted.fasta > AP_663_input_muscle.fasta
+muscle -in AP_663_input_muscle.fasta -out AP_663_muscle.fasta -maxiters 1
+fasta_formatter -i AP_663_muscle.fasta -o AP_663_muscle.tab -t
+grep AP_reference_CT_converted AP_663_muscle.tab > AP_663_reference.tab
+awk '{print $2}' AP_663_reference.tab > AP_663_reference_sequence.tab
+awk '{print $1}' AP_663_muscle.tab > AP_663_uniquenames.tab
+awk '{print $2}' AP_663_muscle.tab > AP_663_sequences.tab
+AP_663=$(python find_CpGs_AP.py AP_663_reference_sequence.tab)
+cut -c $AP_663 AP_663_sequences.tab > AP_663_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_663_uniquenames.tab
+sed -i 's/;/ /g' AP_663_uniquenames.tab
+sed -i 's/=/ /g' AP_663_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_663_uniquenames.tab > AP_663_uniqueinfo.tab
+paste AP_663_uniqueinfo.tab AP_663_unnumbered_haplotypes.tab > AP_663_redundant_haplotypes.tab
+grep :664:1:N:0:91 AP_bowtie.sam > AP_664_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_664_bowtie.sam > AP_664_awk.fasta
+usearch -derep_fulllength AP_664_awk.fasta -fastaout AP_664_uniques.fasta -sizeout -relabel AP_664_
+cat AP_664_uniques.fasta AP_reference_CT_converted.fasta > AP_664_input_muscle.fasta
+muscle -in AP_664_input_muscle.fasta -out AP_664_muscle.fasta -maxiters 1
+fasta_formatter -i AP_664_muscle.fasta -o AP_664_muscle.tab -t
+grep AP_reference_CT_converted AP_664_muscle.tab > AP_664_reference.tab
+awk '{print $2}' AP_664_reference.tab > AP_664_reference_sequence.tab
+awk '{print $1}' AP_664_muscle.tab > AP_664_uniquenames.tab
+awk '{print $2}' AP_664_muscle.tab > AP_664_sequences.tab
+AP_664=$(python find_CpGs_AP.py AP_664_reference_sequence.tab)
+cut -c $AP_664 AP_664_sequences.tab > AP_664_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_664_uniquenames.tab
+sed -i 's/;/ /g' AP_664_uniquenames.tab
+sed -i 's/=/ /g' AP_664_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_664_uniquenames.tab > AP_664_uniqueinfo.tab
+paste AP_664_uniqueinfo.tab AP_664_unnumbered_haplotypes.tab > AP_664_redundant_haplotypes.tab
+grep :665:1:N:0:4 AP_bowtie.sam > AP_665_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_665_bowtie.sam > AP_665_awk.fasta
+usearch -derep_fulllength AP_665_awk.fasta -fastaout AP_665_uniques.fasta -sizeout -relabel AP_665_
+cat AP_665_uniques.fasta AP_reference_CT_converted.fasta > AP_665_input_muscle.fasta
+muscle -in AP_665_input_muscle.fasta -out AP_665_muscle.fasta -maxiters 1
+fasta_formatter -i AP_665_muscle.fasta -o AP_665_muscle.tab -t
+grep AP_reference_CT_converted AP_665_muscle.tab > AP_665_reference.tab
+awk '{print $2}' AP_665_reference.tab > AP_665_reference_sequence.tab
+awk '{print $1}' AP_665_muscle.tab > AP_665_uniquenames.tab
+awk '{print $2}' AP_665_muscle.tab > AP_665_sequences.tab
+AP_665=$(python find_CpGs_AP.py AP_665_reference_sequence.tab)
+cut -c $AP_665 AP_665_sequences.tab > AP_665_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_665_uniquenames.tab
+sed -i 's/;/ /g' AP_665_uniquenames.tab
+sed -i 's/=/ /g' AP_665_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_665_uniquenames.tab > AP_665_uniqueinfo.tab
+paste AP_665_uniqueinfo.tab AP_665_unnumbered_haplotypes.tab > AP_665_redundant_haplotypes.tab
+grep :666:1:N:0:12 AP_bowtie.sam > AP_666_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_666_bowtie.sam > AP_666_awk.fasta
+usearch -derep_fulllength AP_666_awk.fasta -fastaout AP_666_uniques.fasta -sizeout -relabel AP_666_
+cat AP_666_uniques.fasta AP_reference_CT_converted.fasta > AP_666_input_muscle.fasta
+muscle -in AP_666_input_muscle.fasta -out AP_666_muscle.fasta -maxiters 1
+fasta_formatter -i AP_666_muscle.fasta -o AP_666_muscle.tab -t
+grep AP_reference_CT_converted AP_666_muscle.tab > AP_666_reference.tab
+awk '{print $2}' AP_666_reference.tab > AP_666_reference_sequence.tab
+awk '{print $1}' AP_666_muscle.tab > AP_666_uniquenames.tab
+awk '{print $2}' AP_666_muscle.tab > AP_666_sequences.tab
+AP_666=$(python find_CpGs_AP.py AP_666_reference_sequence.tab)
+cut -c $AP_666 AP_666_sequences.tab > AP_666_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_666_uniquenames.tab
+sed -i 's/;/ /g' AP_666_uniquenames.tab
+sed -i 's/=/ /g' AP_666_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_666_uniquenames.tab > AP_666_uniqueinfo.tab
+paste AP_666_uniqueinfo.tab AP_666_unnumbered_haplotypes.tab > AP_666_redundant_haplotypes.tab
+grep :667:1:N:0:20 AP_bowtie.sam > AP_667_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_667_bowtie.sam > AP_667_awk.fasta
+usearch -derep_fulllength AP_667_awk.fasta -fastaout AP_667_uniques.fasta -sizeout -relabel AP_667_
+cat AP_667_uniques.fasta AP_reference_CT_converted.fasta > AP_667_input_muscle.fasta
+muscle -in AP_667_input_muscle.fasta -out AP_667_muscle.fasta -maxiters 1
+fasta_formatter -i AP_667_muscle.fasta -o AP_667_muscle.tab -t
+grep AP_reference_CT_converted AP_667_muscle.tab > AP_667_reference.tab
+awk '{print $2}' AP_667_reference.tab > AP_667_reference_sequence.tab
+awk '{print $1}' AP_667_muscle.tab > AP_667_uniquenames.tab
+awk '{print $2}' AP_667_muscle.tab > AP_667_sequences.tab
+AP_667=$(python find_CpGs_AP.py AP_667_reference_sequence.tab)
+cut -c $AP_667 AP_667_sequences.tab > AP_667_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_667_uniquenames.tab
+sed -i 's/;/ /g' AP_667_uniquenames.tab
+sed -i 's/=/ /g' AP_667_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_667_uniquenames.tab > AP_667_uniqueinfo.tab
+paste AP_667_uniqueinfo.tab AP_667_unnumbered_haplotypes.tab > AP_667_redundant_haplotypes.tab
+grep :668:1:N:0:28 AP_bowtie.sam > AP_668_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_668_bowtie.sam > AP_668_awk.fasta
+usearch -derep_fulllength AP_668_awk.fasta -fastaout AP_668_uniques.fasta -sizeout -relabel AP_668_
+cat AP_668_uniques.fasta AP_reference_CT_converted.fasta > AP_668_input_muscle.fasta
+muscle -in AP_668_input_muscle.fasta -out AP_668_muscle.fasta -maxiters 1
+fasta_formatter -i AP_668_muscle.fasta -o AP_668_muscle.tab -t
+grep AP_reference_CT_converted AP_668_muscle.tab > AP_668_reference.tab
+awk '{print $2}' AP_668_reference.tab > AP_668_reference_sequence.tab
+awk '{print $1}' AP_668_muscle.tab > AP_668_uniquenames.tab
+awk '{print $2}' AP_668_muscle.tab > AP_668_sequences.tab
+AP_668=$(python find_CpGs_AP.py AP_668_reference_sequence.tab)
+cut -c $AP_668 AP_668_sequences.tab > AP_668_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_668_uniquenames.tab
+sed -i 's/;/ /g' AP_668_uniquenames.tab
+sed -i 's/=/ /g' AP_668_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_668_uniquenames.tab > AP_668_uniqueinfo.tab
+paste AP_668_uniqueinfo.tab AP_668_unnumbered_haplotypes.tab > AP_668_redundant_haplotypes.tab
+grep :669:1:N:0:36 AP_bowtie.sam > AP_669_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_669_bowtie.sam > AP_669_awk.fasta
+usearch -derep_fulllength AP_669_awk.fasta -fastaout AP_669_uniques.fasta -sizeout -relabel AP_669_
+cat AP_669_uniques.fasta AP_reference_CT_converted.fasta > AP_669_input_muscle.fasta
+muscle -in AP_669_input_muscle.fasta -out AP_669_muscle.fasta -maxiters 1
+fasta_formatter -i AP_669_muscle.fasta -o AP_669_muscle.tab -t
+grep AP_reference_CT_converted AP_669_muscle.tab > AP_669_reference.tab
+awk '{print $2}' AP_669_reference.tab > AP_669_reference_sequence.tab
+awk '{print $1}' AP_669_muscle.tab > AP_669_uniquenames.tab
+awk '{print $2}' AP_669_muscle.tab > AP_669_sequences.tab
+AP_669=$(python find_CpGs_AP.py AP_669_reference_sequence.tab)
+cut -c $AP_669 AP_669_sequences.tab > AP_669_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_669_uniquenames.tab
+sed -i 's/;/ /g' AP_669_uniquenames.tab
+sed -i 's/=/ /g' AP_669_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_669_uniquenames.tab > AP_669_uniqueinfo.tab
+paste AP_669_uniqueinfo.tab AP_669_unnumbered_haplotypes.tab > AP_669_redundant_haplotypes.tab
+grep :670:1:N:0:44 AP_bowtie.sam > AP_670_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_670_bowtie.sam > AP_670_awk.fasta
+usearch -derep_fulllength AP_670_awk.fasta -fastaout AP_670_uniques.fasta -sizeout -relabel AP_670_
+cat AP_670_uniques.fasta AP_reference_CT_converted.fasta > AP_670_input_muscle.fasta
+muscle -in AP_670_input_muscle.fasta -out AP_670_muscle.fasta -maxiters 1
+fasta_formatter -i AP_670_muscle.fasta -o AP_670_muscle.tab -t
+grep AP_reference_CT_converted AP_670_muscle.tab > AP_670_reference.tab
+awk '{print $2}' AP_670_reference.tab > AP_670_reference_sequence.tab
+awk '{print $1}' AP_670_muscle.tab > AP_670_uniquenames.tab
+awk '{print $2}' AP_670_muscle.tab > AP_670_sequences.tab
+AP_670=$(python find_CpGs_AP.py AP_670_reference_sequence.tab)
+cut -c $AP_670 AP_670_sequences.tab > AP_670_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_670_uniquenames.tab
+sed -i 's/;/ /g' AP_670_uniquenames.tab
+sed -i 's/=/ /g' AP_670_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_670_uniquenames.tab > AP_670_uniqueinfo.tab
+paste AP_670_uniqueinfo.tab AP_670_unnumbered_haplotypes.tab > AP_670_redundant_haplotypes.tab
+grep :671:1:N:0:52 AP_bowtie.sam > AP_671_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_671_bowtie.sam > AP_671_awk.fasta
+usearch -derep_fulllength AP_671_awk.fasta -fastaout AP_671_uniques.fasta -sizeout -relabel AP_671_
+cat AP_671_uniques.fasta AP_reference_CT_converted.fasta > AP_671_input_muscle.fasta
+muscle -in AP_671_input_muscle.fasta -out AP_671_muscle.fasta -maxiters 1
+fasta_formatter -i AP_671_muscle.fasta -o AP_671_muscle.tab -t
+grep AP_reference_CT_converted AP_671_muscle.tab > AP_671_reference.tab
+awk '{print $2}' AP_671_reference.tab > AP_671_reference_sequence.tab
+awk '{print $1}' AP_671_muscle.tab > AP_671_uniquenames.tab
+awk '{print $2}' AP_671_muscle.tab > AP_671_sequences.tab
+AP_671=$(python find_CpGs_AP.py AP_671_reference_sequence.tab)
+cut -c $AP_671 AP_671_sequences.tab > AP_671_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_671_uniquenames.tab
+sed -i 's/;/ /g' AP_671_uniquenames.tab
+sed -i 's/=/ /g' AP_671_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_671_uniquenames.tab > AP_671_uniqueinfo.tab
+paste AP_671_uniqueinfo.tab AP_671_unnumbered_haplotypes.tab > AP_671_redundant_haplotypes.tab
+grep :672:1:N:0:60 AP_bowtie.sam > AP_672_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_672_bowtie.sam > AP_672_awk.fasta
+usearch -derep_fulllength AP_672_awk.fasta -fastaout AP_672_uniques.fasta -sizeout -relabel AP_672_
+cat AP_672_uniques.fasta AP_reference_CT_converted.fasta > AP_672_input_muscle.fasta
+muscle -in AP_672_input_muscle.fasta -out AP_672_muscle.fasta -maxiters 1
+fasta_formatter -i AP_672_muscle.fasta -o AP_672_muscle.tab -t
+grep AP_reference_CT_converted AP_672_muscle.tab > AP_672_reference.tab
+awk '{print $2}' AP_672_reference.tab > AP_672_reference_sequence.tab
+awk '{print $1}' AP_672_muscle.tab > AP_672_uniquenames.tab
+awk '{print $2}' AP_672_muscle.tab > AP_672_sequences.tab
+AP_672=$(python find_CpGs_AP.py AP_672_reference_sequence.tab)
+cut -c $AP_672 AP_672_sequences.tab > AP_672_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_672_uniquenames.tab
+sed -i 's/;/ /g' AP_672_uniquenames.tab
+sed -i 's/=/ /g' AP_672_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_672_uniquenames.tab > AP_672_uniqueinfo.tab
+paste AP_672_uniqueinfo.tab AP_672_unnumbered_haplotypes.tab > AP_672_redundant_haplotypes.tab
+grep :673:1:N:0:68 AP_bowtie.sam > AP_673_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_673_bowtie.sam > AP_673_awk.fasta
+usearch -derep_fulllength AP_673_awk.fasta -fastaout AP_673_uniques.fasta -sizeout -relabel AP_673_
+cat AP_673_uniques.fasta AP_reference_CT_converted.fasta > AP_673_input_muscle.fasta
+muscle -in AP_673_input_muscle.fasta -out AP_673_muscle.fasta -maxiters 1
+fasta_formatter -i AP_673_muscle.fasta -o AP_673_muscle.tab -t
+grep AP_reference_CT_converted AP_673_muscle.tab > AP_673_reference.tab
+awk '{print $2}' AP_673_reference.tab > AP_673_reference_sequence.tab
+awk '{print $1}' AP_673_muscle.tab > AP_673_uniquenames.tab
+awk '{print $2}' AP_673_muscle.tab > AP_673_sequences.tab
+AP_673=$(python find_CpGs_AP.py AP_673_reference_sequence.tab)
+cut -c $AP_673 AP_673_sequences.tab > AP_673_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_673_uniquenames.tab
+sed -i 's/;/ /g' AP_673_uniquenames.tab
+sed -i 's/=/ /g' AP_673_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_673_uniquenames.tab > AP_673_uniqueinfo.tab
+paste AP_673_uniqueinfo.tab AP_673_unnumbered_haplotypes.tab > AP_673_redundant_haplotypes.tab
+grep :674:1:N:0:76 AP_bowtie.sam > AP_674_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_674_bowtie.sam > AP_674_awk.fasta
+usearch -derep_fulllength AP_674_awk.fasta -fastaout AP_674_uniques.fasta -sizeout -relabel AP_674_
+cat AP_674_uniques.fasta AP_reference_CT_converted.fasta > AP_674_input_muscle.fasta
+muscle -in AP_674_input_muscle.fasta -out AP_674_muscle.fasta -maxiters 1
+fasta_formatter -i AP_674_muscle.fasta -o AP_674_muscle.tab -t
+grep AP_reference_CT_converted AP_674_muscle.tab > AP_674_reference.tab
+awk '{print $2}' AP_674_reference.tab > AP_674_reference_sequence.tab
+awk '{print $1}' AP_674_muscle.tab > AP_674_uniquenames.tab
+awk '{print $2}' AP_674_muscle.tab > AP_674_sequences.tab
+AP_674=$(python find_CpGs_AP.py AP_674_reference_sequence.tab)
+cut -c $AP_674 AP_674_sequences.tab > AP_674_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_674_uniquenames.tab
+sed -i 's/;/ /g' AP_674_uniquenames.tab
+sed -i 's/=/ /g' AP_674_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_674_uniquenames.tab > AP_674_uniqueinfo.tab
+paste AP_674_uniqueinfo.tab AP_674_unnumbered_haplotypes.tab > AP_674_redundant_haplotypes.tab
+grep :675:1:N:0:84 AP_bowtie.sam > AP_675_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_675_bowtie.sam > AP_675_awk.fasta
+usearch -derep_fulllength AP_675_awk.fasta -fastaout AP_675_uniques.fasta -sizeout -relabel AP_675_
+cat AP_675_uniques.fasta AP_reference_CT_converted.fasta > AP_675_input_muscle.fasta
+muscle -in AP_675_input_muscle.fasta -out AP_675_muscle.fasta -maxiters 1
+fasta_formatter -i AP_675_muscle.fasta -o AP_675_muscle.tab -t
+grep AP_reference_CT_converted AP_675_muscle.tab > AP_675_reference.tab
+awk '{print $2}' AP_675_reference.tab > AP_675_reference_sequence.tab
+awk '{print $1}' AP_675_muscle.tab > AP_675_uniquenames.tab
+awk '{print $2}' AP_675_muscle.tab > AP_675_sequences.tab
+AP_675=$(python find_CpGs_AP.py AP_675_reference_sequence.tab)
+cut -c $AP_675 AP_675_sequences.tab > AP_675_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_675_uniquenames.tab
+sed -i 's/;/ /g' AP_675_uniquenames.tab
+sed -i 's/=/ /g' AP_675_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_675_uniquenames.tab > AP_675_uniqueinfo.tab
+paste AP_675_uniqueinfo.tab AP_675_unnumbered_haplotypes.tab > AP_675_redundant_haplotypes.tab
+grep :676:1:N:0:92 AP_bowtie.sam > AP_676_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_676_bowtie.sam > AP_676_awk.fasta
+usearch -derep_fulllength AP_676_awk.fasta -fastaout AP_676_uniques.fasta -sizeout -relabel AP_676_
+cat AP_676_uniques.fasta AP_reference_CT_converted.fasta > AP_676_input_muscle.fasta
+muscle -in AP_676_input_muscle.fasta -out AP_676_muscle.fasta -maxiters 1
+fasta_formatter -i AP_676_muscle.fasta -o AP_676_muscle.tab -t
+grep AP_reference_CT_converted AP_676_muscle.tab > AP_676_reference.tab
+awk '{print $2}' AP_676_reference.tab > AP_676_reference_sequence.tab
+awk '{print $1}' AP_676_muscle.tab > AP_676_uniquenames.tab
+awk '{print $2}' AP_676_muscle.tab > AP_676_sequences.tab
+AP_676=$(python find_CpGs_AP.py AP_676_reference_sequence.tab)
+cut -c $AP_676 AP_676_sequences.tab > AP_676_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_676_uniquenames.tab
+sed -i 's/;/ /g' AP_676_uniquenames.tab
+sed -i 's/=/ /g' AP_676_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_676_uniquenames.tab > AP_676_uniqueinfo.tab
+paste AP_676_uniqueinfo.tab AP_676_unnumbered_haplotypes.tab > AP_676_redundant_haplotypes.tab
+grep :677:1:N:0:5 AP_bowtie.sam > AP_677_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_677_bowtie.sam > AP_677_awk.fasta
+usearch -derep_fulllength AP_677_awk.fasta -fastaout AP_677_uniques.fasta -sizeout -relabel AP_677_
+cat AP_677_uniques.fasta AP_reference_CT_converted.fasta > AP_677_input_muscle.fasta
+muscle -in AP_677_input_muscle.fasta -out AP_677_muscle.fasta -maxiters 1
+fasta_formatter -i AP_677_muscle.fasta -o AP_677_muscle.tab -t
+grep AP_reference_CT_converted AP_677_muscle.tab > AP_677_reference.tab
+awk '{print $2}' AP_677_reference.tab > AP_677_reference_sequence.tab
+awk '{print $1}' AP_677_muscle.tab > AP_677_uniquenames.tab
+awk '{print $2}' AP_677_muscle.tab > AP_677_sequences.tab
+AP_677=$(python find_CpGs_AP.py AP_677_reference_sequence.tab)
+cut -c $AP_677 AP_677_sequences.tab > AP_677_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_677_uniquenames.tab
+sed -i 's/;/ /g' AP_677_uniquenames.tab
+sed -i 's/=/ /g' AP_677_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_677_uniquenames.tab > AP_677_uniqueinfo.tab
+paste AP_677_uniqueinfo.tab AP_677_unnumbered_haplotypes.tab > AP_677_redundant_haplotypes.tab
+grep :678:1:N:0:13 AP_bowtie.sam > AP_678_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_678_bowtie.sam > AP_678_awk.fasta
+usearch -derep_fulllength AP_678_awk.fasta -fastaout AP_678_uniques.fasta -sizeout -relabel AP_678_
+cat AP_678_uniques.fasta AP_reference_CT_converted.fasta > AP_678_input_muscle.fasta
+muscle -in AP_678_input_muscle.fasta -out AP_678_muscle.fasta -maxiters 1
+fasta_formatter -i AP_678_muscle.fasta -o AP_678_muscle.tab -t
+grep AP_reference_CT_converted AP_678_muscle.tab > AP_678_reference.tab
+awk '{print $2}' AP_678_reference.tab > AP_678_reference_sequence.tab
+awk '{print $1}' AP_678_muscle.tab > AP_678_uniquenames.tab
+awk '{print $2}' AP_678_muscle.tab > AP_678_sequences.tab
+AP_678=$(python find_CpGs_AP.py AP_678_reference_sequence.tab)
+cut -c $AP_678 AP_678_sequences.tab > AP_678_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_678_uniquenames.tab
+sed -i 's/;/ /g' AP_678_uniquenames.tab
+sed -i 's/=/ /g' AP_678_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_678_uniquenames.tab > AP_678_uniqueinfo.tab
+paste AP_678_uniqueinfo.tab AP_678_unnumbered_haplotypes.tab > AP_678_redundant_haplotypes.tab
+grep :679:1:N:0:21 AP_bowtie.sam > AP_679_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_679_bowtie.sam > AP_679_awk.fasta
+usearch -derep_fulllength AP_679_awk.fasta -fastaout AP_679_uniques.fasta -sizeout -relabel AP_679_
+cat AP_679_uniques.fasta AP_reference_CT_converted.fasta > AP_679_input_muscle.fasta
+muscle -in AP_679_input_muscle.fasta -out AP_679_muscle.fasta -maxiters 1
+fasta_formatter -i AP_679_muscle.fasta -o AP_679_muscle.tab -t
+grep AP_reference_CT_converted AP_679_muscle.tab > AP_679_reference.tab
+awk '{print $2}' AP_679_reference.tab > AP_679_reference_sequence.tab
+awk '{print $1}' AP_679_muscle.tab > AP_679_uniquenames.tab
+awk '{print $2}' AP_679_muscle.tab > AP_679_sequences.tab
+AP_679=$(python find_CpGs_AP.py AP_679_reference_sequence.tab)
+cut -c $AP_679 AP_679_sequences.tab > AP_679_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_679_uniquenames.tab
+sed -i 's/;/ /g' AP_679_uniquenames.tab
+sed -i 's/=/ /g' AP_679_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_679_uniquenames.tab > AP_679_uniqueinfo.tab
+paste AP_679_uniqueinfo.tab AP_679_unnumbered_haplotypes.tab > AP_679_redundant_haplotypes.tab
+grep :680:1:N:0:29 AP_bowtie.sam > AP_680_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_680_bowtie.sam > AP_680_awk.fasta
+usearch -derep_fulllength AP_680_awk.fasta -fastaout AP_680_uniques.fasta -sizeout -relabel AP_680_
+cat AP_680_uniques.fasta AP_reference_CT_converted.fasta > AP_680_input_muscle.fasta
+muscle -in AP_680_input_muscle.fasta -out AP_680_muscle.fasta -maxiters 1
+fasta_formatter -i AP_680_muscle.fasta -o AP_680_muscle.tab -t
+grep AP_reference_CT_converted AP_680_muscle.tab > AP_680_reference.tab
+awk '{print $2}' AP_680_reference.tab > AP_680_reference_sequence.tab
+awk '{print $1}' AP_680_muscle.tab > AP_680_uniquenames.tab
+awk '{print $2}' AP_680_muscle.tab > AP_680_sequences.tab
+AP_680=$(python find_CpGs_AP.py AP_680_reference_sequence.tab)
+cut -c $AP_680 AP_680_sequences.tab > AP_680_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_680_uniquenames.tab
+sed -i 's/;/ /g' AP_680_uniquenames.tab
+sed -i 's/=/ /g' AP_680_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_680_uniquenames.tab > AP_680_uniqueinfo.tab
+paste AP_680_uniqueinfo.tab AP_680_unnumbered_haplotypes.tab > AP_680_redundant_haplotypes.tab
+grep :681:1:N:0:37 AP_bowtie.sam > AP_681_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_681_bowtie.sam > AP_681_awk.fasta
+usearch -derep_fulllength AP_681_awk.fasta -fastaout AP_681_uniques.fasta -sizeout -relabel AP_681_
+cat AP_681_uniques.fasta AP_reference_CT_converted.fasta > AP_681_input_muscle.fasta
+muscle -in AP_681_input_muscle.fasta -out AP_681_muscle.fasta -maxiters 1
+fasta_formatter -i AP_681_muscle.fasta -o AP_681_muscle.tab -t
+grep AP_reference_CT_converted AP_681_muscle.tab > AP_681_reference.tab
+awk '{print $2}' AP_681_reference.tab > AP_681_reference_sequence.tab
+awk '{print $1}' AP_681_muscle.tab > AP_681_uniquenames.tab
+awk '{print $2}' AP_681_muscle.tab > AP_681_sequences.tab
+AP_681=$(python find_CpGs_AP.py AP_681_reference_sequence.tab)
+cut -c $AP_681 AP_681_sequences.tab > AP_681_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_681_uniquenames.tab
+sed -i 's/;/ /g' AP_681_uniquenames.tab
+sed -i 's/=/ /g' AP_681_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_681_uniquenames.tab > AP_681_uniqueinfo.tab
+paste AP_681_uniqueinfo.tab AP_681_unnumbered_haplotypes.tab > AP_681_redundant_haplotypes.tab
+grep :682:1:N:0:45 AP_bowtie.sam > AP_682_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_682_bowtie.sam > AP_682_awk.fasta
+usearch -derep_fulllength AP_682_awk.fasta -fastaout AP_682_uniques.fasta -sizeout -relabel AP_682_
+cat AP_682_uniques.fasta AP_reference_CT_converted.fasta > AP_682_input_muscle.fasta
+muscle -in AP_682_input_muscle.fasta -out AP_682_muscle.fasta -maxiters 1
+fasta_formatter -i AP_682_muscle.fasta -o AP_682_muscle.tab -t
+grep AP_reference_CT_converted AP_682_muscle.tab > AP_682_reference.tab
+awk '{print $2}' AP_682_reference.tab > AP_682_reference_sequence.tab
+awk '{print $1}' AP_682_muscle.tab > AP_682_uniquenames.tab
+awk '{print $2}' AP_682_muscle.tab > AP_682_sequences.tab
+AP_682=$(python find_CpGs_AP.py AP_682_reference_sequence.tab)
+cut -c $AP_682 AP_682_sequences.tab > AP_682_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_682_uniquenames.tab
+sed -i 's/;/ /g' AP_682_uniquenames.tab
+sed -i 's/=/ /g' AP_682_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_682_uniquenames.tab > AP_682_uniqueinfo.tab
+paste AP_682_uniqueinfo.tab AP_682_unnumbered_haplotypes.tab > AP_682_redundant_haplotypes.tab
+grep :683:1:N:0:53 AP_bowtie.sam > AP_683_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_683_bowtie.sam > AP_683_awk.fasta
+usearch -derep_fulllength AP_683_awk.fasta -fastaout AP_683_uniques.fasta -sizeout -relabel AP_683_
+cat AP_683_uniques.fasta AP_reference_CT_converted.fasta > AP_683_input_muscle.fasta
+muscle -in AP_683_input_muscle.fasta -out AP_683_muscle.fasta -maxiters 1
+fasta_formatter -i AP_683_muscle.fasta -o AP_683_muscle.tab -t
+grep AP_reference_CT_converted AP_683_muscle.tab > AP_683_reference.tab
+awk '{print $2}' AP_683_reference.tab > AP_683_reference_sequence.tab
+awk '{print $1}' AP_683_muscle.tab > AP_683_uniquenames.tab
+awk '{print $2}' AP_683_muscle.tab > AP_683_sequences.tab
+AP_683=$(python find_CpGs_AP.py AP_683_reference_sequence.tab)
+cut -c $AP_683 AP_683_sequences.tab > AP_683_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_683_uniquenames.tab
+sed -i 's/;/ /g' AP_683_uniquenames.tab
+sed -i 's/=/ /g' AP_683_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_683_uniquenames.tab > AP_683_uniqueinfo.tab
+paste AP_683_uniqueinfo.tab AP_683_unnumbered_haplotypes.tab > AP_683_redundant_haplotypes.tab
+grep :684:1:N:0:61 AP_bowtie.sam > AP_684_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_684_bowtie.sam > AP_684_awk.fasta
+usearch -derep_fulllength AP_684_awk.fasta -fastaout AP_684_uniques.fasta -sizeout -relabel AP_684_
+cat AP_684_uniques.fasta AP_reference_CT_converted.fasta > AP_684_input_muscle.fasta
+muscle -in AP_684_input_muscle.fasta -out AP_684_muscle.fasta -maxiters 1
+fasta_formatter -i AP_684_muscle.fasta -o AP_684_muscle.tab -t
+grep AP_reference_CT_converted AP_684_muscle.tab > AP_684_reference.tab
+awk '{print $2}' AP_684_reference.tab > AP_684_reference_sequence.tab
+awk '{print $1}' AP_684_muscle.tab > AP_684_uniquenames.tab
+awk '{print $2}' AP_684_muscle.tab > AP_684_sequences.tab
+AP_684=$(python find_CpGs_AP.py AP_684_reference_sequence.tab)
+cut -c $AP_684 AP_684_sequences.tab > AP_684_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_684_uniquenames.tab
+sed -i 's/;/ /g' AP_684_uniquenames.tab
+sed -i 's/=/ /g' AP_684_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_684_uniquenames.tab > AP_684_uniqueinfo.tab
+paste AP_684_uniqueinfo.tab AP_684_unnumbered_haplotypes.tab > AP_684_redundant_haplotypes.tab
+grep :685:1:N:0:69 AP_bowtie.sam > AP_685_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_685_bowtie.sam > AP_685_awk.fasta
+usearch -derep_fulllength AP_685_awk.fasta -fastaout AP_685_uniques.fasta -sizeout -relabel AP_685_
+cat AP_685_uniques.fasta AP_reference_CT_converted.fasta > AP_685_input_muscle.fasta
+muscle -in AP_685_input_muscle.fasta -out AP_685_muscle.fasta -maxiters 1
+fasta_formatter -i AP_685_muscle.fasta -o AP_685_muscle.tab -t
+grep AP_reference_CT_converted AP_685_muscle.tab > AP_685_reference.tab
+awk '{print $2}' AP_685_reference.tab > AP_685_reference_sequence.tab
+awk '{print $1}' AP_685_muscle.tab > AP_685_uniquenames.tab
+awk '{print $2}' AP_685_muscle.tab > AP_685_sequences.tab
+AP_685=$(python find_CpGs_AP.py AP_685_reference_sequence.tab)
+cut -c $AP_685 AP_685_sequences.tab > AP_685_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_685_uniquenames.tab
+sed -i 's/;/ /g' AP_685_uniquenames.tab
+sed -i 's/=/ /g' AP_685_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_685_uniquenames.tab > AP_685_uniqueinfo.tab
+paste AP_685_uniqueinfo.tab AP_685_unnumbered_haplotypes.tab > AP_685_redundant_haplotypes.tab
+grep :686:1:N:0:77 AP_bowtie.sam > AP_686_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_686_bowtie.sam > AP_686_awk.fasta
+usearch -derep_fulllength AP_686_awk.fasta -fastaout AP_686_uniques.fasta -sizeout -relabel AP_686_
+cat AP_686_uniques.fasta AP_reference_CT_converted.fasta > AP_686_input_muscle.fasta
+muscle -in AP_686_input_muscle.fasta -out AP_686_muscle.fasta -maxiters 1
+fasta_formatter -i AP_686_muscle.fasta -o AP_686_muscle.tab -t
+grep AP_reference_CT_converted AP_686_muscle.tab > AP_686_reference.tab
+awk '{print $2}' AP_686_reference.tab > AP_686_reference_sequence.tab
+awk '{print $1}' AP_686_muscle.tab > AP_686_uniquenames.tab
+awk '{print $2}' AP_686_muscle.tab > AP_686_sequences.tab
+AP_686=$(python find_CpGs_AP.py AP_686_reference_sequence.tab)
+cut -c $AP_686 AP_686_sequences.tab > AP_686_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_686_uniquenames.tab
+sed -i 's/;/ /g' AP_686_uniquenames.tab
+sed -i 's/=/ /g' AP_686_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_686_uniquenames.tab > AP_686_uniqueinfo.tab
+paste AP_686_uniqueinfo.tab AP_686_unnumbered_haplotypes.tab > AP_686_redundant_haplotypes.tab
+grep :687:1:N:0:85 AP_bowtie.sam > AP_687_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_687_bowtie.sam > AP_687_awk.fasta
+usearch -derep_fulllength AP_687_awk.fasta -fastaout AP_687_uniques.fasta -sizeout -relabel AP_687_
+cat AP_687_uniques.fasta AP_reference_CT_converted.fasta > AP_687_input_muscle.fasta
+muscle -in AP_687_input_muscle.fasta -out AP_687_muscle.fasta -maxiters 1
+fasta_formatter -i AP_687_muscle.fasta -o AP_687_muscle.tab -t
+grep AP_reference_CT_converted AP_687_muscle.tab > AP_687_reference.tab
+awk '{print $2}' AP_687_reference.tab > AP_687_reference_sequence.tab
+awk '{print $1}' AP_687_muscle.tab > AP_687_uniquenames.tab
+awk '{print $2}' AP_687_muscle.tab > AP_687_sequences.tab
+AP_687=$(python find_CpGs_AP.py AP_687_reference_sequence.tab)
+cut -c $AP_687 AP_687_sequences.tab > AP_687_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_687_uniquenames.tab
+sed -i 's/;/ /g' AP_687_uniquenames.tab
+sed -i 's/=/ /g' AP_687_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_687_uniquenames.tab > AP_687_uniqueinfo.tab
+paste AP_687_uniqueinfo.tab AP_687_unnumbered_haplotypes.tab > AP_687_redundant_haplotypes.tab
+grep :688:1:N:0:93 AP_bowtie.sam > AP_688_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_688_bowtie.sam > AP_688_awk.fasta
+usearch -derep_fulllength AP_688_awk.fasta -fastaout AP_688_uniques.fasta -sizeout -relabel AP_688_
+cat AP_688_uniques.fasta AP_reference_CT_converted.fasta > AP_688_input_muscle.fasta
+muscle -in AP_688_input_muscle.fasta -out AP_688_muscle.fasta -maxiters 1
+fasta_formatter -i AP_688_muscle.fasta -o AP_688_muscle.tab -t
+grep AP_reference_CT_converted AP_688_muscle.tab > AP_688_reference.tab
+awk '{print $2}' AP_688_reference.tab > AP_688_reference_sequence.tab
+awk '{print $1}' AP_688_muscle.tab > AP_688_uniquenames.tab
+awk '{print $2}' AP_688_muscle.tab > AP_688_sequences.tab
+AP_688=$(python find_CpGs_AP.py AP_688_reference_sequence.tab)
+cut -c $AP_688 AP_688_sequences.tab > AP_688_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_688_uniquenames.tab
+sed -i 's/;/ /g' AP_688_uniquenames.tab
+sed -i 's/=/ /g' AP_688_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_688_uniquenames.tab > AP_688_uniqueinfo.tab
+paste AP_688_uniqueinfo.tab AP_688_unnumbered_haplotypes.tab > AP_688_redundant_haplotypes.tab
+grep :689:1:N:0:6 AP_bowtie.sam > AP_689_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_689_bowtie.sam > AP_689_awk.fasta
+usearch -derep_fulllength AP_689_awk.fasta -fastaout AP_689_uniques.fasta -sizeout -relabel AP_689_
+cat AP_689_uniques.fasta AP_reference_CT_converted.fasta > AP_689_input_muscle.fasta
+muscle -in AP_689_input_muscle.fasta -out AP_689_muscle.fasta -maxiters 1
+fasta_formatter -i AP_689_muscle.fasta -o AP_689_muscle.tab -t
+grep AP_reference_CT_converted AP_689_muscle.tab > AP_689_reference.tab
+awk '{print $2}' AP_689_reference.tab > AP_689_reference_sequence.tab
+awk '{print $1}' AP_689_muscle.tab > AP_689_uniquenames.tab
+awk '{print $2}' AP_689_muscle.tab > AP_689_sequences.tab
+AP_689=$(python find_CpGs_AP.py AP_689_reference_sequence.tab)
+cut -c $AP_689 AP_689_sequences.tab > AP_689_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_689_uniquenames.tab
+sed -i 's/;/ /g' AP_689_uniquenames.tab
+sed -i 's/=/ /g' AP_689_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_689_uniquenames.tab > AP_689_uniqueinfo.tab
+paste AP_689_uniqueinfo.tab AP_689_unnumbered_haplotypes.tab > AP_689_redundant_haplotypes.tab
+grep :690:1:N:0:14 AP_bowtie.sam > AP_690_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_690_bowtie.sam > AP_690_awk.fasta
+usearch -derep_fulllength AP_690_awk.fasta -fastaout AP_690_uniques.fasta -sizeout -relabel AP_690_
+cat AP_690_uniques.fasta AP_reference_CT_converted.fasta > AP_690_input_muscle.fasta
+muscle -in AP_690_input_muscle.fasta -out AP_690_muscle.fasta -maxiters 1
+fasta_formatter -i AP_690_muscle.fasta -o AP_690_muscle.tab -t
+grep AP_reference_CT_converted AP_690_muscle.tab > AP_690_reference.tab
+awk '{print $2}' AP_690_reference.tab > AP_690_reference_sequence.tab
+awk '{print $1}' AP_690_muscle.tab > AP_690_uniquenames.tab
+awk '{print $2}' AP_690_muscle.tab > AP_690_sequences.tab
+AP_690=$(python find_CpGs_AP.py AP_690_reference_sequence.tab)
+cut -c $AP_690 AP_690_sequences.tab > AP_690_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_690_uniquenames.tab
+sed -i 's/;/ /g' AP_690_uniquenames.tab
+sed -i 's/=/ /g' AP_690_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_690_uniquenames.tab > AP_690_uniqueinfo.tab
+paste AP_690_uniqueinfo.tab AP_690_unnumbered_haplotypes.tab > AP_690_redundant_haplotypes.tab
+grep :691:1:N:0:22 AP_bowtie.sam > AP_691_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_691_bowtie.sam > AP_691_awk.fasta
+usearch -derep_fulllength AP_691_awk.fasta -fastaout AP_691_uniques.fasta -sizeout -relabel AP_691_
+cat AP_691_uniques.fasta AP_reference_CT_converted.fasta > AP_691_input_muscle.fasta
+muscle -in AP_691_input_muscle.fasta -out AP_691_muscle.fasta -maxiters 1
+fasta_formatter -i AP_691_muscle.fasta -o AP_691_muscle.tab -t
+grep AP_reference_CT_converted AP_691_muscle.tab > AP_691_reference.tab
+awk '{print $2}' AP_691_reference.tab > AP_691_reference_sequence.tab
+awk '{print $1}' AP_691_muscle.tab > AP_691_uniquenames.tab
+awk '{print $2}' AP_691_muscle.tab > AP_691_sequences.tab
+AP_691=$(python find_CpGs_AP.py AP_691_reference_sequence.tab)
+cut -c $AP_691 AP_691_sequences.tab > AP_691_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_691_uniquenames.tab
+sed -i 's/;/ /g' AP_691_uniquenames.tab
+sed -i 's/=/ /g' AP_691_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_691_uniquenames.tab > AP_691_uniqueinfo.tab
+paste AP_691_uniqueinfo.tab AP_691_unnumbered_haplotypes.tab > AP_691_redundant_haplotypes.tab
+grep :692:1:N:0:30 AP_bowtie.sam > AP_692_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_692_bowtie.sam > AP_692_awk.fasta
+usearch -derep_fulllength AP_692_awk.fasta -fastaout AP_692_uniques.fasta -sizeout -relabel AP_692_
+cat AP_692_uniques.fasta AP_reference_CT_converted.fasta > AP_692_input_muscle.fasta
+muscle -in AP_692_input_muscle.fasta -out AP_692_muscle.fasta -maxiters 1
+fasta_formatter -i AP_692_muscle.fasta -o AP_692_muscle.tab -t
+grep AP_reference_CT_converted AP_692_muscle.tab > AP_692_reference.tab
+awk '{print $2}' AP_692_reference.tab > AP_692_reference_sequence.tab
+awk '{print $1}' AP_692_muscle.tab > AP_692_uniquenames.tab
+awk '{print $2}' AP_692_muscle.tab > AP_692_sequences.tab
+AP_692=$(python find_CpGs_AP.py AP_692_reference_sequence.tab)
+cut -c $AP_692 AP_692_sequences.tab > AP_692_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_692_uniquenames.tab
+sed -i 's/;/ /g' AP_692_uniquenames.tab
+sed -i 's/=/ /g' AP_692_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_692_uniquenames.tab > AP_692_uniqueinfo.tab
+paste AP_692_uniqueinfo.tab AP_692_unnumbered_haplotypes.tab > AP_692_redundant_haplotypes.tab
+grep :693:1:N:0:38 AP_bowtie.sam > AP_693_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_693_bowtie.sam > AP_693_awk.fasta
+usearch -derep_fulllength AP_693_awk.fasta -fastaout AP_693_uniques.fasta -sizeout -relabel AP_693_
+cat AP_693_uniques.fasta AP_reference_CT_converted.fasta > AP_693_input_muscle.fasta
+muscle -in AP_693_input_muscle.fasta -out AP_693_muscle.fasta -maxiters 1
+fasta_formatter -i AP_693_muscle.fasta -o AP_693_muscle.tab -t
+grep AP_reference_CT_converted AP_693_muscle.tab > AP_693_reference.tab
+awk '{print $2}' AP_693_reference.tab > AP_693_reference_sequence.tab
+awk '{print $1}' AP_693_muscle.tab > AP_693_uniquenames.tab
+awk '{print $2}' AP_693_muscle.tab > AP_693_sequences.tab
+AP_693=$(python find_CpGs_AP.py AP_693_reference_sequence.tab)
+cut -c $AP_693 AP_693_sequences.tab > AP_693_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_693_uniquenames.tab
+sed -i 's/;/ /g' AP_693_uniquenames.tab
+sed -i 's/=/ /g' AP_693_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_693_uniquenames.tab > AP_693_uniqueinfo.tab
+paste AP_693_uniqueinfo.tab AP_693_unnumbered_haplotypes.tab > AP_693_redundant_haplotypes.tab
+grep :694:1:N:0:46 AP_bowtie.sam > AP_694_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_694_bowtie.sam > AP_694_awk.fasta
+usearch -derep_fulllength AP_694_awk.fasta -fastaout AP_694_uniques.fasta -sizeout -relabel AP_694_
+cat AP_694_uniques.fasta AP_reference_CT_converted.fasta > AP_694_input_muscle.fasta
+muscle -in AP_694_input_muscle.fasta -out AP_694_muscle.fasta -maxiters 1
+fasta_formatter -i AP_694_muscle.fasta -o AP_694_muscle.tab -t
+grep AP_reference_CT_converted AP_694_muscle.tab > AP_694_reference.tab
+awk '{print $2}' AP_694_reference.tab > AP_694_reference_sequence.tab
+awk '{print $1}' AP_694_muscle.tab > AP_694_uniquenames.tab
+awk '{print $2}' AP_694_muscle.tab > AP_694_sequences.tab
+AP_694=$(python find_CpGs_AP.py AP_694_reference_sequence.tab)
+cut -c $AP_694 AP_694_sequences.tab > AP_694_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_694_uniquenames.tab
+sed -i 's/;/ /g' AP_694_uniquenames.tab
+sed -i 's/=/ /g' AP_694_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_694_uniquenames.tab > AP_694_uniqueinfo.tab
+paste AP_694_uniqueinfo.tab AP_694_unnumbered_haplotypes.tab > AP_694_redundant_haplotypes.tab
+grep :695:1:N:0:54 AP_bowtie.sam > AP_695_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_695_bowtie.sam > AP_695_awk.fasta
+usearch -derep_fulllength AP_695_awk.fasta -fastaout AP_695_uniques.fasta -sizeout -relabel AP_695_
+cat AP_695_uniques.fasta AP_reference_CT_converted.fasta > AP_695_input_muscle.fasta
+muscle -in AP_695_input_muscle.fasta -out AP_695_muscle.fasta -maxiters 1
+fasta_formatter -i AP_695_muscle.fasta -o AP_695_muscle.tab -t
+grep AP_reference_CT_converted AP_695_muscle.tab > AP_695_reference.tab
+awk '{print $2}' AP_695_reference.tab > AP_695_reference_sequence.tab
+awk '{print $1}' AP_695_muscle.tab > AP_695_uniquenames.tab
+awk '{print $2}' AP_695_muscle.tab > AP_695_sequences.tab
+AP_695=$(python find_CpGs_AP.py AP_695_reference_sequence.tab)
+cut -c $AP_695 AP_695_sequences.tab > AP_695_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_695_uniquenames.tab
+sed -i 's/;/ /g' AP_695_uniquenames.tab
+sed -i 's/=/ /g' AP_695_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_695_uniquenames.tab > AP_695_uniqueinfo.tab
+paste AP_695_uniqueinfo.tab AP_695_unnumbered_haplotypes.tab > AP_695_redundant_haplotypes.tab
+grep :696:1:N:0:62 AP_bowtie.sam > AP_696_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_696_bowtie.sam > AP_696_awk.fasta
+usearch -derep_fulllength AP_696_awk.fasta -fastaout AP_696_uniques.fasta -sizeout -relabel AP_696_
+cat AP_696_uniques.fasta AP_reference_CT_converted.fasta > AP_696_input_muscle.fasta
+muscle -in AP_696_input_muscle.fasta -out AP_696_muscle.fasta -maxiters 1
+fasta_formatter -i AP_696_muscle.fasta -o AP_696_muscle.tab -t
+grep AP_reference_CT_converted AP_696_muscle.tab > AP_696_reference.tab
+awk '{print $2}' AP_696_reference.tab > AP_696_reference_sequence.tab
+awk '{print $1}' AP_696_muscle.tab > AP_696_uniquenames.tab
+awk '{print $2}' AP_696_muscle.tab > AP_696_sequences.tab
+AP_696=$(python find_CpGs_AP.py AP_696_reference_sequence.tab)
+cut -c $AP_696 AP_696_sequences.tab > AP_696_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_696_uniquenames.tab
+sed -i 's/;/ /g' AP_696_uniquenames.tab
+sed -i 's/=/ /g' AP_696_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_696_uniquenames.tab > AP_696_uniqueinfo.tab
+paste AP_696_uniqueinfo.tab AP_696_unnumbered_haplotypes.tab > AP_696_redundant_haplotypes.tab
+grep :697:1:N:0:70 AP_bowtie.sam > AP_697_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_697_bowtie.sam > AP_697_awk.fasta
+usearch -derep_fulllength AP_697_awk.fasta -fastaout AP_697_uniques.fasta -sizeout -relabel AP_697_
+cat AP_697_uniques.fasta AP_reference_CT_converted.fasta > AP_697_input_muscle.fasta
+muscle -in AP_697_input_muscle.fasta -out AP_697_muscle.fasta -maxiters 1
+fasta_formatter -i AP_697_muscle.fasta -o AP_697_muscle.tab -t
+grep AP_reference_CT_converted AP_697_muscle.tab > AP_697_reference.tab
+awk '{print $2}' AP_697_reference.tab > AP_697_reference_sequence.tab
+awk '{print $1}' AP_697_muscle.tab > AP_697_uniquenames.tab
+awk '{print $2}' AP_697_muscle.tab > AP_697_sequences.tab
+AP_697=$(python find_CpGs_AP.py AP_697_reference_sequence.tab)
+cut -c $AP_697 AP_697_sequences.tab > AP_697_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_697_uniquenames.tab
+sed -i 's/;/ /g' AP_697_uniquenames.tab
+sed -i 's/=/ /g' AP_697_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_697_uniquenames.tab > AP_697_uniqueinfo.tab
+paste AP_697_uniqueinfo.tab AP_697_unnumbered_haplotypes.tab > AP_697_redundant_haplotypes.tab
+grep :698:1:N:0:78 AP_bowtie.sam > AP_698_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_698_bowtie.sam > AP_698_awk.fasta
+usearch -derep_fulllength AP_698_awk.fasta -fastaout AP_698_uniques.fasta -sizeout -relabel AP_698_
+cat AP_698_uniques.fasta AP_reference_CT_converted.fasta > AP_698_input_muscle.fasta
+muscle -in AP_698_input_muscle.fasta -out AP_698_muscle.fasta -maxiters 1
+fasta_formatter -i AP_698_muscle.fasta -o AP_698_muscle.tab -t
+grep AP_reference_CT_converted AP_698_muscle.tab > AP_698_reference.tab
+awk '{print $2}' AP_698_reference.tab > AP_698_reference_sequence.tab
+awk '{print $1}' AP_698_muscle.tab > AP_698_uniquenames.tab
+awk '{print $2}' AP_698_muscle.tab > AP_698_sequences.tab
+AP_698=$(python find_CpGs_AP.py AP_698_reference_sequence.tab)
+cut -c $AP_698 AP_698_sequences.tab > AP_698_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_698_uniquenames.tab
+sed -i 's/;/ /g' AP_698_uniquenames.tab
+sed -i 's/=/ /g' AP_698_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_698_uniquenames.tab > AP_698_uniqueinfo.tab
+paste AP_698_uniqueinfo.tab AP_698_unnumbered_haplotypes.tab > AP_698_redundant_haplotypes.tab
+grep :699:1:N:0:86 AP_bowtie.sam > AP_699_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_699_bowtie.sam > AP_699_awk.fasta
+usearch -derep_fulllength AP_699_awk.fasta -fastaout AP_699_uniques.fasta -sizeout -relabel AP_699_
+cat AP_699_uniques.fasta AP_reference_CT_converted.fasta > AP_699_input_muscle.fasta
+muscle -in AP_699_input_muscle.fasta -out AP_699_muscle.fasta -maxiters 1
+fasta_formatter -i AP_699_muscle.fasta -o AP_699_muscle.tab -t
+grep AP_reference_CT_converted AP_699_muscle.tab > AP_699_reference.tab
+awk '{print $2}' AP_699_reference.tab > AP_699_reference_sequence.tab
+awk '{print $1}' AP_699_muscle.tab > AP_699_uniquenames.tab
+awk '{print $2}' AP_699_muscle.tab > AP_699_sequences.tab
+AP_699=$(python find_CpGs_AP.py AP_699_reference_sequence.tab)
+cut -c $AP_699 AP_699_sequences.tab > AP_699_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_699_uniquenames.tab
+sed -i 's/;/ /g' AP_699_uniquenames.tab
+sed -i 's/=/ /g' AP_699_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_699_uniquenames.tab > AP_699_uniqueinfo.tab
+paste AP_699_uniqueinfo.tab AP_699_unnumbered_haplotypes.tab > AP_699_redundant_haplotypes.tab
+grep :700:1:N:0:94 AP_bowtie.sam > AP_700_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_700_bowtie.sam > AP_700_awk.fasta
+usearch -derep_fulllength AP_700_awk.fasta -fastaout AP_700_uniques.fasta -sizeout -relabel AP_700_
+cat AP_700_uniques.fasta AP_reference_CT_converted.fasta > AP_700_input_muscle.fasta
+muscle -in AP_700_input_muscle.fasta -out AP_700_muscle.fasta -maxiters 1
+fasta_formatter -i AP_700_muscle.fasta -o AP_700_muscle.tab -t
+grep AP_reference_CT_converted AP_700_muscle.tab > AP_700_reference.tab
+awk '{print $2}' AP_700_reference.tab > AP_700_reference_sequence.tab
+awk '{print $1}' AP_700_muscle.tab > AP_700_uniquenames.tab
+awk '{print $2}' AP_700_muscle.tab > AP_700_sequences.tab
+AP_700=$(python find_CpGs_AP.py AP_700_reference_sequence.tab)
+cut -c $AP_700 AP_700_sequences.tab > AP_700_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_700_uniquenames.tab
+sed -i 's/;/ /g' AP_700_uniquenames.tab
+sed -i 's/=/ /g' AP_700_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_700_uniquenames.tab > AP_700_uniqueinfo.tab
+paste AP_700_uniqueinfo.tab AP_700_unnumbered_haplotypes.tab > AP_700_redundant_haplotypes.tab
+grep :701:1:N:0:7 AP_bowtie.sam > AP_701_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_701_bowtie.sam > AP_701_awk.fasta
+usearch -derep_fulllength AP_701_awk.fasta -fastaout AP_701_uniques.fasta -sizeout -relabel AP_701_
+cat AP_701_uniques.fasta AP_reference_CT_converted.fasta > AP_701_input_muscle.fasta
+muscle -in AP_701_input_muscle.fasta -out AP_701_muscle.fasta -maxiters 1
+fasta_formatter -i AP_701_muscle.fasta -o AP_701_muscle.tab -t
+grep AP_reference_CT_converted AP_701_muscle.tab > AP_701_reference.tab
+awk '{print $2}' AP_701_reference.tab > AP_701_reference_sequence.tab
+awk '{print $1}' AP_701_muscle.tab > AP_701_uniquenames.tab
+awk '{print $2}' AP_701_muscle.tab > AP_701_sequences.tab
+AP_701=$(python find_CpGs_AP.py AP_701_reference_sequence.tab)
+cut -c $AP_701 AP_701_sequences.tab > AP_701_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_701_uniquenames.tab
+sed -i 's/;/ /g' AP_701_uniquenames.tab
+sed -i 's/=/ /g' AP_701_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_701_uniquenames.tab > AP_701_uniqueinfo.tab
+paste AP_701_uniqueinfo.tab AP_701_unnumbered_haplotypes.tab > AP_701_redundant_haplotypes.tab
+grep :702:1:N:0:15 AP_bowtie.sam > AP_702_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_702_bowtie.sam > AP_702_awk.fasta
+usearch -derep_fulllength AP_702_awk.fasta -fastaout AP_702_uniques.fasta -sizeout -relabel AP_702_
+cat AP_702_uniques.fasta AP_reference_CT_converted.fasta > AP_702_input_muscle.fasta
+muscle -in AP_702_input_muscle.fasta -out AP_702_muscle.fasta -maxiters 1
+fasta_formatter -i AP_702_muscle.fasta -o AP_702_muscle.tab -t
+grep AP_reference_CT_converted AP_702_muscle.tab > AP_702_reference.tab
+awk '{print $2}' AP_702_reference.tab > AP_702_reference_sequence.tab
+awk '{print $1}' AP_702_muscle.tab > AP_702_uniquenames.tab
+awk '{print $2}' AP_702_muscle.tab > AP_702_sequences.tab
+AP_702=$(python find_CpGs_AP.py AP_702_reference_sequence.tab)
+cut -c $AP_702 AP_702_sequences.tab > AP_702_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_702_uniquenames.tab
+sed -i 's/;/ /g' AP_702_uniquenames.tab
+sed -i 's/=/ /g' AP_702_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_702_uniquenames.tab > AP_702_uniqueinfo.tab
+paste AP_702_uniqueinfo.tab AP_702_unnumbered_haplotypes.tab > AP_702_redundant_haplotypes.tab
+grep :703:1:N:0:23 AP_bowtie.sam > AP_703_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_703_bowtie.sam > AP_703_awk.fasta
+usearch -derep_fulllength AP_703_awk.fasta -fastaout AP_703_uniques.fasta -sizeout -relabel AP_703_
+cat AP_703_uniques.fasta AP_reference_CT_converted.fasta > AP_703_input_muscle.fasta
+muscle -in AP_703_input_muscle.fasta -out AP_703_muscle.fasta -maxiters 1
+fasta_formatter -i AP_703_muscle.fasta -o AP_703_muscle.tab -t
+grep AP_reference_CT_converted AP_703_muscle.tab > AP_703_reference.tab
+awk '{print $2}' AP_703_reference.tab > AP_703_reference_sequence.tab
+awk '{print $1}' AP_703_muscle.tab > AP_703_uniquenames.tab
+awk '{print $2}' AP_703_muscle.tab > AP_703_sequences.tab
+AP_703=$(python find_CpGs_AP.py AP_703_reference_sequence.tab)
+cut -c $AP_703 AP_703_sequences.tab > AP_703_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_703_uniquenames.tab
+sed -i 's/;/ /g' AP_703_uniquenames.tab
+sed -i 's/=/ /g' AP_703_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_703_uniquenames.tab > AP_703_uniqueinfo.tab
+paste AP_703_uniqueinfo.tab AP_703_unnumbered_haplotypes.tab > AP_703_redundant_haplotypes.tab
+grep :704:1:N:0:31 AP_bowtie.sam > AP_704_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_704_bowtie.sam > AP_704_awk.fasta
+usearch -derep_fulllength AP_704_awk.fasta -fastaout AP_704_uniques.fasta -sizeout -relabel AP_704_
+cat AP_704_uniques.fasta AP_reference_CT_converted.fasta > AP_704_input_muscle.fasta
+muscle -in AP_704_input_muscle.fasta -out AP_704_muscle.fasta -maxiters 1
+fasta_formatter -i AP_704_muscle.fasta -o AP_704_muscle.tab -t
+grep AP_reference_CT_converted AP_704_muscle.tab > AP_704_reference.tab
+awk '{print $2}' AP_704_reference.tab > AP_704_reference_sequence.tab
+awk '{print $1}' AP_704_muscle.tab > AP_704_uniquenames.tab
+awk '{print $2}' AP_704_muscle.tab > AP_704_sequences.tab
+AP_704=$(python find_CpGs_AP.py AP_704_reference_sequence.tab)
+cut -c $AP_704 AP_704_sequences.tab > AP_704_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_704_uniquenames.tab
+sed -i 's/;/ /g' AP_704_uniquenames.tab
+sed -i 's/=/ /g' AP_704_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_704_uniquenames.tab > AP_704_uniqueinfo.tab
+paste AP_704_uniqueinfo.tab AP_704_unnumbered_haplotypes.tab > AP_704_redundant_haplotypes.tab
+grep :705:1:N:0:39 AP_bowtie.sam > AP_705_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_705_bowtie.sam > AP_705_awk.fasta
+usearch -derep_fulllength AP_705_awk.fasta -fastaout AP_705_uniques.fasta -sizeout -relabel AP_705_
+cat AP_705_uniques.fasta AP_reference_CT_converted.fasta > AP_705_input_muscle.fasta
+muscle -in AP_705_input_muscle.fasta -out AP_705_muscle.fasta -maxiters 1
+fasta_formatter -i AP_705_muscle.fasta -o AP_705_muscle.tab -t
+grep AP_reference_CT_converted AP_705_muscle.tab > AP_705_reference.tab
+awk '{print $2}' AP_705_reference.tab > AP_705_reference_sequence.tab
+awk '{print $1}' AP_705_muscle.tab > AP_705_uniquenames.tab
+awk '{print $2}' AP_705_muscle.tab > AP_705_sequences.tab
+AP_705=$(python find_CpGs_AP.py AP_705_reference_sequence.tab)
+cut -c $AP_705 AP_705_sequences.tab > AP_705_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_705_uniquenames.tab
+sed -i 's/;/ /g' AP_705_uniquenames.tab
+sed -i 's/=/ /g' AP_705_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_705_uniquenames.tab > AP_705_uniqueinfo.tab
+paste AP_705_uniqueinfo.tab AP_705_unnumbered_haplotypes.tab > AP_705_redundant_haplotypes.tab
+grep :706:1:N:0:47 AP_bowtie.sam > AP_706_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_706_bowtie.sam > AP_706_awk.fasta
+usearch -derep_fulllength AP_706_awk.fasta -fastaout AP_706_uniques.fasta -sizeout -relabel AP_706_
+cat AP_706_uniques.fasta AP_reference_CT_converted.fasta > AP_706_input_muscle.fasta
+muscle -in AP_706_input_muscle.fasta -out AP_706_muscle.fasta -maxiters 1
+fasta_formatter -i AP_706_muscle.fasta -o AP_706_muscle.tab -t
+grep AP_reference_CT_converted AP_706_muscle.tab > AP_706_reference.tab
+awk '{print $2}' AP_706_reference.tab > AP_706_reference_sequence.tab
+awk '{print $1}' AP_706_muscle.tab > AP_706_uniquenames.tab
+awk '{print $2}' AP_706_muscle.tab > AP_706_sequences.tab
+AP_706=$(python find_CpGs_AP.py AP_706_reference_sequence.tab)
+cut -c $AP_706 AP_706_sequences.tab > AP_706_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_706_uniquenames.tab
+sed -i 's/;/ /g' AP_706_uniquenames.tab
+sed -i 's/=/ /g' AP_706_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_706_uniquenames.tab > AP_706_uniqueinfo.tab
+paste AP_706_uniqueinfo.tab AP_706_unnumbered_haplotypes.tab > AP_706_redundant_haplotypes.tab
+grep :707:1:N:0:55 AP_bowtie.sam > AP_707_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_707_bowtie.sam > AP_707_awk.fasta
+usearch -derep_fulllength AP_707_awk.fasta -fastaout AP_707_uniques.fasta -sizeout -relabel AP_707_
+cat AP_707_uniques.fasta AP_reference_CT_converted.fasta > AP_707_input_muscle.fasta
+muscle -in AP_707_input_muscle.fasta -out AP_707_muscle.fasta -maxiters 1
+fasta_formatter -i AP_707_muscle.fasta -o AP_707_muscle.tab -t
+grep AP_reference_CT_converted AP_707_muscle.tab > AP_707_reference.tab
+awk '{print $2}' AP_707_reference.tab > AP_707_reference_sequence.tab
+awk '{print $1}' AP_707_muscle.tab > AP_707_uniquenames.tab
+awk '{print $2}' AP_707_muscle.tab > AP_707_sequences.tab
+AP_707=$(python find_CpGs_AP.py AP_707_reference_sequence.tab)
+cut -c $AP_707 AP_707_sequences.tab > AP_707_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_707_uniquenames.tab
+sed -i 's/;/ /g' AP_707_uniquenames.tab
+sed -i 's/=/ /g' AP_707_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_707_uniquenames.tab > AP_707_uniqueinfo.tab
+paste AP_707_uniqueinfo.tab AP_707_unnumbered_haplotypes.tab > AP_707_redundant_haplotypes.tab
+grep :708:1:N:0:63 AP_bowtie.sam > AP_708_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_708_bowtie.sam > AP_708_awk.fasta
+usearch -derep_fulllength AP_708_awk.fasta -fastaout AP_708_uniques.fasta -sizeout -relabel AP_708_
+cat AP_708_uniques.fasta AP_reference_CT_converted.fasta > AP_708_input_muscle.fasta
+muscle -in AP_708_input_muscle.fasta -out AP_708_muscle.fasta -maxiters 1
+fasta_formatter -i AP_708_muscle.fasta -o AP_708_muscle.tab -t
+grep AP_reference_CT_converted AP_708_muscle.tab > AP_708_reference.tab
+awk '{print $2}' AP_708_reference.tab > AP_708_reference_sequence.tab
+awk '{print $1}' AP_708_muscle.tab > AP_708_uniquenames.tab
+awk '{print $2}' AP_708_muscle.tab > AP_708_sequences.tab
+AP_708=$(python find_CpGs_AP.py AP_708_reference_sequence.tab)
+cut -c $AP_708 AP_708_sequences.tab > AP_708_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_708_uniquenames.tab
+sed -i 's/;/ /g' AP_708_uniquenames.tab
+sed -i 's/=/ /g' AP_708_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_708_uniquenames.tab > AP_708_uniqueinfo.tab
+paste AP_708_uniqueinfo.tab AP_708_unnumbered_haplotypes.tab > AP_708_redundant_haplotypes.tab
+grep :709:1:N:0:71 AP_bowtie.sam > AP_709_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_709_bowtie.sam > AP_709_awk.fasta
+usearch -derep_fulllength AP_709_awk.fasta -fastaout AP_709_uniques.fasta -sizeout -relabel AP_709_
+cat AP_709_uniques.fasta AP_reference_CT_converted.fasta > AP_709_input_muscle.fasta
+muscle -in AP_709_input_muscle.fasta -out AP_709_muscle.fasta -maxiters 1
+fasta_formatter -i AP_709_muscle.fasta -o AP_709_muscle.tab -t
+grep AP_reference_CT_converted AP_709_muscle.tab > AP_709_reference.tab
+awk '{print $2}' AP_709_reference.tab > AP_709_reference_sequence.tab
+awk '{print $1}' AP_709_muscle.tab > AP_709_uniquenames.tab
+awk '{print $2}' AP_709_muscle.tab > AP_709_sequences.tab
+AP_709=$(python find_CpGs_AP.py AP_709_reference_sequence.tab)
+cut -c $AP_709 AP_709_sequences.tab > AP_709_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_709_uniquenames.tab
+sed -i 's/;/ /g' AP_709_uniquenames.tab
+sed -i 's/=/ /g' AP_709_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_709_uniquenames.tab > AP_709_uniqueinfo.tab
+paste AP_709_uniqueinfo.tab AP_709_unnumbered_haplotypes.tab > AP_709_redundant_haplotypes.tab
+grep :711:1:N:0:79 AP_bowtie.sam > AP_711_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_711_bowtie.sam > AP_711_awk.fasta
+usearch -derep_fulllength AP_711_awk.fasta -fastaout AP_711_uniques.fasta -sizeout -relabel AP_711_
+cat AP_711_uniques.fasta AP_reference_CT_converted.fasta > AP_711_input_muscle.fasta
+muscle -in AP_711_input_muscle.fasta -out AP_711_muscle.fasta -maxiters 1
+fasta_formatter -i AP_711_muscle.fasta -o AP_711_muscle.tab -t
+grep AP_reference_CT_converted AP_711_muscle.tab > AP_711_reference.tab
+awk '{print $2}' AP_711_reference.tab > AP_711_reference_sequence.tab
+awk '{print $1}' AP_711_muscle.tab > AP_711_uniquenames.tab
+awk '{print $2}' AP_711_muscle.tab > AP_711_sequences.tab
+AP_711=$(python find_CpGs_AP.py AP_711_reference_sequence.tab)
+cut -c $AP_711 AP_711_sequences.tab > AP_711_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_711_uniquenames.tab
+sed -i 's/;/ /g' AP_711_uniquenames.tab
+sed -i 's/=/ /g' AP_711_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_711_uniquenames.tab > AP_711_uniqueinfo.tab
+paste AP_711_uniqueinfo.tab AP_711_unnumbered_haplotypes.tab > AP_711_redundant_haplotypes.tab
+grep :712:1:N:0:87 AP_bowtie.sam > AP_712_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_712_bowtie.sam > AP_712_awk.fasta
+usearch -derep_fulllength AP_712_awk.fasta -fastaout AP_712_uniques.fasta -sizeout -relabel AP_712_
+cat AP_712_uniques.fasta AP_reference_CT_converted.fasta > AP_712_input_muscle.fasta
+muscle -in AP_712_input_muscle.fasta -out AP_712_muscle.fasta -maxiters 1
+fasta_formatter -i AP_712_muscle.fasta -o AP_712_muscle.tab -t
+grep AP_reference_CT_converted AP_712_muscle.tab > AP_712_reference.tab
+awk '{print $2}' AP_712_reference.tab > AP_712_reference_sequence.tab
+awk '{print $1}' AP_712_muscle.tab > AP_712_uniquenames.tab
+awk '{print $2}' AP_712_muscle.tab > AP_712_sequences.tab
+AP_712=$(python find_CpGs_AP.py AP_712_reference_sequence.tab)
+cut -c $AP_712 AP_712_sequences.tab > AP_712_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_712_uniquenames.tab
+sed -i 's/;/ /g' AP_712_uniquenames.tab
+sed -i 's/=/ /g' AP_712_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_712_uniquenames.tab > AP_712_uniqueinfo.tab
+paste AP_712_uniqueinfo.tab AP_712_unnumbered_haplotypes.tab > AP_712_redundant_haplotypes.tab
+grep :713:1:N:0:95 AP_bowtie.sam > AP_713_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_713_bowtie.sam > AP_713_awk.fasta
+usearch -derep_fulllength AP_713_awk.fasta -fastaout AP_713_uniques.fasta -sizeout -relabel AP_713_
+cat AP_713_uniques.fasta AP_reference_CT_converted.fasta > AP_713_input_muscle.fasta
+muscle -in AP_713_input_muscle.fasta -out AP_713_muscle.fasta -maxiters 1
+fasta_formatter -i AP_713_muscle.fasta -o AP_713_muscle.tab -t
+grep AP_reference_CT_converted AP_713_muscle.tab > AP_713_reference.tab
+awk '{print $2}' AP_713_reference.tab > AP_713_reference_sequence.tab
+awk '{print $1}' AP_713_muscle.tab > AP_713_uniquenames.tab
+awk '{print $2}' AP_713_muscle.tab > AP_713_sequences.tab
+AP_713=$(python find_CpGs_AP.py AP_713_reference_sequence.tab)
+cut -c $AP_713 AP_713_sequences.tab > AP_713_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_713_uniquenames.tab
+sed -i 's/;/ /g' AP_713_uniquenames.tab
+sed -i 's/=/ /g' AP_713_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_713_uniquenames.tab > AP_713_uniqueinfo.tab
+paste AP_713_uniqueinfo.tab AP_713_unnumbered_haplotypes.tab > AP_713_redundant_haplotypes.tab
+grep :714:1:N:0:8 AP_bowtie.sam > AP_714_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_714_bowtie.sam > AP_714_awk.fasta
+usearch -derep_fulllength AP_714_awk.fasta -fastaout AP_714_uniques.fasta -sizeout -relabel AP_714_
+cat AP_714_uniques.fasta AP_reference_CT_converted.fasta > AP_714_input_muscle.fasta
+muscle -in AP_714_input_muscle.fasta -out AP_714_muscle.fasta -maxiters 1
+fasta_formatter -i AP_714_muscle.fasta -o AP_714_muscle.tab -t
+grep AP_reference_CT_converted AP_714_muscle.tab > AP_714_reference.tab
+awk '{print $2}' AP_714_reference.tab > AP_714_reference_sequence.tab
+awk '{print $1}' AP_714_muscle.tab > AP_714_uniquenames.tab
+awk '{print $2}' AP_714_muscle.tab > AP_714_sequences.tab
+AP_714=$(python find_CpGs_AP.py AP_714_reference_sequence.tab)
+cut -c $AP_714 AP_714_sequences.tab > AP_714_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_714_uniquenames.tab
+sed -i 's/;/ /g' AP_714_uniquenames.tab
+sed -i 's/=/ /g' AP_714_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_714_uniquenames.tab > AP_714_uniqueinfo.tab
+paste AP_714_uniqueinfo.tab AP_714_unnumbered_haplotypes.tab > AP_714_redundant_haplotypes.tab
+grep :715:1:N:0:16 AP_bowtie.sam > AP_715_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_715_bowtie.sam > AP_715_awk.fasta
+usearch -derep_fulllength AP_715_awk.fasta -fastaout AP_715_uniques.fasta -sizeout -relabel AP_715_
+cat AP_715_uniques.fasta AP_reference_CT_converted.fasta > AP_715_input_muscle.fasta
+muscle -in AP_715_input_muscle.fasta -out AP_715_muscle.fasta -maxiters 1
+fasta_formatter -i AP_715_muscle.fasta -o AP_715_muscle.tab -t
+grep AP_reference_CT_converted AP_715_muscle.tab > AP_715_reference.tab
+awk '{print $2}' AP_715_reference.tab > AP_715_reference_sequence.tab
+awk '{print $1}' AP_715_muscle.tab > AP_715_uniquenames.tab
+awk '{print $2}' AP_715_muscle.tab > AP_715_sequences.tab
+AP_715=$(python find_CpGs_AP.py AP_715_reference_sequence.tab)
+cut -c $AP_715 AP_715_sequences.tab > AP_715_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_715_uniquenames.tab
+sed -i 's/;/ /g' AP_715_uniquenames.tab
+sed -i 's/=/ /g' AP_715_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_715_uniquenames.tab > AP_715_uniqueinfo.tab
+paste AP_715_uniqueinfo.tab AP_715_unnumbered_haplotypes.tab > AP_715_redundant_haplotypes.tab
+grep :NC1:1:N:0:24 AP_bowtie.sam > AP_NC1_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_NC1_bowtie.sam > AP_NC1_awk.fasta
+usearch -derep_fulllength AP_NC1_awk.fasta -fastaout AP_NC1_uniques.fasta -sizeout -relabel AP_NC1_
+cat AP_NC1_uniques.fasta AP_reference_CT_converted.fasta > AP_NC1_input_muscle.fasta
+muscle -in AP_NC1_input_muscle.fasta -out AP_NC1_muscle.fasta -maxiters 1
+fasta_formatter -i AP_NC1_muscle.fasta -o AP_NC1_muscle.tab -t
+grep AP_reference_CT_converted AP_NC1_muscle.tab > AP_NC1_reference.tab
+awk '{print $2}' AP_NC1_reference.tab > AP_NC1_reference_sequence.tab
+awk '{print $1}' AP_NC1_muscle.tab > AP_NC1_uniquenames.tab
+awk '{print $2}' AP_NC1_muscle.tab > AP_NC1_sequences.tab
+AP_NC1=$(python find_CpGs_AP.py AP_NC1_reference_sequence.tab)
+cut -c $AP_NC1 AP_NC1_sequences.tab > AP_NC1_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_NC1_uniquenames.tab
+sed -i 's/;/ /g' AP_NC1_uniquenames.tab
+sed -i 's/=/ /g' AP_NC1_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_NC1_uniquenames.tab > AP_NC1_uniqueinfo.tab
+paste AP_NC1_uniqueinfo.tab AP_NC1_unnumbered_haplotypes.tab > AP_NC1_redundant_haplotypes.tab
+grep :NC2:1:N:0:62 AP_bowtie.sam > AP_NC2_bowtie.sam
+awk '{print ">" $1 "\n" $10}' AP_NC2_bowtie.sam > AP_NC2_awk.fasta
+usearch -derep_fulllength AP_NC2_awk.fasta -fastaout AP_NC2_uniques.fasta -sizeout -relabel AP_NC2_
+cat AP_NC2_uniques.fasta AP_reference_CT_converted.fasta > AP_NC2_input_muscle.fasta
+muscle -in AP_NC2_input_muscle.fasta -out AP_NC2_muscle.fasta -maxiters 1
+fasta_formatter -i AP_NC2_muscle.fasta -o AP_NC2_muscle.tab -t
+grep AP_reference_CT_converted AP_NC2_muscle.tab > AP_NC2_reference.tab
+awk '{print $2}' AP_NC2_reference.tab > AP_NC2_reference_sequence.tab
+awk '{print $1}' AP_NC2_muscle.tab > AP_NC2_uniquenames.tab
+awk '{print $2}' AP_NC2_muscle.tab > AP_NC2_sequences.tab
+AP_NC2=$(python find_CpGs_AP.py AP_NC2_reference_sequence.tab)
+cut -c $AP_NC2 AP_NC2_sequences.tab > AP_NC2_unnumbered_haplotypes.tab
+sed -i 's/_/ /g' AP_NC2_uniquenames.tab
+sed -i 's/;/ /g' AP_NC2_uniquenames.tab
+sed -i 's/=/ /g' AP_NC2_uniquenames.tab
+awk '{print $1 "\t" $2 "\t" $5}' AP_NC2_uniquenames.tab > AP_NC2_uniqueinfo.tab
+paste AP_NC2_uniqueinfo.tab AP_NC2_unnumbered_haplotypes.tab > AP_NC2_redundant_haplotypes.tab
