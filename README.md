@@ -12,11 +12,11 @@ The raw data for this project is available from GEO [accession information to be
 
 A metadata file (`metadata.txt`) with information about each of the samples is provided in this repository.
 
-The analysis pipelines require *in silico* bisulfite converted reference amplicon sequences; these are provided in the `reference_sequences` directory [to be added]
+The analysis pipelines require *in silico* bisulfite converted reference amplicon sequences; these are provided in the `reference_sequences` directory.
 
 ## Scripts
 
-The data was analyzed in two different ways, so two pipelines are supplied in this repository.
+The data was analyzed in two different ways; both pipelines are supplied in this repository and described below.
 
 ### Percent methylation analysis pipeline
 
@@ -47,11 +47,13 @@ The `epialleles` directory contains scripts relevant to the epiallele analysis p
 Bash scripts for this pipeline (to be run in this order):
 
 - `flash_and_bowtie2_20180606_RD.txt`
-- `AI_usearch_and_muscle_20180606_RD.txt` |
-- `AP_usearch_and_muscle_20180606_RD.txt` |
-- `B2_usearch_and_muscle_20180606_RD.txt` | (these four may be run in any order, or may be run concurrently)
-- `BI_usearch_and_muscle_20180606_RD.txt` | 
+- `AI_usearch_and_muscle_20180606_RD.txt` \*
+- `AP_usearch_and_muscle_20180606_RD.txt` \*
+- `B2_usearch_and_muscle_20180606_RD.txt` \* 
+- `BI_usearch_and_muscle_20180606_RD.txt` \*
 - `end_usearch_and_muscle_20180606_RD.txt`
+
+\* These four scripts may be run in any order, or may be run concurrently.
 
 Custom python scripts required by the pipeline:
 
