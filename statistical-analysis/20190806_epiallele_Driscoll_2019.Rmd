@@ -1,0 +1,126 @@
+---
+title: "20190525_PCA_predict_AI_AP_combined.R"
+author: "RennLab"
+date: "5/25/2019"
+output:
+  html_document: default
+  pdf_document: default
+  word_document: default
+editor_options:
+  chunk_output_type: console
+---
+
+```{r setup, include=TRUE}
+knitr::opts_chunk$set(echo = TRUE)
+rm(list=ls())
+# setup
+library(dplyr)
+```
+
+## R Markdown
+
+This is an R Markdown document for the epiallele stats and figures in Driscoll et al 2019.  
+ 
+
+```{r read_data}
+epi.data <- read.csv ("driscoll_2019_epiallele_data_counts.csv")
+metadata <- read.csv ("driscoll_2019_metadata.csv")
+
+##### calculate % of reads for each epiallel in each amplicon
+group_by(epi.data, amplicon, sample) %>%
+  summarise(total_reads = sum(count)) -> reads  # head(reads) # total reads per sample
+epi.data <- left_join(epi.data, reads, by = c("sample", "amplicon"))
+# head(epi.data)
+epi.data <- mutate(epi.data, percent = (count/total_reads)*100)
+#dim(epi.data) # [1] 18534       6
+#head(epi.data)
+# keep  all amplicons together
+reshaped_epi.data<- reshape(epi.data, direction="wide", idvar=c("sample"), timevar= "haplotype", drop = c("total_reads", "amplicon", "count"))
+reshaped_epi.data[is.na(reshaped_epi.data)] <- 0
+#dim(reshaped_epi.data)  #  58   465
+#as.matrix(colnames(reshaped_epi.data))  # AI = 2:257  AP = 258:322
+#head(reshaped_epi.data)
+epi_meta_data <- inner_join(metadata, reshaped_epi.data, by = "sample") 
+# as.matrix(colnames(epi_meta_data))  # AI = 7:262  AP = 263:326
+
+```
+
+
+# A gene (combined AI and AP) Bodies
+
+Main prediction to go in the paper
+
+```{r setup_matrices, echo=TRUE}
+adult.body.mat.As <- epi_meta_data [which( epi_meta_data$timepoint=="Adult" & epi_meta_data$tissue=="body" ) , 7:326]
+# dim(adult.body.mat.As) # 15 320
+adult.sex <- epi_meta_data [which( epi_meta_data$timepoint=="Adult" & epi_meta_data$tissue=="body" ) , 6]
+
+day30.body.mat.As <- epi_meta_data [which( epi_meta_data$timepoint=="Day 30" & epi_meta_data$tissue=="body" ) , 7:326]
+#dim(day30.body.mat.As)  # 13   320
+```
+
+# Gene A in Fry Body PCA
+
+```{r Agene_bodies, echo=TRUE}
+day30.body.As.pca <- prcomp(day30.body.mat.As)
+summary(day30.body.As.pca) # Proportion of Variance  1: 0.548 2: 0.1239 3: 0.09989 
+zPC1 <- (day30.body.As.pca$rotation[, 1] - mean(day30.body.As.pca$rotation[,1])) / sd(day30.body.As.pca$rotation[,1])
+zPC1t <- which(abs(zPC1)>3)
+#
+zPC2 <- (day30.body.As.pca$rotation[,2] - mean(day30.body.As.pca$rotation[,2])) / sd(day30.body.As.pca$rotation[,2])
+zPC2t <- which(abs(zPC2)>3)
+
+fry_predictors <- unique(c(zPC1t, zPC2t))
+length(fry_predictors) #7
+day30.body.As.pca$rotation[fry_predictors,c(1:2)] # to make a table for text
+#                          PC1         PC2
+# percent.CCCCCC    0.92582864  0.09457199
+# percent.CCCCTT   -0.23357654  0.05489938
+# percent.CCCTTT   -0.21447762  0.49047197
+# percent.CCCCCCCC  0.06676700  0.24353962
+# percent.TTTTTTTT  0.03862054 -0.39129128
+# percent.CCCCCT   -0.01784281 -0.42440999
+# percent.CCTTTT   -0.04532259 -0.51533040
+
+predict.As.adult.body <- predict(day30.body.As.pca, newdata = adult.body.mat.As)
+
+summary(aov(predict.As.adult.body[,1]~adult.sex) )
+#             Df Sum Sq Mean Sq F value  Pr(>F)   
+# adult.sex    1   3576    3576    15.9 0.00155 **
+
+summary(aov(predict.As.adult.body[,2]~adult.sex) )
+#             Df Sum Sq Mean Sq F value Pr(>F)    
+# adult.sex    1 2689.8  2689.8   120.6  6e-08 ***
+
+out.vec <- numeric(length=0)
+for (locus in 1:dim(adult.body.mat.As)[2]){
+    t.output <- t.test(adult.body.mat.As[adult.sex=="F",locus],adult.body.mat.As[adult.sex=="M",locus])
+    out.vec <- rbind(out.vec,c(t.output$statistic,t.output$parameter,t.output$p.value, mean(adult.body.mat.As[adult.sex=="F",locus]),mean(adult.body.mat.As[adult.sex=="M",locus]) ))
+}
+head(out.vec)
+out.mat <- cbind(out.vec[ , 1:3], p.adjust(out.vec[,3],"fdr"), out.vec[ , 4:5])
+out.mat <- cbind(out.mat, apply(day30.body.mat.As, 2, mean)) # gets row names
+# head(out.mat)
+# dim(out.mat) # 320 7
+colnames(out.mat) <- c("t","df","p","fdr.p", "mean.f", "mean.M",  "fry.percent")
+# rownames(out.mat) <- names(adult.body.mat.As)
+out.mat <- out.mat[order(out.mat[,4]),]
+
+write.csv(out.mat,file="sex-diff-by-Aepitype-body_20190802.csv")
+#sort in exel to make table of those >1% in M or F and pfdr <0.01
+# 	t	df	p	fdr.p	mean.f	mean.M	fry.percent
+# percent.CCCCCC	-5.916268914	12.97075839	5.15E-05	0.001610511	31.21361513	65.63119677	62.52596523
+# percent.TTTTTTTT	10.06131896	3.61911903	0.000896143	0.013356798	53.76946884	8.569793733	5.819830287
+# percent.CCCCCCCC	-13.5020687	12.12483357	1.14E-08	3.57E-06	2.490443076	47.64542811	38.23818444
+# percent.CCCTTT	6.261392909	12.83094274	3.10E-05	0.001076661	8.899113039	2.616081118	3.143358205
+# percent.CTCCCC	-4.362763566	11.32478735	0.0010568	0.015035381	1.421933517	5.813825109	2.09478689
+# percent.TCTTTTTT	5.575195243	11.72148796	0.000131729	0.002945089	4.420953194	2.194650853	1.089521755
+# percent.TCCCCCCC	-11.92943314	11.46539152	8.19E-08	1.28E-05	0.093795665	1.960277818	1.869175284
+# percent.CTTTTTTT	15.07270816	3.472788993	0.000274537	0.005054719	1.801829032	0.189791859	0.304286095
+# percent.CCCCCCTC	-5.322985367	12.06039542	0.000178348	0.003721523	0.259288344	1.797051332	4.196020399
+# percent.CCCTCCCC	-4.665875275	10.56777225	0.00076468	0.011967244	0.172122773	1.221364891	2.682303726
+# percent.CTCCCCCC	-5.537224173	12.26439553	0.000118576	0.00285494	0.184714072	1.033023834	1.065067209
+# percent.CCCCTCCC	-8.533599482	11.56720491	2.49E-06	0.000194934	0.054920826	1.016429821	1.199539959
+
+
+```

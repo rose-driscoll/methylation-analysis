@@ -1,0 +1,59 @@
+"sample","individual","tissue","timepoint","sex","sex_nomorph"
+"011",1,"head","Day 30",NA,NA
+"012",1,"body","Day 30",NA,NA
+"013",2,"head","Day 30",NA,NA
+"014",2,"body","Day 30",NA,NA
+"015",3,"head","Day 30",NA,NA
+"016",3,"body","Day 30",NA,NA
+"017",4,"head","Day 30",NA,NA
+"018",4,"body","Day 30",NA,NA
+"019",5,"head","Day 30",NA,NA
+"020",5,"body","Day 30",NA,NA
+"061",6,"head","Day 30",NA,NA
+"062",6,"body","Day 30",NA,NA
+"063",7,"head","Day 30",NA,NA
+"064",7,"body","Day 30",NA,NA
+"065",8,"head","Day 30",NA,NA
+"066",8,"body","Day 30",NA,NA
+"067",9,"head","Day 30",NA,NA
+"068",9,"body","Day 30",NA,NA
+"149",27,"head","Day 30",NA,NA
+"150",27,"body","Day 30",NA,NA
+"151",28,"head","Day 30",NA,NA
+"152",28,"body","Day 30",NA,NA
+"153",29,"head","Day 30",NA,NA
+"154",29,"body","Day 30",NA,NA
+"155",30,"head","Day 30",NA,NA
+"156",30,"body","Day 30",NA,NA
+"683",71,"head","Adult","Y","M"
+"684",71,"body","Adult","Y","M"
+"685",72,"head","Adult","Y","M"
+"686",72,"body","Adult","Y","M"
+"687",73,"head","Adult","F","F"
+"688",73,"body","Adult","F","F"
+"689",74,"head","Adult","R","M"
+"690",74,"body","Adult","R","M"
+"691",75,"head","Adult","R","M"
+"692",75,"body","Adult","R","M"
+"693",76,"head","Adult","B","M"
+"694",76,"body","Adult","B","M"
+"695",77,"head","Adult","F","F"
+"696",77,"body","Adult","F","F"
+"697",78,"head","Adult","F","F"
+"698",78,"body","Adult","F","F"
+"699",79,"head","Adult","F","F"
+"700",79,"body","Adult","F","F"
+"701",80,"head","Adult","Y","M"
+"702",80,"body","Adult","Y","M"
+"703",81,"head","Adult","R","M"
+"704",81,"body","Adult","R","M"
+"705",82,"head","Adult","R","M"
+"706",82,"body","Adult","R","M"
+"707",83,"head","Adult","Y","M"
+"708",83,"body","Adult","Y","M"
+"709",84,"head","Adult","Y","M"
+"711",85,"head","Adult","B","M"
+"712",85,"body","Adult","B","M"
+"713",86,"head","Adult","B","M"
+"714",86,"body","Adult","B","M"
+"715",87,"head","Adult","B","M"
