@@ -31,11 +31,12 @@ bars <- barplot(means,xlab="",ylab="Relative cyp19a1A expression",ylim=c(0,3),
                 col=c("black","goldenrod1","red3",NA,"black","goldenrod1","red3"))
 arrows(bars,means+sems,bars,means, length = 0.1, angle = 90, code = 1)
 arrows(bars,means,bars,means-sems, length = 0.1, angle = 90, code = 2, col=c("white","black","black",NA,"white","black","black","white"))
-text(0,2.9,"a)",pos=4)
-lines(c(bars[1],bars[2]),c(2.92,2.92))
-text((bars[1]+bars[2])/2,2.97,"***",cex=2)
-lines(c(bars[1],bars[3]),c(2.75,2.75))
-text(bars[2],2.8,"***",cex=2)
+text(bars[1]-0.6,3,"A)",pos=1)
+text(bars[5]-0.6,3,"B)",pos=1)
+lines(c(bars[1],bars[2]),c(2.88,2.88))
+text((bars[1]+bars[2])/2,2.94,"***",cex=2)
+lines(c(bars[1],bars[3]),c(2.72,2.72))
+text(bars[2],2.78,"***",cex=2)
 
 mtext("Ovaries",side=1,at=bars[1],line=2)
 mtext("Testes",side=1,at=(bars[2]+bars[3])/2,line=2)
@@ -62,14 +63,15 @@ bars <- barplot(means,xlab="",ylab="Relative cyp19a1B expression",ylim=c(0,80),
                 col=c("black","goldenrod1","red3",NA,"black","goldenrod1","red3"))
 arrows(bars,means+sems,bars,means, length = 0.1, angle = 90, code = 1)
 arrows(bars,means,bars,means-sems, length = 0.1, angle = 90, code = 2, col=c("white","black","black",NA,"white","black","black","white"))
-text(0,77,"b)",pos=4)
+text(bars[1]-0.6,80,"C)",pos=1)
+text(bars[5]-0.6,80,"D)",pos=1)
+
 mtext("Ovaries",side=1,at=bars[1],line=2)
 mtext("Testes",side=1,at=(bars[2]+bars[3])/2,line=2)
 mtext("Brain",side=1,at=bars[6],line=2)
 
-dev.print(device=pdf,file="Fig3-Adult-Expression.pdf")
-dev.print(device=jpeg,file="Fig3-Adult-Expression.jpg",width=800)
-
+dev.print(device=pdf,file="Fig3-Adult-Expression-by-sex.pdf",height=8,width=8)
+dev.print(device=jpeg,file="Fig3-Adult-Expression-by-sex.jpg",width=800)
 
 ###
 ###
@@ -104,5 +106,5 @@ text((bars[2]+bars[5])/2,0.79,"***",cex=2)
 mtext("A copy",side=1,at=(bars[1]+bars[2])/2,line=2)
 mtext("B copy",side=1,at=(bars[4]+bars[5])/2,line=2)
 
-dev.print(device=pdf,file="Fig4-Fry-Expression.pdf")
+dev.print(device=pdf,file="Fig4-Fry-Expression.pdf",width=8)
 dev.print(device=jpeg,file="Fig4-Fry-Expression.jpg",width=800)

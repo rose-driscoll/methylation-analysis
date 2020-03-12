@@ -1,3 +1,5 @@
+### This is pct-methyl.r
+
 ### Code for Tables 4,5 & 6, and Tables 4 & 5 post-hocs in text
 rm(list=ls())
 library(car)
@@ -246,3 +248,72 @@ summary(aov(m.B2~tissue+Error(set),data=methyl.mat.fry))
 #          Df Sum Sq Mean Sq F value Pr(>F)
 #tissue     1  207.6  207.63    2.71  0.114
 #Residuals 22 1685.5   76.61               
+
+
+####
+#### Figure 8 stats
+####
+
+library(dplyr)
+library(stringr)
+library(reshape)
+
+# extension for dependent samples pooled standard deviation - 29 Jan 2008 -SylviaDKreibig
+# Based on Dunlap, Cortina, Vaslow & Burke, 1996; Cohen, 1988
+# absolute (signless) effect size - 31 Aug 2004 -PLH
+# This uses Cohen's (1988) p44 pooled variance method.
+get.d <- function(x,y,absolute=T, dependent=F){
+  if (absolute)  diff <- abs(mean(x,na.rm=T)-mean(y,na.rm=T))
+  else diff <- mean(x,na.rm=T)-mean(y,na.rm=T)
+  if (dependent)
+    S <- sqrt((sd(x,na.rm=T)^2
+               +sd(y,na.rm=T)^2
+               -2*cor(x,y,method="pearson")
+                 *sd(x,na.rm=T)*sd(y,na.rm=T)
+               ))
+  else S <- sqrt((sd(x,na.rm=T)^2+sd(y,na.rm=T)^2)/2)
+  d <- diff/S
+  return(d)
+}
+
+epiallele.dat <- read.table(file = "driscoll_2019_epiallele_data_counts.csv", sep = ",", header = TRUE) 
+group_by(epiallele.dat, amplicon, sample) %>%
+  summarise(total_reads = sum(count)) -> reads  
+epiallele.dat <- left_join(epiallele.dat, reads, by = c("sample", "amplicon"))
+epiallele.dat <- mutate(epiallele.dat, percent = (count/total_reads)*100)
+reshaped_haplotypes<- reshape(epiallele.dat, direction="wide", idvar=c("sample"), timevar="haplotype", drop = c("count", "total_reads", "amplicon"))
+reshaped_haplotypes[is.na(reshaped_haplotypes)] <- 0
+
+metadata <- read.csv(file = "driscoll_2019_metadata.csv", stringsAsFactors=FALSE)
+reshaped_haplotypes <- left_join(metadata, reshaped_haplotypes, by = "sample")
+
+adult.body.mat.meta <- filter(reshaped_haplotypes, timepoint=="Adult" , tissue=="body")[ , c(1:6)]
+adult.body.mat.As <- filter(reshaped_haplotypes, timepoint=="Adult" , tissue=="body")[ , c(7:326)]
+
+out.vec <- numeric(length=0)
+for (locus in 1:dim(adult.body.mat.As)[2]){
+    mean.pct <- mean(adult.body.mat.As[,locus],na.rm=T)
+    t.output <- t.test(adult.body.mat.As[adult.body.mat.meta$sex=="F",locus],adult.body.mat.As[adult.body.mat.meta$sex!="F",locus])
+    d.val <- get.d(adult.body.mat.As[adult.body.mat.meta$sex=="F",locus],adult.body.mat.As[adult.body.mat.meta$sex!="F",locus],absolute=FALSE)
+    out.vec <- c(out.vec,c(mean.pct,d.val,t.output$statistic,t.output$parameter,t.output$p.value))
+}
+out.mat <- as.data.frame(matrix(out.vec,ncol=5,byrow=T)) 
+out.mat <- cbind(out.mat,p.adjust(out.mat[,5],"fdr"))
+names(out.mat) <- c("mean","d","t","df","p","fdr.p")
+rownames(out.mat) <- names(adult.body.mat.As)
+sex.diff.dat.A.gonads <- out.mat[order(out.mat[,1]),]
+
+day30.body.mat.As <- filter(reshaped_haplotypes, timepoint=="Day 30" , tissue=="body")[ , c(7:326)] #
+day30.As.pca.body <- prcomp(day30.body.mat.As)
+fry.pca.dat.A.body <- as.data.frame(day30.As.pca.body$rotation[order(day30.As.pca.body$rotation[,1] ),c(1,2,3)])
+fry.pca.dat.A.body <- fry.pca.dat.A.body[order(row.names(fry.pca.dat.A.body)),]
+sex.diff.dat.A.gonads <- sex.diff.dat.A.gonads[order(row.names(sex.diff.dat.A.gonads)),]
+
+cor.test(sex.diff.dat.A.gonads$d,fry.pca.dat.A.body$PC1,method="s")
+#S = 5714017, p-value = 0.03683
+#       rho 
+#-0.1180577 
+cor.test(sex.diff.dat.A.gonads$d,fry.pca.dat.A.body$PC2,method="s")
+#S = 6360057, p-value = 1.218e-05
+#       rho 
+#-0.2444678 

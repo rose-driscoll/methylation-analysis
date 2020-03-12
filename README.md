@@ -71,11 +71,11 @@ This pipeline creates its own header, so a header file is not supplied.
 
 The following programs are required to run the analysis pipelines:
 
-- [Bowtie 2](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml)
-- [SAMtools](http://www.htslib.org/)
+- [Bowtie 2](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml) v2.2.9
+- [SAMtools](http://www.htslib.org/) v1.9
 - [Python 2.7](https://www.python.org/)
-- [USEARCH](https://www.drive5.com/usearch/)
-- [MUSCLE](https://www.drive5.com/muscle/)
+- [USEARCH](https://www.drive5.com/usearch/) v5.2.236
+- [MUSCLE](https://www.drive5.com/muscle/) v3.8.31
 - [FASTX toolkit](http://hannonlab.cshl.edu/fastx_toolkit/)
 - [Clustal Omega](http://www.clustal.org/omega/)
 
@@ -92,8 +92,8 @@ The `statistical-analysis` directory contains scripts used to perform statistica
 The following statistical analysis scripts are supplied in this directory:
 
 - `20190802_epiallele_Driscoll_2019.Rmd`
-- `expression-pub-ver.r`
-- `pct-methyl-pubver.r`
+- `expression.r`
+- `pct-methyl.r`
 
 The following visualization (figure-making) scripts are supplied in this directory:
 
@@ -115,9 +115,11 @@ In addition, a metadata file is supplied: `driscoll_2019_metadata.csv`
 Statistical analysis and visualization for the manuscript was performed with R version 3.6.0. The following R packages are required to run the statistical analysis and visualization scripts:
 
 - [dplyr](https://CRAN.R-project.org/package=dplyr)
+- [reshape](https://CRAN.R-project.org/package=reshape)
 - [car](https://CRAN.R-project.org/package=car)
 - [lme4](https://CRAN.R-project.org/package=lme4)
 - [lmerTest](https://CRAN.R-project.org/package=lmerTest)
+- [emmeans](https://CRAN.R-project.org/package=emmeans)
 
 ### Authorship
 
