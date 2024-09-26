@@ -6,15 +6,15 @@ Corresponding author: <renns@reed.edu>
 
 ## Background
 
-This repository contains the data processing pipelines and custom scripts associated with the submitted manuscript "Epigenetic regulation of gonadal and brain aromatase expression in a cichlid fish with environmental sex determination" (Driscoll *et al* 2019).
+This repository contains the data processing pipelines and custom scripts associated with the paper "Epigenetic regulation of gonadal and brain aromatase expression in a cichlid fish with environmental sex determination" (Driscoll *et al* 2020).
 
 ## Data
 
-The raw data for this project is available from GEO [accession information to be added when available]
+The raw data for this project is available from GEO (#GSE135681)
 
 The analysis pipelines require *in silico* bisulfite converted reference amplicon sequences; these are provided in the `reference_sequences` directory.
 
-Processed data files for the samples used in the statistical analysis for Driscoll *et al* 2019 are provided in the `statistical-analysis` directory (described below).
+Processed data files for the samples used in the statistical analysis for Driscoll *et al* 2020 are provided in the `statistical-analysis` directory (described below).
 
 ## Data processing scripts
 
